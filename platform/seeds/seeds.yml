@@ -16,12 +16,12 @@ seeds:
         loyalty_tier: varchar(20)
         acquisition_channel: varchar(50)
         _loaded_at: timestamp_ntz
-    meta:
-      owner: crm-team
-      domain: customer
-      pii_contains: true
-      pii_columns: ["first_name", "last_name", "email", "phone", "birth_date"]
-      freshness_sla: daily
+      meta:
+        owner: crm-team
+        domain: customer
+        pii_contains: true
+        pii_columns: ["first_name", "last_name", "email", "phone", "birth_date"]
+        freshness_sla: daily
     columns:
       - name: customer_id
         description: "Unique customer identifier from CRM. Format: CUST_XXXX."
@@ -72,11 +72,11 @@ seeds:
         is_active: boolean
         launched_at: date
         _loaded_at: timestamp_ntz
-    meta:
-      owner: product-team
-      domain: product
-      pii_contains: false
-      freshness_sla: daily
+      meta:
+        owner: product-team
+        domain: product
+        pii_contains: false
+        freshness_sla: daily
     columns:
       - name: product_id
         description: "Unique product identifier. Format: PROD_XXX."
@@ -123,11 +123,11 @@ seeds:
         discount_code: varchar(50)
         discount_amount: number(10,2)
         _loaded_at: timestamp_ntz
-    meta:
-      owner: commerce-team
-      domain: orders
-      pii_contains: false
-      freshness_sla: hourly
+      meta:
+        owner: commerce-team
+        domain: orders
+        pii_contains: false
+        freshness_sla: hourly
     columns:
       - name: order_id
         description: "Unique order identifier. Format: ORD_XXXXX."
@@ -168,11 +168,11 @@ seeds:
         unit_price_at_order: number(10,2)
         discount_pct: number(5,2)
         _loaded_at: timestamp_ntz
-    meta:
-      owner: commerce-team
-      domain: orders
-      pii_contains: false
-      freshness_sla: hourly
+      meta:
+        owner: commerce-team
+        domain: orders
+        pii_contains: false
+        freshness_sla: hourly
     columns:
       - name: order_item_id
         description: "Unique order item identifier. Format: ITEM_XXXXXX."
@@ -209,11 +209,11 @@ seeds:
         payment_status: varchar(30)
         gateway: varchar(50)
         _loaded_at: timestamp_ntz
-    meta:
-      owner: finance-team
-      domain: payments
-      pii_contains: false
-      freshness_sla: hourly
+      meta:
+        owner: finance-team
+        domain: payments
+        pii_contains: false
+        freshness_sla: hourly
     columns:
       - name: payment_id
         description: "Unique payment identifier. Format: PAY_XXXXXX."
@@ -252,11 +252,11 @@ seeds:
         delivered_at: date
         shipment_status: varchar(30)
         _loaded_at: timestamp_ntz
-    meta:
-      owner: logistics-team
-      domain: fulfillment
-      pii_contains: false
-      freshness_sla: hourly
+      meta:
+        owner: logistics-team
+        domain: fulfillment
+        pii_contains: false
+        freshness_sla: hourly
     columns:
       - name: shipment_id
         description: "Unique shipment identifier. Format: SHIP_XXXXXX."
@@ -295,11 +295,11 @@ seeds:
         refund_amount: number(10,2)
         refund_status: varchar(30)
         _loaded_at: timestamp_ntz
-    meta:
-      owner: commerce-team
-      domain: returns
-      pii_contains: false
-      freshness_sla: daily
+      meta:
+        owner: commerce-team
+        domain: returns
+        pii_contains: false
+        freshness_sla: daily
     columns:
       - name: return_id
         description: "Unique return identifier. Format: RET_XXXXX."
@@ -341,11 +341,11 @@ seeds:
         utm_medium: varchar(100)
         utm_campaign: varchar(100)
         _loaded_at: timestamp_ntz
-    meta:
-      owner: marketing-team
-      domain: marketing
-      pii_contains: false
-      freshness_sla: daily
+      meta:
+        owner: marketing-team
+        domain: marketing
+        pii_contains: false
+        freshness_sla: daily
     columns:
       - name: campaign_id
         description: "Unique campaign identifier. Format: CAMP_XXX."
@@ -388,11 +388,11 @@ seeds:
         attributed_revenue_eur: number(10,2)
         attribution_model: varchar(50)
         _loaded_at: timestamp_ntz
-    meta:
-      owner: marketing-team
-      domain: marketing
-      pii_contains: false
-      freshness_sla: daily
+      meta:
+        owner: marketing-team
+        domain: marketing
+        pii_contains: false
+        freshness_sla: daily
     columns:
       - name: attribution_id
         description: "Unique attribution record identifier. Format: ATTR_XXXXXX."
@@ -431,11 +431,11 @@ seeds:
         browser: varchar(50)
         utm_source: varchar(100)
         _loaded_at: timestamp_ntz
-    meta:
-      owner: data-platform-team
-      domain: behavioral
-      pii_contains: false
-      freshness_sla: realtime
+      meta:
+        owner: data-platform-team
+        domain: behavioral
+        pii_contains: false
+        freshness_sla: realtime
     columns:
       - name: event_id
         description: "Unique event identifier. Format: EVT_XXXXXX."

@@ -3,23 +3,25 @@ sources:
     description: "Raw layer containing all source-of-truth data loaded from operational systems."
     database: "{{ env_var('DBT_RAW_DB', 'RAW_DEV') }}"
     schema: raw
-    meta:
-      owner: data-platform-team
-      domain: raw
-      tier: bronze
-    freshness:
-      warn_after: {count: 24, period: hour}
-      error_after: {count: 48, period: hour}
-    loaded_at_field: _loaded_at
+    config:
+      meta:
+        owner: data-platform-team
+        domain: raw
+        tier: bronze
 
     tables:
       - name: raw_customers
         description: "Raw customer records from the CRM system. One row per customer."
-        meta:
-          owner: crm-team
-          domain: customer
-          pii_contains: true
-          freshness_sla: daily
+        loaded_at_field: _loaded_at
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 48, period: hour}
+        config:
+          meta:
+            owner: crm-team
+            domain: customer
+            pii_contains: true
+            freshness_sla: daily
         columns:
           - name: customer_id
             description: "Unique customer identifier."
@@ -45,11 +47,16 @@ sources:
 
       - name: raw_products
         description: "Raw product catalog from the ERP/PIM system."
-        meta:
-          owner: product-team
-          domain: product
-          pii_contains: false
-          freshness_sla: daily
+        loaded_at_field: _loaded_at
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 48, period: hour}
+        config:
+          meta:
+            owner: product-team
+            domain: product
+            pii_contains: false
+            freshness_sla: daily
         columns:
           - name: product_id
             description: "Unique product identifier."
@@ -69,11 +76,16 @@ sources:
 
       - name: raw_orders
         description: "Raw order headers from the order management system."
-        meta:
-          owner: commerce-team
-          domain: orders
-          pii_contains: false
-          freshness_sla: hourly
+        loaded_at_field: _loaded_at
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 48, period: hour}
+        config:
+          meta:
+            owner: commerce-team
+            domain: orders
+            pii_contains: false
+            freshness_sla: hourly
         columns:
           - name: order_id
             description: "Unique order identifier."
@@ -93,11 +105,16 @@ sources:
 
       - name: raw_order_items
         description: "Raw order line items — one row per product per order."
-        meta:
-          owner: commerce-team
-          domain: orders
-          pii_contains: false
-          freshness_sla: hourly
+        loaded_at_field: _loaded_at
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 48, period: hour}
+        config:
+          meta:
+            owner: commerce-team
+            domain: orders
+            pii_contains: false
+            freshness_sla: hourly
         columns:
           - name: order_item_id
             description: "Unique order item identifier."
@@ -115,11 +132,16 @@ sources:
 
       - name: raw_payments
         description: "Raw payment transactions from the payment gateway."
-        meta:
-          owner: finance-team
-          domain: payments
-          pii_contains: false
-          freshness_sla: hourly
+        loaded_at_field: _loaded_at
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 48, period: hour}
+        config:
+          meta:
+            owner: finance-team
+            domain: payments
+            pii_contains: false
+            freshness_sla: hourly
         columns:
           - name: payment_id
             description: "Unique payment identifier."
@@ -139,11 +161,16 @@ sources:
 
       - name: raw_shipments
         description: "Raw shipment tracking data from logistics providers."
-        meta:
-          owner: logistics-team
-          domain: fulfillment
-          pii_contains: false
-          freshness_sla: hourly
+        loaded_at_field: _loaded_at
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 48, period: hour}
+        config:
+          meta:
+            owner: logistics-team
+            domain: fulfillment
+            pii_contains: false
+            freshness_sla: hourly
         columns:
           - name: shipment_id
             description: "Unique shipment identifier."
@@ -157,11 +184,16 @@ sources:
 
       - name: raw_returns
         description: "Raw return requests and refund records."
-        meta:
-          owner: commerce-team
-          domain: returns
-          pii_contains: false
-          freshness_sla: daily
+        loaded_at_field: _loaded_at
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 48, period: hour}
+        config:
+          meta:
+            owner: commerce-team
+            domain: returns
+            pii_contains: false
+            freshness_sla: daily
         columns:
           - name: return_id
             description: "Unique return identifier."
@@ -175,11 +207,16 @@ sources:
 
       - name: raw_campaigns
         description: "Raw marketing campaign definitions."
-        meta:
-          owner: marketing-team
-          domain: marketing
-          pii_contains: false
-          freshness_sla: daily
+        loaded_at_field: _loaded_at
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 48, period: hour}
+        config:
+          meta:
+            owner: marketing-team
+            domain: marketing
+            pii_contains: false
+            freshness_sla: daily
         columns:
           - name: campaign_id
             description: "Unique campaign identifier."
@@ -189,11 +226,16 @@ sources:
 
       - name: raw_campaign_attributions
         description: "Raw marketing attribution records."
-        meta:
-          owner: marketing-team
-          domain: marketing
-          pii_contains: false
-          freshness_sla: daily
+        loaded_at_field: _loaded_at
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 48, period: hour}
+        config:
+          meta:
+            owner: marketing-team
+            domain: marketing
+            pii_contains: false
+            freshness_sla: daily
         columns:
           - name: attribution_id
             description: "Unique attribution identifier."
@@ -203,11 +245,16 @@ sources:
 
       - name: raw_web_events
         description: "Raw website behavioral event stream."
-        meta:
-          owner: data-platform-team
-          domain: behavioral
-          pii_contains: false
-          freshness_sla: realtime
+        loaded_at_field: _loaded_at
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 48, period: hour}
+        config:
+          meta:
+            owner: data-platform-team
+            domain: behavioral
+            pii_contains: false
+            freshness_sla: realtime
         columns:
           - name: event_id
             description: "Unique event identifier."

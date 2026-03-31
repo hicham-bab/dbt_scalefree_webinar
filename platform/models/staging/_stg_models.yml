@@ -1,12 +1,13 @@
 models:
   - name: stg_customers
     description: "Cleaned and standardized customer records. One row per customer. Source of truth for customer identity and acquisition metadata."
-    meta:
-      owner: data-platform-team
-      domain: customer
-      tier: silver
-      pii_contains: true
-      pii_columns: ["email", "first_name", "last_name", "phone", "birth_date"]
+    config:
+      meta:
+        owner: data-platform-team
+        domain: customer
+        tier: silver
+        pii_contains: true
+        pii_columns: ["email", "first_name", "last_name", "phone", "birth_date"]
     columns:
       - name: customer_id
         description: "Unique customer identifier. Format: CUST_XXXX."
@@ -61,11 +62,12 @@ models:
 
   - name: stg_products
     description: "Cleaned product catalog with margin calculations. One row per product variant."
-    meta:
-      owner: product-team
-      domain: product
-      tier: silver
-      pii_contains: false
+    config:
+      meta:
+        owner: product-team
+        domain: product
+        tier: silver
+        pii_contains: false
     columns:
       - name: product_id
         description: "Unique product identifier. Format: PROD_XXX."
@@ -119,11 +121,12 @@ models:
 
   - name: stg_orders
     description: "Cleaned order header records. One row per order."
-    meta:
-      owner: commerce-team
-      domain: orders
-      tier: silver
-      pii_contains: false
+    config:
+      meta:
+        owner: commerce-team
+        domain: orders
+        tier: silver
+        pii_contains: false
     columns:
       - name: order_id
         description: "Unique order identifier. Format: ORD_XXXXX."
@@ -161,11 +164,12 @@ models:
 
   - name: stg_order_items
     description: "Cleaned order line items with line revenue calculation. One row per product per order."
-    meta:
-      owner: commerce-team
-      domain: orders
-      tier: silver
-      pii_contains: false
+    config:
+      meta:
+        owner: commerce-team
+        domain: orders
+        tier: silver
+        pii_contains: false
     columns:
       - name: order_item_id
         description: "Unique order item identifier. Format: ITEM_XXXXXX."
@@ -193,11 +197,12 @@ models:
 
   - name: stg_payments
     description: "Cleaned payment transactions with EUR normalization. One row per payment."
-    meta:
-      owner: finance-team
-      domain: payments
-      tier: silver
-      pii_contains: false
+    config:
+      meta:
+        owner: finance-team
+        domain: payments
+        tier: silver
+        pii_contains: false
     columns:
       - name: payment_id
         description: "Unique payment identifier. Format: PAY_XXXXXX."
@@ -231,11 +236,12 @@ models:
 
   - name: stg_shipments
     description: "Cleaned shipment tracking records. One row per shipment."
-    meta:
-      owner: logistics-team
-      domain: fulfillment
-      tier: silver
-      pii_contains: false
+    config:
+      meta:
+        owner: logistics-team
+        domain: fulfillment
+        tier: silver
+        pii_contains: false
     columns:
       - name: shipment_id
         description: "Unique shipment identifier. Format: SHIP_XXXXXX."
@@ -267,11 +273,12 @@ models:
 
   - name: stg_returns
     description: "Cleaned return requests and refund records. One row per return."
-    meta:
-      owner: commerce-team
-      domain: returns
-      tier: silver
-      pii_contains: false
+    config:
+      meta:
+        owner: commerce-team
+        domain: returns
+        tier: silver
+        pii_contains: false
     columns:
       - name: return_id
         description: "Unique return identifier. Format: RET_XXXXX."
@@ -303,11 +310,12 @@ models:
 
   - name: stg_campaigns
     description: "Cleaned marketing campaign definitions with derived fields. One row per campaign."
-    meta:
-      owner: marketing-team
-      domain: marketing
-      tier: silver
-      pii_contains: false
+    config:
+      meta:
+        owner: marketing-team
+        domain: marketing
+        tier: silver
+        pii_contains: false
     columns:
       - name: campaign_id
         description: "Unique campaign identifier. Format: CAMP_XXX."
@@ -341,11 +349,12 @@ models:
 
   - name: stg_campaign_attributions
     description: "Cleaned attribution records linking orders to marketing campaigns."
-    meta:
-      owner: marketing-team
-      domain: marketing
-      tier: silver
-      pii_contains: false
+    config:
+      meta:
+        owner: marketing-team
+        domain: marketing
+        tier: silver
+        pii_contains: false
     columns:
       - name: attribution_id
         description: "Unique attribution record identifier."
@@ -371,11 +380,12 @@ models:
 
   - name: stg_web_events
     description: "Cleaned website behavioral events with authentication flag. One row per event."
-    meta:
-      owner: data-platform-team
-      domain: behavioral
-      tier: silver
-      pii_contains: false
+    config:
+      meta:
+        owner: data-platform-team
+        domain: behavioral
+        tier: silver
+        pii_contains: false
     columns:
       - name: event_id
         description: "Unique event identifier. Format: EVT_XXXXXX."
