@@ -32,5 +32,5 @@ models:
 
 seeds:
   platform:
-    +schema: raw
+    +schema: hb_dbt_scalefree
     +quote_columns: false

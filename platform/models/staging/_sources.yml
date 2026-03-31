@@ -1,8 +1,8 @@
 sources:
   - name: ecommerce_raw
     description: "Raw layer containing all source-of-truth data loaded from operational systems."
-    database: "{{ env_var('DBT_RAW_DB', 'RAW_DEV') }}"
-    schema: raw
+    database: ANALYTICS
+    schema: hb_dbt_scalefree
     config:
       meta:
         owner: data-platform-team
