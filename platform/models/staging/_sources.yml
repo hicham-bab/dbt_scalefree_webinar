@@ -12,11 +12,11 @@ sources:
     tables:
       - name: raw_customers
         description: "Raw customer records from the CRM system. One row per customer."
-        loaded_at_field: _loaded_at
-        freshness:
-          warn_after: {count: 24, period: hour}
-          error_after: {count: 48, period: hour}
         config:
+          loaded_at_field: _loaded_at
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
           meta:
             owner: crm-team
             domain: customer
@@ -47,11 +47,11 @@ sources:
 
       - name: raw_products
         description: "Raw product catalog from the ERP/PIM system."
-        loaded_at_field: _loaded_at
-        freshness:
-          warn_after: {count: 24, period: hour}
-          error_after: {count: 48, period: hour}
         config:
+          loaded_at_field: _loaded_at
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
           meta:
             owner: product-team
             domain: product
@@ -76,11 +76,11 @@ sources:
 
       - name: raw_orders
         description: "Raw order headers from the order management system."
-        loaded_at_field: _loaded_at
-        freshness:
-          warn_after: {count: 24, period: hour}
-          error_after: {count: 48, period: hour}
         config:
+          loaded_at_field: _loaded_at
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
           meta:
             owner: commerce-team
             domain: orders
@@ -105,11 +105,11 @@ sources:
 
       - name: raw_order_items
         description: "Raw order line items — one row per product per order."
-        loaded_at_field: _loaded_at
-        freshness:
-          warn_after: {count: 24, period: hour}
-          error_after: {count: 48, period: hour}
         config:
+          loaded_at_field: _loaded_at
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
           meta:
             owner: commerce-team
             domain: orders
@@ -132,11 +132,11 @@ sources:
 
       - name: raw_payments
         description: "Raw payment transactions from the payment gateway."
-        loaded_at_field: _loaded_at
-        freshness:
-          warn_after: {count: 24, period: hour}
-          error_after: {count: 48, period: hour}
         config:
+          loaded_at_field: _loaded_at
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
           meta:
             owner: finance-team
             domain: payments
@@ -161,11 +161,11 @@ sources:
 
       - name: raw_shipments
         description: "Raw shipment tracking data from logistics providers."
-        loaded_at_field: _loaded_at
-        freshness:
-          warn_after: {count: 24, period: hour}
-          error_after: {count: 48, period: hour}
         config:
+          loaded_at_field: _loaded_at
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
           meta:
             owner: logistics-team
             domain: fulfillment
@@ -184,11 +184,11 @@ sources:
 
       - name: raw_returns
         description: "Raw return requests and refund records."
-        loaded_at_field: _loaded_at
-        freshness:
-          warn_after: {count: 24, period: hour}
-          error_after: {count: 48, period: hour}
         config:
+          loaded_at_field: _loaded_at
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
           meta:
             owner: commerce-team
             domain: returns
@@ -207,11 +207,11 @@ sources:
 
       - name: raw_campaigns
         description: "Raw marketing campaign definitions."
-        loaded_at_field: _loaded_at
-        freshness:
-          warn_after: {count: 24, period: hour}
-          error_after: {count: 48, period: hour}
         config:
+          loaded_at_field: _loaded_at
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
           meta:
             owner: marketing-team
             domain: marketing
@@ -226,11 +226,11 @@ sources:
 
       - name: raw_campaign_attributions
         description: "Raw marketing attribution records."
-        loaded_at_field: _loaded_at
-        freshness:
-          warn_after: {count: 24, period: hour}
-          error_after: {count: 48, period: hour}
         config:
+          loaded_at_field: _loaded_at
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
           meta:
             owner: marketing-team
             domain: marketing
@@ -245,11 +245,11 @@ sources:
 
       - name: raw_web_events
         description: "Raw website behavioral event stream."
-        loaded_at_field: _loaded_at
-        freshness:
-          warn_after: {count: 24, period: hour}
-          error_after: {count: 48, period: hour}
         config:
+          loaded_at_field: _loaded_at
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
           meta:
             owner: data-platform-team
             domain: behavioral
