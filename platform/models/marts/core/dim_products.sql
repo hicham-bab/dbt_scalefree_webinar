@@ -34,7 +34,7 @@ final as (
         coalesce(pp.total_orders, 0)                               as total_orders,
         coalesce(pp.total_units_sold, 0)                           as total_units_sold,
         coalesce(pp.total_revenue, 0)                              as total_revenue,
-        coalesce(pp.return_rate, 0)                                as return_rate,
+        cast(coalesce(pp.return_rate, 0) as number(10,4))           as return_rate,
         pp.avg_days_to_return,
         pp.first_sold_date,
         pp.last_sold_date,
