@@ -1,12 +1,13 @@
 models:
   - name: customer_segments
-    access: protected
+    config:
+      access: protected
+      meta:
+        owner: marketing-team
+        domain: customer_marketing
+        tier: gold
+        pii_contains: true
     description: "RFM-based customer segmentation. One row per customer. Segments customers into Champions, Loyal, At Risk, Lost, Potential Loyalist, New, Cant Lose Them, Promising, and Hibernating based on Recency, Frequency, and Monetary scores."
-    meta:
-      owner: marketing-team
-      domain: customer_marketing
-      tier: gold
-      pii_contains: true
     columns:
       - name: customer_id
         description: "Unique customer identifier."
@@ -51,13 +52,14 @@ models:
         description: "Date when segmentation was computed."
 
   - name: customer_ltv
-    access: protected
+    config:
+      access: protected
+      meta:
+        owner: marketing-team
+        domain: customer_marketing
+        tier: gold
+        pii_contains: true
     description: "Customer LTV analysis with predicted 12-month revenue projections and LTV segmentation. One row per active customer."
-    meta:
-      owner: marketing-team
-      domain: customer_marketing
-      tier: gold
-      pii_contains: true
     columns:
       - name: customer_id
         description: "Unique customer identifier."
@@ -96,13 +98,14 @@ models:
         description: "Date when LTV was calculated."
 
   - name: fct_campaign_performance
-    access: protected
+    config:
+      access: protected
+      meta:
+        owner: marketing-team
+        domain: marketing_analytics
+        tier: gold
+        pii_contains: false
     description: "Weekly campaign performance metrics including attributed revenue, ROAS, and CPA. Grain: one row per campaign-channel per week."
-    meta:
-      owner: marketing-team
-      domain: marketing_analytics
-      tier: gold
-      pii_contains: false
     columns:
       - name: campaign_id
         description: "Campaign or channel identifier."
@@ -122,13 +125,14 @@ models:
         description: "Date when metrics were computed."
 
   - name: cohort_analysis
-    access: protected
+    config:
+      access: protected
+      meta:
+        owner: marketing-team
+        domain: marketing_analytics
+        tier: gold
+        pii_contains: false
     description: "Monthly cohort retention analysis. Tracks customer retention and revenue by signup cohort over time. Grain: one row per (signup_cohort_month, order_cohort_month)."
-    meta:
-      owner: marketing-team
-      domain: marketing_analytics
-      tier: gold
-      pii_contains: false
     columns:
       - name: signup_cohort_month
         description: "Month customers signed up (YYYY-MM format)."
@@ -152,13 +156,14 @@ models:
         description: "Number of months since signup (0 = first month, 1 = second month, etc.)."
 
   - name: channel_attribution
-    access: protected
+    config:
+      access: protected
+      meta:
+        owner: marketing-team
+        domain: marketing_analytics
+        tier: gold
+        pii_contains: false
     description: "Multi-touch attribution comparison across channels. Compares last-touch, first-touch, and linear revenue attribution. Grain: one row per channel."
-    meta:
-      owner: marketing-team
-      domain: marketing_analytics
-      tier: gold
-      pii_contains: false
     columns:
       - name: channel
         description: "Sales or marketing channel."

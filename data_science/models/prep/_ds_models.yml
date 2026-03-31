@@ -1,13 +1,14 @@
 models:
   - name: churn_prediction_input
-    access: protected
+    config:
+      access: protected
+      meta:
+        owner: data-science-team
+        domain: ml_features
+        tier: gold
+        pii_contains: false
+        ml_use_case: churn_prediction
     description: "Training dataset for customer churn prediction models. Contains all customer behavioral features plus binary churn label (no purchase in 180 days). Optimized for scikit-learn, XGBoost, and Snowflake ML pipelines. Grain: one row per customer."
-    meta:
-      owner: data-science-team
-      domain: ml_features
-      tier: gold
-      pii_contains: false
-      ml_use_case: churn_prediction
     columns:
       - name: customer_id
         description: "Customer identifier."
@@ -56,14 +57,15 @@ models:
         description: "Placeholder column for ML model scores to be written back to Snowflake. Initially NULL."
 
   - name: recommendation_input
-    access: protected
+    config:
+      access: protected
+      meta:
+        owner: data-science-team
+        domain: ml_features
+        tier: gold
+        pii_contains: false
+        ml_use_case: product_recommendation
     description: "User-item interaction matrix for collaborative filtering recommendation models. Contains implicit feedback signals from purchase history. Grain: one row per (customer_id, product_id) pair."
-    meta:
-      owner: data-science-team
-      domain: ml_features
-      tier: gold
-      pii_contains: false
-      ml_use_case: product_recommendation
     columns:
       - name: customer_id
         description: "Customer identifier."
@@ -93,14 +95,15 @@ models:
         description: "Days since this customer last purchased this product. Used for recency weighting."
 
   - name: customer_lifetime_value_features
-    access: protected
+    config:
+      access: protected
+      meta:
+        owner: data-science-team
+        domain: ml_features
+        tier: gold
+        pii_contains: false
+        ml_use_case: ltv_prediction
     description: "Feature set for supervised LTV prediction models. Combines cumulative purchase behavior with timing patterns and LTV tier labels for training gradient boosting or neural network models. Grain: one row per customer."
-    meta:
-      owner: data-science-team
-      domain: ml_features
-      tier: gold
-      pii_contains: false
-      ml_use_case: ltv_prediction
     columns:
       - name: customer_id
         description: "Customer identifier."

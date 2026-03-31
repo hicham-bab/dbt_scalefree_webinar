@@ -1,12 +1,13 @@
 models:
   - name: fct_revenue
-    access: protected
+    config:
+      access: protected
+      meta:
+        owner: finance-team
+        domain: finance
+        tier: gold
+        pii_contains: false
     description: "Daily revenue facts by channel and country with MTD/YTD cumulative totals. Primary finance reporting table for daily P&L dashboards. Grain: one row per (date_day, channel, country)."
-    meta:
-      owner: finance-team
-      domain: finance
-      tier: gold
-      pii_contains: false
     columns:
       - name: date_day
         description: "Calendar date."
@@ -32,13 +33,14 @@ models:
         description: "Running year-to-date net revenue in EUR."
 
   - name: fct_refunds
-    access: protected
+    config:
+      access: protected
+      meta:
+        owner: finance-team
+        domain: finance
+        tier: gold
+        pii_contains: false
     description: "Refund transactions with order context and monthly refund rate. Used for financial reconciliation and return analysis."
-    meta:
-      owner: finance-team
-      domain: finance
-      tier: gold
-      pii_contains: false
     columns:
       - name: payment_id
         description: "Unique payment identifier."
@@ -71,13 +73,14 @@ models:
         description: "Refund amount as % of that month's revenue."
 
   - name: monthly_revenue_summary
-    access: protected
+    config:
+      access: protected
+      meta:
+        owner: finance-team
+        domain: finance
+        tier: gold
+        pii_contains: false
     description: "Monthly revenue summary with MoM and YoY growth calculations. Primary table for executive reporting and trend analysis."
-    meta:
-      owner: finance-team
-      domain: finance
-      tier: gold
-      pii_contains: false
     columns:
       - name: year_month
         description: "Year-month in YYYY-MM format."
@@ -112,13 +115,14 @@ models:
         description: "Month-over-month order count growth percentage."
 
   - name: product_margin_analysis
-    access: protected
+    config:
+      access: protected
+      meta:
+        owner: finance-team
+        domain: finance
+        tier: gold
+        pii_contains: false
     description: "Product and category margin analysis combining order actuals with catalog cost data. Includes both product-level and category rollup rows."
-    meta:
-      owner: finance-team
-      domain: finance
-      tier: gold
-      pii_contains: false
     columns:
       - name: product_id
         description: "Product identifier. NULL for category-level rows."
@@ -156,13 +160,14 @@ models:
         description: "Granularity: product or category."
 
   - name: daily_flash_report
-    access: protected
+    config:
+      access: protected
+      meta:
+        owner: finance-team
+        domain: finance
+        tier: gold
+        pii_contains: false
     description: "Daily KPI flash for the last 30 days vs same period prior year. Used for morning management reports."
-    meta:
-      owner: finance-team
-      domain: finance
-      tier: gold
-      pii_contains: false
     columns:
       - name: date_day
         description: "Calendar date."
@@ -187,13 +192,14 @@ models:
         description: "Order count growth vs prior year same date (%)."
 
   - name: country_revenue_breakdown
-    access: protected
+    config:
+      access: protected
+      meta:
+        owner: finance-team
+        domain: finance
+        tier: gold
+        pii_contains: false
     description: "Current year revenue by country with share of total and YoY growth. Used for geographic performance reporting."
-    meta:
-      owner: finance-team
-      domain: finance
-      tier: gold
-      pii_contains: false
     columns:
       - name: country
         description: "Destination country."
