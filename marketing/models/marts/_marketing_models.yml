@@ -1,0 +1,181 @@
+models:
+  - name: customer_segments
+    access: protected
+    description: "RFM-based customer segmentation. One row per customer. Segments customers into Champions, Loyal, At Risk, Lost, Potential Loyalist, New, Cant Lose Them, Promising, and Hibernating based on Recency, Frequency, and Monetary scores."
+    meta:
+      owner: marketing-team
+      domain: customer_marketing
+      tier: gold
+      pii_contains: true
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier."
+        tests:
+          - unique
+          - not_null
+      - name: full_name
+        description: "Customer full name."
+      - name: email
+        description: "Customer email address."
+      - name: country
+        description: "Country of residence."
+      - name: loyalty_tier
+        description: "Current loyalty tier."
+      - name: acquisition_channel
+        description: "Acquisition channel."
+      - name: customer_status
+        description: "Customer lifecycle status from platform."
+      - name: order_count
+        description: "Total number of orders (frequency score input)."
+      - name: lifetime_value_eur
+        description: "Total lifetime revenue in EUR (monetary score input)."
+      - name: days_since_last_order
+        description: "Days since last order (recency score input)."
+      - name: last_order_date
+        description: "Date of most recent order."
+      - name: first_order_date
+        description: "Date of first order."
+      - name: favorite_category
+        description: "Most ordered product category."
+      - name: recency_score
+        description: "Recency score 1-5 (5 = most recent)."
+      - name: frequency_score
+        description: "Frequency score 1-5 (5 = most frequent)."
+      - name: monetary_score
+        description: "Monetary score 1-5 (5 = highest spend)."
+      - name: rfm_total_score
+        description: "Sum of R+F+M scores (3-15)."
+      - name: rfm_segment
+        description: "RFM segment label. Values: Champions, Loyal, At Risk, Lost, New, Potential Loyalist, Cant Lose Them, Hibernating, Promising."
+      - name: segmented_at
+        description: "Date when segmentation was computed."
+
+  - name: customer_ltv
+    access: protected
+    description: "Customer LTV analysis with predicted 12-month revenue projections and LTV segmentation. One row per active customer."
+    meta:
+      owner: marketing-team
+      domain: customer_marketing
+      tier: gold
+      pii_contains: true
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier."
+        tests:
+          - unique
+          - not_null
+      - name: full_name
+        description: "Customer full name."
+      - name: country
+        description: "Country."
+      - name: loyalty_tier
+        description: "Loyalty tier."
+      - name: acquisition_channel
+        description: "Acquisition channel."
+      - name: signup_date
+        description: "Account signup date."
+      - name: cohort_month
+        description: "First order month in YYYY-MM format."
+      - name: total_orders
+        description: "Total orders placed."
+      - name: lifetime_value_eur
+        description: "Cumulative lifetime revenue in EUR."
+      - name: avg_order_value_eur
+        description: "Average order value in EUR."
+      - name: days_since_last_order
+        description: "Days since last order."
+      - name: customer_tenure_days
+        description: "Days since first order."
+      - name: estimated_annual_frequency
+        description: "Estimated number of orders per year based on inter-order gaps."
+      - name: predicted_12m_ltv_eur
+        description: "Projected LTV for next 12 months in EUR (AOV * annual frequency)."
+      - name: ltv_segment
+        description: "LTV segment. Values: High LTV (>=2000 EUR), Medium LTV (600-2000 EUR), Low LTV (<600 EUR)."
+      - name: calculated_at
+        description: "Date when LTV was calculated."
+
+  - name: fct_campaign_performance
+    access: protected
+    description: "Weekly campaign performance metrics including attributed revenue, ROAS, and CPA. Grain: one row per campaign-channel per week."
+    meta:
+      owner: marketing-team
+      domain: marketing_analytics
+      tier: gold
+      pii_contains: false
+    columns:
+      - name: campaign_id
+        description: "Campaign or channel identifier."
+      - name: week_start
+        description: "Monday start date of the week."
+      - name: attribution_model
+        description: "Attribution model used for revenue credit."
+      - name: conversions
+        description: "Number of completed orders attributed to this campaign in the week."
+      - name: attributed_revenue_eur
+        description: "Revenue attributed to this campaign in EUR."
+      - name: roas
+        description: "Return on ad spend (revenue / estimated spend)."
+      - name: cpa_eur
+        description: "Cost per acquisition in EUR (estimated spend / conversions)."
+      - name: calculated_at
+        description: "Date when metrics were computed."
+
+  - name: cohort_analysis
+    access: protected
+    description: "Monthly cohort retention analysis. Tracks customer retention and revenue by signup cohort over time. Grain: one row per (signup_cohort_month, order_cohort_month)."
+    meta:
+      owner: marketing-team
+      domain: marketing_analytics
+      tier: gold
+      pii_contains: false
+    columns:
+      - name: signup_cohort_month
+        description: "Month customers signed up (YYYY-MM format)."
+        tests:
+          - not_null
+      - name: order_cohort_month
+        description: "Month in which orders were placed (YYYY-MM format)."
+        tests:
+          - not_null
+      - name: cohort_base_size
+        description: "Total customers in the signup cohort."
+      - name: active_customers
+        description: "Customers who ordered in this period."
+      - name: cohort_order_count
+        description: "Total orders placed in this cohort-period."
+      - name: cohort_revenue
+        description: "Total revenue for this cohort-period in EUR."
+      - name: retention_rate_pct
+        description: "Percentage of cohort still active in this period."
+      - name: period_number
+        description: "Number of months since signup (0 = first month, 1 = second month, etc.)."
+
+  - name: channel_attribution
+    access: protected
+    description: "Multi-touch attribution comparison across channels. Compares last-touch, first-touch, and linear revenue attribution. Grain: one row per channel."
+    meta:
+      owner: marketing-team
+      domain: marketing_analytics
+      tier: gold
+      pii_contains: false
+    columns:
+      - name: channel
+        description: "Sales or marketing channel."
+        tests:
+          - unique
+          - not_null
+      - name: last_touch_revenue_eur
+        description: "Revenue attributed under last-touch model in EUR."
+      - name: last_touch_orders
+        description: "Orders attributed under last-touch model."
+      - name: first_touch_revenue_eur
+        description: "Revenue attributed under first-touch model in EUR."
+      - name: first_touch_orders
+        description: "New customer orders attributed under first-touch model."
+      - name: linear_revenue_eur
+        description: "Revenue attributed under linear (50/50 split) model in EUR."
+      - name: last_touch_pct_of_total
+        description: "Last-touch revenue as percentage of total delivered revenue."
+      - name: calculated_at
+        description: "Date when attribution was computed."

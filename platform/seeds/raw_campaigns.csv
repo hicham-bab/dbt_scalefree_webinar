@@ -1,0 +1,21 @@
+campaign_id,campaign_name,campaign_type,channel,start_date,end_date,budget_eur,target_segment,utm_source,utm_medium,utm_campaign,_loaded_at
+CAMP_001,Spring Collection 2023,awareness,instagram,2023-02-15,2023-03-31,15000,all,instagram,social,spring_collection_2023,2025-01-01T00:00:00
+CAMP_002,Welcome Series,acquisition,email,2023-01-01,2025-12-31,5000,new_customers,email,lifecycle,welcome_series,2025-01-01T00:00:00
+CAMP_003,Black Friday 2023,seasonal,google_ads,2023-11-20,2023-11-26,35000,all,google,cpc,black_friday_2023,2025-01-01T00:00:00
+CAMP_004,Christmas 2023,seasonal,instagram,2023-12-01,2023-12-24,28000,all,instagram,social,christmas_2023,2025-01-01T00:00:00
+CAMP_005,Valentine 2024,seasonal,email,2024-01-29,2024-02-14,12000,couples,email,promotional,valentines_2024,2025-01-01T00:00:00
+CAMP_006,Spring Collection 2024,awareness,facebook,2024-02-19,2024-04-15,18000,all,facebook,social,spring_collection_2024,2025-01-01T00:00:00
+CAMP_007,Summer Sale 2024,seasonal,google_ads,2024-06-15,2024-07-15,22000,all,google,cpc,summer_sale_2024,2025-01-01T00:00:00
+CAMP_008,VIP Loyalty Reward,loyalty,email,2024-01-01,2025-12-31,8000,gold_platinum,email,lifecycle,vip_loyalty,2025-01-01T00:00:00
+CAMP_009,Influencer Collab Paris,awareness,influencer,2024-04-01,2024-04-30,45000,fashion_enthusiasts,instagram,influencer,paris_collab_2024,2025-01-01T00:00:00
+CAMP_010,Back to School,acquisition,facebook,2024-08-15,2024-09-15,10000,young_adults,facebook,social,back_to_school_2024,2025-01-01T00:00:00
+CAMP_011,Black Friday 2024,seasonal,google_ads,2024-11-18,2024-11-29,42000,all,google,cpc,black_friday_2024,2025-01-01T00:00:00
+CAMP_012,Christmas 2024,seasonal,instagram,2024-12-01,2024-12-24,32000,all,instagram,social,christmas_2024,2025-01-01T00:00:00
+CAMP_013,Retargeting Always-On,retention,display,2023-01-01,2025-12-31,15000,website_visitors,display,retargeting,retargeting_ao,2025-01-01T00:00:00
+CAMP_014,New Year New Bag 2024,seasonal,email,2024-01-02,2024-01-15,8000,all,email,promotional,new_year_2024,2025-01-01T00:00:00
+CAMP_015,Bastille Collection Launch,awareness,instagram,2023-05-01,2023-06-15,20000,all,instagram,social,bastille_launch,2025-01-01T00:00:00
+CAMP_016,Autumn Winter 2024,awareness,facebook,2024-09-01,2024-10-31,25000,fashion_enthusiasts,facebook,social,aw_collection_2024,2025-01-01T00:00:00
+CAMP_017,Customer Win-Back,retention,email,2023-06-01,2025-12-31,6000,churned_customers,email,winback,winback_series,2025-01-01T00:00:00
+CAMP_018,Google Brand Search,acquisition,google_ads,2023-01-01,2025-12-31,20000,all,google,brand_cpc,brand_search_ao,2025-01-01T00:00:00
+CAMP_019,Valentine 2025,seasonal,email,2025-01-27,2025-02-14,14000,all,email,promotional,valentines_2025,2025-01-01T00:00:00
+CAMP_020,Spring Collection 2025,awareness,instagram,2025-02-17,2025-04-15,20000,all,instagram,social,spring_collection_2025,2025-01-01T00:00:00

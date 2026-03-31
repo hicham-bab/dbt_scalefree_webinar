@@ -1,0 +1,36 @@
+name: 'platform'
+version: '1.0.0'
+require-dbt-version: [">=1.9.0"]
+profile: 'platform'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+vars:
+  platform_database: "{{ env_var('DBT_TARGET_DB', 'ECOMMERCE_DEV') }}"
+  raw_database: "{{ env_var('DBT_RAW_DB', 'RAW_DEV') }}"
+
+models:
+  platform:
+    staging:
+      +materialized: view
+      +schema: stg
+    intermediate:
+      +materialized: ephemeral
+    marts:
+      core:
+        +materialized: table
+        +schema: analytics
+
+seeds:
+  platform:
+    +schema: raw
+    +quote_columns: false

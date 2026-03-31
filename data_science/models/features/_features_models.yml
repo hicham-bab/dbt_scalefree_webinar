@@ -1,0 +1,124 @@
+models:
+  - name: customer_features
+    access: protected
+    description: "Core ML feature table for customer-level models. Combines demographic attributes with behavioral order signals. One row per customer, snapshot as of current_date. Used as input to churn, LTV, and propensity models."
+    meta:
+      owner: data-science-team
+      domain: ml_features
+      tier: gold
+      pii_contains: false
+      ml_use_case: multi-purpose customer features
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier."
+        tests:
+          - unique
+          - not_null
+      - name: snapshot_date
+        description: "Date the feature snapshot was computed."
+      - name: recency_days
+        description: "Days since last order. Core RFM recency signal."
+      - name: frequency_orders
+        description: "Total lifetime orders. Core RFM frequency signal."
+      - name: monetary_value
+        description: "Total lifetime revenue in EUR. Core RFM monetary signal."
+      - name: avg_order_value
+        description: "Average order value in EUR."
+      - name: std_order_value
+        description: "Standard deviation of order values. High value = inconsistent spender."
+      - name: preferred_channel
+        description: "Most frequently used sales channel."
+      - name: distinct_channels_used
+        description: "Count of distinct channels ever used. Proxy for omnichannel engagement."
+      - name: preferred_category
+        description: "Most frequently ordered product category."
+      - name: days_since_signup
+        description: "Days between account creation and snapshot date."
+      - name: loyalty_tier_encoded
+        description: "Loyalty tier as ordinal integer for ML use (Bronze=1, Silver=2, Gold=3, Platinum=4)."
+      - name: has_returned_items
+        description: "Boolean: whether customer has ever returned an item."
+      - name: return_rate
+        description: "Return rate (total returns / total orders)."
+      - name: active_flag
+        description: "True if customer is currently active (ordered in last 90 days)."
+      - name: gender
+        description: "Customer gender."
+      - name: country
+        description: "Customer country of residence."
+      - name: acquisition_channel
+        description: "Original acquisition channel."
+      - name: customer_status
+        description: "Customer lifecycle status."
+      - name: customer_tenure_days
+        description: "Days since first order."
+
+  - name: product_affinity_features
+    access: protected
+    description: "Product co-purchase affinity matrix. For each product, identifies the most frequently co-purchased partner product and average basket size. Used for cross-sell recommendation and bundle analysis."
+    meta:
+      owner: data-science-team
+      domain: ml_features
+      tier: gold
+      pii_contains: false
+      ml_use_case: product_recommendation
+    columns:
+      - name: product_id
+        description: "Product identifier."
+        tests:
+          - unique
+          - not_null
+      - name: product_name
+        description: "Product name."
+      - name: category
+        description: "Product category."
+      - name: current_price
+        description: "Current retail price in EUR."
+      - name: performance_tier
+        description: "Revenue tier (hero, core, niche, long_tail)."
+      - name: cross_sell_product_id
+        description: "Product most frequently purchased together with this product."
+      - name: cross_sell_product_name
+        description: "Name of the most frequent co-purchase partner."
+      - name: cross_sell_category
+        description: "Category of the most frequent co-purchase partner."
+      - name: affinity_score
+        description: "Count of orders in which both products appeared (co-occurrence frequency)."
+      - name: avg_basket_size_with_product
+        description: "Average number of distinct products in orders containing this product."
+
+  - name: order_sequence_features
+    access: protected
+    description: "Time-series order sequence features per customer. Captures inter-order timing patterns, spend trends, and channel behavior. Used for next-purchase timing models and CLV forecasting."
+    meta:
+      owner: data-science-team
+      domain: ml_features
+      tier: gold
+      pii_contains: false
+      ml_use_case: next_purchase_prediction
+    columns:
+      - name: customer_id
+        description: "Customer identifier."
+        tests:
+          - not_null
+      - name: order_id
+        description: "Order identifier."
+        tests:
+          - unique
+          - not_null
+      - name: order_number
+        description: "Sequential order number for this customer (1 = first order)."
+      - name: order_date
+        description: "Date of this order."
+      - name: net_revenue_eur
+        description: "Net revenue of this order in EUR."
+      - name: channel
+        description: "Channel used for this order."
+      - name: days_between_orders
+        description: "Days since the previous order. NULL for first order."
+      - name: aov_trend
+        description: "AOV direction vs previous order. Values: first_order, growing, stable, declining."
+      - name: channel_consistency
+        description: "Customer's overall channel behavior. Values: consistent (1 channel), mixed (2 channels), omnichannel (3+ channels)."
+      - name: total_distinct_channels
+        description: "Total number of distinct channels this customer has used across all orders."

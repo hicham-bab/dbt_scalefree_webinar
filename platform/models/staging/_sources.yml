@@ -1,0 +1,216 @@
+sources:
+  - name: ecommerce_raw
+    description: "Raw layer containing all source-of-truth data loaded from operational systems."
+    database: "{{ env_var('DBT_RAW_DB', 'RAW_DEV') }}"
+    schema: raw
+    meta:
+      owner: data-platform-team
+      domain: raw
+      tier: bronze
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
+    loaded_at_field: _loaded_at
+
+    tables:
+      - name: raw_customers
+        description: "Raw customer records from the CRM system. One row per customer."
+        meta:
+          owner: crm-team
+          domain: customer
+          pii_contains: true
+          freshness_sla: daily
+        columns:
+          - name: customer_id
+            description: "Unique customer identifier."
+            tests:
+              - unique
+              - not_null
+          - name: email
+            description: "Customer email address."
+            tests:
+              - not_null
+          - name: loyalty_tier
+            description: "Loyalty tier."
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: ['Bronze', 'Silver', 'Gold', 'Platinum']
+          - name: acquisition_channel
+            description: "Channel of acquisition."
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: ['website', 'mobile_app', 'in_store', 'wholesale', 'referral']
+
+      - name: raw_products
+        description: "Raw product catalog from the ERP/PIM system."
+        meta:
+          owner: product-team
+          domain: product
+          pii_contains: false
+          freshness_sla: daily
+        columns:
+          - name: product_id
+            description: "Unique product identifier."
+            tests:
+              - unique
+              - not_null
+          - name: category
+            description: "Product category."
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: ['Bags', 'Wallets', 'Belts', 'Accessories', 'Shoes']
+          - name: unit_price
+            description: "Retail price in EUR."
+            tests:
+              - not_null
+
+      - name: raw_orders
+        description: "Raw order headers from the order management system."
+        meta:
+          owner: commerce-team
+          domain: orders
+          pii_contains: false
+          freshness_sla: hourly
+        columns:
+          - name: order_id
+            description: "Unique order identifier."
+            tests:
+              - unique
+              - not_null
+          - name: customer_id
+            description: "FK to raw_customers."
+            tests:
+              - not_null
+          - name: order_status
+            description: "Current order lifecycle status."
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: ['pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled', 'returned']
+
+      - name: raw_order_items
+        description: "Raw order line items — one row per product per order."
+        meta:
+          owner: commerce-team
+          domain: orders
+          pii_contains: false
+          freshness_sla: hourly
+        columns:
+          - name: order_item_id
+            description: "Unique order item identifier."
+            tests:
+              - unique
+              - not_null
+          - name: order_id
+            description: "FK to raw_orders."
+            tests:
+              - not_null
+          - name: product_id
+            description: "FK to raw_products."
+            tests:
+              - not_null
+
+      - name: raw_payments
+        description: "Raw payment transactions from the payment gateway."
+        meta:
+          owner: finance-team
+          domain: payments
+          pii_contains: false
+          freshness_sla: hourly
+        columns:
+          - name: payment_id
+            description: "Unique payment identifier."
+            tests:
+              - unique
+              - not_null
+          - name: order_id
+            description: "FK to raw_orders."
+            tests:
+              - not_null
+          - name: payment_status
+            description: "Payment status."
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: ['completed', 'failed', 'refunded', 'pending']
+
+      - name: raw_shipments
+        description: "Raw shipment tracking data from logistics providers."
+        meta:
+          owner: logistics-team
+          domain: fulfillment
+          pii_contains: false
+          freshness_sla: hourly
+        columns:
+          - name: shipment_id
+            description: "Unique shipment identifier."
+            tests:
+              - unique
+              - not_null
+          - name: order_id
+            description: "FK to raw_orders."
+            tests:
+              - not_null
+
+      - name: raw_returns
+        description: "Raw return requests and refund records."
+        meta:
+          owner: commerce-team
+          domain: returns
+          pii_contains: false
+          freshness_sla: daily
+        columns:
+          - name: return_id
+            description: "Unique return identifier."
+            tests:
+              - unique
+              - not_null
+          - name: order_id
+            description: "FK to raw_orders."
+            tests:
+              - not_null
+
+      - name: raw_campaigns
+        description: "Raw marketing campaign definitions."
+        meta:
+          owner: marketing-team
+          domain: marketing
+          pii_contains: false
+          freshness_sla: daily
+        columns:
+          - name: campaign_id
+            description: "Unique campaign identifier."
+            tests:
+              - unique
+              - not_null
+
+      - name: raw_campaign_attributions
+        description: "Raw marketing attribution records."
+        meta:
+          owner: marketing-team
+          domain: marketing
+          pii_contains: false
+          freshness_sla: daily
+        columns:
+          - name: attribution_id
+            description: "Unique attribution identifier."
+            tests:
+              - unique
+              - not_null
+
+      - name: raw_web_events
+        description: "Raw website behavioral event stream."
+        meta:
+          owner: data-platform-team
+          domain: behavioral
+          pii_contains: false
+          freshness_sla: realtime
+        columns:
+          - name: event_id
+            description: "Unique event identifier."
+            tests:
+              - unique
+              - not_null

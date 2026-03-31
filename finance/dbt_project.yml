@@ -1,0 +1,21 @@
+name: 'finance'
+version: '1.0.0'
+require-dbt-version: [">=1.9.0"]
+profile: 'finance'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  finance:
+    marts:
+      +materialized: table
+      +schema: fin_analytics

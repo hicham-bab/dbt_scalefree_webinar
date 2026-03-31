@@ -1,0 +1,464 @@
+seeds:
+  - name: raw_customers
+    description: "Raw customer records loaded from the CRM system. Contains PII — handle with care."
+    config:
+      column_types:
+        customer_id: varchar(36)
+        first_name: varchar(100)
+        last_name: varchar(100)
+        email: varchar(255)
+        phone: varchar(50)
+        birth_date: date
+        gender: varchar(10)
+        city: varchar(100)
+        country: varchar(100)
+        signup_date: date
+        loyalty_tier: varchar(20)
+        acquisition_channel: varchar(50)
+        _loaded_at: timestamp_ntz
+    meta:
+      owner: crm-team
+      domain: customer
+      pii_contains: true
+      pii_columns: ["first_name", "last_name", "email", "phone", "birth_date"]
+      freshness_sla: daily
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier from CRM. Format: CUST_XXXX."
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: "Customer first name."
+      - name: last_name
+        description: "Customer last name."
+      - name: email
+        description: "Customer primary email address."
+        tests:
+          - not_null
+      - name: phone
+        description: "Customer phone number including country code."
+      - name: birth_date
+        description: "Customer date of birth."
+      - name: gender
+        description: "Customer gender identity. Values: M, F, Other."
+      - name: city
+        description: "Customer city of residence."
+      - name: country
+        description: "Customer country of residence."
+      - name: signup_date
+        description: "Date the customer registered an account."
+      - name: loyalty_tier
+        description: "Current loyalty program tier. Values: Bronze, Silver, Gold, Platinum."
+      - name: acquisition_channel
+        description: "Channel through which the customer was acquired."
+      - name: _loaded_at
+        description: "Timestamp when this record was loaded into the raw layer."
+
+  - name: raw_products
+    description: "Raw product catalog from the ERP/PIM system. Contains pricing and inventory metadata."
+    config:
+      column_types:
+        product_id: varchar(36)
+        product_name: varchar(255)
+        category: varchar(100)
+        subcategory: varchar(100)
+        material: varchar(100)
+        color: varchar(50)
+        unit_price: number(10,2)
+        cost_price: number(10,2)
+        sku_code: varchar(50)
+        collection: varchar(100)
+        is_active: boolean
+        launched_at: date
+        _loaded_at: timestamp_ntz
+    meta:
+      owner: product-team
+      domain: product
+      pii_contains: false
+      freshness_sla: daily
+    columns:
+      - name: product_id
+        description: "Unique product identifier. Format: PROD_XXX."
+        tests:
+          - unique
+          - not_null
+      - name: product_name
+        description: "Full product name including collection and type."
+      - name: category
+        description: "Top-level product category. Values: Bags, Wallets, Belts, Accessories, Shoes."
+      - name: subcategory
+        description: "Product subcategory within the category (e.g. Tote Bag, Bifold Wallet)."
+      - name: material
+        description: "Primary material. Values: Full Grain Leather, Genuine Leather, Suede, Canvas, Patent Leather."
+      - name: color
+        description: "Product color. Values: Tan, Black, Cognac, Bordeaux, Navy, Forest Green, Cream, Dark Brown."
+      - name: unit_price
+        description: "Current retail price in EUR."
+      - name: cost_price
+        description: "Cost of goods sold per unit in EUR."
+      - name: sku_code
+        description: "Stock keeping unit code."
+      - name: collection
+        description: "Design collection name. Values: Haussmann, Rivoli, Marais, Vendome, Bastille, Classique."
+      - name: is_active
+        description: "Whether this product is currently available for sale."
+      - name: launched_at
+        description: "Date this product was first launched."
+      - name: _loaded_at
+        description: "Timestamp when this record was loaded into the raw layer."
+
+  - name: raw_orders
+    description: "Raw order header records from the order management system."
+    config:
+      column_types:
+        order_id: varchar(36)
+        customer_id: varchar(36)
+        order_date: date
+        order_status: varchar(30)
+        channel: varchar(50)
+        shipping_city: varchar(100)
+        shipping_country: varchar(100)
+        shipping_method: varchar(50)
+        discount_code: varchar(50)
+        discount_amount: number(10,2)
+        _loaded_at: timestamp_ntz
+    meta:
+      owner: commerce-team
+      domain: orders
+      pii_contains: false
+      freshness_sla: hourly
+    columns:
+      - name: order_id
+        description: "Unique order identifier. Format: ORD_XXXXX."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Foreign key to raw_customers."
+        tests:
+          - not_null
+      - name: order_date
+        description: "Date the order was placed."
+      - name: order_status
+        description: "Current order status. Values: pending, confirmed, processing, shipped, delivered, cancelled, returned."
+      - name: channel
+        description: "Sales channel through which the order was placed."
+      - name: shipping_city
+        description: "Destination city for shipment."
+      - name: shipping_country
+        description: "Destination country for shipment."
+      - name: shipping_method
+        description: "Shipping method selected. Values: standard, express, overnight."
+      - name: discount_code
+        description: "Discount code applied to the order, if any."
+      - name: discount_amount
+        description: "Total discount amount applied in EUR."
+      - name: _loaded_at
+        description: "Timestamp when this record was loaded."
+
+  - name: raw_order_items
+    description: "Raw order line items — one row per product within an order."
+    config:
+      column_types:
+        order_item_id: varchar(36)
+        order_id: varchar(36)
+        product_id: varchar(36)
+        quantity: number(5,0)
+        unit_price_at_order: number(10,2)
+        discount_pct: number(5,2)
+        _loaded_at: timestamp_ntz
+    meta:
+      owner: commerce-team
+      domain: orders
+      pii_contains: false
+      freshness_sla: hourly
+    columns:
+      - name: order_item_id
+        description: "Unique order item identifier. Format: ITEM_XXXXXX."
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "Foreign key to raw_orders."
+        tests:
+          - not_null
+      - name: product_id
+        description: "Foreign key to raw_products."
+        tests:
+          - not_null
+      - name: quantity
+        description: "Quantity of this product ordered."
+      - name: unit_price_at_order
+        description: "Unit price at the time of order in EUR (may differ from current catalog price)."
+      - name: discount_pct
+        description: "Line-item discount percentage applied. 0 = no discount."
+      - name: _loaded_at
+        description: "Timestamp when this record was loaded."
+
+  - name: raw_payments
+    description: "Raw payment transactions associated with orders."
+    config:
+      column_types:
+        payment_id: varchar(36)
+        order_id: varchar(36)
+        payment_date: date
+        payment_method: varchar(50)
+        amount: number(10,2)
+        currency: varchar(10)
+        payment_status: varchar(30)
+        gateway: varchar(50)
+        _loaded_at: timestamp_ntz
+    meta:
+      owner: finance-team
+      domain: payments
+      pii_contains: false
+      freshness_sla: hourly
+    columns:
+      - name: payment_id
+        description: "Unique payment identifier. Format: PAY_XXXXXX."
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "Foreign key to raw_orders."
+        tests:
+          - not_null
+      - name: payment_date
+        description: "Date the payment was processed."
+      - name: payment_method
+        description: "Payment method used. Values: credit_card, paypal, bank_transfer, store_credit, gift_card."
+      - name: amount
+        description: "Payment amount in the transaction currency."
+      - name: currency
+        description: "Transaction currency code. Values: EUR, GBP, USD, CHF."
+      - name: payment_status
+        description: "Status of payment. Values: completed, failed, refunded, pending."
+      - name: gateway
+        description: "Payment gateway used. Values: stripe, paypal, adyen, manual."
+      - name: _loaded_at
+        description: "Timestamp when this record was loaded."
+
+  - name: raw_shipments
+    description: "Raw shipment tracking records from the logistics provider."
+    config:
+      column_types:
+        shipment_id: varchar(36)
+        order_id: varchar(36)
+        carrier: varchar(50)
+        tracking_number: varchar(100)
+        estimated_delivery_date: date
+        shipped_at: date
+        delivered_at: date
+        shipment_status: varchar(30)
+        _loaded_at: timestamp_ntz
+    meta:
+      owner: logistics-team
+      domain: fulfillment
+      pii_contains: false
+      freshness_sla: hourly
+    columns:
+      - name: shipment_id
+        description: "Unique shipment identifier. Format: SHIP_XXXXXX."
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "Foreign key to raw_orders."
+        tests:
+          - not_null
+      - name: carrier
+        description: "Shipping carrier. Values: Colissimo, DHL, FedEx, UPS, Chronopost, DPD."
+      - name: tracking_number
+        description: "Carrier tracking number."
+      - name: estimated_delivery_date
+        description: "Original estimated delivery date provided by carrier."
+      - name: shipped_at
+        description: "Date the package was handed to the carrier."
+      - name: delivered_at
+        description: "Date the package was delivered. NULL if not yet delivered."
+      - name: shipment_status
+        description: "Current shipment status. Values: delivered, in_transit, failed, returned_to_sender."
+      - name: _loaded_at
+        description: "Timestamp when this record was loaded."
+
+  - name: raw_returns
+    description: "Raw return requests and refund records."
+    config:
+      column_types:
+        return_id: varchar(36)
+        order_id: varchar(36)
+        order_item_id: varchar(36)
+        return_reason: varchar(100)
+        return_requested_at: date
+        return_received_at: date
+        refund_amount: number(10,2)
+        refund_status: varchar(30)
+        _loaded_at: timestamp_ntz
+    meta:
+      owner: commerce-team
+      domain: returns
+      pii_contains: false
+      freshness_sla: daily
+    columns:
+      - name: return_id
+        description: "Unique return identifier. Format: RET_XXXXX."
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "Foreign key to raw_orders."
+        tests:
+          - not_null
+      - name: order_item_id
+        description: "Foreign key to the specific item being returned."
+      - name: return_reason
+        description: "Reason for return. Values: wrong_size, quality_issue, not_as_described, changed_mind, damaged, gift_return."
+      - name: return_requested_at
+        description: "Date customer submitted the return request."
+      - name: return_received_at
+        description: "Date the returned item was received at the warehouse."
+      - name: refund_amount
+        description: "Amount refunded to the customer in EUR."
+      - name: refund_status
+        description: "Status of the refund. Values: pending, approved, completed, rejected."
+      - name: _loaded_at
+        description: "Timestamp when this record was loaded."
+
+  - name: raw_campaigns
+    description: "Raw marketing campaign definitions and metadata."
+    config:
+      column_types:
+        campaign_id: varchar(36)
+        campaign_name: varchar(255)
+        campaign_type: varchar(50)
+        channel: varchar(50)
+        start_date: date
+        end_date: date
+        budget_eur: number(12,2)
+        target_segment: varchar(100)
+        utm_source: varchar(100)
+        utm_medium: varchar(100)
+        utm_campaign: varchar(100)
+        _loaded_at: timestamp_ntz
+    meta:
+      owner: marketing-team
+      domain: marketing
+      pii_contains: false
+      freshness_sla: daily
+    columns:
+      - name: campaign_id
+        description: "Unique campaign identifier. Format: CAMP_XXX."
+        tests:
+          - unique
+          - not_null
+      - name: campaign_name
+        description: "Human-readable campaign name."
+      - name: campaign_type
+        description: "Campaign objective type. Values: awareness, acquisition, retention, seasonal, loyalty."
+      - name: channel
+        description: "Primary marketing channel."
+      - name: start_date
+        description: "Campaign start date."
+      - name: end_date
+        description: "Campaign end date."
+      - name: budget_eur
+        description: "Total approved campaign budget in EUR."
+      - name: target_segment
+        description: "Target audience segment description."
+      - name: utm_source
+        description: "UTM source parameter for tracking."
+      - name: utm_medium
+        description: "UTM medium parameter for tracking."
+      - name: utm_campaign
+        description: "UTM campaign slug for tracking."
+      - name: _loaded_at
+        description: "Timestamp when this record was loaded."
+
+  - name: raw_campaign_attributions
+    description: "Marketing attribution records linking customers, campaigns, and orders."
+    config:
+      column_types:
+        attribution_id: varchar(36)
+        customer_id: varchar(36)
+        campaign_id: varchar(36)
+        order_id: varchar(36)
+        first_touch_campaign_id: varchar(36)
+        last_touch_campaign_id: varchar(36)
+        attributed_revenue_eur: number(10,2)
+        attribution_model: varchar(50)
+        _loaded_at: timestamp_ntz
+    meta:
+      owner: marketing-team
+      domain: marketing
+      pii_contains: false
+      freshness_sla: daily
+    columns:
+      - name: attribution_id
+        description: "Unique attribution record identifier. Format: ATTR_XXXXXX."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Foreign key to raw_customers."
+      - name: campaign_id
+        description: "Primary campaign credited for this attribution."
+      - name: order_id
+        description: "Foreign key to raw_orders."
+      - name: first_touch_campaign_id
+        description: "Campaign credited under first-touch attribution model."
+      - name: last_touch_campaign_id
+        description: "Campaign credited under last-touch attribution model."
+      - name: attributed_revenue_eur
+        description: "Revenue attributed to the campaign in EUR."
+      - name: attribution_model
+        description: "Attribution model applied. Values: last_touch, first_touch, linear."
+      - name: _loaded_at
+        description: "Timestamp when this record was loaded."
+
+  - name: raw_web_events
+    description: "Raw website and app behavioral event stream."
+    config:
+      column_types:
+        event_id: varchar(36)
+        session_id: varchar(36)
+        customer_id: varchar(36)
+        event_type: varchar(50)
+        event_timestamp: timestamp_ntz
+        page_url: varchar(500)
+        product_id: varchar(36)
+        device_type: varchar(20)
+        browser: varchar(50)
+        utm_source: varchar(100)
+        _loaded_at: timestamp_ntz
+    meta:
+      owner: data-platform-team
+      domain: behavioral
+      pii_contains: false
+      freshness_sla: realtime
+    columns:
+      - name: event_id
+        description: "Unique event identifier. Format: EVT_XXXXXX."
+        tests:
+          - unique
+          - not_null
+      - name: session_id
+        description: "Browser session identifier grouping events within a visit."
+      - name: customer_id
+        description: "Customer ID if authenticated. NULL for anonymous visitors."
+      - name: event_type
+        description: "Type of behavioral event. Values: page_view, product_view, add_to_cart, remove_from_cart, checkout_start, checkout_complete, search."
+      - name: event_timestamp
+        description: "UTC timestamp of the event."
+      - name: page_url
+        description: "URL of the page where the event occurred."
+      - name: product_id
+        description: "Product ID if the event is product-related. NULL otherwise."
+      - name: device_type
+        description: "Device category. Values: desktop, mobile, tablet."
+      - name: browser
+        description: "Browser used. Values: chrome, safari, firefox, edge."
+      - name: utm_source
+        description: "UTM source captured from the session."
+      - name: _loaded_at
+        description: "Timestamp when this record was loaded."

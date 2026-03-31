@@ -1,0 +1,62 @@
+semantic_models:
+  - name: products
+    description: "Product dimension semantic model. Use for assortment analysis, category performance, and pricing insights."
+    model: ref('dim_products')
+
+    entities:
+      - name: product
+        type: primary
+        expr: product_id
+
+    dimensions:
+      - name: category
+        type: categorical
+        description: "Top-level product category: Bags, Wallets, Belts, Accessories, Shoes."
+      - name: subcategory
+        type: categorical
+        description: "Product subcategory."
+      - name: material
+        type: categorical
+        description: "Primary material: Full Grain Leather, Genuine Leather, Suede, Canvas, Patent Leather."
+      - name: color
+        type: categorical
+        description: "Product color."
+      - name: collection
+        type: categorical
+        description: "Design collection: Haussmann, Rivoli, Marais, Vendome, Bastille, Classique."
+      - name: is_active
+        type: categorical
+        description: "Whether the product is currently active (true/false)."
+      - name: performance_tier
+        type: categorical
+        description: "Revenue-based tier: hero, core, niche, long_tail."
+      - name: launched_at
+        type: time
+        type_params:
+          time_granularity: day
+
+    measures:
+      - name: product_count
+        description: "Total number of distinct products."
+        agg: count_distinct
+        expr: product_id
+      - name: avg_price
+        description: "Average current retail price in EUR."
+        agg: average
+        expr: current_price
+      - name: total_revenue
+        description: "Sum of total revenue generated across all products in EUR."
+        agg: sum
+        expr: total_revenue
+      - name: avg_return_rate
+        description: "Average return rate percentage across products."
+        agg: average
+        expr: return_rate
+      - name: total_units_sold
+        description: "Total units sold across all products."
+        agg: sum
+        expr: total_units_sold
+      - name: avg_margin_pct
+        description: "Average gross margin percentage."
+        agg: average
+        expr: margin_pct

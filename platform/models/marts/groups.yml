@@ -1,0 +1,15 @@
+groups:
+  - name: core
+    owner:
+      name: Data Platform Team
+      email: data-platform@leather-luxe.com
+
+  - name: customer_data
+    owner:
+      name: Customer Analytics Team
+      email: customer-analytics@leather-luxe.com
+
+  - name: product_data
+    owner:
+      name: Product Analytics Team
+      email: product-analytics@leather-luxe.com

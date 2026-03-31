@@ -1,0 +1,669 @@
+models:
+  - name: dim_customers
+    access: public
+    group: core
+    config:
+      contract:
+        enforced: true
+    description: "One row per customer. Contains identity, demographic, and behavioral attributes. This is the authoritative customer dimension for all downstream analytics. Includes lifetime value, order history, and customer lifecycle status derived from order activity."
+    meta:
+      owner: data-platform-team
+      domain: customer
+      tier: gold
+      pii_contains: true
+      pii_columns: ["email", "first_name", "last_name"]
+      freshness_sla: daily
+      semantic_layer_enabled: true
+    columns:
+      - name: customer_id
+        data_type: varchar
+        description: "Unique identifier for each customer. Format: CUST_XXXX. Primary key."
+        tests:
+          - unique
+          - not_null
+        meta:
+          pii: false
+          semantic_type: entity_id
+      - name: first_name
+        data_type: varchar
+        description: "Customer first name."
+        meta:
+          pii: true
+      - name: last_name
+        data_type: varchar
+        description: "Customer last name."
+        meta:
+          pii: true
+      - name: full_name
+        data_type: varchar
+        description: "Concatenated full name (first_name + last_name)."
+        meta:
+          pii: true
+      - name: email
+        data_type: varchar
+        description: "Customer email address (lowercased and trimmed)."
+        meta:
+          pii: true
+      - name: city
+        data_type: varchar
+        description: "City of residence."
+        meta:
+          pii: false
+      - name: country
+        data_type: varchar
+        description: "Country of residence. Useful for geographic segmentation."
+        meta:
+          pii: false
+      - name: birth_date
+        data_type: date
+        description: "Customer date of birth."
+        meta:
+          pii: true
+      - name: age
+        data_type: number
+        description: "Current age of the customer in years, computed from birth_date."
+        meta:
+          pii: false
+      - name: gender
+        data_type: varchar
+        description: "Customer gender identity. Values: M, F, Other."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['M', 'F', 'Other']
+        meta:
+          pii: false
+      - name: signup_date
+        data_type: date
+        description: "Date the customer registered an account with Leather Luxe."
+        tests:
+          - not_null
+        meta:
+          pii: false
+      - name: loyalty_tier
+        data_type: varchar
+        description: "Current loyalty program tier. Values: Bronze, Silver, Gold, Platinum. Platinum customers represent the top 5% by revenue."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Bronze', 'Silver', 'Gold', 'Platinum']
+        meta:
+          pii: false
+          semantic_type: categorical_tier
+      - name: acquisition_channel
+        data_type: varchar
+        description: "Channel through which the customer was originally acquired. Values: website, mobile_app, in_store, wholesale, referral."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['website', 'mobile_app', 'in_store', 'wholesale', 'referral']
+        meta:
+          pii: false
+      - name: total_orders
+        data_type: number
+        description: "Total number of non-cancelled, non-pending orders placed by this customer."
+        meta:
+          pii: false
+          semantic_type: metric
+      - name: lifetime_value_eur
+        data_type: number
+        description: "Total net revenue contributed by this customer across all time in EUR. Also known as LTV or CLV."
+        meta:
+          pii: false
+          semantic_type: metric
+      - name: avg_order_value_eur
+        data_type: number
+        description: "Average net order value for this customer in EUR."
+        meta:
+          pii: false
+          semantic_type: metric
+      - name: first_order_date
+        data_type: date
+        description: "Date of the customer's first order."
+        meta:
+          pii: false
+      - name: last_order_date
+        data_type: date
+        description: "Date of the customer's most recent order."
+        meta:
+          pii: false
+      - name: days_since_last_order
+        data_type: number
+        description: "Number of days since the customer's most recent order. Used for recency scoring."
+        meta:
+          pii: false
+          semantic_type: metric
+      - name: customer_tenure_days
+        data_type: number
+        description: "Number of days since the customer's first order."
+        meta:
+          pii: false
+      - name: favorite_category
+        data_type: varchar
+        description: "The product category this customer has ordered most frequently."
+        meta:
+          pii: false
+      - name: total_items_returned
+        data_type: number
+        description: "Total number of items this customer has returned."
+        meta:
+          pii: false
+          semantic_type: metric
+      - name: customer_status
+        data_type: varchar
+        description: "Customer lifecycle status based on recency. Values: prospect (no orders), active (ordered in last 90 days), at_risk (ordered 91-365 days ago), churned (no order in 365+ days)."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['prospect', 'active', 'at_risk', 'churned']
+        meta:
+          pii: false
+          semantic_type: categorical_status
+
+  - name: dim_products
+    access: public
+    group: core
+    config:
+      contract:
+        enforced: true
+    description: "One row per product variant. Contains catalog attributes, pricing, and sales performance metrics. This is the authoritative product dimension. Includes performance tier classification for assortment analysis."
+    meta:
+      owner: data-platform-team
+      domain: product
+      tier: gold
+      pii_contains: false
+      freshness_sla: daily
+      semantic_layer_enabled: true
+    columns:
+      - name: product_id
+        data_type: varchar
+        description: "Unique product identifier. Format: PROD_XXX. Primary key."
+        tests:
+          - unique
+          - not_null
+        meta:
+          semantic_type: entity_id
+      - name: product_name
+        data_type: varchar
+        description: "Full product name including collection and type."
+        tests:
+          - not_null
+      - name: category
+        data_type: varchar
+        description: "Top-level product category. Values: Bags, Wallets, Belts, Accessories, Shoes."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Bags', 'Wallets', 'Belts', 'Accessories', 'Shoes']
+        meta:
+          semantic_type: categorical
+      - name: subcategory
+        data_type: varchar
+        description: "Product subcategory within the category (e.g. Tote Bag, Bifold Wallet, Chelsea Boot)."
+      - name: material
+        data_type: varchar
+        description: "Primary material used. Values: Full Grain Leather, Genuine Leather, Suede, Canvas, Patent Leather."
+        meta:
+          semantic_type: categorical
+      - name: color
+        data_type: varchar
+        description: "Product color. Values: Tan, Black, Cognac, Bordeaux, Navy, Forest Green, Cream, Dark Brown."
+        meta:
+          semantic_type: categorical
+      - name: current_price
+        data_type: number
+        description: "Current retail price in EUR."
+        meta:
+          semantic_type: metric
+      - name: cost_price
+        data_type: number
+        description: "Cost of goods per unit in EUR."
+      - name: margin_pct
+        data_type: number
+        description: "Gross margin percentage ((unit_price - cost_price) / unit_price * 100)."
+        meta:
+          semantic_type: metric
+      - name: sku_code
+        data_type: varchar
+        description: "Stock keeping unit code for inventory management."
+      - name: collection
+        data_type: varchar
+        description: "Design collection name. Values: Haussmann, Rivoli, Marais, Vendome, Bastille, Classique."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Haussmann', 'Rivoli', 'Marais', 'Vendome', 'Bastille', 'Classique']
+        meta:
+          semantic_type: categorical
+      - name: is_active
+        data_type: boolean
+        description: "Whether the product is currently available for sale. False = discontinued."
+      - name: launched_at
+        data_type: date
+        description: "Date the product was first launched to market."
+      - name: total_orders
+        data_type: number
+        description: "Total number of orders containing this product."
+        meta:
+          semantic_type: metric
+      - name: total_units_sold
+        data_type: number
+        description: "Total units sold across all orders."
+        meta:
+          semantic_type: metric
+      - name: total_revenue
+        data_type: number
+        description: "Total revenue generated by this product in EUR."
+        meta:
+          semantic_type: metric
+      - name: return_rate
+        data_type: number
+        description: "Percentage of units sold that were subsequently returned."
+        meta:
+          semantic_type: metric
+      - name: avg_days_to_return
+        data_type: number
+        description: "Average number of days between order date and return request date."
+      - name: first_sold_date
+        data_type: date
+        description: "Date of the first sale for this product."
+      - name: last_sold_date
+        data_type: date
+        description: "Date of the most recent sale for this product."
+      - name: performance_tier
+        data_type: varchar
+        description: "Revenue-based performance classification. Values: hero (top 25%), core (26-50%), niche (51-75%), long_tail (bottom 25%), unranked (no sales)."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['hero', 'core', 'niche', 'long_tail', 'unranked']
+        meta:
+          semantic_type: categorical_tier
+
+  - name: dim_date
+    access: public
+    group: core
+    config:
+      contract:
+        enforced: true
+    description: "Date dimension spanning 2022-01-01 to 2026-12-31. Contains calendar and fiscal attributes for time-based analysis."
+    meta:
+      owner: data-platform-team
+      domain: time
+      tier: gold
+      pii_contains: false
+      freshness_sla: static
+    columns:
+      - name: date_day
+        data_type: date
+        description: "The calendar date. Primary key."
+        tests:
+          - unique
+          - not_null
+      - name: date_key
+        data_type: number
+        description: "Integer date key in YYYYMMDD format for joining to fact tables."
+      - name: day_of_week
+        data_type: number
+        description: "Day of week number (0=Sunday, 6=Saturday in Snowflake)."
+      - name: day_name
+        data_type: varchar
+        description: "Full day name (e.g. Monday)."
+      - name: month_num
+        data_type: number
+        description: "Month number (1-12)."
+      - name: month_name
+        data_type: varchar
+        description: "Abbreviated month name (e.g. Jan)."
+      - name: quarter
+        data_type: number
+        description: "Calendar quarter (1-4)."
+      - name: year
+        data_type: number
+        description: "Calendar year."
+      - name: is_weekend
+        data_type: boolean
+        description: "True if Saturday or Sunday."
+      - name: is_weekday
+        data_type: boolean
+        description: "True if Monday through Friday."
+      - name: week_of_year
+        data_type: number
+        description: "ISO week number within the year."
+      - name: day_of_year
+        data_type: number
+        description: "Day of year (1-366)."
+      - name: is_first_day_of_month
+        data_type: boolean
+        description: "True if this is the first day of the month."
+      - name: is_last_day_of_month
+        data_type: boolean
+        description: "True if this is the last day of the month."
+      - name: fiscal_quarter
+        data_type: varchar
+        description: "Fiscal quarter label (FQ1-FQ4) assuming April fiscal year start."
+      - name: fiscal_year
+        data_type: number
+        description: "Fiscal year (April-March)."
+      - name: season
+        data_type: varchar
+        description: "Northern Hemisphere season. Values: Spring, Summer, Autumn, Winter."
+      - name: year_month
+        data_type: varchar
+        description: "Year-month string in YYYY-MM format."
+      - name: year_str
+        data_type: varchar
+        description: "Year as string in YYYY format."
+
+  - name: fct_orders
+    access: public
+    group: core
+    config:
+      contract:
+        enforced: true
+    description: "One row per order. Central fact table for revenue, volume, and fulfillment analysis. Contains order-level metrics including gross revenue, net revenue after discounts, payment details, and delivery performance."
+    meta:
+      owner: data-platform-team
+      domain: orders
+      tier: gold
+      pii_contains: false
+      freshness_sla: hourly
+      semantic_layer_enabled: true
+    columns:
+      - name: order_id
+        data_type: varchar
+        description: "Unique order identifier. Format: ORD_XXXXX. Primary key."
+        tests:
+          - unique
+          - not_null
+        meta:
+          semantic_type: entity_id
+      - name: customer_id
+        data_type: varchar
+        description: "Foreign key to dim_customers."
+        tests:
+          - not_null
+        meta:
+          semantic_type: entity_id
+      - name: order_date
+        data_type: date
+        description: "Date the order was placed."
+        tests:
+          - not_null
+        meta:
+          semantic_type: time
+      - name: order_date_key
+        data_type: number
+        description: "Integer date key (YYYYMMDD) for joining to dim_date."
+      - name: channel
+        data_type: varchar
+        description: "Sales channel. Values: website, mobile_app, in_store, wholesale."
+        meta:
+          semantic_type: categorical
+      - name: order_status
+        data_type: varchar
+        description: "Final order status."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled', 'returned']
+        meta:
+          semantic_type: categorical_status
+      - name: shipping_country
+        data_type: varchar
+        description: "Destination country for the shipment."
+        meta:
+          semantic_type: categorical
+      - name: shipping_method
+        data_type: varchar
+        description: "Shipping method selected by the customer."
+      - name: discount_code
+        data_type: varchar
+        description: "Promotional code applied. NULL if none."
+      - name: item_count
+        data_type: number
+        description: "Number of distinct line items in the order."
+        meta:
+          semantic_type: metric
+      - name: total_quantity
+        data_type: number
+        description: "Total units ordered across all line items."
+        meta:
+          semantic_type: metric
+      - name: gross_revenue_eur
+        data_type: number
+        description: "Total revenue before discounts in EUR."
+        meta:
+          semantic_type: metric
+      - name: discount_amount_eur
+        data_type: number
+        description: "Total discount applied to the order in EUR."
+        meta:
+          semantic_type: metric
+      - name: net_revenue_eur
+        data_type: number
+        description: "Revenue after discounts (gross_revenue - discount_amount) in EUR."
+        meta:
+          semantic_type: metric
+      - name: product_categories
+        data_type: varchar
+        description: "Comma-separated list of product categories present in this order."
+      - name: has_returned
+        data_type: boolean
+        description: "True if any item in this order has been returned."
+        meta:
+          semantic_type: flag
+      - name: is_first_order
+        data_type: boolean
+        description: "True if this is the customer's first ever order. Useful for new customer revenue analysis."
+        meta:
+          semantic_type: flag
+      - name: payment_method
+        data_type: varchar
+        description: "Primary payment method used."
+        meta:
+          semantic_type: categorical
+      - name: payment_status
+        data_type: varchar
+        description: "Payment status for this order."
+        meta:
+          semantic_type: categorical_status
+      - name: total_paid_eur
+        data_type: number
+        description: "Total amount actually paid (and collected) in EUR."
+        meta:
+          semantic_type: metric
+      - name: is_refunded
+        data_type: boolean
+        description: "True if a refund was issued for this order."
+        meta:
+          semantic_type: flag
+      - name: carrier
+        data_type: varchar
+        description: "Shipping carrier used."
+        meta:
+          semantic_type: categorical
+      - name: shipment_status
+        data_type: varchar
+        description: "Current shipment tracking status."
+        meta:
+          semantic_type: categorical_status
+      - name: days_to_ship
+        data_type: number
+        description: "Number of days from order date to shipment dispatch date."
+        meta:
+          semantic_type: metric
+      - name: days_to_deliver
+        data_type: number
+        description: "Number of days from shipment to delivery. NULL if not yet delivered."
+        meta:
+          semantic_type: metric
+      - name: is_late_delivery
+        data_type: boolean
+        description: "True if delivery took more than 7 days from shipment date."
+        meta:
+          semantic_type: flag
+
+  - name: fct_order_items
+    access: public
+    group: core
+    config:
+      contract:
+        enforced: true
+    description: "One row per order line item. Most granular fact table. Supports product-level revenue analysis, return analysis, and basket composition."
+    meta:
+      owner: data-platform-team
+      domain: orders
+      tier: gold
+      pii_contains: false
+      freshness_sla: hourly
+    columns:
+      - name: order_item_id
+        data_type: varchar
+        description: "Unique order item identifier. Format: ITEM_XXXXXX. Primary key."
+        tests:
+          - unique
+          - not_null
+        meta:
+          semantic_type: entity_id
+      - name: order_id
+        data_type: varchar
+        description: "Foreign key to fct_orders."
+        tests:
+          - not_null
+        meta:
+          semantic_type: entity_id
+      - name: product_id
+        data_type: varchar
+        description: "Foreign key to dim_products."
+        tests:
+          - not_null
+        meta:
+          semantic_type: entity_id
+      - name: customer_id
+        data_type: varchar
+        description: "Foreign key to dim_customers (denormalized from order)."
+        tests:
+          - not_null
+        meta:
+          semantic_type: entity_id
+      - name: order_date
+        data_type: date
+        description: "Date of the parent order."
+        meta:
+          semantic_type: time
+      - name: order_status
+        data_type: varchar
+        description: "Status of the parent order."
+      - name: quantity
+        data_type: number
+        description: "Quantity of this product in the order."
+        meta:
+          semantic_type: metric
+      - name: unit_price_eur
+        data_type: number
+        description: "Price per unit at time of order in EUR."
+        meta:
+          semantic_type: metric
+      - name: discount_pct
+        data_type: number
+        description: "Line-item discount percentage applied."
+        meta:
+          semantic_type: metric
+      - name: line_revenue_eur
+        data_type: number
+        description: "Total line revenue after discount in EUR (qty * price * (1 - disc%/100))."
+        meta:
+          semantic_type: metric
+      - name: has_been_returned
+        data_type: boolean
+        description: "True if this specific item has been returned and refund is not rejected."
+        meta:
+          semantic_type: flag
+
+  - name: fct_payments
+    access: public
+    group: core
+    config:
+      contract:
+        enforced: true
+    description: "One row per payment transaction. Supports financial reconciliation, refund analysis, and payment method analytics."
+    meta:
+      owner: finance-team
+      domain: payments
+      tier: gold
+      pii_contains: false
+      freshness_sla: hourly
+    columns:
+      - name: payment_id
+        data_type: varchar
+        description: "Unique payment identifier. Format: PAY_XXXXXX. Primary key."
+        tests:
+          - unique
+          - not_null
+        meta:
+          semantic_type: entity_id
+      - name: order_id
+        data_type: varchar
+        description: "Foreign key to fct_orders."
+        tests:
+          - not_null
+        meta:
+          semantic_type: entity_id
+      - name: customer_id
+        data_type: varchar
+        description: "Foreign key to dim_customers (denormalized from order)."
+        meta:
+          semantic_type: entity_id
+      - name: payment_date
+        data_type: date
+        description: "Date the payment was processed."
+        meta:
+          semantic_type: time
+      - name: order_date
+        data_type: date
+        description: "Date of the associated order."
+        meta:
+          semantic_type: time
+      - name: payment_method
+        data_type: varchar
+        description: "Payment method. Values: credit_card, paypal, bank_transfer, store_credit, gift_card."
+        meta:
+          semantic_type: categorical
+      - name: gateway
+        data_type: varchar
+        description: "Payment gateway. Values: stripe, paypal, adyen, manual."
+        meta:
+          semantic_type: categorical
+      - name: currency
+        data_type: varchar
+        description: "Original transaction currency code."
+      - name: amount_original
+        data_type: number
+        description: "Payment amount in the original transaction currency."
+        meta:
+          semantic_type: metric
+      - name: amount_eur
+        data_type: number
+        description: "Payment amount normalized to EUR."
+        meta:
+          semantic_type: metric
+      - name: payment_status
+        data_type: varchar
+        description: "Payment lifecycle status. Values: completed, failed, refunded, pending."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['completed', 'failed', 'refunded', 'pending']
+        meta:
+          semantic_type: categorical_status
+      - name: is_refunded
+        data_type: boolean
+        description: "True if this payment has been refunded."
+        meta:
+          semantic_type: flag
+      - name: days_to_payment
+        data_type: number
+        description: "Number of days between order date and payment date."
+        meta:
+          semantic_type: metric

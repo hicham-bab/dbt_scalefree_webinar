@@ -1,0 +1,212 @@
+models:
+  - name: fct_revenue
+    access: protected
+    description: "Daily revenue facts by channel and country with MTD/YTD cumulative totals. Primary finance reporting table for daily P&L dashboards. Grain: one row per (date_day, channel, country)."
+    meta:
+      owner: finance-team
+      domain: finance
+      tier: gold
+      pii_contains: false
+    columns:
+      - name: date_day
+        description: "Calendar date."
+        tests:
+          - not_null
+      - name: channel
+        description: "Sales channel."
+      - name: country
+        description: "Destination country."
+      - name: order_count
+        description: "Number of orders on this date for this channel+country."
+      - name: gross_revenue_eur
+        description: "Total gross revenue before discounts in EUR."
+      - name: discount_eur
+        description: "Total discounts applied in EUR."
+      - name: net_revenue_eur
+        description: "Net revenue after discounts in EUR."
+      - name: avg_order_value_eur
+        description: "Average order value in EUR."
+      - name: cumulative_mtd_revenue
+        description: "Running month-to-date net revenue in EUR."
+      - name: cumulative_ytd_revenue
+        description: "Running year-to-date net revenue in EUR."
+
+  - name: fct_refunds
+    access: protected
+    description: "Refund transactions with order context and monthly refund rate. Used for financial reconciliation and return analysis."
+    meta:
+      owner: finance-team
+      domain: finance
+      tier: gold
+      pii_contains: false
+    columns:
+      - name: payment_id
+        description: "Unique payment identifier."
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "Associated order."
+      - name: customer_id
+        description: "Customer who received the refund."
+      - name: refund_date
+        description: "Date the refund was processed."
+      - name: order_date
+        description: "Original order date."
+      - name: channel
+        description: "Sales channel of the original order."
+      - name: shipping_country
+        description: "Country of the original order."
+      - name: order_status
+        description: "Final status of the order."
+      - name: refund_amount_eur
+        description: "Refund amount in EUR."
+      - name: days_to_refund
+        description: "Days from order date to refund."
+      - name: monthly_refund_count
+        description: "Total refunds in the same month."
+      - name: monthly_total_refunds_eur
+        description: "Total refund amount in the same month in EUR."
+      - name: monthly_refund_rate_pct
+        description: "Refund amount as % of that month's revenue."
+
+  - name: monthly_revenue_summary
+    access: protected
+    description: "Monthly revenue summary with MoM and YoY growth calculations. Primary table for executive reporting and trend analysis."
+    meta:
+      owner: finance-team
+      domain: finance
+      tier: gold
+      pii_contains: false
+    columns:
+      - name: year_month
+        description: "Year-month in YYYY-MM format."
+        tests:
+          - unique
+          - not_null
+      - name: year
+        description: "Calendar year."
+      - name: month_num
+        description: "Month number 1-12."
+      - name: total_orders
+        description: "Total orders in the month."
+      - name: revenue_eur
+        description: "Net revenue in EUR."
+      - name: avg_order_value_eur
+        description: "Average order value in EUR."
+      - name: active_customers
+        description: "Distinct customers who ordered."
+      - name: new_customers
+        description: "First-time orderers this month."
+      - name: returning_customers
+        description: "Repeat orderers this month."
+      - name: new_customer_revenue_eur
+        description: "Revenue from first-time customers in EUR."
+      - name: returning_customer_revenue_eur
+        description: "Revenue from repeat customers in EUR."
+      - name: mom_revenue_growth_pct
+        description: "Month-over-month revenue growth percentage."
+      - name: yoy_revenue_growth_pct
+        description: "Year-over-year revenue growth percentage vs same month prior year."
+      - name: mom_orders_growth_pct
+        description: "Month-over-month order count growth percentage."
+
+  - name: product_margin_analysis
+    access: protected
+    description: "Product and category margin analysis combining order actuals with catalog cost data. Includes both product-level and category rollup rows."
+    meta:
+      owner: finance-team
+      domain: finance
+      tier: gold
+      pii_contains: false
+    columns:
+      - name: product_id
+        description: "Product identifier. NULL for category-level rows."
+      - name: product_name
+        description: "Product name. NULL for category-level rows."
+      - name: category
+        description: "Product category."
+        tests:
+          - not_null
+      - name: subcategory
+        description: "Product subcategory."
+      - name: collection
+        description: "Design collection."
+      - name: current_price
+        description: "Current catalog retail price in EUR."
+      - name: cost_price
+        description: "Cost of goods per unit in EUR."
+      - name: catalog_margin_pct
+        description: "Catalog margin percentage."
+      - name: total_orders
+        description: "Total orders containing this product."
+      - name: units_sold
+        description: "Total units sold."
+      - name: total_revenue_eur
+        description: "Total revenue in EUR."
+      - name: total_cost_eur
+        description: "Total COGS in EUR."
+      - name: gross_margin_eur
+        description: "Gross margin in EUR (revenue - cost)."
+      - name: realized_margin_pct
+        description: "Realized gross margin percentage based on actual sales."
+      - name: avg_selling_price_eur
+        description: "Average actual selling price in EUR."
+      - name: aggregation_level
+        description: "Granularity: product or category."
+
+  - name: daily_flash_report
+    access: protected
+    description: "Daily KPI flash for the last 30 days vs same period prior year. Used for morning management reports."
+    meta:
+      owner: finance-team
+      domain: finance
+      tier: gold
+      pii_contains: false
+    columns:
+      - name: date_day
+        description: "Calendar date."
+        tests:
+          - unique
+          - not_null
+      - name: orders
+        description: "Order count on this date."
+      - name: revenue_eur
+        description: "Net revenue on this date in EUR."
+      - name: aov_eur
+        description: "Average order value on this date in EUR."
+      - name: py_orders
+        description: "Order count on the same date in prior year."
+      - name: py_revenue_eur
+        description: "Revenue on the same date in prior year in EUR."
+      - name: py_aov_eur
+        description: "AOV on the same date in prior year in EUR."
+      - name: revenue_vs_py_pct
+        description: "Revenue growth vs prior year same date (%)."
+      - name: orders_vs_py_pct
+        description: "Order count growth vs prior year same date (%)."
+
+  - name: country_revenue_breakdown
+    access: protected
+    description: "Current year revenue by country with share of total and YoY growth. Used for geographic performance reporting."
+    meta:
+      owner: finance-team
+      domain: finance
+      tier: gold
+      pii_contains: false
+    columns:
+      - name: country
+        description: "Destination country."
+        tests:
+          - unique
+          - not_null
+      - name: total_orders
+        description: "Total orders to this country in current year."
+      - name: total_revenue_eur
+        description: "Total net revenue for this country in EUR."
+      - name: pct_of_total_revenue
+        description: "This country's share of total current-year revenue (%)."
+      - name: py_revenue_eur
+        description: "Prior year revenue for this country in EUR."
+      - name: yoy_growth_pct
+        description: "Year-over-year revenue growth for this country (%)."

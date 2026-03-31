@@ -1,0 +1,51 @@
+product_id,product_name,category,subcategory,material,color,unit_price,cost_price,sku_code,collection,is_active,launched_at,_loaded_at
+PROD_001,Le Haussmann Tote,Bags,Tote Bag,Full Grain Leather,Tan,895.00,312.25,BAG-HAU-TAN-001,Haussmann,TRUE,2021-03-15,2025-01-01T00:00:00
+PROD_002,Le Haussmann Tote,Bags,Tote Bag,Full Grain Leather,Black,895.00,312.25,BAG-HAU-BLK-001,Haussmann,TRUE,2021-03-15,2025-01-01T00:00:00
+PROD_003,Le Haussmann Tote,Bags,Tote Bag,Full Grain Leather,Cognac,895.00,312.25,BAG-HAU-COG-001,Haussmann,TRUE,2021-03-15,2025-01-01T00:00:00
+PROD_004,Rivoli Shoulder Bag,Bags,Shoulder Bag,Full Grain Leather,Black,1250.00,437.50,BAG-RIV-BLK-001,Rivoli,TRUE,2021-06-01,2025-01-01T00:00:00
+PROD_005,Rivoli Shoulder Bag,Bags,Shoulder Bag,Full Grain Leather,Bordeaux,1250.00,437.50,BAG-RIV-BOR-001,Rivoli,TRUE,2021-06-01,2025-01-01T00:00:00
+PROD_006,Le Marais Crossbody,Bags,Crossbody,Genuine Leather,Tan,485.00,169.75,BAG-MAR-TAN-001,Marais,TRUE,2021-09-15,2025-01-01T00:00:00
+PROD_007,Le Marais Crossbody,Bags,Crossbody,Genuine Leather,Navy,485.00,169.75,BAG-MAR-NAV-001,Marais,TRUE,2021-09-15,2025-01-01T00:00:00
+PROD_008,Vendome Evening Clutch,Bags,Clutch,Patent Leather,Black,650.00,227.50,BAG-VEN-BLK-001,Vendome,TRUE,2022-01-10,2025-01-01T00:00:00
+PROD_009,Vendome Evening Clutch,Bags,Clutch,Patent Leather,Cream,650.00,227.50,BAG-VEN-CRM-001,Vendome,TRUE,2022-01-10,2025-01-01T00:00:00
+PROD_010,Bastille Backpack,Bags,Backpack,Full Grain Leather,Dark Brown,1100.00,385.00,BAG-BAS-DBR-001,Bastille,TRUE,2022-04-20,2025-01-01T00:00:00
+PROD_011,Bastille Backpack,Bags,Backpack,Full Grain Leather,Black,1100.00,385.00,BAG-BAS-BLK-001,Bastille,TRUE,2022-04-20,2025-01-01T00:00:00
+PROD_012,Classique Mini Bag,Bags,Mini Bag,Suede,Forest Green,395.00,138.25,BAG-CLA-FGR-001,Classique,TRUE,2022-08-05,2025-01-01T00:00:00
+PROD_013,Classique Mini Bag,Bags,Mini Bag,Suede,Bordeaux,395.00,138.25,BAG-CLA-BOR-001,Classique,TRUE,2022-08-05,2025-01-01T00:00:00
+PROD_014,Rivoli Grand Tote,Bags,Tote Bag,Full Grain Leather,Tan,1450.00,507.50,BAG-RIV-TAN-002,Rivoli,TRUE,2023-01-15,2025-01-01T00:00:00
+PROD_015,Haussmann Briefcase,Bags,Briefcase,Full Grain Leather,Black,1800.00,630.00,BAG-HAU-BLK-002,Haussmann,TRUE,2023-06-01,2025-01-01T00:00:00
+PROD_016,Le Marais Belt Bag,Bags,Belt Bag,Genuine Leather,Cognac,345.00,120.75,BAG-MAR-COG-002,Marais,TRUE,2024-02-14,2025-01-01T00:00:00
+PROD_017,Classique Bifold Wallet,Wallets,Bifold Wallet,Full Grain Leather,Tan,185.00,64.75,WAL-CLA-TAN-001,Classique,TRUE,2021-03-15,2025-01-01T00:00:00
+PROD_018,Classique Bifold Wallet,Wallets,Bifold Wallet,Full Grain Leather,Black,185.00,64.75,WAL-CLA-BLK-001,Classique,TRUE,2021-03-15,2025-01-01T00:00:00
+PROD_019,Classique Bifold Wallet,Wallets,Bifold Wallet,Full Grain Leather,Cognac,185.00,64.75,WAL-CLA-COG-001,Classique,TRUE,2021-03-15,2025-01-01T00:00:00
+PROD_020,Haussmann Card Holder,Wallets,Card Holder,Full Grain Leather,Black,95.00,33.25,WAL-HAU-BLK-001,Haussmann,TRUE,2021-06-01,2025-01-01T00:00:00
+PROD_021,Haussmann Card Holder,Wallets,Card Holder,Full Grain Leather,Tan,95.00,33.25,WAL-HAU-TAN-001,Haussmann,TRUE,2021-06-01,2025-01-01T00:00:00
+PROD_022,Vendome Long Wallet,Wallets,Long Wallet,Patent Leather,Black,245.00,85.75,WAL-VEN-BLK-001,Vendome,TRUE,2022-01-10,2025-01-01T00:00:00
+PROD_023,Bastille Zip Wallet,Wallets,Zip-Around Wallet,Full Grain Leather,Dark Brown,275.00,96.25,WAL-BAS-DBR-001,Bastille,TRUE,2022-09-20,2025-01-01T00:00:00
+PROD_024,Rivoli Slim Wallet,Wallets,Slim Wallet,Full Grain Leather,Cognac,155.00,54.25,WAL-RIV-COG-001,Rivoli,FALSE,2021-09-15,2025-01-01T00:00:00
+PROD_025,Marais Coin Purse,Wallets,Coin Purse,Genuine Leather,Navy,75.00,26.25,WAL-MAR-NAV-001,Marais,TRUE,2022-04-20,2025-01-01T00:00:00
+PROD_026,Classique Classic Belt,Belts,Classic Belt,Full Grain Leather,Tan,195.00,68.25,BLT-CLA-TAN-001,Classique,TRUE,2021-03-15,2025-01-01T00:00:00
+PROD_027,Classique Classic Belt,Belts,Classic Belt,Full Grain Leather,Black,195.00,68.25,BLT-CLA-BLK-001,Classique,TRUE,2021-03-15,2025-01-01T00:00:00
+PROD_028,Classique Classic Belt,Belts,Classic Belt,Full Grain Leather,Cognac,195.00,68.25,BLT-CLA-COG-001,Classique,TRUE,2021-03-15,2025-01-01T00:00:00
+PROD_029,Haussmann Double Tour Belt,Belts,Double Tour Belt,Full Grain Leather,Bordeaux,265.00,92.75,BLT-HAU-BOR-001,Haussmann,TRUE,2022-06-15,2025-01-01T00:00:00
+PROD_030,Rivoli Braided Belt,Belts,Braided Belt,Full Grain Leather,Tan,225.00,78.75,BLT-RIV-TAN-001,Rivoli,TRUE,2023-03-01,2025-01-01T00:00:00
+PROD_031,Bastille Wide Belt,Belts,Wide Belt,Genuine Leather,Black,175.00,61.25,BLT-BAS-BLK-001,Bastille,TRUE,2024-01-20,2025-01-01T00:00:00
+PROD_032,Vendome Statement Belt,Belts,Statement Belt,Patent Leather,Black,285.00,99.75,BLT-VEN-BLK-001,Vendome,FALSE,2022-01-10,2025-01-01T00:00:00
+PROD_033,Classique Silk Scarf,Accessories,Scarf,Canvas,Forest Green,145.00,50.75,ACC-CLA-FGR-001,Classique,TRUE,2021-09-15,2025-01-01T00:00:00
+PROD_034,Haussmann Gloves,Accessories,Gloves,Full Grain Leather,Black,295.00,103.25,ACC-HAU-BLK-001,Haussmann,TRUE,2021-11-01,2025-01-01T00:00:00
+PROD_035,Haussmann Gloves,Accessories,Gloves,Full Grain Leather,Tan,295.00,103.25,ACC-HAU-TAN-001,Haussmann,TRUE,2021-11-01,2025-01-01T00:00:00
+PROD_036,Rivoli Keyring,Accessories,Keyring,Full Grain Leather,Cognac,65.00,22.75,ACC-RIV-COG-001,Rivoli,TRUE,2022-03-10,2025-01-01T00:00:00
+PROD_037,Rivoli Keyring,Accessories,Keyring,Full Grain Leather,Black,65.00,22.75,ACC-RIV-BLK-001,Rivoli,TRUE,2022-03-10,2025-01-01T00:00:00
+PROD_038,Marais Luggage Tag,Accessories,Luggage Tag,Genuine Leather,Tan,45.00,15.75,ACC-MAR-TAN-001,Marais,TRUE,2022-06-20,2025-01-01T00:00:00
+PROD_039,Bastille Document Holder,Accessories,Document Holder,Full Grain Leather,Dark Brown,385.00,134.75,ACC-BAS-DBR-001,Bastille,TRUE,2022-11-15,2025-01-01T00:00:00
+PROD_040,Vendome Makeup Pouch,Accessories,Makeup Pouch,Patent Leather,Cream,175.00,61.25,ACC-VEN-CRM-001,Vendome,TRUE,2023-02-14,2025-01-01T00:00:00
+PROD_041,Classique Oxford,Shoes,Oxford,Full Grain Leather,Black,685.00,239.75,SHO-CLA-BLK-001,Classique,TRUE,2022-09-01,2025-01-01T00:00:00
+PROD_042,Classique Oxford,Shoes,Oxford,Full Grain Leather,Tan,685.00,239.75,SHO-CLA-TAN-001,Classique,TRUE,2022-09-01,2025-01-01T00:00:00
+PROD_043,Haussmann Derby,Shoes,Derby,Full Grain Leather,Dark Brown,725.00,253.75,SHO-HAU-DBR-001,Haussmann,TRUE,2022-09-01,2025-01-01T00:00:00
+PROD_044,Rivoli Loafer,Shoes,Loafer,Suede,Navy,595.00,208.25,SHO-RIV-NAV-001,Rivoli,TRUE,2023-04-15,2025-01-01T00:00:00
+PROD_045,Marais Chelsea Boot,Shoes,Chelsea Boot,Full Grain Leather,Black,895.00,313.25,SHO-MAR-BLK-001,Marais,TRUE,2023-09-01,2025-01-01T00:00:00
+PROD_046,Bastille Sneaker,Shoes,Sneaker,Genuine Leather,White,445.00,155.75,SHO-BAS-WHT-001,Bastille,TRUE,2024-03-01,2025-01-01T00:00:00
+PROD_047,Vendome Heel,Shoes,Heel,Patent Leather,Black,750.00,262.50,SHO-VEN-BLK-001,Vendome,TRUE,2023-01-20,2025-01-01T00:00:00
+PROD_048,Classique Loafer,Shoes,Loafer,Full Grain Leather,Cognac,595.00,208.25,SHO-CLA-COG-001,Classique,FALSE,2022-09-01,2025-01-01T00:00:00
+PROD_049,Haussmann Messenger Bag,Bags,Messenger Bag,Full Grain Leather,Black,985.00,344.75,BAG-HAU-BLK-003,Haussmann,TRUE,2024-09-01,2025-01-01T00:00:00
+PROD_050,Rivoli Passport Holder,Accessories,Passport Holder,Full Grain Leather,Dark Brown,125.00,43.75,ACC-RIV-DBR-001,Rivoli,TRUE,2024-06-01,2025-01-01T00:00:00
