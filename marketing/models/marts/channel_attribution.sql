@@ -4,6 +4,7 @@
 with orders as (
     select
         order_id,
+        customer_id,
         channel,
         net_revenue_eur,
         is_first_order,
