@@ -19,14 +19,18 @@ orders as (
 order_gaps as (
     select
         customer_id,
-        avg(
+        avg(days_since_prev_order)                                 as avg_inter_order_days
+    from (
+        select
+            customer_id,
             datediff(
                 'day',
                 lag(order_date) over (partition by customer_id order by order_date),
                 order_date
-            )
-        )                                                          as avg_inter_order_days
-    from orders
+            )                                                      as days_since_prev_order
+        from orders
+    ) gaps
+    where days_since_prev_order is not null
     group by customer_id
 ),
 
