@@ -1,7 +1,7 @@
 sources:
   - name: ecommerce_raw
     description: "Raw layer containing all source-of-truth data loaded from operational systems."
-    database: ANALYTICS
+    database: "{{ target.database }}"
     schema: hb_dbt_scalefree
     config:
       meta:
