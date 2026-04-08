@@ -2,6 +2,8 @@ semantic_models:
   - name: customers
     description: "Customer dimension semantic model. Use for customer segmentation, LTV analysis, and demographic breakdowns."
     model: ref('dim_customers')
+    defaults:
+      agg_time_dimension: signup_date
 
     entities:
       - name: customer

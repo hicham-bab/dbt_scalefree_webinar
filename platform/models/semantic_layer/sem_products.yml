@@ -2,6 +2,8 @@ semantic_models:
   - name: products
     description: "Product dimension semantic model. Use for assortment analysis, category performance, and pricing insights."
     model: ref('dim_products')
+    defaults:
+      agg_time_dimension: launched_at
 
     entities:
       - name: product
