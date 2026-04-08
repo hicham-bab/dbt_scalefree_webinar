@@ -51,7 +51,9 @@ metrics:
     type_params:
       measure:
         name: net_revenue
-      window: 7 days
+      cumulative_type_params:
+        window: 7
+        period_agg: first
     label: "Revenue (Last 7 Days)"
 
   - name: revenue_last_30_days
@@ -60,7 +62,9 @@ metrics:
     type_params:
       measure:
         name: net_revenue
-      window: 30 days
+      cumulative_type_params:
+        window: 30
+        period_agg: first
     label: "Revenue (Last 30 Days)"
 
   - name: new_customer_orders
@@ -70,7 +74,8 @@ metrics:
       measure:
         name: order_count
         fill_nulls_with: 0
-    filter: "{{ Dimension('order__is_first_order') }} = 'true'"
+    filter:
+      - "{{ Dimension('order__is_first_order') }} = 'true'"
     label: "New Customer Orders"
 
   - name: avg_ltv
@@ -98,7 +103,8 @@ metrics:
       measure:
         name: order_count
         fill_nulls_with: 0
-    filter: "{{ Dimension('order__has_returned') }} = 'true'"
+    filter:
+      - "{{ Dimension('order__has_returned') }} = 'true'"
     label: "Returned Orders"
 
   - name: late_delivery_rate
@@ -107,9 +113,10 @@ metrics:
     type_params:
       numerator:
         name: order_count
+        filter:
+          - "{{ Dimension('order__is_late_delivery') }} = 'true'"
       denominator:
         name: order_count
-    filter: "{{ Dimension('order__is_late_delivery') }} = 'true'"
     label: "Late Delivery Rate"
 
   - name: avg_days_to_ship
