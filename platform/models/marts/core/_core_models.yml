@@ -12,19 +12,23 @@ models:
         pii_contains: true
         pii_columns: ["email", "first_name", "last_name"]
         freshness_sla: daily
-        semantic_layer_enabled: true
     description: "One row per customer. Contains identity, demographic, and behavioral attributes. This is the authoritative customer dimension for all downstream analytics. Includes lifetime value, order history, and customer lifecycle status derived from order activity."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: signup_date
     columns:
       - name: customer_id
         data_type: varchar
         description: "Unique identifier for each customer. Format: CUST_XXXX. Primary key."
+        entity:
+          type: primary
+          name: customer
         tests:
           - unique
           - not_null
         config:
           meta:
             pii: false
-            semantic_type: entity_id
       - name: first_name
         data_type: varchar
         description: "Customer first name."
@@ -52,12 +56,16 @@ models:
       - name: city
         data_type: varchar
         description: "City of residence."
+        dimension:
+          type: categorical
         config:
           meta:
             pii: false
       - name: country
         data_type: varchar
         description: "Country of residence. Useful for geographic segmentation."
+        dimension:
+          type: categorical
         config:
           meta:
             pii: false
@@ -76,6 +84,8 @@ models:
       - name: gender
         data_type: varchar
         description: "Customer gender identity. Values: M, F, Other."
+        dimension:
+          type: categorical
         tests:
           - accepted_values:
               arguments:
@@ -86,6 +96,9 @@ models:
       - name: signup_date
         data_type: date
         description: "Date the customer registered an account with Leather Luxe."
+        granularity: day
+        dimension:
+          type: time
         tests:
           - not_null
         config:
@@ -94,6 +107,8 @@ models:
       - name: loyalty_tier
         data_type: varchar
         description: "Current loyalty program tier. Values: Bronze, Silver, Gold, Platinum. Platinum customers represent the top 5% by revenue."
+        dimension:
+          type: categorical
         tests:
           - accepted_values:
               arguments:
@@ -101,10 +116,11 @@ models:
         config:
           meta:
             pii: false
-            semantic_type: categorical_tier
       - name: acquisition_channel
         data_type: varchar
         description: "Channel through which the customer was originally acquired. Values: website, mobile_app, in_store, wholesale, referral."
+        dimension:
+          type: categorical
         tests:
           - accepted_values:
               arguments:
@@ -118,21 +134,18 @@ models:
         config:
           meta:
             pii: false
-            semantic_type: metric
       - name: lifetime_value_eur
         data_type: number
         description: "Total net revenue contributed by this customer across all time in EUR. Also known as LTV or CLV."
         config:
           meta:
             pii: false
-            semantic_type: metric
       - name: avg_order_value_eur
         data_type: number
         description: "Average net order value for this customer in EUR."
         config:
           meta:
             pii: false
-            semantic_type: metric
       - name: first_order_date
         data_type: date
         description: "Date of the customer's first order."
@@ -151,7 +164,6 @@ models:
         config:
           meta:
             pii: false
-            semantic_type: metric
       - name: customer_tenure_days
         data_type: number
         description: "Number of days since the customer's first order."
@@ -161,6 +173,8 @@ models:
       - name: favorite_category
         data_type: varchar
         description: "The product category this customer has ordered most frequently."
+        dimension:
+          type: categorical
         config:
           meta:
             pii: false
@@ -170,10 +184,11 @@ models:
         config:
           meta:
             pii: false
-            semantic_type: metric
       - name: customer_status
         data_type: varchar
         description: "Customer lifecycle status based on recency. Values: prospect (no orders), active (ordered in last 90 days), at_risk (ordered 91-365 days ago), churned (no order in 365+ days)."
+        dimension:
+          type: categorical
         tests:
           - accepted_values:
               arguments:
@@ -181,7 +196,21 @@ models:
         config:
           meta:
             pii: false
-            semantic_type: categorical_status
+    metrics:
+      - name: total_customers
+        description: "Total count of distinct customers."
+        type: simple
+        agg: count_distinct
+        expr: customer_id
+        fill_nulls_with: 0
+        label: "Total Customers"
+      - name: avg_ltv
+        description: "Average lifetime value per customer in EUR."
+        type: simple
+        agg: average
+        expr: lifetime_value_eur
+        fill_nulls_with: 0
+        label: "Avg Customer LTV (EUR)"
 
   - name: dim_products
     config:
@@ -195,12 +224,17 @@ models:
         tier: gold
         pii_contains: false
         freshness_sla: daily
-        semantic_layer_enabled: true
     description: "One row per product variant. Contains catalog attributes, pricing, and sales performance metrics. This is the authoritative product dimension. Includes performance tier classification for assortment analysis."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: launched_at
     columns:
       - name: product_id
         data_type: varchar
         description: "Unique product identifier. Format: PROD_XXX. Primary key."
+        entity:
+          type: primary
+          name: product
         tests:
           - unique
           - not_null
@@ -215,6 +249,8 @@ models:
       - name: category
         data_type: varchar
         description: "Top-level product category. Values: Bags, Wallets, Belts, Accessories, Shoes."
+        dimension:
+          type: categorical
         tests:
           - accepted_values:
               arguments:
@@ -225,15 +261,21 @@ models:
       - name: subcategory
         data_type: varchar
         description: "Product subcategory within the category (e.g. Tote Bag, Bifold Wallet, Chelsea Boot)."
+        dimension:
+          type: categorical
       - name: material
         data_type: varchar
         description: "Primary material used. Values: Full Grain Leather, Genuine Leather, Suede, Canvas, Patent Leather."
+        dimension:
+          type: categorical
         config:
           meta:
             semantic_type: categorical
       - name: color
         data_type: varchar
         description: "Product color. Values: Tan, Black, Cognac, Bordeaux, Navy, Forest Green, Cream, Dark Brown."
+        dimension:
+          type: categorical
         config:
           meta:
             semantic_type: categorical
@@ -258,6 +300,8 @@ models:
       - name: collection
         data_type: varchar
         description: "Design collection name. Values: Haussmann, Rivoli, Marais, Vendome, Bastille, Classique."
+        dimension:
+          type: categorical
         tests:
           - accepted_values:
               arguments:
@@ -268,9 +312,14 @@ models:
       - name: is_active
         data_type: boolean
         description: "Whether the product is currently available for sale. False = discontinued."
+        dimension:
+          type: categorical
       - name: launched_at
         data_type: date
         description: "Date the product was first launched to market."
+        granularity: day
+        dimension:
+          type: time
       - name: total_orders
         data_type: number(10,0)
         description: "Total number of orders containing this product."
@@ -307,6 +356,8 @@ models:
       - name: performance_tier
         data_type: varchar
         description: "Revenue-based performance classification. Values: hero (top 25%), core (26-50%), niche (51-75%), long_tail (bottom 25%), unranked (no sales)."
+        dimension:
+          type: categorical
         tests:
           - accepted_values:
               arguments:
@@ -314,6 +365,21 @@ models:
         config:
           meta:
             semantic_type: categorical_tier
+    metrics:
+      - name: total_products
+        description: "Total count of active products in the catalog."
+        type: simple
+        agg: count_distinct
+        expr: product_id
+        fill_nulls_with: 0
+        label: "Total Products"
+      - name: avg_product_margin
+        description: "Average gross margin percentage across the product catalog."
+        type: simple
+        agg: average
+        expr: margin_pct
+        fill_nulls_with: 0
+        label: "Avg Product Margin (%)"
 
   - name: dim_date
     config:
@@ -402,12 +468,17 @@ models:
         tier: gold
         pii_contains: false
         freshness_sla: hourly
-        semantic_layer_enabled: true
     description: "One row per order. Central fact table for revenue, volume, and fulfillment analysis. Contains order-level metrics including gross revenue, net revenue after discounts, payment details, and delivery performance."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: order_date
     columns:
       - name: order_id
         data_type: varchar
         description: "Unique order identifier. Format: ORD_XXXXX. Primary key."
+        entity:
+          type: primary
+          name: order
         tests:
           - unique
           - not_null
@@ -417,6 +488,9 @@ models:
       - name: customer_id
         data_type: varchar
         description: "Foreign key to dim_customers."
+        entity:
+          type: foreign
+          name: customer
         tests:
           - not_null
         config:
@@ -425,6 +499,9 @@ models:
       - name: order_date
         data_type: date
         description: "Date the order was placed."
+        granularity: day
+        dimension:
+          type: time
         tests:
           - not_null
         config:
@@ -436,12 +513,16 @@ models:
       - name: channel
         data_type: varchar
         description: "Sales channel. Values: website, mobile_app, in_store, wholesale."
+        dimension:
+          type: categorical
         config:
           meta:
             semantic_type: categorical
       - name: order_status
         data_type: varchar
         description: "Final order status."
+        dimension:
+          type: categorical
         tests:
           - accepted_values:
               arguments:
@@ -452,6 +533,8 @@ models:
       - name: shipping_country
         data_type: varchar
         description: "Destination country for the shipment."
+        dimension:
+          type: categorical
         config:
           meta:
             semantic_type: categorical
@@ -497,18 +580,24 @@ models:
       - name: has_returned
         data_type: boolean
         description: "True if any item in this order has been returned."
+        dimension:
+          type: categorical
         config:
           meta:
             semantic_type: flag
       - name: is_first_order
         data_type: boolean
         description: "True if this is the customer's first ever order. Useful for new customer revenue analysis."
+        dimension:
+          type: categorical
         config:
           meta:
             semantic_type: flag
       - name: payment_method
         data_type: varchar
         description: "Primary payment method used."
+        dimension:
+          type: categorical
         config:
           meta:
             semantic_type: categorical
@@ -527,12 +616,16 @@ models:
       - name: is_refunded
         data_type: boolean
         description: "True if a refund was issued for this order."
+        dimension:
+          type: categorical
         config:
           meta:
             semantic_type: flag
       - name: carrier
         data_type: varchar
         description: "Shipping carrier used."
+        dimension:
+          type: categorical
         config:
           meta:
             semantic_type: categorical
@@ -557,9 +650,81 @@ models:
       - name: is_late_delivery
         data_type: boolean
         description: "True if delivery took more than 7 days from shipment date."
+        dimension:
+          type: categorical
         config:
           meta:
             semantic_type: flag
+    metrics:
+      - name: total_revenue
+        description: "Total net revenue across all orders in EUR."
+        type: simple
+        agg: sum
+        expr: net_revenue_eur
+        fill_nulls_with: 0
+        label: "Total Revenue (EUR)"
+      - name: total_gross_revenue
+        description: "Total gross revenue before discounts in EUR."
+        type: simple
+        agg: sum
+        expr: gross_revenue_eur
+        fill_nulls_with: 0
+        label: "Total Gross Revenue (EUR)"
+      - name: total_orders
+        description: "Total count of distinct orders."
+        type: simple
+        agg: count_distinct
+        expr: order_id
+        fill_nulls_with: 0
+        label: "Total Orders"
+      - name: average_order_value
+        description: "Average net revenue per order in EUR."
+        type: simple
+        agg: average
+        expr: net_revenue_eur
+        fill_nulls_with: 0
+        label: "Average Order Value (EUR)"
+      - name: total_discount_amount
+        description: "Total discounts applied in EUR."
+        type: simple
+        agg: sum
+        expr: discount_amount_eur
+        fill_nulls_with: 0
+        label: "Total Discounts (EUR)"
+      - name: new_customer_orders
+        description: "Count of orders from customers placing their first ever order."
+        type: simple
+        agg: count_distinct
+        expr: order_id
+        fill_nulls_with: 0
+        filter:
+          - "{{ Dimension('order__is_first_order') }} = 'true'"
+        label: "New Customer Orders"
+      - name: returned_order_count
+        description: "Count of orders that had at least one item returned."
+        type: simple
+        agg: count_distinct
+        expr: order_id
+        fill_nulls_with: 0
+        filter:
+          - "{{ Dimension('order__has_returned') }} = 'true'"
+        label: "Returned Orders"
+      - name: late_delivery_orders
+        description: "Count of orders with late delivery (>7 days)."
+        type: simple
+        agg: count_distinct
+        expr: order_id
+        fill_nulls_with: 0
+        filter:
+          - "{{ Dimension('order__is_late_delivery') }} = 'true'"
+        label: "Late Delivery Orders"
+      - name: avg_days_to_ship
+        description: "Average number of days from order placement to shipment dispatch."
+        type: simple
+        agg: average
+        expr: days_to_ship
+        fill_nulls_with: 0
+        label: "Avg Days to Ship"
 
   - name: fct_order_items
     config:
