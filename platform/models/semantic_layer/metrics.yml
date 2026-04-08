@@ -17,7 +17,7 @@ metrics:
     description: "Net revenue over the trailing 7 days."
     type: cumulative
     input_metric: total_revenue
-    window: 7d
+    window: 7 days
     period_agg: first
     label: "Revenue (Last 7 Days)"
 
@@ -25,6 +25,6 @@ metrics:
     description: "Net revenue over the trailing 30 days."
     type: cumulative
     input_metric: total_revenue
-    window: 30d
+    window: 30 days
     period_agg: first
     label: "Revenue (Last 30 Days)"
