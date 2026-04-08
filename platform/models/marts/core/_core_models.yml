@@ -697,8 +697,7 @@ models:
         agg: count_distinct
         expr: order_id
         fill_nulls_with: 0
-        filter:
-          - "{{ Dimension('order__is_first_order') }} = 'true'"
+        filter: "is_first_order = true"
         label: "New Customer Orders"
       - name: returned_order_count
         description: "Count of orders that had at least one item returned."
@@ -706,8 +705,7 @@ models:
         agg: count_distinct
         expr: order_id
         fill_nulls_with: 0
-        filter:
-          - "{{ Dimension('order__has_returned') }} = 'true'"
+        filter: "has_returned = true"
         label: "Returned Orders"
       - name: late_delivery_orders
         description: "Count of orders with late delivery (>7 days)."
@@ -715,8 +713,7 @@ models:
         agg: count_distinct
         expr: order_id
         fill_nulls_with: 0
-        filter:
-          - "{{ Dimension('order__is_late_delivery') }} = 'true'"
+        filter: "is_late_delivery = true"
         label: "Late Delivery Orders"
       - name: avg_days_to_ship
         description: "Average number of days from order placement to shipment dispatch."
