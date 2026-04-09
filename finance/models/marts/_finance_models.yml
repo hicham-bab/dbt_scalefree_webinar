@@ -8,15 +8,25 @@ models:
         tier: gold
         pii_contains: false
     description: "Daily revenue facts by channel and country with MTD/YTD cumulative totals. Primary finance reporting table for daily P&L dashboards. Grain: one row per (date_day, channel, country)."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: date_day
     columns:
       - name: date_day
         description: "Calendar date."
+        granularity: day
+        dimension:
+          type: time
         tests:
           - not_null
       - name: channel
         description: "Sales channel."
+        dimension:
+          type: categorical
       - name: country
         description: "Destination country."
+        dimension:
+          type: categorical
       - name: order_count
         description: "Number of orders on this date for this channel+country."
       - name: gross_revenue_eur
@@ -31,6 +41,34 @@ models:
         description: "Running month-to-date net revenue in EUR."
       - name: cumulative_ytd_revenue
         description: "Running year-to-date net revenue in EUR."
+    metrics:
+      - name: daily_net_revenue
+        description: "Total daily net revenue after discounts in EUR."
+        type: simple
+        agg: sum
+        expr: net_revenue_eur
+        fill_nulls_with: 0
+        label: "Daily Net Revenue (EUR)"
+      - name: daily_gross_revenue
+        description: "Total daily gross revenue before discounts in EUR."
+        type: simple
+        agg: sum
+        expr: gross_revenue_eur
+        fill_nulls_with: 0
+        label: "Daily Gross Revenue (EUR)"
+      - name: daily_order_count
+        description: "Total daily order count."
+        type: simple
+        agg: sum
+        expr: order_count
+        fill_nulls_with: 0
+        label: "Daily Orders"
+      - name: daily_avg_order_value
+        description: "Average order value across channels and countries."
+        type: simple
+        agg: average
+        expr: avg_order_value_eur
+        label: "Daily Avg Order Value (EUR)"
 
   - name: fct_refunds
     config:
