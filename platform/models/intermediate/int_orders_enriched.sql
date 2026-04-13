@@ -1,22 +1,36 @@
+{#
+  ============================================================================
+  INTERMEDIATE MODELS
+  ============================================================================
+  Intermediate models sit between staging and marts. They join, aggregate,
+  or reshape cleaned data WITHOUT adding business definitions. Think of them
+  as reusable building blocks for mart models.
+
+  CONFIG EXPLAINED:
+
+  - materialized = 'table'
+      We use 'table' because this model aggregates many rows (order_items ->
+      order level) and is referenced by multiple downstream models. A table
+      avoids re-computing the aggregation every time.
+
+  - schema = 'intermediate'
+      Routes this model to the <target_schema>_intermediate schema.
+
+  - tags = ['intermediate', 'orders']
+      Allows selective runs: dbt run --select tag:intermediate
+
+  - cluster_by = ['order_date', 'customer_id']
+      On warehouses like Snowflake or Databricks, clustering organizes the
+      data on disk by these columns. Queries that filter on order_date or
+      customer_id will scan less data = faster + cheaper.
+  ============================================================================
+#}
+
 {{
   config(
-
-    -- INTERMEDIATE MODELS sit between staging and marts.
-    -- They join, aggregate, or reshape cleaned data WITHOUT adding business
-    -- definitions. Think of them as reusable building blocks for mart models.
-
-    -- We materialize as 'table' because this model aggregates many rows
-    -- (order_items -> order level) and is referenced by multiple downstream
-    -- models. A table avoids re-computing the aggregation every time.
     materialized = 'table',
-
     schema = 'intermediate',
-
     tags = ['intermediate', 'orders'],
-
-    -- CLUSTER BY: on warehouses like Snowflake or Databricks, clustering
-    -- organizes the data on disk by these columns. Queries that filter on
-    -- order_date or customer_id will scan less data = faster + cheaper.
     cluster_by = ['order_date', 'customer_id']
   )
 }}
