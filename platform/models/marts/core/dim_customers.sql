@@ -1,28 +1,51 @@
+{#
+  ============================================================================
+  MART MODELS -- DIMENSION TABLE
+  ============================================================================
+  Mart models are the final, business-facing layer. They expose clean,
+  well-named columns that analysts and BI tools consume directly.
+
+  Marts are split into:
+    - DIMENSIONS: descriptive attributes (customers, products, dates)
+    - FACTS: measurable events (orders, payments, shipments)
+
+  This is a DIMENSION table: it describes WHO the customer is.
+
+  CONFIG EXPLAINED:
+
+  - materialized = 'table'
+      Dimension tables are typically small-to-medium and queried frequently,
+      so a full table materialization gives the best read performance.
+
+  - schema = 'core'
+      Routes to <target_schema>_core -- the primary consumption schema.
+
+  - tags = ['mart', 'core', 'customers', 'pii']
+      Multiple tags for flexible selection:
+        dbt run --select tag:mart        (all marts)
+        dbt run --select tag:pii         (all PII-containing models)
+
+  - grants = {'select': ['analyst_role', 'marketing_role']}
+      dbt can manage warehouse-level permissions declaratively.
+      After building this table, dbt will run:
+        GRANT SELECT ON dim_customers TO ROLE analyst_role;
+        GRANT SELECT ON dim_customers TO ROLE marketing_role;
+      Access control lives in version-controlled code, not manual SQL.
+
+  - contract = {'enforced': true}
+      When enabled, dbt enforces that the model's columns and data types
+      match the YAML schema definition exactly. If someone adds a column
+      in SQL but not in the YAML (or vice versa), dbt build fails.
+      Critical for models consumed by other teams or external tools.
+  ============================================================================
+#}
+
 {{
   config(
-
-    -- MART MODELS are the final, business-facing layer.
-    -- They expose clean, well-named columns that analysts and BI tools consume.
-    -- Marts are split into DIMENSIONS (descriptive attributes, like customers
-    -- or products) and FACTS (measurable events, like orders or payments).
-
-    -- This is a DIMENSION table: it describes WHO the customer is.
     materialized = 'table',
-
     schema = 'core',
-
     tags = ['mart', 'core', 'customers', 'pii'],
-
-    -- GRANTS: dbt can manage warehouse-level permissions declaratively.
-    -- After building this table, dbt will run:
-    --   GRANT SELECT ON dim_customers TO ROLE analyst_role;
-    -- This means access control lives in version-controlled code, not manual SQL.
     grants = {'select': ['analyst_role', 'marketing_role']},
-
-    -- CONTRACT: when enabled, dbt enforces that the model's columns and
-    -- data types match the YAML schema definition exactly. If someone adds
-    -- a column in SQL but not in the YAML (or vice versa), dbt build fails.
-    -- This is critical for models consumed by other teams or external tools.
     contract = {'enforced': true}
   )
 }}
