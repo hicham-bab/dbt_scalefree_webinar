@@ -25,6 +25,8 @@
         dbt run --select tag:mart        (all marts)
         dbt run --select tag:pii         (all PII-containing models)
 
+  OTHER CONFIG OPTIONS (not enabled here -- roles don't exist in this demo env):
+
   - grants = {'select': ['analyst_role', 'marketing_role']}
       dbt can manage warehouse-level permissions declaratively.
       After building this table, dbt will run:
@@ -44,9 +46,7 @@
   config(
     materialized = 'table',
     schema = 'core',
-    tags = ['mart', 'core', 'customers', 'pii'],
-    grants = {'select': ['analyst_role', 'marketing_role']},
-    contract = {'enforced': true}
+    tags = ['mart', 'core', 'customers', 'pii']
   )
 }}
 

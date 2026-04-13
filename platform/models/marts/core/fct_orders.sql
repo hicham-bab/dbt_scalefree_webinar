@@ -33,6 +33,8 @@
         'sync_all_columns'    -> add new + drop removed columns
         'fail'                -> raise an error so you handle it explicitly
 
+  OTHER CONFIG OPTIONS (not enabled here -- roles don't exist in this demo env):
+
   - grants = {'select': ['analyst_role', 'finance_role']}
       Declarative warehouse permissions, applied after each build.
 
@@ -48,9 +50,7 @@
     tags = ['mart', 'core', 'orders'],
     unique_key = 'order_id',
     incremental_strategy = 'merge',
-    on_schema_change = 'append_new_columns',
-    grants = {'select': ['analyst_role', 'finance_role']},
-    contract = {'enforced': true}
+    on_schema_change = 'append_new_columns'
   )
 }}
 
