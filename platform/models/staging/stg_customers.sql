@@ -1,28 +1,39 @@
+{#
+  ============================================================================
+  WHAT IS A dbt MODEL?
+  ============================================================================
+  A dbt "model" is simply a SQL SELECT statement stored in a .sql file.
+  dbt compiles it, wraps it in DDL (CREATE TABLE / VIEW), and runs it
+  against your data warehouse. No INSERT, no procedural code -- just SELECT.
+
+  THE CONFIG BLOCK below tells dbt HOW to build this model:
+
+  - materialized = 'view'
+      How dbt persists the result of this SELECT.
+        'view'         -> CREATE VIEW  (re-runs the query every time it's read)
+        'table'        -> CREATE TABLE (stores the result; rebuilds entirely each run)
+        'incremental'  -> INSERT/MERGE (appends or upserts only new/changed rows)
+        'ephemeral'    -> no object created; the SQL is inlined as a CTE wherever referenced
+
+      Staging models are lightweight cleaning layers, so a VIEW is the right
+      choice: no extra storage cost, always fresh when queried.
+
+  - schema = 'staging'
+      Controls which schema/dataset this model lands in.
+      dbt builds the full name as: <target_database>.<target_schema>_<schema>.
+      e.g. if your target schema is 'analytics', this model goes to 'analytics_staging'.
+
+  - tags = ['staging', 'pii']
+      Labels you can attach to any model for selective runs.
+      Run only staging models:  dbt run --select tag:staging
+      Run everything for PII:   dbt run --select tag:pii
+  ============================================================================
+#}
+
 {{
   config(
-
-    -- A dbt "model" is simply a SQL SELECT statement stored in a .sql file.
-    -- dbt compiles it, wraps it in DDL (CREATE TABLE / VIEW), and runs it
-    -- against your data warehouse. No INSERT, no procedural code -- just SELECT.
-
-    -- MATERIALIZATION: how dbt persists the result of this SELECT.
-    --   'view'         -> CREATE VIEW  (re-runs the query every time it's read)
-    --   'table'        -> CREATE TABLE (stores the result; rebuilds entirely each run)
-    --   'incremental'  -> INSERT/MERGE (appends or upserts only new/changed rows)
-    --   'ephemeral'    -> no object created; the SQL is inlined as a CTE wherever referenced
-    --
-    -- Staging models are lightweight cleaning layers, so a VIEW is the right
-    -- choice: no extra storage cost, always fresh when queried.
     materialized = 'view',
-
-    -- SCHEMA: controls which schema/dataset this model lands in.
-    -- dbt builds the full name as: <target_database>.<target_schema>_<schema>.
-    -- e.g. if your target schema is 'analytics', this model goes to 'analytics_staging'.
     schema = 'staging',
-
-    -- TAGS: labels you can attach to any model for selective runs.
-    -- Run only staging models:  dbt run --select tag:staging
-    -- Run everything for PII:   dbt run --select tag:pii
     tags = ['staging', 'pii']
   )
 }}
