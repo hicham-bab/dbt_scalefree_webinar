@@ -1,5 +1,35 @@
--- Joins orders with items and products to produce order-level revenue metrics.
--- Grain: one row per order.
+{{
+  config(
+
+    -- INTERMEDIATE MODELS sit between staging and marts.
+    -- They join, aggregate, or reshape cleaned data WITHOUT adding business
+    -- definitions. Think of them as reusable building blocks for mart models.
+
+    -- We materialize as 'table' because this model aggregates many rows
+    -- (order_items -> order level) and is referenced by multiple downstream
+    -- models. A table avoids re-computing the aggregation every time.
+    materialized = 'table',
+
+    schema = 'intermediate',
+
+    tags = ['intermediate', 'orders'],
+
+    -- CLUSTER BY: on warehouses like Snowflake or Databricks, clustering
+    -- organizes the data on disk by these columns. Queries that filter on
+    -- order_date or customer_id will scan less data = faster + cheaper.
+    cluster_by = ['order_date', 'customer_id']
+  )
+}}
+
+-- ============================================================================
+-- INTERMEDIATE MODEL: int_orders_enriched
+-- ============================================================================
+-- Purpose : Join orders with line items, products, and returns to produce
+--           order-level metrics (revenue, item count, flags).
+-- Grain   : One row per order
+-- Depends : stg_orders, stg_order_items, stg_products, stg_returns
+-- ============================================================================
+
 with orders as (
     select * from {{ ref('stg_orders') }}
 ),
