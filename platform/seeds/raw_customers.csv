@@ -149,3 +149,18 @@ CUST_0147,Jerome,Geffroy,jerome.geffroy@email.com,+33678901147,1993-04-02,M,Nice
 CUST_0148,Katia,Humbert,katia.humbert@email.com,+33689012148,1986-08-09,F,Toulouse,France,2024-09-04,Bronze,website,2025-01-01T00:00:00
 CUST_0149,Lionel,Isnard,lionel.isnard@email.com,+33690123149,1980-12-16,M,Strasbourg,France,2024-11-17,Bronze,mobile_app,2025-01-01T00:00:00
 CUST_0150,Mireille,Jobert,mireille.jobert@email.com,+33601234150,1966-04-23,F,Paris,France,2025-01-30,Silver,wholesale,2025-01-01T00:00:00
+CUST_0151,Emma,Martin,emma.martin@example.com,+33607294844,1975-12-16,M,Geneva,Switzerland,2025-12-10,platinum,referral,2025-01-01T00:00:00
+CUST_0152,Lucas,Bernard,lucas.bernard@example.com,+33619366732,1972-09-20,F,Berlin,Germany,2025-11-15,gold,social_media,2025-01-01T00:00:00
+CUST_0153,Sophia,Dubois,sophia.dubois@example.com,+33606174094,1994-08-27,F,Milan,Italy,2025-10-16,bronze,paid_search,2025-01-01T00:00:00
+CUST_0154,Hugo,Thomas,hugo.thomas@example.com,+33658947533,1995-01-31,M,Geneva,Switzerland,2026-03-14,platinum,website,2025-01-01T00:00:00
+CUST_0155,Olivia,Robert,olivia.robert@example.com,+33671916114,1978-12-23,M,London,United Kingdom,2025-06-29,bronze,website,2025-01-01T00:00:00
+CUST_0156,Arthur,Richard,arthur.richard@example.com,+33658655511,1987-06-22,M,Dubai,United Arab Emirates,2025-10-28,gold,referral,2025-01-01T00:00:00
+CUST_0157,Chloe,Petit,chloe.petit@example.com,+33695496400,1995-04-13,F,Paris,France,2025-06-03,gold,in_store,2025-01-01T00:00:00
+CUST_0158,Louis,Durand,louis.durand@example.com,+33608318497,1980-02-06,M,Milan,Italy,2025-06-01,platinum,website,2025-01-01T00:00:00
+CUST_0159,Amelia,Leroy,amelia.leroy@example.com,+33651514515,1982-05-18,F,Amsterdam,Netherlands,2025-12-08,bronze,social_media,2025-01-01T00:00:00
+CUST_0160,Gabriel,Moreau,gabriel.moreau@example.com,+33637937059,1990-12-21,F,Tokyo,Japan,2026-03-11,silver,website,2025-01-01T00:00:00
+CUST_0161,Isabella,Simon,isabella.simon@example.com,+33635273044,1991-01-29,F,Berlin,Germany,2026-02-06,bronze,referral,2025-01-01T00:00:00
+CUST_0162,Raphael,Laurent,raphael.laurent@example.com,+33661128806,1989-01-31,M,Tokyo,Japan,2025-07-29,silver,website,2025-01-01T00:00:00
+CUST_0163,Charlotte,Lefebvre,charlotte.lefebvre@example.com,+33692023555,1972-02-22,M,Paris,France,2025-07-31,gold,in_store,2025-01-01T00:00:00
+CUST_0164,Adam,Michel,adam.michel@example.com,+33644077539,1983-05-28,M,Geneva,Switzerland,2026-03-05,bronze,paid_search,2025-01-01T00:00:00
+CUST_0165,Mia,Garcia,mia.garcia@example.com,+33637950007,1978-01-27,M,New York,United States,2025-06-13,platinum,referral,2025-01-01T00:00:00
