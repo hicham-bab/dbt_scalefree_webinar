@@ -599,3 +599,903 @@ ORD_10597,CUST_0008,2023-09-28,delivered,in_store,Tokyo,Japan,overnight,,0,2025-
 ORD_10598,CUST_0047,2023-11-03,delivered,mobile_app,Lyon,France,express,,0,2025-01-01T00:00:00
 ORD_10599,CUST_0007,2023-08-29,shipped,in_store,Paris,France,overnight,,0,2025-01-01T00:00:00
 ORD_10600,CUST_0028,2025-12-05,confirmed,in_store,Geneva,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_10601,CUST_0119,2025-01-01,delivered,website,Strasbourg,France,express,VIP15,15,2025-01-01T00:00:00
+ORD_10602,CUST_0030,2025-01-01,delivered,in_store,Strasbourg,France,standard,,0,2025-01-01T00:00:00
+ORD_10603,CUST_0069,2025-01-01,delivered,mobile_app,Zurich,Switzerland,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10604,CUST_0091,2025-01-02,delivered,in_store,Milan,Italy,express,WINTER25,25,2025-01-01T00:00:00
+ORD_10605,CUST_0121,2025-01-02,delivered,wholesale,Amsterdam,Netherlands,express,,0,2025-01-01T00:00:00
+ORD_10606,CUST_0019,2025-01-02,delivered,mobile_app,Lyon,France,express,WINTER25,25,2025-01-01T00:00:00
+ORD_10607,CUST_0103,2025-01-03,delivered,website,Singapore,Singapore,express,,0,2025-01-01T00:00:00
+ORD_10608,CUST_0038,2025-01-04,delivered,mobile_app,Los Angeles,United States,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_10609,CUST_0113,2025-01-04,delivered,wholesale,Bordeaux,France,standard,,0,2025-01-01T00:00:00
+ORD_10610,CUST_0128,2025-01-04,delivered,mobile_app,Toulouse,France,express,WINTER25,25,2025-01-01T00:00:00
+ORD_10611,CUST_0149,2025-01-05,delivered,mobile_app,New York,United States,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10612,CUST_0078,2025-01-05,delivered,website,Tokyo,Japan,standard,,0,2025-01-01T00:00:00
+ORD_10613,CUST_0001,2025-01-05,delivered,mobile_app,Munich,Germany,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10614,CUST_0110,2025-01-06,delivered,wholesale,Bordeaux,France,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10615,CUST_0016,2025-01-08,delivered,in_store,Singapore,Singapore,overnight,,0,2025-01-01T00:00:00
+ORD_10616,CUST_0056,2025-01-10,delivered,wholesale,Los Angeles,United States,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10617,CUST_0137,2025-01-11,delivered,in_store,Berlin,Germany,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10618,CUST_0145,2025-01-11,delivered,in_store,Zurich,Switzerland,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10619,CUST_0088,2025-01-13,delivered,mobile_app,Marseille,France,standard,,0,2025-01-01T00:00:00
+ORD_10620,CUST_0040,2025-01-13,delivered,in_store,Marseille,France,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10621,CUST_0036,2025-01-13,delivered,website,Munich,Germany,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10622,CUST_0061,2025-01-13,delivered,website,Geneva,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_10623,CUST_0123,2025-01-14,delivered,mobile_app,Strasbourg,France,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10624,CUST_0110,2025-01-14,delivered,wholesale,Strasbourg,France,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10625,CUST_0007,2025-01-14,delivered,wholesale,Strasbourg,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10626,CUST_0123,2025-01-15,delivered,wholesale,Dubai,United Arab Emirates,express,,0,2025-01-01T00:00:00
+ORD_10627,CUST_0128,2025-01-15,delivered,in_store,Singapore,Singapore,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_10628,CUST_0041,2025-01-16,delivered,in_store,Zurich,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_10629,CUST_0101,2025-01-17,delivered,in_store,New York,United States,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10630,CUST_0029,2025-01-17,delivered,website,London,United Kingdom,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10631,CUST_0038,2025-01-17,delivered,website,Geneva,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_10632,CUST_0016,2025-01-19,delivered,mobile_app,Marseille,France,overnight,,0,2025-01-01T00:00:00
+ORD_10633,CUST_0104,2025-01-20,delivered,in_store,Tokyo,Japan,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10634,CUST_0021,2025-01-20,delivered,wholesale,Dubai,United Arab Emirates,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10635,CUST_0098,2025-01-21,delivered,wholesale,Milan,Italy,express,,0,2025-01-01T00:00:00
+ORD_10636,CUST_0148,2025-01-21,delivered,mobile_app,Zurich,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_10637,CUST_0054,2025-01-22,delivered,in_store,Zurich,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_10638,CUST_0087,2025-01-23,delivered,wholesale,Munich,Germany,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10639,CUST_0118,2025-01-23,delivered,mobile_app,Berlin,Germany,express,,0,2025-01-01T00:00:00
+ORD_10640,CUST_0089,2025-01-23,delivered,website,Lyon,France,express,,0,2025-01-01T00:00:00
+ORD_10641,CUST_0147,2025-01-24,delivered,mobile_app,Dubai,United Arab Emirates,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10642,CUST_0084,2025-01-24,delivered,in_store,Los Angeles,United States,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10643,CUST_0012,2025-01-25,delivered,in_store,Los Angeles,United States,express,,0,2025-01-01T00:00:00
+ORD_10644,CUST_0028,2025-01-26,delivered,mobile_app,Strasbourg,France,overnight,,0,2025-01-01T00:00:00
+ORD_10645,CUST_0035,2025-01-26,delivered,website,Zurich,Switzerland,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10646,CUST_0107,2025-01-26,delivered,wholesale,Milan,Italy,standard,,0,2025-01-01T00:00:00
+ORD_10647,CUST_0053,2025-01-27,delivered,website,London,United Kingdom,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10648,CUST_0092,2025-01-28,delivered,wholesale,Marseille,France,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10649,CUST_0133,2025-01-29,delivered,website,Milan,Italy,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10650,CUST_0073,2025-01-30,delivered,in_store,Paris,France,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10651,CUST_0101,2025-01-30,delivered,in_store,Marseille,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10652,CUST_0093,2025-01-30,delivered,wholesale,Lyon,France,overnight,,0,2025-01-01T00:00:00
+ORD_10653,CUST_0119,2025-01-30,delivered,wholesale,New York,United States,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10654,CUST_0060,2025-01-31,delivered,mobile_app,Marseille,France,standard,,0,2025-01-01T00:00:00
+ORD_10655,CUST_0096,2025-01-31,delivered,in_store,Marseille,France,standard,,0,2025-01-01T00:00:00
+ORD_10656,CUST_0092,2025-02-01,delivered,wholesale,Amsterdam,Netherlands,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10657,CUST_0127,2025-02-01,delivered,in_store,Singapore,Singapore,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10658,CUST_0009,2025-02-01,delivered,in_store,Strasbourg,France,overnight,,0,2025-01-01T00:00:00
+ORD_10659,CUST_0020,2025-02-02,delivered,website,Singapore,Singapore,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10660,CUST_0068,2025-02-02,delivered,wholesale,Marseille,France,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10661,CUST_0134,2025-02-02,delivered,website,Milan,Italy,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_10662,CUST_0105,2025-02-03,delivered,in_store,Amsterdam,Netherlands,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10663,CUST_0006,2025-02-04,delivered,wholesale,Paris,France,standard,,0,2025-01-01T00:00:00
+ORD_10664,CUST_0104,2025-02-04,delivered,mobile_app,Zurich,Switzerland,overnight,,0,2025-01-01T00:00:00
+ORD_10665,CUST_0085,2025-02-05,delivered,in_store,New York,United States,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_10666,CUST_0123,2025-02-05,delivered,website,Los Angeles,United States,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10667,CUST_0013,2025-02-05,delivered,website,Lyon,France,overnight,,0,2025-01-01T00:00:00
+ORD_10668,CUST_0076,2025-02-05,delivered,website,Strasbourg,France,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10669,CUST_0103,2025-02-05,delivered,in_store,Milan,Italy,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10670,CUST_0133,2025-02-05,delivered,website,Dubai,United Arab Emirates,express,,0,2025-01-01T00:00:00
+ORD_10671,CUST_0106,2025-02-06,delivered,website,Lyon,France,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10672,CUST_0032,2025-02-06,delivered,wholesale,Milan,Italy,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_10673,CUST_0083,2025-02-06,delivered,in_store,Bordeaux,France,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10674,CUST_0081,2025-02-07,delivered,website,Singapore,Singapore,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10675,CUST_0090,2025-02-07,delivered,mobile_app,Berlin,Germany,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10676,CUST_0138,2025-02-07,delivered,website,Singapore,Singapore,overnight,,0,2025-01-01T00:00:00
+ORD_10677,CUST_0078,2025-02-08,delivered,in_store,Marseille,France,express,VIP15,15,2025-01-01T00:00:00
+ORD_10678,CUST_0125,2025-02-08,delivered,in_store,Zurich,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_10679,CUST_0055,2025-02-09,delivered,in_store,Lyon,France,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_10680,CUST_0071,2025-02-10,delivered,mobile_app,Munich,Germany,express,VIP15,15,2025-01-01T00:00:00
+ORD_10681,CUST_0012,2025-02-10,delivered,mobile_app,Toulouse,France,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10682,CUST_0046,2025-02-10,delivered,website,Amsterdam,Netherlands,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_10683,CUST_0134,2025-02-11,delivered,wholesale,Paris,France,overnight,,0,2025-01-01T00:00:00
+ORD_10684,CUST_0134,2025-02-11,delivered,website,Geneva,Switzerland,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10685,CUST_0117,2025-02-11,delivered,website,Los Angeles,United States,express,,0,2025-01-01T00:00:00
+ORD_10686,CUST_0003,2025-02-12,delivered,mobile_app,Munich,Germany,express,,0,2025-01-01T00:00:00
+ORD_10687,CUST_0126,2025-02-13,delivered,in_store,Strasbourg,France,express,,0,2025-01-01T00:00:00
+ORD_10688,CUST_0039,2025-02-13,delivered,website,Amsterdam,Netherlands,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10689,CUST_0087,2025-02-14,delivered,wholesale,Tokyo,Japan,standard,,0,2025-01-01T00:00:00
+ORD_10690,CUST_0034,2025-02-16,delivered,mobile_app,Dubai,United Arab Emirates,standard,,0,2025-01-01T00:00:00
+ORD_10691,CUST_0070,2025-02-17,delivered,in_store,Geneva,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_10692,CUST_0004,2025-02-17,delivered,mobile_app,Bordeaux,France,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10693,CUST_0003,2025-02-17,delivered,wholesale,Lyon,France,overnight,,0,2025-01-01T00:00:00
+ORD_10694,CUST_0142,2025-02-17,delivered,website,Strasbourg,France,overnight,,0,2025-01-01T00:00:00
+ORD_10695,CUST_0054,2025-02-17,delivered,website,Amsterdam,Netherlands,express,,0,2025-01-01T00:00:00
+ORD_10696,CUST_0111,2025-02-18,delivered,mobile_app,Zurich,Switzerland,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_10697,CUST_0148,2025-02-19,delivered,in_store,Bordeaux,France,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10698,CUST_0135,2025-02-19,delivered,mobile_app,Berlin,Germany,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10699,CUST_0135,2025-02-20,delivered,in_store,Lyon,France,standard,,0,2025-01-01T00:00:00
+ORD_10700,CUST_0041,2025-02-20,delivered,in_store,Paris,France,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10701,CUST_0135,2025-02-21,delivered,wholesale,Toulouse,France,standard,,0,2025-01-01T00:00:00
+ORD_10702,CUST_0004,2025-02-21,delivered,wholesale,Munich,Germany,standard,,0,2025-01-01T00:00:00
+ORD_10703,CUST_0043,2025-02-22,delivered,in_store,Tokyo,Japan,overnight,,0,2025-01-01T00:00:00
+ORD_10704,CUST_0131,2025-02-22,delivered,wholesale,Strasbourg,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10705,CUST_0054,2025-02-22,delivered,mobile_app,Lyon,France,standard,,0,2025-01-01T00:00:00
+ORD_10706,CUST_0136,2025-02-23,delivered,wholesale,Marseille,France,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_10707,CUST_0146,2025-02-24,delivered,mobile_app,Paris,France,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10708,CUST_0128,2025-02-24,delivered,in_store,Berlin,Germany,express,WINTER25,25,2025-01-01T00:00:00
+ORD_10709,CUST_0120,2025-02-24,delivered,website,Lyon,France,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_10710,CUST_0092,2025-02-25,delivered,in_store,Geneva,Switzerland,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10711,CUST_0019,2025-02-25,delivered,wholesale,Geneva,Switzerland,express,VIP15,15,2025-01-01T00:00:00
+ORD_10712,CUST_0100,2025-02-25,delivered,mobile_app,Milan,Italy,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10713,CUST_0112,2025-02-26,delivered,website,Toulouse,France,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10714,CUST_0121,2025-02-27,delivered,wholesale,Zurich,Switzerland,express,WINTER25,25,2025-01-01T00:00:00
+ORD_10715,CUST_0040,2025-02-27,delivered,wholesale,Amsterdam,Netherlands,express,,0,2025-01-01T00:00:00
+ORD_10716,CUST_0003,2025-02-27,delivered,website,Marseille,France,express,,0,2025-01-01T00:00:00
+ORD_10717,CUST_0028,2025-02-27,delivered,wholesale,Toulouse,France,standard,,0,2025-01-01T00:00:00
+ORD_10718,CUST_0049,2025-02-28,delivered,wholesale,Geneva,Switzerland,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10719,CUST_0019,2025-03-01,delivered,mobile_app,Lyon,France,express,,0,2025-01-01T00:00:00
+ORD_10720,CUST_0097,2025-03-01,delivered,website,Strasbourg,France,express,,0,2025-01-01T00:00:00
+ORD_10721,CUST_0046,2025-03-01,delivered,website,Strasbourg,France,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10722,CUST_0038,2025-03-03,delivered,wholesale,London,United Kingdom,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10723,CUST_0119,2025-03-03,delivered,website,Munich,Germany,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10724,CUST_0147,2025-03-04,delivered,wholesale,Paris,France,express,,0,2025-01-01T00:00:00
+ORD_10725,CUST_0129,2025-03-05,delivered,website,Dubai,United Arab Emirates,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10726,CUST_0059,2025-03-05,delivered,in_store,Amsterdam,Netherlands,express,,0,2025-01-01T00:00:00
+ORD_10727,CUST_0122,2025-03-06,delivered,mobile_app,Geneva,Switzerland,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10728,CUST_0056,2025-03-07,delivered,wholesale,Milan,Italy,express,WINTER25,25,2025-01-01T00:00:00
+ORD_10729,CUST_0001,2025-03-07,delivered,in_store,Toulouse,France,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10730,CUST_0092,2025-03-07,delivered,in_store,Lyon,France,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10731,CUST_0123,2025-03-07,delivered,in_store,New York,United States,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10732,CUST_0048,2025-03-08,delivered,website,New York,United States,standard,,0,2025-01-01T00:00:00
+ORD_10733,CUST_0081,2025-03-09,delivered,wholesale,Bordeaux,France,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10734,CUST_0104,2025-03-09,delivered,mobile_app,Bordeaux,France,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10735,CUST_0130,2025-03-09,delivered,in_store,Munich,Germany,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_10736,CUST_0150,2025-03-10,delivered,in_store,Paris,France,express,,0,2025-01-01T00:00:00
+ORD_10737,CUST_0087,2025-03-10,delivered,in_store,Amsterdam,Netherlands,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10738,CUST_0052,2025-03-11,delivered,wholesale,Tokyo,Japan,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10739,CUST_0106,2025-03-12,delivered,in_store,Munich,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_10740,CUST_0149,2025-03-12,delivered,in_store,Dubai,United Arab Emirates,express,,0,2025-01-01T00:00:00
+ORD_10741,CUST_0009,2025-03-13,delivered,mobile_app,Lyon,France,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10742,CUST_0026,2025-03-13,delivered,in_store,Strasbourg,France,overnight,,0,2025-01-01T00:00:00
+ORD_10743,CUST_0022,2025-03-13,delivered,in_store,Tokyo,Japan,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10744,CUST_0061,2025-03-15,delivered,mobile_app,Milan,Italy,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10745,CUST_0144,2025-03-17,delivered,mobile_app,Lyon,France,express,,0,2025-01-01T00:00:00
+ORD_10746,CUST_0131,2025-03-17,delivered,mobile_app,Munich,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_10747,CUST_0103,2025-03-17,delivered,website,Marseille,France,standard,,0,2025-01-01T00:00:00
+ORD_10748,CUST_0021,2025-03-18,delivered,in_store,Amsterdam,Netherlands,standard,,0,2025-01-01T00:00:00
+ORD_10749,CUST_0104,2025-03-19,delivered,in_store,Amsterdam,Netherlands,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10750,CUST_0125,2025-03-20,delivered,website,Berlin,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_10751,CUST_0092,2025-03-20,delivered,in_store,Munich,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_10752,CUST_0026,2025-03-20,delivered,in_store,Toulouse,France,express,,0,2025-01-01T00:00:00
+ORD_10753,CUST_0134,2025-03-21,delivered,wholesale,Geneva,Switzerland,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10754,CUST_0032,2025-03-21,delivered,in_store,Milan,Italy,overnight,,0,2025-01-01T00:00:00
+ORD_10755,CUST_0113,2025-03-21,delivered,wholesale,Amsterdam,Netherlands,standard,,0,2025-01-01T00:00:00
+ORD_10756,CUST_0087,2025-03-21,delivered,wholesale,Los Angeles,United States,overnight,,0,2025-01-01T00:00:00
+ORD_10757,CUST_0083,2025-03-22,delivered,website,Los Angeles,United States,express,,0,2025-01-01T00:00:00
+ORD_10758,CUST_0131,2025-03-22,delivered,wholesale,Dubai,United Arab Emirates,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10759,CUST_0070,2025-03-22,delivered,wholesale,Munich,Germany,express,,0,2025-01-01T00:00:00
+ORD_10760,CUST_0020,2025-03-23,delivered,website,Singapore,Singapore,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10761,CUST_0017,2025-03-23,delivered,in_store,Toulouse,France,overnight,,0,2025-01-01T00:00:00
+ORD_10762,CUST_0025,2025-03-23,delivered,wholesale,Paris,France,express,,0,2025-01-01T00:00:00
+ORD_10763,CUST_0003,2025-03-23,delivered,wholesale,Milan,Italy,express,VIP15,15,2025-01-01T00:00:00
+ORD_10764,CUST_0120,2025-03-24,delivered,in_store,Zurich,Switzerland,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_10765,CUST_0029,2025-03-24,delivered,mobile_app,Zurich,Switzerland,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10766,CUST_0121,2025-03-25,delivered,mobile_app,Marseille,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10767,CUST_0007,2025-03-25,delivered,wholesale,Strasbourg,France,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10768,CUST_0088,2025-03-25,delivered,in_store,Marseille,France,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10769,CUST_0126,2025-03-26,delivered,mobile_app,Paris,France,standard,,0,2025-01-01T00:00:00
+ORD_10770,CUST_0117,2025-03-26,delivered,in_store,New York,United States,express,,0,2025-01-01T00:00:00
+ORD_10771,CUST_0003,2025-03-26,delivered,website,Munich,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_10772,CUST_0108,2025-03-27,delivered,website,Paris,France,express,,0,2025-01-01T00:00:00
+ORD_10773,CUST_0128,2025-03-28,delivered,mobile_app,Bordeaux,France,express,,0,2025-01-01T00:00:00
+ORD_10774,CUST_0035,2025-03-29,delivered,in_store,Munich,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_10775,CUST_0064,2025-03-31,delivered,in_store,Geneva,Switzerland,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10776,CUST_0019,2025-04-01,delivered,website,Tokyo,Japan,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10777,CUST_0109,2025-04-01,delivered,wholesale,Strasbourg,France,express,WINTER25,25,2025-01-01T00:00:00
+ORD_10778,CUST_0055,2025-04-02,delivered,mobile_app,Strasbourg,France,standard,,0,2025-01-01T00:00:00
+ORD_10779,CUST_0001,2025-04-02,delivered,wholesale,Milan,Italy,overnight,,0,2025-01-01T00:00:00
+ORD_10780,CUST_0147,2025-04-02,delivered,website,Dubai,United Arab Emirates,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10781,CUST_0049,2025-04-04,delivered,in_store,Bordeaux,France,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10782,CUST_0127,2025-04-06,delivered,wholesale,Geneva,Switzerland,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10783,CUST_0124,2025-04-08,delivered,mobile_app,Geneva,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_10784,CUST_0131,2025-04-08,delivered,website,Berlin,Germany,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10785,CUST_0130,2025-04-08,delivered,in_store,Geneva,Switzerland,overnight,,0,2025-01-01T00:00:00
+ORD_10786,CUST_0066,2025-04-08,delivered,mobile_app,Tokyo,Japan,overnight,,0,2025-01-01T00:00:00
+ORD_10787,CUST_0147,2025-04-09,delivered,in_store,Geneva,Switzerland,overnight,,0,2025-01-01T00:00:00
+ORD_10788,CUST_0024,2025-04-09,delivered,website,Strasbourg,France,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10789,CUST_0132,2025-04-09,delivered,wholesale,Lyon,France,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10790,CUST_0102,2025-04-09,delivered,in_store,Tokyo,Japan,standard,,0,2025-01-01T00:00:00
+ORD_10791,CUST_0030,2025-04-10,delivered,mobile_app,Munich,Germany,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10792,CUST_0086,2025-04-11,delivered,website,Geneva,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_10793,CUST_0020,2025-04-12,delivered,wholesale,Strasbourg,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10794,CUST_0095,2025-04-12,delivered,website,Zurich,Switzerland,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_10795,CUST_0047,2025-04-12,delivered,website,Geneva,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_10796,CUST_0042,2025-04-13,delivered,in_store,Geneva,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_10797,CUST_0031,2025-04-13,delivered,website,New York,United States,standard,,0,2025-01-01T00:00:00
+ORD_10798,CUST_0124,2025-04-15,delivered,in_store,Tokyo,Japan,standard,,0,2025-01-01T00:00:00
+ORD_10799,CUST_0142,2025-04-15,delivered,mobile_app,Tokyo,Japan,standard,,0,2025-01-01T00:00:00
+ORD_10800,CUST_0004,2025-04-16,delivered,website,Geneva,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_10801,CUST_0049,2025-04-18,delivered,mobile_app,Singapore,Singapore,overnight,,0,2025-01-01T00:00:00
+ORD_10802,CUST_0134,2025-04-18,delivered,wholesale,Zurich,Switzerland,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10803,CUST_0036,2025-04-18,delivered,wholesale,Bordeaux,France,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10804,CUST_0030,2025-04-18,delivered,wholesale,Munich,Germany,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10805,CUST_0147,2025-04-19,delivered,website,Los Angeles,United States,overnight,,0,2025-01-01T00:00:00
+ORD_10806,CUST_0106,2025-04-19,delivered,in_store,Tokyo,Japan,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10807,CUST_0142,2025-04-19,delivered,website,Los Angeles,United States,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10808,CUST_0142,2025-04-20,delivered,in_store,Strasbourg,France,standard,,0,2025-01-01T00:00:00
+ORD_10809,CUST_0093,2025-04-20,delivered,wholesale,London,United Kingdom,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10810,CUST_0057,2025-04-20,delivered,mobile_app,Marseille,France,express,WINTER25,25,2025-01-01T00:00:00
+ORD_10811,CUST_0105,2025-04-20,delivered,in_store,Geneva,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_10812,CUST_0082,2025-04-20,delivered,mobile_app,Zurich,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_10813,CUST_0112,2025-04-21,delivered,mobile_app,Berlin,Germany,standard,,0,2025-01-01T00:00:00
+ORD_10814,CUST_0063,2025-04-22,delivered,website,London,United Kingdom,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10815,CUST_0022,2025-04-22,delivered,wholesale,New York,United States,standard,,0,2025-01-01T00:00:00
+ORD_10816,CUST_0048,2025-04-23,delivered,wholesale,Dubai,United Arab Emirates,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_10817,CUST_0004,2025-04-23,delivered,in_store,New York,United States,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10818,CUST_0143,2025-04-23,delivered,in_store,Strasbourg,France,express,WINTER25,25,2025-01-01T00:00:00
+ORD_10819,CUST_0080,2025-04-23,delivered,wholesale,Strasbourg,France,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10820,CUST_0119,2025-04-23,delivered,wholesale,Dubai,United Arab Emirates,standard,,0,2025-01-01T00:00:00
+ORD_10821,CUST_0114,2025-04-23,delivered,website,Los Angeles,United States,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10822,CUST_0118,2025-04-23,delivered,website,Munich,Germany,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10823,CUST_0060,2025-04-24,delivered,website,Berlin,Germany,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10824,CUST_0146,2025-04-25,delivered,website,Singapore,Singapore,express,,0,2025-01-01T00:00:00
+ORD_10825,CUST_0068,2025-04-25,delivered,website,Paris,France,express,VIP15,15,2025-01-01T00:00:00
+ORD_10826,CUST_0110,2025-04-26,delivered,mobile_app,Singapore,Singapore,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10827,CUST_0082,2025-04-26,delivered,website,Singapore,Singapore,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10828,CUST_0056,2025-04-27,delivered,in_store,Paris,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10829,CUST_0143,2025-04-27,delivered,wholesale,London,United Kingdom,standard,,0,2025-01-01T00:00:00
+ORD_10830,CUST_0020,2025-04-28,delivered,mobile_app,Berlin,Germany,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10831,CUST_0063,2025-04-28,delivered,mobile_app,New York,United States,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10832,CUST_0121,2025-04-28,delivered,mobile_app,Bordeaux,France,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10833,CUST_0098,2025-04-29,delivered,wholesale,Zurich,Switzerland,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10834,CUST_0028,2025-04-30,delivered,in_store,Berlin,Germany,standard,,0,2025-01-01T00:00:00
+ORD_10835,CUST_0081,2025-04-30,delivered,wholesale,Lyon,France,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10836,CUST_0101,2025-05-01,delivered,wholesale,New York,United States,express,,0,2025-01-01T00:00:00
+ORD_10837,CUST_0067,2025-05-01,delivered,in_store,Lyon,France,express,,0,2025-01-01T00:00:00
+ORD_10838,CUST_0064,2025-05-01,delivered,in_store,Lyon,France,overnight,,0,2025-01-01T00:00:00
+ORD_10839,CUST_0124,2025-05-02,delivered,mobile_app,Geneva,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_10840,CUST_0061,2025-05-02,delivered,wholesale,Zurich,Switzerland,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10841,CUST_0121,2025-05-02,delivered,mobile_app,Milan,Italy,express,,0,2025-01-01T00:00:00
+ORD_10842,CUST_0027,2025-05-03,delivered,in_store,London,United Kingdom,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10843,CUST_0072,2025-05-03,delivered,wholesale,Toulouse,France,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10844,CUST_0065,2025-05-03,delivered,website,Munich,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_10845,CUST_0051,2025-05-04,delivered,wholesale,Dubai,United Arab Emirates,standard,,0,2025-01-01T00:00:00
+ORD_10846,CUST_0134,2025-05-05,delivered,mobile_app,Milan,Italy,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10847,CUST_0113,2025-05-05,delivered,wholesale,Milan,Italy,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10848,CUST_0063,2025-05-06,delivered,in_store,Toulouse,France,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10849,CUST_0078,2025-05-06,delivered,website,Tokyo,Japan,express,VIP15,15,2025-01-01T00:00:00
+ORD_10850,CUST_0137,2025-05-06,delivered,website,Los Angeles,United States,standard,,0,2025-01-01T00:00:00
+ORD_10851,CUST_0045,2025-05-06,delivered,website,Marseille,France,standard,,0,2025-01-01T00:00:00
+ORD_10852,CUST_0078,2025-05-07,delivered,mobile_app,Dubai,United Arab Emirates,overnight,,0,2025-01-01T00:00:00
+ORD_10853,CUST_0082,2025-05-07,delivered,wholesale,New York,United States,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10854,CUST_0041,2025-05-07,delivered,wholesale,Los Angeles,United States,express,,0,2025-01-01T00:00:00
+ORD_10855,CUST_0105,2025-05-07,delivered,in_store,Paris,France,overnight,,0,2025-01-01T00:00:00
+ORD_10856,CUST_0019,2025-05-08,delivered,in_store,Tokyo,Japan,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_10857,CUST_0067,2025-05-08,delivered,in_store,Zurich,Switzerland,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10858,CUST_0038,2025-05-08,delivered,in_store,Paris,France,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10859,CUST_0135,2025-05-08,delivered,mobile_app,Berlin,Germany,express,,0,2025-01-01T00:00:00
+ORD_10860,CUST_0019,2025-05-08,delivered,wholesale,London,United Kingdom,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10861,CUST_0025,2025-05-09,delivered,in_store,Milan,Italy,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_10862,CUST_0117,2025-05-09,delivered,website,Munich,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_10863,CUST_0113,2025-05-11,delivered,website,Geneva,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_10864,CUST_0013,2025-05-13,delivered,website,Dubai,United Arab Emirates,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10865,CUST_0148,2025-05-14,delivered,wholesale,Zurich,Switzerland,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10866,CUST_0113,2025-05-14,delivered,mobile_app,Los Angeles,United States,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10867,CUST_0083,2025-05-15,delivered,mobile_app,Lyon,France,standard,,0,2025-01-01T00:00:00
+ORD_10868,CUST_0044,2025-05-15,delivered,website,Strasbourg,France,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10869,CUST_0009,2025-05-15,delivered,mobile_app,Berlin,Germany,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10870,CUST_0057,2025-05-16,delivered,mobile_app,Paris,France,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10871,CUST_0036,2025-05-16,delivered,wholesale,Toulouse,France,standard,,0,2025-01-01T00:00:00
+ORD_10872,CUST_0093,2025-05-16,delivered,wholesale,Berlin,Germany,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10873,CUST_0113,2025-05-16,delivered,website,Milan,Italy,express,VIP15,15,2025-01-01T00:00:00
+ORD_10874,CUST_0093,2025-05-16,delivered,mobile_app,Strasbourg,France,express,,0,2025-01-01T00:00:00
+ORD_10875,CUST_0113,2025-05-16,delivered,mobile_app,Tokyo,Japan,express,,0,2025-01-01T00:00:00
+ORD_10876,CUST_0015,2025-05-16,delivered,wholesale,New York,United States,overnight,,0,2025-01-01T00:00:00
+ORD_10877,CUST_0098,2025-05-16,delivered,mobile_app,Amsterdam,Netherlands,express,,0,2025-01-01T00:00:00
+ORD_10878,CUST_0046,2025-05-16,delivered,mobile_app,Dubai,United Arab Emirates,express,,0,2025-01-01T00:00:00
+ORD_10879,CUST_0137,2025-05-17,delivered,wholesale,Dubai,United Arab Emirates,overnight,,0,2025-01-01T00:00:00
+ORD_10880,CUST_0053,2025-05-17,delivered,in_store,Bordeaux,France,standard,,0,2025-01-01T00:00:00
+ORD_10881,CUST_0043,2025-05-17,delivered,wholesale,Munich,Germany,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10882,CUST_0015,2025-05-18,delivered,wholesale,Los Angeles,United States,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10883,CUST_0010,2025-05-19,delivered,website,Singapore,Singapore,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10884,CUST_0105,2025-05-20,delivered,in_store,New York,United States,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10885,CUST_0092,2025-05-20,delivered,mobile_app,London,United Kingdom,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10886,CUST_0146,2025-05-20,delivered,in_store,New York,United States,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10887,CUST_0111,2025-05-21,delivered,website,Zurich,Switzerland,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10888,CUST_0004,2025-05-21,delivered,website,Zurich,Switzerland,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10889,CUST_0074,2025-05-22,delivered,wholesale,London,United Kingdom,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10890,CUST_0119,2025-05-22,delivered,wholesale,Zurich,Switzerland,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10891,CUST_0111,2025-05-23,delivered,mobile_app,Tokyo,Japan,express,,0,2025-01-01T00:00:00
+ORD_10892,CUST_0059,2025-05-23,delivered,mobile_app,Berlin,Germany,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10893,CUST_0038,2025-05-23,delivered,wholesale,Milan,Italy,overnight,,0,2025-01-01T00:00:00
+ORD_10894,CUST_0135,2025-05-23,delivered,wholesale,Tokyo,Japan,overnight,,0,2025-01-01T00:00:00
+ORD_10895,CUST_0043,2025-05-23,delivered,mobile_app,Los Angeles,United States,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10896,CUST_0078,2025-05-23,delivered,wholesale,New York,United States,standard,,0,2025-01-01T00:00:00
+ORD_10897,CUST_0078,2025-05-23,delivered,in_store,Toulouse,France,express,,0,2025-01-01T00:00:00
+ORD_10898,CUST_0115,2025-05-25,delivered,website,Paris,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10899,CUST_0041,2025-05-26,delivered,mobile_app,Toulouse,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10900,CUST_0078,2025-05-26,delivered,website,London,United Kingdom,standard,,0,2025-01-01T00:00:00
+ORD_10901,CUST_0090,2025-05-27,delivered,website,Amsterdam,Netherlands,express,,0,2025-01-01T00:00:00
+ORD_10902,CUST_0125,2025-05-27,delivered,website,Berlin,Germany,express,,0,2025-01-01T00:00:00
+ORD_10903,CUST_0143,2025-05-27,delivered,wholesale,Munich,Germany,standard,,0,2025-01-01T00:00:00
+ORD_10904,CUST_0106,2025-05-29,delivered,mobile_app,New York,United States,express,VIP15,15,2025-01-01T00:00:00
+ORD_10905,CUST_0088,2025-05-31,delivered,in_store,Geneva,Switzerland,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10906,CUST_0075,2025-05-31,delivered,mobile_app,Berlin,Germany,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10907,CUST_0069,2025-06-01,delivered,website,Toulouse,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10908,CUST_0072,2025-06-01,delivered,website,Bordeaux,France,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10909,CUST_0100,2025-06-02,delivered,in_store,New York,United States,express,,0,2025-01-01T00:00:00
+ORD_10910,CUST_0059,2025-06-02,delivered,in_store,Tokyo,Japan,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10911,CUST_0095,2025-06-03,delivered,wholesale,Munich,Germany,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10912,CUST_0005,2025-06-03,delivered,wholesale,London,United Kingdom,overnight,,0,2025-01-01T00:00:00
+ORD_10913,CUST_0026,2025-06-03,delivered,in_store,Toulouse,France,standard,,0,2025-01-01T00:00:00
+ORD_10914,CUST_0124,2025-06-04,delivered,mobile_app,Marseille,France,express,,0,2025-01-01T00:00:00
+ORD_10915,CUST_0064,2025-06-04,delivered,mobile_app,Milan,Italy,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10916,CUST_0127,2025-06-05,delivered,mobile_app,Marseille,France,standard,,0,2025-01-01T00:00:00
+ORD_10917,CUST_0073,2025-06-06,delivered,wholesale,Lyon,France,express,,0,2025-01-01T00:00:00
+ORD_10918,CUST_0083,2025-06-07,delivered,mobile_app,Milan,Italy,express,VIP15,15,2025-01-01T00:00:00
+ORD_10919,CUST_0107,2025-06-07,delivered,mobile_app,Milan,Italy,express,,0,2025-01-01T00:00:00
+ORD_10920,CUST_0046,2025-06-08,delivered,mobile_app,Singapore,Singapore,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10921,CUST_0024,2025-06-08,delivered,mobile_app,New York,United States,express,,0,2025-01-01T00:00:00
+ORD_10922,CUST_0030,2025-06-09,delivered,wholesale,Toulouse,France,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10923,CUST_0026,2025-06-10,delivered,website,Los Angeles,United States,express,VIP15,15,2025-01-01T00:00:00
+ORD_10924,CUST_0131,2025-06-10,delivered,wholesale,Berlin,Germany,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10925,CUST_0019,2025-06-10,delivered,mobile_app,Los Angeles,United States,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10926,CUST_0122,2025-06-10,delivered,website,Dubai,United Arab Emirates,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10927,CUST_0084,2025-06-11,delivered,wholesale,Singapore,Singapore,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10928,CUST_0141,2025-06-11,delivered,mobile_app,Milan,Italy,standard,,0,2025-01-01T00:00:00
+ORD_10929,CUST_0147,2025-06-11,delivered,in_store,Paris,France,standard,,0,2025-01-01T00:00:00
+ORD_10930,CUST_0115,2025-06-11,delivered,mobile_app,Tokyo,Japan,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10931,CUST_0024,2025-06-12,delivered,in_store,Munich,Germany,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10932,CUST_0138,2025-06-13,delivered,website,New York,United States,overnight,,0,2025-01-01T00:00:00
+ORD_10933,CUST_0011,2025-06-14,delivered,website,Singapore,Singapore,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10934,CUST_0076,2025-06-15,delivered,in_store,Strasbourg,France,express,WINTER25,25,2025-01-01T00:00:00
+ORD_10935,CUST_0079,2025-06-16,delivered,in_store,Tokyo,Japan,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10936,CUST_0032,2025-06-17,delivered,website,Singapore,Singapore,overnight,,0,2025-01-01T00:00:00
+ORD_10937,CUST_0004,2025-06-18,delivered,wholesale,Berlin,Germany,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10938,CUST_0086,2025-06-19,delivered,wholesale,Zurich,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_10939,CUST_0055,2025-06-19,delivered,mobile_app,Bordeaux,France,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10940,CUST_0116,2025-06-19,delivered,mobile_app,Munich,Germany,express,VIP15,15,2025-01-01T00:00:00
+ORD_10941,CUST_0111,2025-06-19,delivered,website,Los Angeles,United States,express,,0,2025-01-01T00:00:00
+ORD_10942,CUST_0110,2025-06-20,delivered,mobile_app,Bordeaux,France,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_10943,CUST_0136,2025-06-20,delivered,in_store,Lyon,France,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10944,CUST_0145,2025-06-21,delivered,in_store,Marseille,France,standard,VIP15,15,2025-01-01T00:00:00
+ORD_10945,CUST_0014,2025-06-21,delivered,wholesale,Berlin,Germany,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10946,CUST_0031,2025-06-22,delivered,wholesale,Milan,Italy,overnight,,0,2025-01-01T00:00:00
+ORD_10947,CUST_0139,2025-06-22,delivered,website,Geneva,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_10948,CUST_0119,2025-06-23,delivered,wholesale,Amsterdam,Netherlands,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10949,CUST_0076,2025-06-23,delivered,mobile_app,Strasbourg,France,overnight,,0,2025-01-01T00:00:00
+ORD_10950,CUST_0101,2025-06-24,delivered,in_store,New York,United States,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10951,CUST_0045,2025-06-24,delivered,mobile_app,New York,United States,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10952,CUST_0085,2025-06-25,delivered,wholesale,Singapore,Singapore,express,,0,2025-01-01T00:00:00
+ORD_10953,CUST_0030,2025-06-26,delivered,in_store,Zurich,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_10954,CUST_0140,2025-06-26,delivered,mobile_app,Bordeaux,France,standard,,0,2025-01-01T00:00:00
+ORD_10955,CUST_0142,2025-06-28,delivered,website,Berlin,Germany,express,,0,2025-01-01T00:00:00
+ORD_10956,CUST_0127,2025-06-29,delivered,mobile_app,Berlin,Germany,express,WINTER25,25,2025-01-01T00:00:00
+ORD_10957,CUST_0120,2025-06-29,delivered,wholesale,Dubai,United Arab Emirates,express,,0,2025-01-01T00:00:00
+ORD_10958,CUST_0121,2025-06-30,delivered,mobile_app,Marseille,France,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10959,CUST_0073,2025-07-01,delivered,wholesale,Paris,France,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_10960,CUST_0124,2025-07-01,delivered,wholesale,Lyon,France,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10961,CUST_0116,2025-07-01,delivered,wholesale,New York,United States,express,,0,2025-01-01T00:00:00
+ORD_10962,CUST_0027,2025-07-03,delivered,website,Berlin,Germany,express,,0,2025-01-01T00:00:00
+ORD_10963,CUST_0030,2025-07-03,delivered,wholesale,Lyon,France,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10964,CUST_0064,2025-07-05,delivered,mobile_app,Berlin,Germany,express,VIP15,15,2025-01-01T00:00:00
+ORD_10965,CUST_0140,2025-07-05,delivered,mobile_app,Marseille,France,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10966,CUST_0067,2025-07-05,delivered,website,Singapore,Singapore,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10967,CUST_0064,2025-07-06,delivered,wholesale,Strasbourg,France,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10968,CUST_0063,2025-07-06,delivered,in_store,Tokyo,Japan,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_10969,CUST_0127,2025-07-06,delivered,in_store,Toulouse,France,standard,,0,2025-01-01T00:00:00
+ORD_10970,CUST_0102,2025-07-09,delivered,wholesale,Singapore,Singapore,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10971,CUST_0033,2025-07-09,delivered,in_store,Bordeaux,France,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10972,CUST_0034,2025-07-09,delivered,wholesale,Strasbourg,France,express,WINTER25,25,2025-01-01T00:00:00
+ORD_10973,CUST_0133,2025-07-11,delivered,wholesale,Los Angeles,United States,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_10974,CUST_0038,2025-07-11,delivered,website,London,United Kingdom,standard,,0,2025-01-01T00:00:00
+ORD_10975,CUST_0050,2025-07-13,delivered,wholesale,Lyon,France,overnight,,0,2025-01-01T00:00:00
+ORD_10976,CUST_0129,2025-07-14,delivered,in_store,Dubai,United Arab Emirates,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10977,CUST_0132,2025-07-14,delivered,mobile_app,Lyon,France,standard,,0,2025-01-01T00:00:00
+ORD_10978,CUST_0131,2025-07-14,delivered,wholesale,Lyon,France,express,VIP15,15,2025-01-01T00:00:00
+ORD_10979,CUST_0139,2025-07-14,delivered,website,Zurich,Switzerland,express,WINTER25,25,2025-01-01T00:00:00
+ORD_10980,CUST_0144,2025-07-14,delivered,wholesale,Strasbourg,France,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_10981,CUST_0125,2025-07-14,delivered,in_store,Lyon,France,express,FLASH30,30,2025-01-01T00:00:00
+ORD_10982,CUST_0016,2025-07-15,delivered,website,New York,United States,standard,,0,2025-01-01T00:00:00
+ORD_10983,CUST_0052,2025-07-15,delivered,website,Geneva,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_10984,CUST_0057,2025-07-16,delivered,in_store,Munich,Germany,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_10985,CUST_0027,2025-07-16,delivered,website,Berlin,Germany,standard,,0,2025-01-01T00:00:00
+ORD_10986,CUST_0029,2025-07-17,delivered,mobile_app,Zurich,Switzerland,overnight,,0,2025-01-01T00:00:00
+ORD_10987,CUST_0045,2025-07-17,delivered,in_store,Singapore,Singapore,express,,0,2025-01-01T00:00:00
+ORD_10988,CUST_0118,2025-07-19,delivered,in_store,Singapore,Singapore,standard,,0,2025-01-01T00:00:00
+ORD_10989,CUST_0046,2025-07-19,delivered,mobile_app,Paris,France,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10990,CUST_0129,2025-07-19,delivered,mobile_app,Tokyo,Japan,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10991,CUST_0046,2025-07-19,delivered,mobile_app,Singapore,Singapore,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_10992,CUST_0102,2025-07-21,delivered,website,London,United Kingdom,overnight,,0,2025-01-01T00:00:00
+ORD_10993,CUST_0139,2025-07-22,delivered,website,Munich,Germany,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_10994,CUST_0111,2025-07-22,delivered,mobile_app,Los Angeles,United States,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_10995,CUST_0073,2025-07-24,delivered,mobile_app,Milan,Italy,express,,0,2025-01-01T00:00:00
+ORD_10996,CUST_0129,2025-07-24,delivered,website,Los Angeles,United States,express,,0,2025-01-01T00:00:00
+ORD_10997,CUST_0118,2025-07-24,delivered,website,Berlin,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_10998,CUST_0148,2025-07-24,delivered,wholesale,Tokyo,Japan,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_10999,CUST_0040,2025-07-24,delivered,wholesale,Dubai,United Arab Emirates,standard,,0,2025-01-01T00:00:00
+ORD_11000,CUST_0024,2025-07-25,delivered,wholesale,Lyon,France,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11001,CUST_0145,2025-07-25,delivered,mobile_app,Toulouse,France,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11002,CUST_0012,2025-07-26,delivered,in_store,New York,United States,express,,0,2025-01-01T00:00:00
+ORD_11003,CUST_0052,2025-07-26,delivered,wholesale,Berlin,Germany,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11004,CUST_0018,2025-07-26,delivered,website,New York,United States,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11005,CUST_0099,2025-07-27,delivered,wholesale,Munich,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_11006,CUST_0079,2025-07-27,delivered,wholesale,Bordeaux,France,overnight,,0,2025-01-01T00:00:00
+ORD_11007,CUST_0063,2025-07-28,delivered,website,Paris,France,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11008,CUST_0054,2025-07-28,delivered,website,Bordeaux,France,express,,0,2025-01-01T00:00:00
+ORD_11009,CUST_0101,2025-07-28,delivered,mobile_app,Zurich,Switzerland,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11010,CUST_0067,2025-07-28,delivered,mobile_app,Amsterdam,Netherlands,standard,,0,2025-01-01T00:00:00
+ORD_11011,CUST_0082,2025-07-29,delivered,in_store,Lyon,France,express,VIP15,15,2025-01-01T00:00:00
+ORD_11012,CUST_0066,2025-07-30,delivered,mobile_app,Berlin,Germany,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11013,CUST_0097,2025-07-30,delivered,in_store,Dubai,United Arab Emirates,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11014,CUST_0082,2025-07-31,delivered,wholesale,Zurich,Switzerland,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11015,CUST_0096,2025-08-01,delivered,website,Geneva,Switzerland,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11016,CUST_0038,2025-08-01,delivered,website,Strasbourg,France,standard,,0,2025-01-01T00:00:00
+ORD_11017,CUST_0049,2025-08-01,delivered,website,Bordeaux,France,express,,0,2025-01-01T00:00:00
+ORD_11018,CUST_0105,2025-08-03,delivered,in_store,Marseille,France,overnight,,0,2025-01-01T00:00:00
+ORD_11019,CUST_0108,2025-08-03,delivered,mobile_app,Singapore,Singapore,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11020,CUST_0035,2025-08-03,delivered,wholesale,Paris,France,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11021,CUST_0133,2025-08-04,delivered,mobile_app,Zurich,Switzerland,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11022,CUST_0122,2025-08-04,delivered,website,Munich,Germany,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11023,CUST_0107,2025-08-05,delivered,website,Lyon,France,standard,,0,2025-01-01T00:00:00
+ORD_11024,CUST_0046,2025-08-05,delivered,mobile_app,Strasbourg,France,standard,,0,2025-01-01T00:00:00
+ORD_11025,CUST_0064,2025-08-05,delivered,mobile_app,Los Angeles,United States,overnight,,0,2025-01-01T00:00:00
+ORD_11026,CUST_0055,2025-08-05,delivered,mobile_app,New York,United States,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11027,CUST_0123,2025-08-05,delivered,wholesale,Singapore,Singapore,standard,,0,2025-01-01T00:00:00
+ORD_11028,CUST_0111,2025-08-05,delivered,in_store,Munich,Germany,standard,,0,2025-01-01T00:00:00
+ORD_11029,CUST_0021,2025-08-05,delivered,website,Milan,Italy,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11030,CUST_0096,2025-08-05,delivered,in_store,Marseille,France,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11031,CUST_0098,2025-08-06,delivered,mobile_app,Los Angeles,United States,express,,0,2025-01-01T00:00:00
+ORD_11032,CUST_0047,2025-08-07,delivered,website,Milan,Italy,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11033,CUST_0131,2025-08-07,delivered,in_store,Bordeaux,France,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11034,CUST_0031,2025-08-08,delivered,wholesale,Bordeaux,France,express,,0,2025-01-01T00:00:00
+ORD_11035,CUST_0116,2025-08-08,delivered,mobile_app,Milan,Italy,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11036,CUST_0055,2025-08-09,delivered,wholesale,Strasbourg,France,standard,,0,2025-01-01T00:00:00
+ORD_11037,CUST_0145,2025-08-09,delivered,wholesale,Lyon,France,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11038,CUST_0070,2025-08-09,delivered,mobile_app,Marseille,France,overnight,,0,2025-01-01T00:00:00
+ORD_11039,CUST_0033,2025-08-09,delivered,wholesale,London,United Kingdom,express,,0,2025-01-01T00:00:00
+ORD_11040,CUST_0011,2025-08-11,delivered,mobile_app,Dubai,United Arab Emirates,standard,,0,2025-01-01T00:00:00
+ORD_11041,CUST_0039,2025-08-11,delivered,mobile_app,Berlin,Germany,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11042,CUST_0082,2025-08-12,delivered,in_store,Marseille,France,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11043,CUST_0036,2025-08-12,delivered,wholesale,Berlin,Germany,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11044,CUST_0134,2025-08-12,delivered,wholesale,Toulouse,France,standard,,0,2025-01-01T00:00:00
+ORD_11045,CUST_0053,2025-08-13,delivered,wholesale,Geneva,Switzerland,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11046,CUST_0070,2025-08-13,delivered,wholesale,Geneva,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_11047,CUST_0141,2025-08-14,delivered,mobile_app,Marseille,France,express,,0,2025-01-01T00:00:00
+ORD_11048,CUST_0048,2025-08-15,delivered,website,Berlin,Germany,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11049,CUST_0014,2025-08-15,delivered,in_store,Dubai,United Arab Emirates,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11050,CUST_0031,2025-08-15,delivered,mobile_app,Singapore,Singapore,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11051,CUST_0100,2025-08-15,delivered,website,Marseille,France,express,,0,2025-01-01T00:00:00
+ORD_11052,CUST_0005,2025-08-15,delivered,in_store,Bordeaux,France,express,VIP15,15,2025-01-01T00:00:00
+ORD_11053,CUST_0109,2025-08-17,delivered,wholesale,Milan,Italy,standard,,0,2025-01-01T00:00:00
+ORD_11054,CUST_0038,2025-08-18,delivered,mobile_app,Milan,Italy,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11055,CUST_0095,2025-08-18,delivered,in_store,Berlin,Germany,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11056,CUST_0123,2025-08-19,delivered,wholesale,London,United Kingdom,overnight,,0,2025-01-01T00:00:00
+ORD_11057,CUST_0004,2025-08-20,delivered,in_store,Bordeaux,France,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11058,CUST_0041,2025-08-21,delivered,in_store,New York,United States,standard,,0,2025-01-01T00:00:00
+ORD_11059,CUST_0094,2025-08-21,delivered,website,Tokyo,Japan,standard,,0,2025-01-01T00:00:00
+ORD_11060,CUST_0058,2025-08-21,delivered,in_store,Zurich,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_11061,CUST_0035,2025-08-22,delivered,website,Lyon,France,standard,,0,2025-01-01T00:00:00
+ORD_11062,CUST_0059,2025-08-22,delivered,website,Paris,France,overnight,,0,2025-01-01T00:00:00
+ORD_11063,CUST_0011,2025-08-23,delivered,wholesale,Tokyo,Japan,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11064,CUST_0045,2025-08-23,delivered,in_store,Strasbourg,France,standard,,0,2025-01-01T00:00:00
+ORD_11065,CUST_0095,2025-08-23,delivered,mobile_app,London,United Kingdom,standard,,0,2025-01-01T00:00:00
+ORD_11066,CUST_0053,2025-08-24,delivered,wholesale,London,United Kingdom,standard,,0,2025-01-01T00:00:00
+ORD_11067,CUST_0114,2025-08-24,delivered,in_store,Geneva,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_11068,CUST_0009,2025-08-25,delivered,wholesale,Berlin,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_11069,CUST_0003,2025-08-25,delivered,in_store,Dubai,United Arab Emirates,express,,0,2025-01-01T00:00:00
+ORD_11070,CUST_0147,2025-08-26,delivered,mobile_app,Tokyo,Japan,express,,0,2025-01-01T00:00:00
+ORD_11071,CUST_0021,2025-08-26,delivered,mobile_app,Singapore,Singapore,express,,0,2025-01-01T00:00:00
+ORD_11072,CUST_0070,2025-08-27,delivered,in_store,Berlin,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_11073,CUST_0017,2025-08-27,delivered,mobile_app,Milan,Italy,express,,0,2025-01-01T00:00:00
+ORD_11074,CUST_0068,2025-08-28,delivered,in_store,Munich,Germany,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11075,CUST_0115,2025-08-28,delivered,mobile_app,Paris,France,express,,0,2025-01-01T00:00:00
+ORD_11076,CUST_0034,2025-08-28,delivered,in_store,New York,United States,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11077,CUST_0022,2025-08-29,delivered,mobile_app,Toulouse,France,express,,0,2025-01-01T00:00:00
+ORD_11078,CUST_0085,2025-08-31,delivered,website,Toulouse,France,overnight,,0,2025-01-01T00:00:00
+ORD_11079,CUST_0105,2025-08-31,delivered,wholesale,Bordeaux,France,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11080,CUST_0070,2025-08-31,delivered,wholesale,Amsterdam,Netherlands,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11081,CUST_0025,2025-09-01,delivered,wholesale,Zurich,Switzerland,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11082,CUST_0062,2025-09-01,delivered,in_store,Dubai,United Arab Emirates,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11083,CUST_0130,2025-09-01,delivered,wholesale,Singapore,Singapore,standard,,0,2025-01-01T00:00:00
+ORD_11084,CUST_0002,2025-09-02,delivered,wholesale,Amsterdam,Netherlands,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11085,CUST_0005,2025-09-02,delivered,in_store,Toulouse,France,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11086,CUST_0083,2025-09-04,delivered,in_store,Munich,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_11087,CUST_0080,2025-09-06,delivered,wholesale,Singapore,Singapore,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11088,CUST_0025,2025-09-06,delivered,wholesale,Zurich,Switzerland,overnight,,0,2025-01-01T00:00:00
+ORD_11089,CUST_0026,2025-09-06,delivered,mobile_app,Strasbourg,France,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11090,CUST_0065,2025-09-06,delivered,website,Paris,France,express,,0,2025-01-01T00:00:00
+ORD_11091,CUST_0111,2025-09-06,delivered,mobile_app,Toulouse,France,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11092,CUST_0094,2025-09-07,delivered,mobile_app,Dubai,United Arab Emirates,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11093,CUST_0130,2025-09-07,delivered,website,Tokyo,Japan,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11094,CUST_0119,2025-09-08,delivered,wholesale,Dubai,United Arab Emirates,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11095,CUST_0114,2025-09-08,delivered,mobile_app,Toulouse,France,express,,0,2025-01-01T00:00:00
+ORD_11096,CUST_0092,2025-09-10,delivered,wholesale,Marseille,France,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11097,CUST_0111,2025-09-11,delivered,wholesale,Marseille,France,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11098,CUST_0040,2025-09-13,delivered,mobile_app,Lyon,France,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11099,CUST_0124,2025-09-14,delivered,mobile_app,Geneva,Switzerland,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11100,CUST_0031,2025-09-15,delivered,website,Milan,Italy,standard,,0,2025-01-01T00:00:00
+ORD_11101,CUST_0095,2025-09-16,delivered,wholesale,Dubai,United Arab Emirates,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11102,CUST_0126,2025-09-16,delivered,wholesale,Paris,France,express,,0,2025-01-01T00:00:00
+ORD_11103,CUST_0092,2025-09-16,delivered,website,Toulouse,France,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11104,CUST_0132,2025-09-17,delivered,in_store,Geneva,Switzerland,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11105,CUST_0066,2025-09-17,delivered,mobile_app,Singapore,Singapore,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11106,CUST_0033,2025-09-17,delivered,wholesale,Singapore,Singapore,express,,0,2025-01-01T00:00:00
+ORD_11107,CUST_0140,2025-09-17,delivered,website,Lyon,France,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11108,CUST_0092,2025-09-18,delivered,in_store,Los Angeles,United States,express,,0,2025-01-01T00:00:00
+ORD_11109,CUST_0118,2025-09-18,delivered,wholesale,Dubai,United Arab Emirates,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11110,CUST_0141,2025-09-18,delivered,mobile_app,Paris,France,express,,0,2025-01-01T00:00:00
+ORD_11111,CUST_0027,2025-09-19,delivered,website,Zurich,Switzerland,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11112,CUST_0050,2025-09-19,delivered,mobile_app,Berlin,Germany,express,,0,2025-01-01T00:00:00
+ORD_11113,CUST_0100,2025-09-21,delivered,in_store,Strasbourg,France,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11114,CUST_0141,2025-09-21,delivered,in_store,Berlin,Germany,express,,0,2025-01-01T00:00:00
+ORD_11115,CUST_0099,2025-09-22,delivered,mobile_app,Munich,Germany,standard,,0,2025-01-01T00:00:00
+ORD_11116,CUST_0028,2025-09-23,delivered,in_store,Strasbourg,France,overnight,,0,2025-01-01T00:00:00
+ORD_11117,CUST_0042,2025-09-24,delivered,mobile_app,Lyon,France,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11118,CUST_0127,2025-09-24,delivered,mobile_app,Bordeaux,France,standard,,0,2025-01-01T00:00:00
+ORD_11119,CUST_0074,2025-09-25,delivered,mobile_app,Strasbourg,France,overnight,,0,2025-01-01T00:00:00
+ORD_11120,CUST_0071,2025-09-28,delivered,in_store,Dubai,United Arab Emirates,express,VIP15,15,2025-01-01T00:00:00
+ORD_11121,CUST_0027,2025-09-28,delivered,website,Paris,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11122,CUST_0077,2025-09-28,delivered,website,Lyon,France,express,,0,2025-01-01T00:00:00
+ORD_11123,CUST_0011,2025-09-29,delivered,mobile_app,Milan,Italy,standard,,0,2025-01-01T00:00:00
+ORD_11124,CUST_0062,2025-09-29,delivered,website,Los Angeles,United States,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11125,CUST_0144,2025-09-29,delivered,in_store,Marseille,France,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11126,CUST_0085,2025-09-30,delivered,mobile_app,Zurich,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_11127,CUST_0048,2025-10-01,delivered,wholesale,Marseille,France,standard,,0,2025-01-01T00:00:00
+ORD_11128,CUST_0150,2025-10-01,delivered,website,Lyon,France,overnight,,0,2025-01-01T00:00:00
+ORD_11129,CUST_0031,2025-10-02,delivered,in_store,Geneva,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_11130,CUST_0097,2025-10-02,delivered,in_store,Dubai,United Arab Emirates,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11131,CUST_0088,2025-10-02,delivered,in_store,Marseille,France,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11132,CUST_0106,2025-10-02,delivered,wholesale,Munich,Germany,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11133,CUST_0002,2025-10-03,delivered,in_store,Geneva,Switzerland,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11134,CUST_0033,2025-10-03,delivered,in_store,Los Angeles,United States,overnight,,0,2025-01-01T00:00:00
+ORD_11135,CUST_0013,2025-10-03,delivered,website,London,United Kingdom,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11136,CUST_0112,2025-10-03,delivered,website,Marseille,France,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11137,CUST_0012,2025-10-04,delivered,in_store,Marseille,France,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11138,CUST_0001,2025-10-04,delivered,website,Lyon,France,express,,0,2025-01-01T00:00:00
+ORD_11139,CUST_0094,2025-10-04,delivered,wholesale,London,United Kingdom,overnight,,0,2025-01-01T00:00:00
+ORD_11140,CUST_0054,2025-10-04,delivered,wholesale,Marseille,France,overnight,,0,2025-01-01T00:00:00
+ORD_11141,CUST_0052,2025-10-04,delivered,website,Paris,France,standard,,0,2025-01-01T00:00:00
+ORD_11142,CUST_0147,2025-10-05,delivered,wholesale,Geneva,Switzerland,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11143,CUST_0139,2025-10-05,delivered,wholesale,London,United Kingdom,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11144,CUST_0019,2025-10-06,delivered,website,Geneva,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_11145,CUST_0039,2025-10-07,delivered,mobile_app,Strasbourg,France,standard,,0,2025-01-01T00:00:00
+ORD_11146,CUST_0066,2025-10-07,delivered,website,Zurich,Switzerland,express,VIP15,15,2025-01-01T00:00:00
+ORD_11147,CUST_0075,2025-10-07,delivered,mobile_app,Berlin,Germany,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11148,CUST_0089,2025-10-07,delivered,mobile_app,Paris,France,overnight,,0,2025-01-01T00:00:00
+ORD_11149,CUST_0098,2025-10-08,delivered,in_store,Strasbourg,France,standard,,0,2025-01-01T00:00:00
+ORD_11150,CUST_0132,2025-10-08,delivered,website,Munich,Germany,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11151,CUST_0056,2025-10-09,delivered,mobile_app,Munich,Germany,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11152,CUST_0134,2025-10-09,delivered,in_store,London,United Kingdom,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11153,CUST_0116,2025-10-10,delivered,website,Amsterdam,Netherlands,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11154,CUST_0053,2025-10-10,delivered,wholesale,Munich,Germany,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11155,CUST_0061,2025-10-10,delivered,website,Singapore,Singapore,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11156,CUST_0030,2025-10-11,delivered,wholesale,Dubai,United Arab Emirates,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11157,CUST_0027,2025-10-11,delivered,mobile_app,New York,United States,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11158,CUST_0038,2025-10-11,delivered,website,Bordeaux,France,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11159,CUST_0142,2025-10-11,delivered,website,Singapore,Singapore,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11160,CUST_0044,2025-10-11,delivered,wholesale,Bordeaux,France,standard,,0,2025-01-01T00:00:00
+ORD_11161,CUST_0018,2025-10-12,delivered,wholesale,Munich,Germany,express,,0,2025-01-01T00:00:00
+ORD_11162,CUST_0018,2025-10-13,delivered,mobile_app,London,United Kingdom,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11163,CUST_0025,2025-10-13,delivered,website,Singapore,Singapore,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11164,CUST_0015,2025-10-14,delivered,mobile_app,Dubai,United Arab Emirates,express,,0,2025-01-01T00:00:00
+ORD_11165,CUST_0109,2025-10-14,delivered,mobile_app,Strasbourg,France,express,VIP15,15,2025-01-01T00:00:00
+ORD_11166,CUST_0110,2025-10-15,delivered,in_store,Tokyo,Japan,express,,0,2025-01-01T00:00:00
+ORD_11167,CUST_0022,2025-10-15,delivered,wholesale,Munich,Germany,standard,,0,2025-01-01T00:00:00
+ORD_11168,CUST_0005,2025-10-15,delivered,wholesale,Zurich,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_11169,CUST_0037,2025-10-16,delivered,wholesale,Milan,Italy,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11170,CUST_0013,2025-10-16,delivered,mobile_app,Milan,Italy,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11171,CUST_0021,2025-10-17,delivered,wholesale,Geneva,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_11172,CUST_0004,2025-10-18,delivered,in_store,Lyon,France,express,,0,2025-01-01T00:00:00
+ORD_11173,CUST_0150,2025-10-18,delivered,wholesale,Tokyo,Japan,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11174,CUST_0049,2025-10-19,delivered,in_store,Zurich,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_11175,CUST_0135,2025-10-19,delivered,in_store,Singapore,Singapore,overnight,,0,2025-01-01T00:00:00
+ORD_11176,CUST_0076,2025-10-20,delivered,website,Marseille,France,express,VIP15,15,2025-01-01T00:00:00
+ORD_11177,CUST_0027,2025-10-22,delivered,wholesale,Paris,France,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11178,CUST_0052,2025-10-22,delivered,mobile_app,Strasbourg,France,standard,,0,2025-01-01T00:00:00
+ORD_11179,CUST_0149,2025-10-23,delivered,in_store,Paris,France,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11180,CUST_0124,2025-10-23,delivered,wholesale,Munich,Germany,standard,,0,2025-01-01T00:00:00
+ORD_11181,CUST_0003,2025-10-23,delivered,in_store,Singapore,Singapore,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11182,CUST_0109,2025-10-24,delivered,wholesale,Amsterdam,Netherlands,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11183,CUST_0109,2025-10-24,delivered,in_store,Munich,Germany,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11184,CUST_0130,2025-10-24,delivered,in_store,Lyon,France,standard,,0,2025-01-01T00:00:00
+ORD_11185,CUST_0077,2025-10-25,delivered,website,Marseille,France,overnight,,0,2025-01-01T00:00:00
+ORD_11186,CUST_0145,2025-10-26,delivered,website,Bordeaux,France,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11187,CUST_0057,2025-10-26,delivered,wholesale,Tokyo,Japan,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11188,CUST_0103,2025-10-26,delivered,website,Munich,Germany,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11189,CUST_0062,2025-10-27,delivered,in_store,London,United Kingdom,express,,0,2025-01-01T00:00:00
+ORD_11190,CUST_0100,2025-10-27,delivered,website,Bordeaux,France,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11191,CUST_0092,2025-10-27,delivered,wholesale,Dubai,United Arab Emirates,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11192,CUST_0051,2025-10-29,delivered,website,Paris,France,express,,0,2025-01-01T00:00:00
+ORD_11193,CUST_0097,2025-10-29,delivered,website,Marseille,France,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11194,CUST_0067,2025-10-29,delivered,mobile_app,Dubai,United Arab Emirates,standard,,0,2025-01-01T00:00:00
+ORD_11195,CUST_0148,2025-10-30,delivered,website,Berlin,Germany,standard,,0,2025-01-01T00:00:00
+ORD_11196,CUST_0031,2025-10-31,delivered,mobile_app,Zurich,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_11197,CUST_0084,2025-11-01,delivered,wholesale,Marseille,France,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11198,CUST_0078,2025-11-01,delivered,mobile_app,Marseille,France,express,VIP15,15,2025-01-01T00:00:00
+ORD_11199,CUST_0108,2025-11-01,delivered,in_store,Milan,Italy,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11200,CUST_0090,2025-11-02,delivered,in_store,Tokyo,Japan,express,,0,2025-01-01T00:00:00
+ORD_11201,CUST_0114,2025-11-02,delivered,website,Marseille,France,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11202,CUST_0124,2025-11-02,delivered,website,Lyon,France,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11203,CUST_0034,2025-11-03,delivered,website,Strasbourg,France,standard,,0,2025-01-01T00:00:00
+ORD_11204,CUST_0135,2025-11-05,delivered,in_store,Amsterdam,Netherlands,express,,0,2025-01-01T00:00:00
+ORD_11205,CUST_0088,2025-11-05,delivered,mobile_app,Geneva,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_11206,CUST_0069,2025-11-06,delivered,wholesale,London,United Kingdom,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11207,CUST_0018,2025-11-06,delivered,in_store,Strasbourg,France,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11208,CUST_0076,2025-11-07,delivered,wholesale,Amsterdam,Netherlands,standard,,0,2025-01-01T00:00:00
+ORD_11209,CUST_0067,2025-11-07,delivered,in_store,Amsterdam,Netherlands,express,,0,2025-01-01T00:00:00
+ORD_11210,CUST_0010,2025-11-07,delivered,wholesale,Lyon,France,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11211,CUST_0057,2025-11-08,delivered,wholesale,Zurich,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_11212,CUST_0092,2025-11-08,delivered,wholesale,Zurich,Switzerland,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11213,CUST_0121,2025-11-09,delivered,in_store,Bordeaux,France,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11214,CUST_0108,2025-11-10,delivered,wholesale,Milan,Italy,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11215,CUST_0125,2025-11-10,delivered,website,Strasbourg,France,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11216,CUST_0022,2025-11-12,delivered,in_store,Tokyo,Japan,express,VIP15,15,2025-01-01T00:00:00
+ORD_11217,CUST_0015,2025-11-13,delivered,in_store,Toulouse,France,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11218,CUST_0072,2025-11-14,delivered,wholesale,Bordeaux,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11219,CUST_0012,2025-11-14,delivered,website,Munich,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_11220,CUST_0040,2025-11-14,delivered,wholesale,Los Angeles,United States,overnight,,0,2025-01-01T00:00:00
+ORD_11221,CUST_0081,2025-11-15,delivered,wholesale,Bordeaux,France,overnight,,0,2025-01-01T00:00:00
+ORD_11222,CUST_0067,2025-11-15,delivered,wholesale,Dubai,United Arab Emirates,standard,,0,2025-01-01T00:00:00
+ORD_11223,CUST_0113,2025-11-16,delivered,wholesale,Geneva,Switzerland,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11224,CUST_0069,2025-11-17,delivered,in_store,Geneva,Switzerland,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11225,CUST_0056,2025-11-17,delivered,wholesale,Geneva,Switzerland,overnight,,0,2025-01-01T00:00:00
+ORD_11226,CUST_0143,2025-11-18,delivered,in_store,London,United Kingdom,express,VIP15,15,2025-01-01T00:00:00
+ORD_11227,CUST_0109,2025-11-18,delivered,wholesale,Marseille,France,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11228,CUST_0033,2025-11-19,delivered,mobile_app,Marseille,France,standard,,0,2025-01-01T00:00:00
+ORD_11229,CUST_0098,2025-11-20,delivered,wholesale,Berlin,Germany,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11230,CUST_0123,2025-11-21,delivered,in_store,Marseille,France,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11231,CUST_0120,2025-11-21,delivered,wholesale,Berlin,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_11232,CUST_0038,2025-11-21,delivered,in_store,Strasbourg,France,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11233,CUST_0111,2025-11-22,delivered,wholesale,London,United Kingdom,express,,0,2025-01-01T00:00:00
+ORD_11234,CUST_0110,2025-11-22,delivered,wholesale,Los Angeles,United States,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11235,CUST_0107,2025-11-23,delivered,mobile_app,Bordeaux,France,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11236,CUST_0140,2025-11-23,delivered,mobile_app,Singapore,Singapore,express,,0,2025-01-01T00:00:00
+ORD_11237,CUST_0085,2025-11-24,delivered,wholesale,Milan,Italy,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11238,CUST_0030,2025-11-24,delivered,wholesale,Berlin,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_11239,CUST_0014,2025-11-24,delivered,website,Paris,France,express,,0,2025-01-01T00:00:00
+ORD_11240,CUST_0146,2025-11-25,delivered,wholesale,Lyon,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11241,CUST_0088,2025-11-25,delivered,in_store,Toulouse,France,overnight,,0,2025-01-01T00:00:00
+ORD_11242,CUST_0028,2025-11-26,delivered,mobile_app,Singapore,Singapore,overnight,,0,2025-01-01T00:00:00
+ORD_11243,CUST_0148,2025-11-26,delivered,in_store,Lyon,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11244,CUST_0054,2025-11-27,delivered,in_store,Munich,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_11245,CUST_0131,2025-11-27,delivered,wholesale,Berlin,Germany,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11246,CUST_0070,2025-11-28,delivered,wholesale,Amsterdam,Netherlands,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11247,CUST_0038,2025-11-29,delivered,website,Los Angeles,United States,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11248,CUST_0001,2025-11-29,delivered,wholesale,Dubai,United Arab Emirates,express,,0,2025-01-01T00:00:00
+ORD_11249,CUST_0093,2025-11-30,delivered,mobile_app,Paris,France,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11250,CUST_0055,2025-12-01,delivered,in_store,Milan,Italy,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11251,CUST_0087,2025-12-01,delivered,wholesale,Dubai,United Arab Emirates,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11252,CUST_0038,2025-12-02,delivered,in_store,Tokyo,Japan,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11253,CUST_0047,2025-12-02,delivered,wholesale,Tokyo,Japan,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11254,CUST_0018,2025-12-02,delivered,wholesale,New York,United States,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11255,CUST_0020,2025-12-03,delivered,website,London,United Kingdom,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11256,CUST_0043,2025-12-04,delivered,mobile_app,London,United Kingdom,standard,,0,2025-01-01T00:00:00
+ORD_11257,CUST_0123,2025-12-04,delivered,in_store,Berlin,Germany,express,,0,2025-01-01T00:00:00
+ORD_11258,CUST_0118,2025-12-04,delivered,in_store,Lyon,France,standard,,0,2025-01-01T00:00:00
+ORD_11259,CUST_0068,2025-12-04,delivered,in_store,Zurich,Switzerland,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11260,CUST_0098,2025-12-05,delivered,wholesale,New York,United States,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11261,CUST_0129,2025-12-05,delivered,website,Strasbourg,France,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11262,CUST_0093,2025-12-06,delivered,in_store,Strasbourg,France,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11263,CUST_0007,2025-12-06,delivered,website,Strasbourg,France,overnight,,0,2025-01-01T00:00:00
+ORD_11264,CUST_0083,2025-12-06,delivered,website,Paris,France,standard,,0,2025-01-01T00:00:00
+ORD_11265,CUST_0015,2025-12-06,delivered,wholesale,Zurich,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_11266,CUST_0104,2025-12-07,delivered,wholesale,Zurich,Switzerland,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11267,CUST_0137,2025-12-07,delivered,website,Paris,France,express,,0,2025-01-01T00:00:00
+ORD_11268,CUST_0006,2025-12-08,delivered,in_store,Zurich,Switzerland,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11269,CUST_0026,2025-12-08,delivered,mobile_app,Milan,Italy,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11270,CUST_0085,2025-12-08,delivered,website,Zurich,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_11271,CUST_0004,2025-12-08,delivered,website,Milan,Italy,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11272,CUST_0017,2025-12-09,delivered,wholesale,Dubai,United Arab Emirates,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11273,CUST_0038,2025-12-09,delivered,mobile_app,Zurich,Switzerland,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11274,CUST_0132,2025-12-09,delivered,in_store,Berlin,Germany,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11275,CUST_0003,2025-12-09,delivered,wholesale,Lyon,France,express,,0,2025-01-01T00:00:00
+ORD_11276,CUST_0091,2025-12-10,delivered,mobile_app,Los Angeles,United States,overnight,,0,2025-01-01T00:00:00
+ORD_11277,CUST_0147,2025-12-10,delivered,website,Los Angeles,United States,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11278,CUST_0056,2025-12-10,delivered,website,London,United Kingdom,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11279,CUST_0048,2025-12-10,delivered,mobile_app,Geneva,Switzerland,express,VIP15,15,2025-01-01T00:00:00
+ORD_11280,CUST_0053,2025-12-11,delivered,wholesale,Geneva,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_11281,CUST_0074,2025-12-11,delivered,wholesale,New York,United States,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11282,CUST_0100,2025-12-12,delivered,wholesale,Munich,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_11283,CUST_0021,2025-12-12,delivered,website,Tokyo,Japan,standard,,0,2025-01-01T00:00:00
+ORD_11284,CUST_0001,2025-12-13,delivered,mobile_app,Paris,France,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11285,CUST_0113,2025-12-13,delivered,wholesale,Marseille,France,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11286,CUST_0047,2025-12-14,delivered,mobile_app,Tokyo,Japan,overnight,,0,2025-01-01T00:00:00
+ORD_11287,CUST_0057,2025-12-14,delivered,in_store,Bordeaux,France,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11288,CUST_0003,2025-12-15,delivered,website,Zurich,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_11289,CUST_0050,2025-12-15,delivered,website,Lyon,France,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11290,CUST_0076,2025-12-16,delivered,mobile_app,Lyon,France,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11291,CUST_0085,2025-12-16,delivered,in_store,Berlin,Germany,overnight,,0,2025-01-01T00:00:00
+ORD_11292,CUST_0039,2025-12-16,delivered,mobile_app,Geneva,Switzerland,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11293,CUST_0112,2025-12-17,delivered,wholesale,Los Angeles,United States,overnight,,0,2025-01-01T00:00:00
+ORD_11294,CUST_0098,2025-12-18,delivered,in_store,Geneva,Switzerland,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11295,CUST_0056,2025-12-18,delivered,wholesale,Milan,Italy,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11296,CUST_0047,2025-12-19,delivered,mobile_app,Singapore,Singapore,standard,,0,2025-01-01T00:00:00
+ORD_11297,CUST_0106,2025-12-19,delivered,in_store,Zurich,Switzerland,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11298,CUST_0030,2025-12-20,delivered,website,New York,United States,standard,,0,2025-01-01T00:00:00
+ORD_11299,CUST_0007,2025-12-20,delivered,wholesale,Los Angeles,United States,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11300,CUST_0025,2025-12-22,delivered,wholesale,Milan,Italy,standard,,0,2025-01-01T00:00:00
+ORD_11301,CUST_0127,2025-12-23,delivered,in_store,Tokyo,Japan,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11302,CUST_0048,2025-12-23,delivered,mobile_app,Bordeaux,France,express,VIP15,15,2025-01-01T00:00:00
+ORD_11303,CUST_0110,2025-12-23,delivered,wholesale,Munich,Germany,express,,0,2025-01-01T00:00:00
+ORD_11304,CUST_0122,2025-12-23,delivered,mobile_app,Amsterdam,Netherlands,overnight,,0,2025-01-01T00:00:00
+ORD_11305,CUST_0094,2025-12-23,delivered,in_store,Dubai,United Arab Emirates,overnight,,0,2025-01-01T00:00:00
+ORD_11306,CUST_0075,2025-12-24,delivered,mobile_app,Munich,Germany,express,,0,2025-01-01T00:00:00
+ORD_11307,CUST_0040,2025-12-26,delivered,website,Tokyo,Japan,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11308,CUST_0007,2025-12-26,delivered,mobile_app,Bordeaux,France,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11309,CUST_0125,2025-12-26,delivered,mobile_app,Milan,Italy,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11310,CUST_0142,2025-12-27,delivered,website,Geneva,Switzerland,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11311,CUST_0064,2025-12-27,delivered,wholesale,Amsterdam,Netherlands,overnight,,0,2025-01-01T00:00:00
+ORD_11312,CUST_0017,2025-12-28,delivered,in_store,Geneva,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_11313,CUST_0149,2025-12-28,delivered,website,Marseille,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11314,CUST_0061,2025-12-29,delivered,wholesale,London,United Kingdom,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11315,CUST_0050,2025-12-29,delivered,wholesale,Strasbourg,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11316,CUST_0143,2026-01-01,delivered,in_store,Los Angeles,United States,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11317,CUST_0018,2026-01-01,delivered,wholesale,Toulouse,France,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11318,CUST_0053,2026-01-02,delivered,wholesale,Strasbourg,France,overnight,,0,2025-01-01T00:00:00
+ORD_11319,CUST_0075,2026-01-02,delivered,in_store,London,United Kingdom,overnight,,0,2025-01-01T00:00:00
+ORD_11320,CUST_0045,2026-01-03,delivered,mobile_app,Berlin,Germany,express,,0,2025-01-01T00:00:00
+ORD_11321,CUST_0059,2026-01-03,delivered,website,Berlin,Germany,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11322,CUST_0052,2026-01-03,delivered,website,Berlin,Germany,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11323,CUST_0062,2026-01-03,delivered,website,Paris,France,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11324,CUST_0099,2026-01-04,delivered,website,Marseille,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11325,CUST_0103,2026-01-04,delivered,wholesale,Geneva,Switzerland,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11326,CUST_0093,2026-01-04,delivered,website,Singapore,Singapore,overnight,,0,2025-01-01T00:00:00
+ORD_11327,CUST_0132,2026-01-04,delivered,in_store,Amsterdam,Netherlands,standard,,0,2025-01-01T00:00:00
+ORD_11328,CUST_0003,2026-01-05,delivered,in_store,Berlin,Germany,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11329,CUST_0138,2026-01-05,delivered,wholesale,Los Angeles,United States,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11330,CUST_0077,2026-01-06,delivered,in_store,Milan,Italy,express,,0,2025-01-01T00:00:00
+ORD_11331,CUST_0014,2026-01-06,delivered,in_store,Milan,Italy,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11332,CUST_0122,2026-01-08,delivered,mobile_app,Singapore,Singapore,overnight,,0,2025-01-01T00:00:00
+ORD_11333,CUST_0139,2026-01-09,delivered,wholesale,Toulouse,France,standard,,0,2025-01-01T00:00:00
+ORD_11334,CUST_0063,2026-01-09,delivered,website,Strasbourg,France,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11335,CUST_0019,2026-01-09,delivered,wholesale,Paris,France,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11336,CUST_0095,2026-01-09,delivered,website,Berlin,Germany,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11337,CUST_0095,2026-01-09,delivered,in_store,Zurich,Switzerland,standard,,0,2025-01-01T00:00:00
+ORD_11338,CUST_0021,2026-01-10,delivered,website,Milan,Italy,overnight,,0,2025-01-01T00:00:00
+ORD_11339,CUST_0086,2026-01-10,delivered,website,Munich,Germany,standard,,0,2025-01-01T00:00:00
+ORD_11340,CUST_0001,2026-01-12,delivered,website,Marseille,France,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11341,CUST_0113,2026-01-12,delivered,website,New York,United States,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11342,CUST_0061,2026-01-12,delivered,wholesale,Strasbourg,France,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11343,CUST_0032,2026-01-12,delivered,in_store,Strasbourg,France,express,,0,2025-01-01T00:00:00
+ORD_11344,CUST_0008,2026-01-13,delivered,mobile_app,Milan,Italy,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11345,CUST_0098,2026-01-13,delivered,website,New York,United States,overnight,,0,2025-01-01T00:00:00
+ORD_11346,CUST_0080,2026-01-13,delivered,mobile_app,Munich,Germany,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11347,CUST_0095,2026-01-15,delivered,website,Lyon,France,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11348,CUST_0110,2026-01-15,delivered,website,Geneva,Switzerland,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11349,CUST_0093,2026-01-15,delivered,wholesale,Bordeaux,France,express,,0,2025-01-01T00:00:00
+ORD_11350,CUST_0079,2026-01-15,delivered,in_store,New York,United States,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11351,CUST_0034,2026-01-16,delivered,mobile_app,Singapore,Singapore,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11352,CUST_0043,2026-01-16,delivered,in_store,Marseille,France,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11353,CUST_0117,2026-01-17,delivered,website,New York,United States,overnight,,0,2025-01-01T00:00:00
+ORD_11354,CUST_0073,2026-01-18,delivered,wholesale,Marseille,France,express,,0,2025-01-01T00:00:00
+ORD_11355,CUST_0083,2026-01-18,delivered,in_store,Lyon,France,express,,0,2025-01-01T00:00:00
+ORD_11356,CUST_0061,2026-01-18,delivered,in_store,Milan,Italy,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11357,CUST_0040,2026-01-19,delivered,website,Berlin,Germany,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11358,CUST_0138,2026-01-19,delivered,wholesale,Munich,Germany,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11359,CUST_0032,2026-01-20,delivered,mobile_app,Dubai,United Arab Emirates,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11360,CUST_0036,2026-01-20,delivered,in_store,Paris,France,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11361,CUST_0048,2026-01-20,delivered,wholesale,Marseille,France,express,,0,2025-01-01T00:00:00
+ORD_11362,CUST_0062,2026-01-20,delivered,website,Berlin,Germany,standard,,0,2025-01-01T00:00:00
+ORD_11363,CUST_0138,2026-01-20,delivered,in_store,Tokyo,Japan,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11364,CUST_0002,2026-01-21,delivered,wholesale,Toulouse,France,standard,,0,2025-01-01T00:00:00
+ORD_11365,CUST_0034,2026-01-21,delivered,mobile_app,Los Angeles,United States,express,,0,2025-01-01T00:00:00
+ORD_11366,CUST_0004,2026-01-22,delivered,wholesale,Milan,Italy,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11367,CUST_0026,2026-01-22,delivered,in_store,London,United Kingdom,standard,,0,2025-01-01T00:00:00
+ORD_11368,CUST_0009,2026-01-22,delivered,in_store,Los Angeles,United States,overnight,,0,2025-01-01T00:00:00
+ORD_11369,CUST_0109,2026-01-24,delivered,mobile_app,London,United Kingdom,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11370,CUST_0093,2026-01-25,delivered,in_store,Tokyo,Japan,express,,0,2025-01-01T00:00:00
+ORD_11371,CUST_0140,2026-01-26,delivered,mobile_app,Marseille,France,express,,0,2025-01-01T00:00:00
+ORD_11372,CUST_0013,2026-01-26,delivered,mobile_app,Milan,Italy,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11373,CUST_0107,2026-01-26,delivered,website,Los Angeles,United States,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11374,CUST_0069,2026-01-27,delivered,wholesale,Amsterdam,Netherlands,overnight,,0,2025-01-01T00:00:00
+ORD_11375,CUST_0002,2026-01-28,delivered,website,Bordeaux,France,express,VIP15,15,2025-01-01T00:00:00
+ORD_11376,CUST_0043,2026-01-28,delivered,wholesale,Bordeaux,France,overnight,,0,2025-01-01T00:00:00
+ORD_11377,CUST_0114,2026-01-29,delivered,website,Berlin,Germany,standard,,0,2025-01-01T00:00:00
+ORD_11378,CUST_0042,2026-01-29,delivered,mobile_app,Milan,Italy,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11379,CUST_0091,2026-01-29,delivered,wholesale,Milan,Italy,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11380,CUST_0025,2026-01-30,delivered,wholesale,Milan,Italy,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11381,CUST_0066,2026-01-30,delivered,mobile_app,Paris,France,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11382,CUST_0107,2026-01-30,delivered,wholesale,London,United Kingdom,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11383,CUST_0136,2026-01-31,delivered,in_store,Amsterdam,Netherlands,overnight,,0,2025-01-01T00:00:00
+ORD_11384,CUST_0080,2026-01-31,delivered,mobile_app,Bordeaux,France,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11385,CUST_0018,2026-02-02,delivered,website,Geneva,Switzerland,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11386,CUST_0005,2026-02-03,delivered,in_store,Amsterdam,Netherlands,overnight,,0,2025-01-01T00:00:00
+ORD_11387,CUST_0084,2026-02-03,delivered,mobile_app,Marseille,France,standard,,0,2025-01-01T00:00:00
+ORD_11388,CUST_0065,2026-02-03,delivered,in_store,Singapore,Singapore,overnight,,0,2025-01-01T00:00:00
+ORD_11389,CUST_0023,2026-02-04,delivered,website,Zurich,Switzerland,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11390,CUST_0099,2026-02-05,delivered,mobile_app,Lyon,France,standard,,0,2025-01-01T00:00:00
+ORD_11391,CUST_0029,2026-02-06,delivered,in_store,Zurich,Switzerland,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11392,CUST_0123,2026-02-06,delivered,mobile_app,Tokyo,Japan,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11393,CUST_0019,2026-02-06,delivered,mobile_app,New York,United States,express,,0,2025-01-01T00:00:00
+ORD_11394,CUST_0070,2026-02-06,delivered,website,Tokyo,Japan,overnight,,0,2025-01-01T00:00:00
+ORD_11395,CUST_0150,2026-02-07,delivered,website,Geneva,Switzerland,overnight,,0,2025-01-01T00:00:00
+ORD_11396,CUST_0143,2026-02-07,delivered,wholesale,Los Angeles,United States,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11397,CUST_0024,2026-02-08,delivered,wholesale,Dubai,United Arab Emirates,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11398,CUST_0139,2026-02-10,delivered,wholesale,Paris,France,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11399,CUST_0072,2026-02-11,delivered,mobile_app,Paris,France,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11400,CUST_0114,2026-02-12,delivered,wholesale,Amsterdam,Netherlands,express,,0,2025-01-01T00:00:00
+ORD_11401,CUST_0005,2026-02-12,delivered,website,Lyon,France,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11402,CUST_0110,2026-02-12,delivered,wholesale,Berlin,Germany,standard,,0,2025-01-01T00:00:00
+ORD_11403,CUST_0088,2026-02-13,delivered,wholesale,Munich,Germany,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11404,CUST_0082,2026-02-14,delivered,wholesale,Munich,Germany,express,,0,2025-01-01T00:00:00
+ORD_11405,CUST_0081,2026-02-14,delivered,website,Milan,Italy,overnight,,0,2025-01-01T00:00:00
+ORD_11406,CUST_0084,2026-02-14,delivered,mobile_app,Bordeaux,France,standard,,0,2025-01-01T00:00:00
+ORD_11407,CUST_0121,2026-02-15,delivered,wholesale,Strasbourg,France,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11408,CUST_0095,2026-02-15,delivered,wholesale,Lyon,France,overnight,,0,2025-01-01T00:00:00
+ORD_11409,CUST_0131,2026-02-16,delivered,wholesale,Los Angeles,United States,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11410,CUST_0001,2026-02-17,delivered,mobile_app,Los Angeles,United States,express,,0,2025-01-01T00:00:00
+ORD_11411,CUST_0094,2026-02-17,delivered,wholesale,Lyon,France,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11412,CUST_0147,2026-02-17,delivered,website,Marseille,France,express,,0,2025-01-01T00:00:00
+ORD_11413,CUST_0100,2026-02-17,delivered,in_store,Paris,France,express,,0,2025-01-01T00:00:00
+ORD_11414,CUST_0025,2026-02-18,delivered,in_store,Munich,Germany,standard,,0,2025-01-01T00:00:00
+ORD_11415,CUST_0043,2026-02-18,delivered,website,Zurich,Switzerland,express,,0,2025-01-01T00:00:00
+ORD_11416,CUST_0144,2026-02-18,delivered,website,New York,United States,standard,,0,2025-01-01T00:00:00
+ORD_11417,CUST_0085,2026-02-18,delivered,mobile_app,Amsterdam,Netherlands,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11418,CUST_0026,2026-02-18,delivered,mobile_app,Tokyo,Japan,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11419,CUST_0107,2026-02-19,delivered,website,Milan,Italy,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11420,CUST_0138,2026-02-20,delivered,wholesale,Zurich,Switzerland,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11421,CUST_0127,2026-02-20,delivered,wholesale,Paris,France,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11422,CUST_0115,2026-02-22,delivered,wholesale,New York,United States,overnight,,0,2025-01-01T00:00:00
+ORD_11423,CUST_0040,2026-02-22,delivered,wholesale,Milan,Italy,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11424,CUST_0120,2026-02-23,delivered,mobile_app,Dubai,United Arab Emirates,overnight,,0,2025-01-01T00:00:00
+ORD_11425,CUST_0120,2026-02-23,delivered,website,Singapore,Singapore,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11426,CUST_0039,2026-02-24,delivered,mobile_app,Los Angeles,United States,express,VIP15,15,2025-01-01T00:00:00
+ORD_11427,CUST_0064,2026-02-25,delivered,mobile_app,Toulouse,France,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11428,CUST_0133,2026-02-25,delivered,website,Tokyo,Japan,overnight,,0,2025-01-01T00:00:00
+ORD_11429,CUST_0074,2026-03-01,shipped,website,New York,United States,express,,0,2025-01-01T00:00:00
+ORD_11430,CUST_0070,2026-03-01,shipped,mobile_app,Munich,Germany,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11431,CUST_0009,2026-03-02,delivered,mobile_app,Strasbourg,France,overnight,,0,2025-01-01T00:00:00
+ORD_11432,CUST_0076,2026-03-02,delivered,mobile_app,Paris,France,overnight,WINTER25,25,2025-01-01T00:00:00
+ORD_11433,CUST_0137,2026-03-03,shipped,in_store,Amsterdam,Netherlands,standard,,0,2025-01-01T00:00:00
+ORD_11434,CUST_0146,2026-03-03,shipped,wholesale,Dubai,United Arab Emirates,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11435,CUST_0032,2026-03-03,delivered,website,Paris,France,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11436,CUST_0101,2026-03-04,shipped,in_store,Tokyo,Japan,overnight,,0,2025-01-01T00:00:00
+ORD_11437,CUST_0003,2026-03-04,delivered,wholesale,Geneva,Switzerland,overnight,,0,2025-01-01T00:00:00
+ORD_11438,CUST_0098,2026-03-04,delivered,mobile_app,Amsterdam,Netherlands,express,,0,2025-01-01T00:00:00
+ORD_11439,CUST_0031,2026-03-05,delivered,in_store,Lyon,France,overnight,,0,2025-01-01T00:00:00
+ORD_11440,CUST_0023,2026-03-07,delivered,wholesale,Strasbourg,France,overnight,,0,2025-01-01T00:00:00
+ORD_11441,CUST_0122,2026-03-07,shipped,in_store,Tokyo,Japan,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11442,CUST_0105,2026-03-07,shipped,wholesale,Geneva,Switzerland,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11443,CUST_0021,2026-03-08,delivered,wholesale,London,United Kingdom,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11444,CUST_0128,2026-03-08,delivered,in_store,Berlin,Germany,express,,0,2025-01-01T00:00:00
+ORD_11445,CUST_0068,2026-03-10,shipped,website,Los Angeles,United States,express,,0,2025-01-01T00:00:00
+ORD_11446,CUST_0146,2026-03-10,delivered,mobile_app,Marseille,France,express,WINTER25,25,2025-01-01T00:00:00
+ORD_11447,CUST_0109,2026-03-11,delivered,website,Berlin,Germany,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11448,CUST_0047,2026-03-11,delivered,wholesale,Toulouse,France,express,,0,2025-01-01T00:00:00
+ORD_11449,CUST_0007,2026-03-11,delivered,website,New York,United States,standard,,0,2025-01-01T00:00:00
+ORD_11450,CUST_0129,2026-03-12,delivered,wholesale,London,United Kingdom,overnight,,0,2025-01-01T00:00:00
+ORD_11451,CUST_0039,2026-03-12,delivered,in_store,London,United Kingdom,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11452,CUST_0009,2026-03-13,delivered,mobile_app,Singapore,Singapore,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11453,CUST_0064,2026-03-13,delivered,website,Lyon,France,overnight,,0,2025-01-01T00:00:00
+ORD_11454,CUST_0095,2026-03-13,delivered,mobile_app,Milan,Italy,standard,,0,2025-01-01T00:00:00
+ORD_11455,CUST_0023,2026-03-14,delivered,in_store,Tokyo,Japan,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11456,CUST_0032,2026-03-15,delivered,in_store,London,United Kingdom,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11457,CUST_0048,2026-03-15,shipped,wholesale,London,United Kingdom,overnight,,0,2025-01-01T00:00:00
+ORD_11458,CUST_0002,2026-03-16,delivered,mobile_app,Zurich,Switzerland,express,VIP15,15,2025-01-01T00:00:00
+ORD_11459,CUST_0094,2026-03-17,delivered,website,London,United Kingdom,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11460,CUST_0038,2026-03-17,delivered,website,Tokyo,Japan,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11461,CUST_0046,2026-03-17,confirmed,wholesale,Geneva,Switzerland,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11462,CUST_0010,2026-03-17,shipped,in_store,Bordeaux,France,overnight,,0,2025-01-01T00:00:00
+ORD_11463,CUST_0020,2026-03-17,delivered,in_store,Berlin,Germany,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11464,CUST_0103,2026-03-18,delivered,mobile_app,Berlin,Germany,standard,VIP15,15,2025-01-01T00:00:00
+ORD_11465,CUST_0095,2026-03-18,delivered,wholesale,Marseille,France,express,,0,2025-01-01T00:00:00
+ORD_11466,CUST_0127,2026-03-18,delivered,mobile_app,New York,United States,express,,0,2025-01-01T00:00:00
+ORD_11467,CUST_0083,2026-03-18,shipped,in_store,Geneva,Switzerland,overnight,,0,2025-01-01T00:00:00
+ORD_11468,CUST_0020,2026-03-18,delivered,wholesale,Bordeaux,France,express,,0,2025-01-01T00:00:00
+ORD_11469,CUST_0026,2026-03-19,delivered,in_store,Tokyo,Japan,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11470,CUST_0121,2026-03-19,delivered,wholesale,Berlin,Germany,overnight,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11471,CUST_0102,2026-03-19,processing,website,Dubai,United Arab Emirates,express,,0,2025-01-01T00:00:00
+ORD_11472,CUST_0086,2026-03-19,delivered,mobile_app,Toulouse,France,standard,,0,2025-01-01T00:00:00
+ORD_11473,CUST_0062,2026-03-19,processing,in_store,Amsterdam,Netherlands,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11474,CUST_0058,2026-03-20,delivered,in_store,Los Angeles,United States,overnight,,0,2025-01-01T00:00:00
+ORD_11475,CUST_0122,2026-03-20,delivered,in_store,Lyon,France,standard,,0,2025-01-01T00:00:00
+ORD_11476,CUST_0065,2026-03-22,confirmed,wholesale,Munich,Germany,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11477,CUST_0015,2026-03-22,shipped,in_store,Toulouse,France,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11478,CUST_0007,2026-03-23,confirmed,wholesale,Berlin,Germany,standard,,0,2025-01-01T00:00:00
+ORD_11479,CUST_0070,2026-03-23,confirmed,mobile_app,Amsterdam,Netherlands,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11480,CUST_0146,2026-03-23,delivered,in_store,Tokyo,Japan,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11481,CUST_0021,2026-03-24,delivered,website,Geneva,Switzerland,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11482,CUST_0073,2026-03-24,delivered,wholesale,Los Angeles,United States,standard,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11483,CUST_0026,2026-03-25,delivered,mobile_app,Lyon,France,standard,,0,2025-01-01T00:00:00
+ORD_11484,CUST_0148,2026-03-25,delivered,website,Geneva,Switzerland,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11485,CUST_0118,2026-03-26,confirmed,wholesale,Tokyo,Japan,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11486,CUST_0091,2026-03-26,delivered,wholesale,Tokyo,Japan,express,,0,2025-01-01T00:00:00
+ORD_11487,CUST_0069,2026-03-26,processing,in_store,Singapore,Singapore,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11488,CUST_0037,2026-03-26,processing,wholesale,Amsterdam,Netherlands,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11489,CUST_0012,2026-03-27,confirmed,wholesale,Lyon,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11490,CUST_0110,2026-03-27,delivered,website,Amsterdam,Netherlands,express,FLASH30,30,2025-01-01T00:00:00
+ORD_11491,CUST_0060,2026-03-28,delivered,in_store,Lyon,France,overnight,VIP15,15,2025-01-01T00:00:00
+ORD_11492,CUST_0038,2026-03-28,delivered,in_store,Munich,Germany,overnight,FLASH30,30,2025-01-01T00:00:00
+ORD_11493,CUST_0118,2026-03-28,delivered,website,Bordeaux,France,standard,WINTER25,25,2025-01-01T00:00:00
+ORD_11494,CUST_0071,2026-03-29,delivered,website,London,United Kingdom,express,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11495,CUST_0088,2026-03-29,delivered,website,Singapore,Singapore,express,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11496,CUST_0013,2026-03-29,delivered,in_store,Zurich,Switzerland,overnight,NEWYEAR26,50,2025-01-01T00:00:00
+ORD_11497,CUST_0085,2026-03-30,delivered,wholesale,New York,United States,standard,FLASH30,30,2025-01-01T00:00:00
+ORD_11498,CUST_0065,2026-03-30,delivered,website,Milan,Italy,express,,0,2025-01-01T00:00:00
+ORD_11499,CUST_0029,2026-03-30,delivered,website,Singapore,Singapore,standard,LOYALTY10,10,2025-01-01T00:00:00
+ORD_11500,CUST_0014,2026-03-30,delivered,website,Dubai,United Arab Emirates,standard,,0,2025-01-01T00:00:00

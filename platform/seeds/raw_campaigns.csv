@@ -19,3 +19,8 @@ CAMP_017,Customer Win-Back,retention,email,2023-06-01,2025-12-31,6000,churned_cu
 CAMP_018,Google Brand Search,acquisition,google_ads,2023-01-01,2025-12-31,20000,all,google,brand_cpc,brand_search_ao,2025-01-01T00:00:00
 CAMP_019,Valentine 2025,seasonal,email,2025-01-27,2025-02-14,14000,all,email,promotional,valentines_2025,2025-01-01T00:00:00
 CAMP_020,Spring Collection 2025,awareness,instagram,2025-02-17,2025-04-15,20000,all,instagram,social,spring_collection_2025,2025-01-01T00:00:00
+CAMP_021,New Year Sale 2026,seasonal,email,2026-01-02,2026-01-20,12000,all,email,promotional,new_year_2026,2025-01-01T00:00:00
+CAMP_022,Valentine 2026,seasonal,email,2026-01-25,2026-02-14,15000,all,email,promotional,valentines_2026,2025-01-01T00:00:00
+CAMP_023,Spring Collection 2026,awareness,instagram,2026-02-20,2026-04-15,22000,all,instagram,social,spring_collection_2026,2025-01-01T00:00:00
+CAMP_024,Google Brand Search 2026,acquisition,google_ads,2026-01-01,2026-12-31,24000,all,google,brand_cpc,brand_search_2026,2025-01-01T00:00:00
+CAMP_025,Winter Clearance 2026,seasonal,facebook,2026-01-05,2026-02-28,10000,bargain_hunters,facebook,social,winter_clearance_2026,2025-01-01T00:00:00
