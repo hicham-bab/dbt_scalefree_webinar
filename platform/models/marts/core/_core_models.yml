@@ -908,3 +908,111 @@ models:
         config:
           meta:
             semantic_type: metric
+
+
+  - name: fct_returns
+    config:
+      access: public
+      group: core
+      contract:
+        enforced: true
+      meta:
+        owner: data-platform-team
+        domain: returns
+        tier: gold
+        pii_contains: false
+        freshness_sla: hourly
+    description: "One row per return request. Joins return events to the originating order and order item so analysts can measure refund volume, return timing, and revenue impact at the return grain."
+    columns:
+      - name: return_id
+        data_type: varchar
+        description: "Unique return identifier. Primary key."
+        data_tests:
+          - unique
+          - not_null
+      - name: order_id
+        data_type: varchar
+        description: "Foreign key to the associated order."
+        data_tests:
+          - not_null
+      - name: order_item_id
+        data_type: varchar
+        description: "Foreign key to the returned order item when available."
+      - name: customer_id
+        data_type: varchar
+        description: "Customer who placed the order associated with the return."
+      - name: product_id
+        data_type: varchar
+        description: "Product on the returned order line when the return is tied to an order item."
+      - name: order_date
+        data_type: date
+        description: "Date the original order was placed."
+      - name: order_date_key
+        data_type: number
+        description: "Integer date key (YYYYMMDD) for the original order date."
+      - name: return_requested_at
+        data_type: date
+        description: "Date the customer requested the return."
+      - name: return_requested_date_key
+        data_type: number
+        description: "Integer date key (YYYYMMDD) for the return request date."
+      - name: return_received_at
+        data_type: date
+        description: "Date the returned item was physically received."
+      - name: return_received_date_key
+        data_type: number
+        description: "Integer date key (YYYYMMDD) for the return received date."
+      - name: days_to_return_request
+        data_type: number
+        description: "Number of days between the order date and the return request date."
+      - name: days_to_return_received
+        data_type: number
+        description: "Number of days between the order date and the return received date."
+      - name: return_reason
+        data_type: varchar
+        description: "Reported reason for the return."
+      - name: refund_status
+        data_type: varchar
+        description: "Current refund workflow status for the return."
+      - name: channel
+        data_type: varchar
+        description: "Sales channel of the original order."
+      - name: order_status
+        data_type: varchar
+        description: "Current lifecycle status of the original order."
+      - name: shipping_country
+        data_type: varchar
+        description: "Destination country on the original order."
+      - name: shipping_method
+        data_type: varchar
+        description: "Shipping method selected on the original order."
+      - name: quantity
+        data_type: number
+        description: "Quantity on the returned order line."
+      - name: unit_price_eur
+        data_type: number
+        description: "Unit price on the original order line in EUR."
+      - name: discount_pct
+        data_type: number
+        description: "Line-level discount percentage applied to the returned item."
+      - name: item_revenue_eur
+        data_type: number
+        description: "Revenue for the returned order line after line-level discount in EUR."
+      - name: order_gross_revenue_eur
+        data_type: number
+        description: "Summed order-item revenue for the order before header discount in EUR."
+      - name: order_discount_amount_eur
+        data_type: number
+        description: "Header-level discount amount applied to the order in EUR."
+      - name: order_net_revenue_eur
+        data_type: number
+        description: "Order revenue after subtracting the header discount in EUR."
+      - name: refund_amount_eur
+        data_type: number
+        description: "Refund amount requested or issued for the return in EUR."
+      - name: revenue_impact_eur
+        data_type: number
+        description: "Revenue impact attributed to the return in EUR, capped at the returned line's revenue."
+      - name: refund_share_of_order_revenue
+        data_type: number
+        description: "Refund amount as a share of the order's net revenue."
