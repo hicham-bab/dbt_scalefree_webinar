@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg__logistics__raw_shipments
+    description: "Staging model for raw_shipments from Logistics"
+    config:
+      tags: ['staging', 'logistics']
+    columns:
+      - name: rsrc
+        description: "Record source identifier"
+      - name: ldts
+        description: "Load date timestamp"
+      - name: hk_shipment_h
+        description: "Hash key"
+      - name: hd_shipment_logistics_n_s
+        description: "Hash diff for shipment_logistics_n_s"

@@ -462,3 +462,55 @@ seeds:
         description: "UTM source captured from the session."
       - name: _loaded_at
         description: "Timestamp when this record was loaded."
+
+  - name: raw_inventory_movements
+    description: "Raw inventory movement events from the warehouse management system. One row per stock movement (receipt, shipment, adjustment, restock). Append-only event log."
+    config:
+      column_types:
+        movement_id: varchar(36)
+        product_id: varchar(36)
+        warehouse_id: varchar(20)
+        warehouse_name: varchar(100)
+        movement_type: varchar(30)
+        quantity: number(10,0)
+        unit_cost: number(10,2)
+        reason_code: varchar(50)
+        occurred_at: timestamp_ntz
+        _loaded_at: timestamp_ntz
+      meta:
+        owner: inventory-team
+        domain: inventory
+        pii_contains: false
+        freshness_sla: hourly
+    columns:
+      - name: movement_id
+        description: "Unique inventory movement identifier. Format: MOV_XXXXX. Primary key."
+        tests:
+          - unique
+          - not_null
+      - name: product_id
+        description: "Product affected by the movement. Foreign key to the product catalog."
+        tests:
+          - not_null
+      - name: warehouse_id
+        description: "Warehouse where the movement occurred. Business key of the warehouse entity."
+        tests:
+          - not_null
+      - name: warehouse_name
+        description: "Human-readable warehouse name (descriptive; may be restated over time)."
+      - name: movement_type
+        description: "Type of stock movement. Values: RECEIPT, SHIPMENT, ADJUSTMENT, RETURN_RESTOCK."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['RECEIPT', 'SHIPMENT', 'ADJUSTMENT', 'RETURN_RESTOCK']
+      - name: quantity
+        description: "Units moved (always positive; direction implied by movement_type)."
+      - name: unit_cost
+        description: "Cost per unit at time of movement in EUR."
+      - name: reason_code
+        description: "Business reason. Values: PO_RECEIPT, SALES_ORDER, CYCLE_COUNT, DAMAGE, CUSTOMER_RETURN."
+      - name: occurred_at
+        description: "Business timestamp when the movement physically occurred."
+      - name: _loaded_at
+        description: "Timestamp when this record was loaded into the raw layer."

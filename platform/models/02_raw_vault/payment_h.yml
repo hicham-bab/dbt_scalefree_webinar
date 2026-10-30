@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: payment_h
+    description: "Standard hub for payment_h"
+    config:
+      tags: ['hub', 'raw_vault']
+    columns:
+      - name: hk_payment_h
+        description: "Hash key for payment_h"
+        data_tests:
+          - unique
+          - not_null
+      - name: payment_id
+        description: "Business key column"
+        data_tests:
+          - not_null
+      - name: ldts
+        description: "Load date timestamp"
+      - name: rsrc
+        description: "Record source"

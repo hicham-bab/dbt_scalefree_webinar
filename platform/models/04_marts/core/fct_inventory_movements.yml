@@ -1,0 +1,158 @@
+version: 2
+
+# Inventory info-delivery model built on the new Inventory raw-vault entities.
+# NOTE: contracts are intentionally NOT enforced on this new mart yet — column data_types below are
+# the expected Snowflake types but have not been validated against a warehouse run. After the first
+# successful `dbt build`, verify the emitted types and flip `contract.enforced` to true for parity with the
+# other gold marts.
+models:
+  - name: fct_inventory_movements
+    config:
+      access: public
+      group: core
+      contract:
+        enforced: false
+      meta:
+        owner: inventory-team
+        domain: inventory
+        tier: gold
+        pii_contains: false
+        freshness_sla: hourly
+    description: "One row per inventory movement event. Central fact for stock-flow analysis: receipts, shipments, adjustments and restocks, with signed quantity and movement value, broken down by product, warehouse and date."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: movement_date
+    columns:
+      - name: movement_id
+        data_type: varchar
+        description: "Unique inventory movement identifier. Format: MOV_XXXXX. Primary key."
+        entity:
+          type: primary
+          name: inventory_movement
+        tests:
+          - unique
+          - not_null
+        config:
+          meta:
+            semantic_type: entity_id
+      - name: product_id
+        data_type: varchar
+        description: "Foreign key to dim_products — the product whose stock moved."
+        entity:
+          type: foreign
+          name: product
+        tests:
+          - not_null
+        config:
+          meta:
+            semantic_type: entity_id
+      - name: warehouse_id
+        data_type: varchar
+        description: "Foreign key to dim_warehouse — where the movement occurred."
+        entity:
+          type: foreign
+          name: warehouse
+        tests:
+          - not_null
+        config:
+          meta:
+            semantic_type: entity_id
+      - name: movement_date
+        data_type: date
+        description: "Calendar date the movement occurred."
+        granularity: day
+        dimension:
+          type: time
+        tests:
+          - not_null
+        config:
+          meta:
+            semantic_type: time
+      - name: movement_date_key
+        data_type: number(38,0)
+        description: "Integer date key (YYYYMMDD) for joining to dim_date."
+      - name: movement_type
+        data_type: varchar
+        description: "Type of stock movement. Values: RECEIPT, SHIPMENT, ADJUSTMENT, RETURN_RESTOCK."
+        dimension:
+          type: categorical
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['RECEIPT', 'SHIPMENT', 'ADJUSTMENT', 'RETURN_RESTOCK']
+        config:
+          meta:
+            semantic_type: categorical
+      - name: reason_code
+        data_type: varchar
+        description: "Business reason for the movement. Values: PO_RECEIPT, SALES_ORDER, CYCLE_COUNT, DAMAGE, CUSTOMER_RETURN."
+        dimension:
+          type: categorical
+        config:
+          meta:
+            semantic_type: categorical
+      - name: quantity
+        data_type: number(10,0)
+        description: "Units moved (always positive; direction implied by movement_type)."
+        config:
+          meta:
+            semantic_type: metric
+      - name: signed_quantity
+        data_type: number(38,0)
+        description: "Units moved with sign applied: positive for RECEIPT/RETURN_RESTOCK, negative for SHIPMENT/ADJUSTMENT. Sums to net stock change."
+        config:
+          meta:
+            semantic_type: metric
+      - name: unit_cost
+        data_type: number(10,2)
+        description: "Cost per unit at the time of the movement, in EUR."
+        config:
+          meta:
+            semantic_type: metric
+      - name: movement_value_eur
+        data_type: number(20,2)
+        description: "Monetary value moved (quantity * unit_cost) in EUR."
+        config:
+          meta:
+            semantic_type: metric
+      - name: occurred_at
+        data_type: timestamp_ntz
+        description: "Business timestamp when the movement physically occurred."
+    metrics:
+      - name: total_movements
+        description: "Total count of inventory movement events."
+        type: simple
+        agg: count_distinct
+        expr: movement_id
+        fill_nulls_with: 0
+        label: "Total Movements"
+      - name: units_received
+        description: "Total units received into stock (RECEIPT movements)."
+        type: simple
+        agg: sum
+        expr: quantity
+        fill_nulls_with: 0
+        filter: "{{ Dimension('inventory_movement__movement_type') }} = 'RECEIPT'"
+        label: "Units Received"
+      - name: units_shipped
+        description: "Total units shipped out of stock (SHIPMENT movements)."
+        type: simple
+        agg: sum
+        expr: quantity
+        fill_nulls_with: 0
+        filter: "{{ Dimension('inventory_movement__movement_type') }} = 'SHIPMENT'"
+        label: "Units Shipped"
+      - name: net_stock_change
+        description: "Net change in units in stock across all movements (sum of signed quantity). With no time filter this equals current stock on hand."
+        type: simple
+        agg: sum
+        expr: signed_quantity
+        fill_nulls_with: 0
+        label: "Net Stock Change"
+      - name: inventory_value_moved
+        description: "Total monetary value of stock moved in EUR."
+        type: simple
+        agg: sum
+        expr: movement_value_eur
+        fill_nulls_with: 0
+        label: "Inventory Value Moved (EUR)"

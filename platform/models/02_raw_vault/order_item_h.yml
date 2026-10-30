@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: order_item_h
+    description: "Standard hub for order_item_h"
+    config:
+      tags: ['hub', 'raw_vault']
+    columns:
+      - name: hk_order_item_h
+        description: "Hash key for order_item_h"
+        data_tests:
+          - unique
+          - not_null
+      - name: order_item_id
+        description: "Business key column"
+        data_tests:
+          - not_null
+      - name: ldts
+        description: "Load date timestamp"
+      - name: rsrc
+        description: "Record source"

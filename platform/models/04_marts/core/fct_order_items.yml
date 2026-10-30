@@ -1,0 +1,89 @@
+version: 2
+
+models:
+  - name: fct_order_items
+    config:
+      access: public
+      group: core
+      contract:
+        enforced: true
+      meta:
+        owner: data-platform-team
+        domain: orders
+        tier: gold
+        pii_contains: false
+        freshness_sla: hourly
+    description: "One row per order line item. Most granular fact table. Supports product-level revenue analysis, return analysis, and basket composition."
+    columns:
+      - name: order_item_id
+        data_type: varchar
+        description: "Unique order item identifier. Format: ITEM_XXXXXX. Primary key."
+        tests:
+          - unique
+          - not_null
+        config:
+          meta:
+            semantic_type: entity_id
+      - name: order_id
+        data_type: varchar
+        description: "Foreign key to fct_orders."
+        tests:
+          - not_null
+        config:
+          meta:
+            semantic_type: entity_id
+      - name: product_id
+        data_type: varchar
+        description: "Foreign key to dim_products."
+        tests:
+          - not_null
+        config:
+          meta:
+            semantic_type: entity_id
+      - name: customer_id
+        data_type: varchar
+        description: "Foreign key to dim_customers (denormalized from order)."
+        tests:
+          - not_null
+        config:
+          meta:
+            semantic_type: entity_id
+      - name: order_date
+        data_type: date
+        description: "Date of the parent order."
+        config:
+          meta:
+            semantic_type: time
+      - name: order_status
+        data_type: varchar
+        description: "Status of the parent order."
+      - name: quantity
+        data_type: number(38,0)
+        description: "Quantity of this product in the order."
+        config:
+          meta:
+            semantic_type: metric
+      - name: unit_price_eur
+        data_type: number(38,2)
+        description: "Price per unit at time of order in EUR."
+        config:
+          meta:
+            semantic_type: metric
+      - name: discount_pct
+        data_type: number(38,8)
+        description: "Line-item discount percentage applied."
+        config:
+          meta:
+            semantic_type: metric
+      - name: line_revenue_eur
+        data_type: number(38,2)
+        description: "Total line revenue after discount in EUR (qty * price * (1 - disc%/100))."
+        config:
+          meta:
+            semantic_type: metric
+      - name: has_been_returned
+        data_type: boolean
+        description: "True if this specific item has been returned and refund is not rejected."
+        config:
+          meta:
+            semantic_type: flag

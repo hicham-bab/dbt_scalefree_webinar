@@ -1,0 +1,215 @@
+version: 2
+
+models:
+  - name: dim_customers
+    config:
+      access: public
+      group: core
+      contract:
+        enforced: true
+      meta:
+        owner: data-platform-team
+        domain: customer
+        tier: gold
+        pii_contains: true
+        pii_columns: ["email", "first_name", "last_name"]
+        freshness_sla: daily
+    description: "One row per customer. Contains identity, demographic, and behavioral attributes. This is the authoritative customer dimension for all downstream analytics. Includes lifetime value, order history, and customer lifecycle status derived from order activity."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: signup_date
+    columns:
+      - name: customer_id
+        data_type: varchar
+        description: "Unique identifier for each customer. Format: CUST_XXXX. Primary key."
+        entity:
+          type: primary
+          name: customer
+        tests:
+          - unique
+          - not_null
+        config:
+          meta:
+            pii: false
+      - name: first_name
+        data_type: varchar
+        description: "Customer first name."
+        config:
+          meta:
+            pii: true
+      - name: last_name
+        data_type: varchar
+        description: "Customer last name."
+        config:
+          meta:
+            pii: true
+      - name: full_name
+        data_type: varchar
+        description: "Concatenated full name (first_name + last_name)."
+        config:
+          meta:
+            pii: true
+      - name: email
+        data_type: varchar
+        description: "Customer email address (lowercased and trimmed)."
+        config:
+          meta:
+            pii: true
+      - name: city
+        data_type: varchar
+        description: "City of residence."
+        dimension:
+          type: categorical
+        config:
+          meta:
+            pii: false
+      - name: country
+        data_type: varchar
+        description: "Country of residence. Useful for geographic segmentation."
+        dimension:
+          type: categorical
+        config:
+          meta:
+            pii: false
+      - name: birth_date
+        data_type: date
+        description: "Customer date of birth."
+        config:
+          meta:
+            pii: true
+      - name: age
+        data_type: number(38,0)
+        description: "Current age of the customer in years, computed from birth_date."
+        config:
+          meta:
+            pii: false
+      - name: gender
+        data_type: varchar
+        description: "Customer gender identity. Values: M, F, Other."
+        dimension:
+          type: categorical
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['M', 'F', 'Other']
+        config:
+          meta:
+            pii: false
+      - name: signup_date
+        data_type: date
+        description: "Date the customer registered an account with Leather Luxe."
+        granularity: day
+        dimension:
+          type: time
+        tests:
+          - not_null
+        config:
+          meta:
+            pii: false
+      - name: loyalty_tier
+        data_type: varchar
+        description: "Current loyalty program tier. Values: Bronze, Silver, Gold, Platinum. Platinum customers represent the top 5% by revenue."
+        dimension:
+          type: categorical
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Bronze', 'Silver', 'Gold', 'Platinum']
+        config:
+          meta:
+            pii: false
+      - name: acquisition_channel
+        data_type: varchar
+        description: "Channel through which the customer was originally acquired. Values: website, mobile_app, in_store, wholesale, referral."
+        dimension:
+          type: categorical
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['website', 'mobile_app', 'in_store', 'wholesale', 'referral']
+        config:
+          meta:
+            pii: false
+      - name: total_orders
+        data_type: number(38,0)
+        description: "Total number of non-cancelled, non-pending orders placed by this customer."
+        config:
+          meta:
+            pii: false
+      - name: lifetime_value_eur
+        data_type: number(38,2)
+        description: "Total net revenue contributed by this customer across all time in EUR. Also known as LTV or CLV."
+        config:
+          meta:
+            pii: false
+      - name: avg_order_value_eur
+        data_type: number(38,8)
+        description: "Average net order value for this customer in EUR."
+        config:
+          meta:
+            pii: false
+      - name: first_order_date
+        data_type: date
+        description: "Date of the customer's first order."
+        config:
+          meta:
+            pii: false
+      - name: last_order_date
+        data_type: date
+        description: "Date of the customer's most recent order."
+        config:
+          meta:
+            pii: false
+      - name: days_since_last_order
+        data_type: number(38,0)
+        description: "Number of days since the customer's most recent order. Used for recency scoring."
+        config:
+          meta:
+            pii: false
+      - name: customer_tenure_days
+        data_type: number(38,0)
+        description: "Number of days since the customer's first order."
+        config:
+          meta:
+            pii: false
+      - name: favorite_category
+        data_type: varchar
+        description: "The product category this customer has ordered most frequently."
+        dimension:
+          type: categorical
+        config:
+          meta:
+            pii: false
+      - name: total_items_returned
+        data_type: number(38,0)
+        description: "Total number of items this customer has returned."
+        config:
+          meta:
+            pii: false
+      - name: customer_status
+        data_type: varchar
+        description: "Customer lifecycle status based on recency. Values: prospect (no orders), active (ordered in last 90 days), at_risk (ordered 91-365 days ago), churned (no order in 365+ days)."
+        dimension:
+          type: categorical
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['prospect', 'active', 'at_risk', 'churned']
+        config:
+          meta:
+            pii: false
+    metrics:
+      - name: total_customers
+        description: "Total count of distinct customers."
+        type: simple
+        agg: count_distinct
+        expr: customer_id
+        fill_nulls_with: 0
+        label: "Total Customers"
+      - name: avg_ltv
+        description: "Average lifetime value per customer in EUR."
+        type: simple
+        agg: average
+        expr: lifetime_value_eur
+        fill_nulls_with: 0
+        label: "Avg Customer LTV (EUR)"

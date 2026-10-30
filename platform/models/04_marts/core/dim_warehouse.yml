@@ -1,0 +1,61 @@
+version: 2
+
+# Inventory info-delivery model built on the new Inventory raw-vault entities.
+# NOTE: contracts are intentionally NOT enforced on this new mart yet — column data_types below are
+# the expected Snowflake types but have not been validated against a warehouse run. After the first
+# successful `dbt build`, verify the emitted types and flip `contract.enforced` to true for parity with the
+# other gold marts.
+models:
+  - name: dim_warehouse
+    config:
+      access: public
+      group: core
+      contract:
+        enforced: false
+      meta:
+        owner: inventory-team
+        domain: inventory
+        tier: gold
+        pii_contains: false
+        freshness_sla: daily
+    description: "One row per warehouse. Authoritative warehouse dimension sourced from the warehouse hub and its current descriptive satellite."
+    semantic_model:
+      enabled: true
+    # Required so the auto-created `total_warehouses` metric has an aggregation time
+    # dimension (MetricFlow rejects create_metric measures without one).
+    agg_time_dimension: loaded_at
+    columns:
+      - name: warehouse_id
+        data_type: varchar
+        description: "Unique warehouse identifier (business key). Primary key."
+        entity:
+          type: primary
+          name: warehouse
+        tests:
+          - unique
+          - not_null
+        config:
+          meta:
+            semantic_type: entity_id
+      - name: warehouse_name
+        data_type: varchar
+        description: "Human-readable warehouse name (current value)."
+        dimension:
+          type: categorical
+        config:
+          meta:
+            semantic_type: categorical
+      - name: loaded_at
+        data_type: timestamp_ntz
+        description: "Load timestamp of the warehouse hub record."
+        granularity: day
+        dimension:
+          type: time
+    metrics:
+      - name: total_warehouses
+        description: "Total count of distinct warehouses."
+        type: simple
+        agg: count_distinct
+        expr: warehouse_id
+        fill_nulls_with: 0
+        label: "Total Warehouses"

@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: inventory_movement_inventory_n_s_v0
+    description: "Standard satellite for inventory_movement_h"
+    config:
+      tags: ['satellite', 'standard', 'raw_vault']
+    columns:
+      - name: hk_inventory_movement_h
+        description: "Parent entity hash key"
+        data_tests:
+          - not_null
+      - name: hd_inventory_movement_inventory_n_s
+        description: "Hash diff for change detection"
+      - name: movement_type
+        description: "Payload column"
+      - name: quantity
+        description: "Payload column"
+      - name: unit_cost
+        description: "Payload column"
+      - name: reason_code
+        description: "Payload column"
+      - name: occurred_at
+        description: "Payload column"
+      - name: product_id
+        description: "Payload column"
+      - name: warehouse_id
+        description: "Payload column"
+      - name: ldts
+        description: "Load date timestamp"
+      - name: rsrc
+        description: "Record source"

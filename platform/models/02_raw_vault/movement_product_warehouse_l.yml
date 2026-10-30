@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: movement_product_warehouse_l
+    description: "Standard link for movement_product_warehouse_l (inventory movement ↔ product ↔ warehouse)"
+    config:
+      tags: ['link', 'raw_vault']
+    columns:
+      - name: hk_movement_product_warehouse_l
+        description: "Link hash key"
+        data_tests:
+          - unique
+          - not_null
+      - name: hk_inventory_movement_h
+        description: "Foreign key to hub"
+        data_tests:
+          - not_null
+      - name: hk_product_h
+        description: "Foreign key to hub"
+        data_tests:
+          - not_null
+      - name: hk_warehouse_h
+        description: "Foreign key to hub"
+        data_tests:
+          - not_null
+      - name: ldts
+        description: "Load date timestamp"
+      - name: rsrc
+        description: "Record source"

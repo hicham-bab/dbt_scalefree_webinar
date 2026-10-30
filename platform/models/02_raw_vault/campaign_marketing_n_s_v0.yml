@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: campaign_marketing_n_s_v0
+    description: "Standard satellite for campaign_h"
+    config:
+      tags: ['satellite', 'standard', 'raw_vault']
+    columns:
+      - name: hk_campaign_h
+        description: "Parent entity hash key"
+        data_tests:
+          - not_null
+      - name: hd_campaign_marketing_n_s
+        description: "Hash diff for change detection"
+      - name: campaign_name
+        description: "Payload column"
+      - name: campaign_type
+        description: "Payload column"
+      - name: channel
+        description: "Payload column"
+      - name: start_date
+        description: "Payload column"
+      - name: end_date
+        description: "Payload column"
+      - name: budget_eur
+        description: "Payload column"
+      - name: target_segment
+        description: "Payload column"
+      - name: utm_source
+        description: "Payload column"
+      - name: utm_medium
+        description: "Payload column"
+      - name: utm_campaign
+        description: "Payload column"
+      - name: ldts
+        description: "Load date timestamp"
+      - name: rsrc
+        description: "Record source"

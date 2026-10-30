@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: product_h
+    description: "Standard hub for product_h"
+    config:
+      tags: ['hub', 'raw_vault']
+    columns:
+      - name: hk_product_h
+        description: "Hash key for product_h"
+        data_tests:
+          - unique
+          - not_null
+      - name: product_id
+        description: "Business key column"
+        data_tests:
+          - not_null
+      - name: ldts
+        description: "Load date timestamp"
+      - name: rsrc
+        description: "Record source"

@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: return_oms_n_s_v1
+    description: "Standard satellite v1 (with load_end_date) for return_h"
+    config:
+      tags: ['satellite', 'v1', 'raw_vault']
+    columns:
+      - name: hk_return_h
+        description: "Parent entity hash key"
+        data_tests:
+          - not_null
+      - name: hd_return_oms_n_s
+        description: "Hash diff for change detection"
+      - name: return_reason
+        description: "Payload column"
+      - name: return_requested_at
+        description: "Payload column"
+      - name: return_received_at
+        description: "Payload column"
+      - name: refund_amount
+        description: "Payload column"
+      - name: refund_status
+        description: "Payload column"
+      - name: ldts
+        description: "Load date timestamp"
+      - name: load_end_date
+        description: "Load end date (when this version was superseded)"
+      - name: is_current
+        description: "Flag indicating if this is the current version"

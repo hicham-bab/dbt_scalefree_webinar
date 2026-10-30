@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg__oms__raw_order_items
+    description: "Staging model for raw_order_items from OMS"
+    config:
+      tags: ['staging', 'oms']
+    columns:
+      - name: rsrc
+        description: "Record source identifier"
+      - name: ldts
+        description: "Load date timestamp"
+      - name: hk_order_item_h
+        description: "Hash key"
+      - name: hd_order_item_order_product_nl_s
+        description: "Hash diff for order_item_order_product_nl_s"

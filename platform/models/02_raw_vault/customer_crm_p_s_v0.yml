@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: customer_crm_p_s_v0
+    description: "Standard satellite for customer_h"
+    config:
+      tags: ['satellite', 'standard', 'raw_vault']
+    columns:
+      - name: hk_customer_h
+        description: "Parent entity hash key"
+        data_tests:
+          - not_null
+      - name: hd_customer_crm_p_s
+        description: "Hash diff for change detection"
+      - name: first_name
+        description: "Payload column"
+      - name: last_name
+        description: "Payload column"
+      - name: email
+        description: "Payload column"
+      - name: phone
+        description: "Payload column"
+      - name: birth_date
+        description: "Payload column"
+      - name: ldts
+        description: "Load date timestamp"
+      - name: rsrc
+        description: "Record source"

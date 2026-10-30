@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stg__inventory__raw_inventory_movements
+    description: "Staging model for raw_inventory_movements from Inventory (WMS)"
+    config:
+      tags: ['staging', 'inventory']
+    columns:
+      - name: rsrc
+        description: "Record source identifier"
+      - name: ldts
+        description: "Load date timestamp"
+      - name: hk_inventory_movement_h
+        description: "Hash key"
+      - name: hk_warehouse_h
+        description: "Hash key"
+      - name: hk_product_h
+        description: "Foreign hash key (integrates with existing product_h)"
+      - name: hk_movement_product_warehouse_l
+        description: "Link hash key"
+      - name: hd_inventory_movement_inventory_n_s
+        description: "Hash diff for inventory_movement_inventory_n_s"
+      - name: hd_warehouse_inventory_n_s
+        description: "Hash diff for warehouse_inventory_n_s"

@@ -1,5 +1,7 @@
 name: 'data_science'
 version: '1.0.0'
+dbt-cloud:
+    project-id: 538634
 require-dbt-version: [">=1.9.0"]
 profile: 'data_science'
 
@@ -16,9 +18,10 @@ clean-targets:
 
 models:
   data_science:
+    +database: DATA_SCIENCE__MARTS
     features:
       +materialized: table
-      +schema: ds_features
+      +schema: DS_FEATURES
     prep:
       +materialized: table
-      +schema: ds_prep
+      +schema: DS_PREP

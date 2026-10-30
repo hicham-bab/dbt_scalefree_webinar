@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: shipment_order_nl
+    description: "Non-historized link connecting shipments to orders"
+    config:
+      tags: ['non_historized_link', 'raw_vault']
+    columns:
+      - name: hk_shipment_order_nl
+        description: "Link hash key"
+        data_tests:
+          - unique
+          - not_null
+      - name: hk_shipment_h
+        description: "Foreign key to shipment hub"
+        data_tests:
+          - not_null
+      - name: hk_order_h
+        description: "Foreign key to order hub"
+        data_tests:
+          - not_null
+      - name: ldts
+        description: "Load date timestamp"
+      - name: rsrc
+        description: "Record source"

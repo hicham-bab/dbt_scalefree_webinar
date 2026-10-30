@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: product_pim_n_s_v1
+    description: "Standard satellite v1 (with load_end_date) for product_h"
+    config:
+      tags: ['satellite', 'v1', 'raw_vault']
+    columns:
+      - name: hk_product_h
+        description: "Parent entity hash key"
+        data_tests:
+          - not_null
+      - name: hd_product_pim_n_s
+        description: "Hash diff for change detection"
+      - name: product_name
+        description: "Payload column"
+      - name: category
+        description: "Payload column"
+      - name: subcategory
+        description: "Payload column"
+      - name: material
+        description: "Payload column"
+      - name: color
+        description: "Payload column"
+      - name: unit_price
+        description: "Payload column"
+      - name: cost_price
+        description: "Payload column"
+      - name: sku_code
+        description: "Payload column"
+      - name: collection
+        description: "Payload column"
+      - name: is_active
+        description: "Payload column"
+      - name: launched_at
+        description: "Payload column"
+      - name: ldts
+        description: "Load date timestamp"
+      - name: load_end_date
+        description: "Load end date (when this version was superseded)"
+      - name: is_current
+        description: "Flag indicating if this is the current version"

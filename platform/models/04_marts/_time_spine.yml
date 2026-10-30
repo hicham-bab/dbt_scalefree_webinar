@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: metricflow_time_spine
+    description: "MetricFlow time spine — one row per day (2022-01-01 to 2026-12-31). Registers the day-grain time spine the dbt Semantic Layer needs for time-based and cumulative metrics (e.g. revenue_last_7_days, revenue_last_30_days) and for querying metrics by metric_time."
+    time_spine:
+      standard_granularity_column: date_day
+    columns:
+      - name: date_day
+        description: "Calendar date at day granularity. The base column MetricFlow joins on."
+        granularity: day
+        data_tests:
+          - unique
+          - not_null

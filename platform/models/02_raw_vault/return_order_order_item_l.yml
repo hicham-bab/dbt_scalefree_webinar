@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: return_order_order_item_l
+    description: "Standard link for return_order_order_item_l"
+    config:
+      tags: ['link', 'raw_vault']
+    columns:
+      - name: hk_return_order_order_item_l
+        description: "Link hash key"
+        data_tests:
+          - unique
+          - not_null
+      - name: hk_return_h
+        description: "Foreign key to hub"
+        data_tests:
+          - not_null
+      - name: hk_order_h
+        description: "Foreign key to hub"
+        data_tests:
+          - not_null
+      - name: hk_order_item_h
+        description: "Foreign key to hub"
+        data_tests:
+          - not_null
+      - name: ldts
+        description: "Load date timestamp"
+      - name: rsrc
+        description: "Record source"

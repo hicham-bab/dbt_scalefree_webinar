@@ -1,0 +1,38 @@
+metrics:
+  - name: discount_rate
+    description: "Discount amount as a percentage of gross revenue. Measures promotional intensity."
+    type: ratio
+    numerator: total_discount_amount
+    denominator: total_gross_revenue
+    label: "Discount Rate"
+
+  - name: late_delivery_rate
+    description: "Ratio of late deliveries (>7 days) to total shipped orders."
+    type: ratio
+    numerator: late_delivery_orders
+    denominator: total_orders
+    label: "Late Delivery Rate"
+
+  - name: revenue_last_7_days
+    description: "Net revenue over the trailing 7 days."
+    type: cumulative
+    input_metric: total_revenue
+    window: 7 days
+    period_agg: first
+    label: "Revenue (Last 7 Days)"
+
+  - name: revenue_last_30_days
+    description: "Net revenue over the trailing 30 days."
+    type: cumulative
+    input_metric: total_revenue
+    window: 30 days
+    period_agg: first
+    label: "Revenue (Last 30 Days)"
+
+  # --- Inventory (built on fct_inventory_movements) ---
+  - name: shipment_to_receipt_ratio
+    description: "Units shipped relative to units received. A value near 1 indicates balanced throughput; sustained >1 implies stock depletion."
+    type: ratio
+    numerator: units_shipped
+    denominator: units_received
+    label: "Shipment-to-Receipt Ratio"

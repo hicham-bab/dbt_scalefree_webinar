@@ -1,0 +1,269 @@
+version: 2
+
+models:
+  - name: fct_orders
+    config:
+      access: public
+      group: core
+      contract:
+        enforced: true
+      meta:
+        owner: data-platform-team
+        domain: orders
+        tier: gold
+        pii_contains: false
+        freshness_sla: hourly
+    description: "One row per order. Central fact table for revenue, volume, and fulfillment analysis. Contains order-level metrics including gross revenue, net revenue after discounts, payment details, and delivery performance."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: order_date
+    columns:
+      - name: order_id
+        data_type: varchar
+        description: "Unique order identifier. Format: ORD_XXXXX. Primary key."
+        entity:
+          type: primary
+          name: order
+        tests:
+          - unique
+          - not_null
+        config:
+          meta:
+            semantic_type: entity_id
+      - name: customer_id
+        data_type: varchar
+        description: "Foreign key to dim_customers."
+        entity:
+          type: foreign
+          name: customer
+        tests:
+          - not_null
+        config:
+          meta:
+            semantic_type: entity_id
+      - name: order_date
+        data_type: date
+        description: "Date the order was placed."
+        granularity: day
+        dimension:
+          type: time
+        tests:
+          - not_null
+        config:
+          meta:
+            semantic_type: time
+      - name: order_date_key
+        data_type: number(38,0)
+        description: "Integer date key (YYYYMMDD) for joining to dim_date."
+      - name: channel
+        data_type: varchar
+        description: "Sales channel. Values: website, mobile_app, in_store, wholesale."
+        dimension:
+          type: categorical
+        config:
+          meta:
+            semantic_type: categorical
+      - name: order_status
+        data_type: varchar
+        description: "Final order status."
+        dimension:
+          type: categorical
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled', 'returned']
+        config:
+          meta:
+            semantic_type: categorical_status
+      - name: shipping_country
+        data_type: varchar
+        description: "Destination country for the shipment."
+        dimension:
+          type: categorical
+        config:
+          meta:
+            semantic_type: categorical
+      - name: shipping_method
+        data_type: varchar
+        description: "Shipping method selected by the customer."
+      - name: discount_code
+        data_type: varchar
+        description: "Promotional code applied. NULL if none."
+      - name: item_count
+        data_type: number(38,0)
+        description: "Number of distinct line items in the order."
+        config:
+          meta:
+            semantic_type: metric
+      - name: total_quantity
+        data_type: number(38,0)
+        description: "Total units ordered across all line items."
+        config:
+          meta:
+            semantic_type: metric
+      - name: gross_revenue_eur
+        data_type: number(38,2)
+        description: "Total revenue before discounts in EUR."
+        config:
+          meta:
+            semantic_type: metric
+      - name: discount_amount_eur
+        data_type: number(38,2)
+        description: "Total discount applied to the order in EUR."
+        config:
+          meta:
+            semantic_type: metric
+      - name: net_revenue_eur
+        data_type: number(38,2)
+        description: "Revenue after discounts (gross_revenue - discount_amount) in EUR."
+        config:
+          meta:
+            semantic_type: metric
+      - name: product_categories
+        data_type: varchar
+        description: "Comma-separated list of product categories present in this order."
+      - name: has_returned
+        data_type: boolean
+        description: "True if any item in this order has been returned."
+        dimension:
+          type: categorical
+        config:
+          meta:
+            semantic_type: flag
+      - name: is_first_order
+        data_type: boolean
+        description: "True if this is the customer's first ever order. Useful for new customer revenue analysis."
+        dimension:
+          type: categorical
+        config:
+          meta:
+            semantic_type: flag
+      - name: payment_method
+        data_type: varchar
+        description: "Primary payment method used."
+        dimension:
+          type: categorical
+        config:
+          meta:
+            semantic_type: categorical
+      - name: payment_status
+        data_type: varchar
+        description: "Payment status for this order."
+        config:
+          meta:
+            semantic_type: categorical_status
+      - name: total_paid_eur
+        data_type: number(38,2)
+        description: "Total amount actually paid (and collected) in EUR."
+        config:
+          meta:
+            semantic_type: metric
+      - name: is_refunded
+        data_type: boolean
+        description: "True if a refund was issued for this order."
+        dimension:
+          type: categorical
+        config:
+          meta:
+            semantic_type: flag
+      - name: carrier
+        data_type: varchar
+        description: "Shipping carrier used."
+        dimension:
+          type: categorical
+        config:
+          meta:
+            semantic_type: categorical
+      - name: shipment_status
+        data_type: varchar
+        description: "Current shipment tracking status."
+        config:
+          meta:
+            semantic_type: categorical_status
+      - name: days_to_ship
+        data_type: number(38,0)
+        description: "Number of days from order date to shipment dispatch date."
+        config:
+          meta:
+            semantic_type: metric
+      - name: days_to_deliver
+        data_type: number(38,0)
+        description: "Number of days from shipment to delivery. NULL if not yet delivered."
+        config:
+          meta:
+            semantic_type: metric
+      - name: is_late_delivery
+        data_type: boolean
+        description: "True if delivery took more than 7 days from shipment date."
+        dimension:
+          type: categorical
+        config:
+          meta:
+            semantic_type: flag
+    metrics:
+      - name: total_revenue
+        description: "Total net revenue across all orders in EUR."
+        type: simple
+        agg: sum
+        expr: net_revenue_eur
+        fill_nulls_with: 0
+        label: "Total Revenue (EUR)"
+      - name: total_gross_revenue
+        description: "Total gross revenue before discounts in EUR."
+        type: simple
+        agg: sum
+        expr: gross_revenue_eur
+        fill_nulls_with: 0
+        label: "Total Gross Revenue (EUR)"
+      - name: total_orders
+        description: "Total count of distinct orders."
+        type: simple
+        agg: count_distinct
+        expr: order_id
+        fill_nulls_with: 0
+        label: "Total Orders"
+      - name: average_order_value
+        description: "Average net revenue per order in EUR."
+        type: simple
+        agg: average
+        expr: net_revenue_eur
+        fill_nulls_with: 0
+        label: "Average Order Value (EUR)"
+      - name: total_discount_amount
+        description: "Total discounts applied in EUR."
+        type: simple
+        agg: sum
+        expr: discount_amount_eur
+        fill_nulls_with: 0
+        label: "Total Discounts (EUR)"
+      - name: new_customer_orders
+        description: "Count of orders from customers placing their first ever order."
+        type: simple
+        agg: count_distinct
+        expr: order_id
+        fill_nulls_with: 0
+        filter: "is_first_order = true"
+        label: "New Customer Orders"
+      - name: returned_order_count
+        description: "Count of orders that had at least one item returned."
+        type: simple
+        agg: count_distinct
+        expr: order_id
+        fill_nulls_with: 0
+        filter: "has_returned = true"
+        label: "Returned Orders"
+      - name: late_delivery_orders
+        description: "Count of orders with late delivery (>7 days)."
+        type: simple
+        agg: count_distinct
+        expr: order_id
+        fill_nulls_with: 0
+        filter: "is_late_delivery = true"
+        label: "Late Delivery Orders"
+      - name: avg_days_to_ship
+        description: "Average number of days from order placement to shipment dispatch."
+        type: simple
+        agg: average
+        expr: days_to_ship
+        fill_nulls_with: 0
+        label: "Avg Days to Ship"

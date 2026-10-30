@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: dim_date
+    config:
+      access: public
+      group: core
+      contract:
+        enforced: true
+      meta:
+        owner: data-platform-team
+        domain: time
+        tier: gold
+        pii_contains: false
+        freshness_sla: static
+    description: "Date dimension spanning 2022-01-01 to 2026-12-31. Contains calendar and fiscal attributes for time-based analysis."
+    columns:
+      - name: date_day
+        data_type: date
+        description: "The calendar date. Primary key."
+        tests:
+          - unique
+          - not_null
+      - name: date_key
+        data_type: number(38,0)
+        description: "Integer date key in YYYYMMDD format for joining to fact tables."
+      - name: day_of_week
+        data_type: number(38,0)
+        description: "Day of week number (0=Sunday, 6=Saturday in Snowflake)."
+      - name: day_name
+        data_type: varchar
+        description: "Full day name (e.g. Monday)."
+      - name: month_num
+        data_type: number(38,0)
+        description: "Month number (1-12)."
+      - name: month_name
+        data_type: varchar
+        description: "Abbreviated month name (e.g. Jan)."
+      - name: quarter
+        data_type: number(38,0)
+        description: "Calendar quarter (1-4)."
+      - name: year
+        data_type: number(38,0)
+        description: "Calendar year."
+      - name: is_weekend
+        data_type: boolean
+        description: "True if Saturday or Sunday."
+      - name: is_weekday
+        data_type: boolean
+        description: "True if Monday through Friday."
+      - name: week_of_year
+        data_type: number(38,0)
+        description: "ISO week number within the year."
+      - name: day_of_year
+        data_type: number(38,0)
+        description: "Day of year (1-366)."
+      - name: is_first_day_of_month
+        data_type: boolean
+        description: "True if this is the first day of the month."
+      - name: is_last_day_of_month
+        data_type: boolean
+        description: "True if this is the last day of the month."
+      - name: fiscal_quarter
+        data_type: varchar
+        description: "Fiscal quarter label (FQ1-FQ4) assuming April fiscal year start."
+      - name: fiscal_year
+        data_type: number(38,0)
+        description: "Fiscal year (April-March)."
+      - name: season
+        data_type: varchar
+        description: "Northern Hemisphere season. Values: Spring, Summer, Autumn, Winter."
+      - name: year_month
+        data_type: varchar
+        description: "Year-month string in YYYY-MM format."
+      - name: year_str
+        data_type: varchar
+        description: "Year as string in YYYY format."

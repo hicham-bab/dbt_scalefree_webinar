@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: order_item_order_product_nl_s_v0
+    description: "Satellite on the order item NH link — captures line item payload (quantity, price, discount)"
+    config:
+      tags: ['satellite', 'raw_vault']
+    columns:
+      - name: hk_order_item_order_product_nl
+        description: "Parent link hash key"
+        data_tests:
+          - not_null
+      - name: ldts
+        description: "Load date timestamp"
+      - name: rsrc
+        description: "Record source"
+      - name: hd_order_item_order_product_nl_s
+        description: "Hash diff"
+      - name: quantity
+        description: "Number of units ordered"
+      - name: unit_price_at_order
+        description: "Unit price at time of order"
+      - name: discount_pct
+        description: "Discount percentage applied to the line"

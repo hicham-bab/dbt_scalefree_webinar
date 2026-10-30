@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: order_item_order_product_nl_s_v1
+    description: "Current-state view of order item NH link satellite with is_current flag"
+    config:
+      tags: ['satellite', 'v1', 'raw_vault']
+    columns:
+      - name: hk_order_item_order_product_nl
+        description: "Parent link hash key"
+      - name: ldts
+        description: "Load date timestamp"
+      - name: quantity
+        description: "Number of units ordered"
+      - name: unit_price_at_order
+        description: "Unit price at time of order"
+      - name: discount_pct
+        description: "Discount percentage applied to the line"
+      - name: is_current
+        description: "True if this is the current active record"

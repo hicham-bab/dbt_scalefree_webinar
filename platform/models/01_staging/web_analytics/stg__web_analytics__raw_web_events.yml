@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg__web_analytics__raw_web_events
+    description: "Staging model for raw_web_events from Web_Analytics"
+    config:
+      tags: ['staging', 'web_analytics']
+    columns:
+      - name: rsrc
+        description: "Record source identifier"
+      - name: ldts
+        description: "Load date timestamp"
+      - name: hk_event_h
+        description: "Hash key"
+      - name: hd_event_web_analytics_n_s
+        description: "Hash diff for event_web_analytics_n_s"

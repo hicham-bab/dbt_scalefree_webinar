@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: order_item_order_product_nl
+    description: "Non-historized link connecting order items to orders and products"
+    config:
+      tags: ['non_historized_link', 'raw_vault']
+    columns:
+      - name: hk_order_item_order_product_nl
+        description: "Link hash key"
+        data_tests:
+          - unique
+          - not_null
+      - name: hk_order_item_h
+        description: "Foreign key to order item hub"
+        data_tests:
+          - not_null
+      - name: hk_order_h
+        description: "Foreign key to order hub"
+        data_tests:
+          - not_null
+      - name: hk_product_h
+        description: "Foreign key to product hub"
+        data_tests:
+          - not_null
+      - name: ldts
+        description: "Load date timestamp"
+      - name: rsrc
+        description: "Record source"

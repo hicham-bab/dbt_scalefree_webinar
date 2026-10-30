@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: shipment_h
+    description: "Standard hub for shipment_h"
+    config:
+      tags: ['hub', 'raw_vault']
+    columns:
+      - name: hk_shipment_h
+        description: "Hash key for shipment_h"
+        data_tests:
+          - unique
+          - not_null
+      - name: shipment_id
+        description: "Business key column"
+        data_tests:
+          - not_null
+      - name: ldts
+        description: "Load date timestamp"
+      - name: rsrc
+        description: "Record source"

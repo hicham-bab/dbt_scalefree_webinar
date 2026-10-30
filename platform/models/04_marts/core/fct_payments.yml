@@ -1,0 +1,101 @@
+version: 2
+
+models:
+  - name: fct_payments
+    config:
+      access: public
+      group: core
+      contract:
+        enforced: true
+      meta:
+        owner: finance-team
+        domain: payments
+        tier: gold
+        pii_contains: false
+        freshness_sla: hourly
+    description: "One row per payment transaction. Supports financial reconciliation, refund analysis, and payment method analytics."
+    columns:
+      - name: payment_id
+        data_type: varchar
+        description: "Unique payment identifier. Format: PAY_XXXXXX. Primary key."
+        tests:
+          - unique
+          - not_null
+        config:
+          meta:
+            semantic_type: entity_id
+      - name: order_id
+        data_type: varchar
+        description: "Foreign key to fct_orders."
+        tests:
+          - not_null
+        config:
+          meta:
+            semantic_type: entity_id
+      - name: customer_id
+        data_type: varchar
+        description: "Foreign key to dim_customers (denormalized from order)."
+        config:
+          meta:
+            semantic_type: entity_id
+      - name: payment_date
+        data_type: date
+        description: "Date the payment was processed."
+        config:
+          meta:
+            semantic_type: time
+      - name: order_date
+        data_type: date
+        description: "Date of the associated order."
+        config:
+          meta:
+            semantic_type: time
+      - name: payment_method
+        data_type: varchar
+        description: "Payment method. Values: credit_card, paypal, bank_transfer, store_credit, gift_card."
+        config:
+          meta:
+            semantic_type: categorical
+      - name: gateway
+        data_type: varchar
+        description: "Payment gateway. Values: stripe, paypal, adyen, manual."
+        config:
+          meta:
+            semantic_type: categorical
+      - name: currency
+        data_type: varchar
+        description: "Original transaction currency code."
+      - name: amount_original
+        data_type: number(38,2)
+        description: "Payment amount in the original transaction currency."
+        config:
+          meta:
+            semantic_type: metric
+      - name: amount_eur
+        data_type: number(38,2)
+        description: "Payment amount normalized to EUR."
+        config:
+          meta:
+            semantic_type: metric
+      - name: payment_status
+        data_type: varchar
+        description: "Payment lifecycle status. Values: completed, failed, refunded, pending."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['completed', 'failed', 'refunded', 'pending']
+        config:
+          meta:
+            semantic_type: categorical_status
+      - name: is_refunded
+        data_type: boolean
+        description: "True if this payment has been refunded."
+        config:
+          meta:
+            semantic_type: flag
+      - name: days_to_payment
+        data_type: number(38,0)
+        description: "Number of days between order date and payment date."
+        config:
+          meta:
+            semantic_type: metric

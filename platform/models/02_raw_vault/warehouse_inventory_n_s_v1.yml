@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: warehouse_inventory_n_s_v1
+    description: "Standard satellite v1 (with load_end_date) for warehouse_h"
+    config:
+      tags: ['satellite', 'v1', 'raw_vault']
+    columns:
+      - name: hk_warehouse_h
+        description: "Parent entity hash key"
+        data_tests:
+          - not_null
+      - name: hd_warehouse_inventory_n_s
+        description: "Hash diff for change detection"
+      - name: warehouse_name
+        description: "Payload column"
+      - name: ldts
+        description: "Load date timestamp"
+      - name: load_end_date
+        description: "Load end date (when this version was superseded)"
+      - name: is_current
+        description: "Flag indicating if this is the current version"
