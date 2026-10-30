@@ -1,0 +1,321 @@
+review_id,customer_id,product_id,rating,review_title,review_text,review_date,is_verified_purchase,helpful_votes,review_source,_loaded_at
+REV_00001,CUST_0110,PROD_026,1,Would not recommend,Stitching came loose within days. Had to return it.,2023-02-16,TRUE,2,post_purchase_email,2025-01-01T00:00:00
+REV_00002,CUST_0110,PROD_008,4,Great quality,"Great finish, though delivery took a little longer than expected.",2023-03-13,TRUE,2,post_purchase_email,2025-01-01T00:00:00
+REV_00003,CUST_0012,PROD_020,5,Absolutely stunning,Received many compliments already. Packaging was beautiful too.,2023-03-15,FALSE,0,website,2025-01-01T00:00:00
+REV_00004,CUST_0042,PROD_027,5,Absolutely stunning,The black colour is even richer in person.,2023-03-24,TRUE,3,website,2025-01-01T00:00:00
+REV_00005,CUST_0086,PROD_046,5,Worth every euro,Received many compliments already. Packaging was beautiful too.,2023-04-04,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00006,CUST_0029,PROD_016,5,Exceptional craftsmanship,The genuine leather feels incredibly soft and the stitching is flawless.,2023-04-06,TRUE,5,website,2025-01-01T00:00:00
+REV_00007,CUST_0055,PROD_020,5,Worth every euro,Received many compliments already. Packaging was beautiful too.,2023-05-03,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00008,CUST_0073,PROD_010,3,Mixed feelings,Quality is fine but the sizing runs small.,2023-05-14,TRUE,3,website,2025-01-01T00:00:00
+REV_00009,CUST_0114,PROD_011,2,Expected more at this price,Hardware feels cheaper than I expected for this brand.,2023-06-15,FALSE,1,website,2025-01-01T00:00:00
+REV_00010,CUST_0037,PROD_013,4,Lovely leather,"Lovely suede, slightly stiff at first but softening nicely.",2023-07-04,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00011,CUST_0061,PROD_040,4,Very happy overall,"Great finish, though delivery took a little longer than expected.",2023-07-04,FALSE,2,website,2025-01-01T00:00:00
+REV_00012,CUST_0156,PROD_044,4,"Beautiful, minor quibble","Lovely suede, slightly stiff at first but softening nicely.",2023-07-24,FALSE,1,website,2025-01-01T00:00:00
+REV_00013,CUST_0008,PROD_049,4,Great quality,"Lovely full grain leather, slightly stiff at first but softening nicely.",2023-07-26,TRUE,3,website,2025-01-01T00:00:00
+REV_00014,CUST_0117,PROD_031,3,"Good, not great","Okay overall, not sure it justifies the price.",2023-08-04,TRUE,2,website,2025-01-01T00:00:00
+REV_00015,CUST_0114,PROD_007,5,My new favourite piece,Received many compliments already. Packaging was beautiful too.,2023-08-08,FALSE,0,website,2025-01-01T00:00:00
+REV_00016,CUST_0144,PROD_005,3,Nice but not perfect,Quality is fine but the sizing runs small.,2023-08-23,TRUE,0,website,2025-01-01T00:00:00
+REV_00017,CUST_0046,PROD_037,5,Exceptional craftsmanship,The black colour is even richer in person.,2023-08-24,TRUE,0,website,2025-01-01T00:00:00
+REV_00018,CUST_0053,PROD_016,5,Exceptional craftsmanship,Received many compliments already. Packaging was beautiful too.,2023-09-27,TRUE,0,mobile_app,2025-01-01T00:00:00
+REV_00019,CUST_0102,PROD_030,1,Arrived damaged,Stitching came loose within days. Had to return it.,2023-09-30,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00020,CUST_0102,PROD_027,5,Timeless quality,The full grain leather feels incredibly soft and the stitching is flawless.,2023-10-06,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00021,CUST_0107,PROD_037,4,Great quality,"Great finish, though delivery took a little longer than expected.",2023-10-16,TRUE,5,website,2025-01-01T00:00:00
+REV_00022,CUST_0142,PROD_036,4,Lovely leather,The cognac shade is a bit darker than the photos but still gorgeous.,2023-10-23,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00023,CUST_0026,PROD_036,5,My new favourite piece,Received many compliments already. Packaging was beautiful too.,2023-10-29,TRUE,0,website,2025-01-01T00:00:00
+REV_00024,CUST_0008,PROD_037,4,"Beautiful, minor quibble","Lovely full grain leather, slightly stiff at first but softening nicely.",2023-10-29,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00025,CUST_0042,PROD_031,3,Nice but not perfect,"Looks nice, but the genuine leather scratches more easily than I hoped.",2023-11-09,TRUE,13,mobile_app,2025-01-01T00:00:00
+REV_00026,CUST_0011,PROD_037,5,Timeless quality,The full grain leather feels incredibly soft and the stitching is flawless.,2023-11-17,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00027,CUST_0003,PROD_017,4,Very happy overall,"Lovely full grain leather, slightly stiff at first but softening nicely.",2023-11-24,TRUE,0,website,2025-01-01T00:00:00
+REV_00028,CUST_0012,PROD_005,5,Timeless quality,Received many compliments already. Packaging was beautiful too.,2023-11-26,TRUE,8,website,2025-01-01T00:00:00
+REV_00029,CUST_0002,PROD_003,3,Decent for the price,"Looks nice, but the full grain leather scratches more easily than I hoped.",2023-11-29,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00030,CUST_0004,PROD_021,5,My new favourite piece,The tan colour is even richer in person.,2023-12-01,TRUE,2,website,2025-01-01T00:00:00
+REV_00031,CUST_0059,PROD_003,3,Mixed feelings,"Okay overall, not sure it justifies the price.",2023-12-03,TRUE,1,post_purchase_email,2025-01-01T00:00:00
+REV_00032,CUST_0047,PROD_009,4,Great quality,"Lovely patent leather, slightly stiff at first but softening nicely.",2023-12-12,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00033,CUST_0022,PROD_018,4,Great quality,"Great finish, though delivery took a little longer than expected.",2024-01-02,TRUE,1,website,2025-01-01T00:00:00
+REV_00034,CUST_0004,PROD_008,4,Very happy overall,"Great finish, though delivery took a little longer than expected.",2024-01-17,TRUE,0,website,2025-01-01T00:00:00
+REV_00035,CUST_0012,PROD_019,3,Mixed feelings,"Okay overall, not sure it justifies the price.",2024-01-19,TRUE,5,mobile_app,2025-01-01T00:00:00
+REV_00036,CUST_0041,PROD_040,5,Worth every euro,The patent leather feels incredibly soft and the stitching is flawless.,2024-02-02,TRUE,0,website,2025-01-01T00:00:00
+REV_00037,CUST_0005,PROD_050,5,My new favourite piece,The full grain leather feels incredibly soft and the stitching is flawless.,2024-04-17,TRUE,8,mobile_app,2025-01-01T00:00:00
+REV_00038,CUST_0044,PROD_044,5,Timeless quality,The suede feels incredibly soft and the stitching is flawless.,2024-04-17,FALSE,2,website,2025-01-01T00:00:00
+REV_00039,CUST_0010,PROD_037,5,Exceptional craftsmanship,The full grain leather feels incredibly soft and the stitching is flawless.,2024-04-18,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00040,CUST_0024,PROD_019,5,Timeless quality,The full grain leather feels incredibly soft and the stitching is flawless.,2024-04-24,FALSE,13,website,2025-01-01T00:00:00
+REV_00041,CUST_0156,PROD_019,3,Decent for the price,Quality is fine but the sizing runs small.,2024-04-30,FALSE,0,website,2025-01-01T00:00:00
+REV_00042,CUST_0015,PROD_020,5,Worth every euro,Received many compliments already. Packaging was beautiful too.,2024-05-03,TRUE,0,mobile_app,2025-01-01T00:00:00
+REV_00043,CUST_0117,PROD_045,3,Nice but not perfect,"Looks nice, but the full grain leather scratches more easily than I hoped.",2024-05-14,FALSE,3,website,2025-01-01T00:00:00
+REV_00044,CUST_0121,PROD_021,5,Worth every euro,The tan colour is even richer in person.,2024-05-25,TRUE,5,mobile_app,2025-01-01T00:00:00
+REV_00045,CUST_0136,PROD_010,5,Worth every euro,The full grain leather feels incredibly soft and the stitching is flawless.,2024-05-29,FALSE,1,website,2025-01-01T00:00:00
+REV_00046,CUST_0118,PROD_041,5,Absolutely stunning,The full grain leather feels incredibly soft and the stitching is flawless.,2024-06-18,FALSE,2,website,2025-01-01T00:00:00
+REV_00047,CUST_0006,PROD_045,1,Poor quality,Stitching came loose within days. Had to return it.,2024-06-29,FALSE,0,website,2025-01-01T00:00:00
+REV_00048,CUST_0007,PROD_027,5,Worth every euro,Received many compliments already. Packaging was beautiful too.,2024-08-01,TRUE,0,website,2025-01-01T00:00:00
+REV_00049,CUST_0009,PROD_008,4,Lovely leather,"Great finish, though delivery took a little longer than expected.",2024-08-02,TRUE,0,website,2025-01-01T00:00:00
+REV_00050,CUST_0003,PROD_006,4,"Beautiful, minor quibble",The tan shade is a bit darker than the photos but still gorgeous.,2024-08-11,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00051,CUST_0041,PROD_034,4,Very happy overall,"Great finish, though delivery took a little longer than expected.",2024-09-03,TRUE,1,website,2025-01-01T00:00:00
+REV_00052,CUST_0092,PROD_004,5,My new favourite piece,Received many compliments already. Packaging was beautiful too.,2024-09-06,FALSE,1,website,2025-01-01T00:00:00
+REV_00053,CUST_0012,PROD_020,5,Timeless quality,Received many compliments already. Packaging was beautiful too.,2024-09-10,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00054,CUST_0164,PROD_038,1,Would not recommend,Stitching came loose within days. Had to return it.,2024-09-18,FALSE,2,website,2025-01-01T00:00:00
+REV_00055,CUST_0105,PROD_021,4,"Beautiful, minor quibble",The tan shade is a bit darker than the photos but still gorgeous.,2024-10-13,TRUE,0,mobile_app,2025-01-01T00:00:00
+REV_00056,CUST_0043,PROD_048,5,My new favourite piece,The full grain leather feels incredibly soft and the stitching is flawless.,2024-10-15,TRUE,13,post_purchase_email,2025-01-01T00:00:00
+REV_00057,CUST_0015,PROD_034,3,"Good, not great","Looks nice, but the full grain leather scratches more easily than I hoped.",2024-10-27,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00058,CUST_0003,PROD_037,3,Nice but not perfect,"Okay overall, not sure it justifies the price.",2024-10-29,TRUE,5,website,2025-01-01T00:00:00
+REV_00059,CUST_0027,PROD_025,3,Decent for the price,Quality is fine but the sizing runs small.,2024-11-04,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00060,CUST_0059,PROD_001,2,Not as pictured,The tan colour did not match the website at all.,2024-11-20,TRUE,0,website,2025-01-01T00:00:00
+REV_00061,CUST_0079,PROD_023,4,Very happy overall,The dark brown shade is a bit darker than the photos but still gorgeous.,2024-12-17,TRUE,1,website,2025-01-01T00:00:00
+REV_00062,CUST_0030,PROD_011,5,Timeless quality,The black colour is even richer in person.,2024-12-27,TRUE,13,website,2025-01-01T00:00:00
+REV_00063,CUST_0015,PROD_032,5,Timeless quality,The black colour is even richer in person.,2025-01-11,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00064,CUST_0048,PROD_012,1,Would not recommend,Box was crushed and the suede was scuffed on arrival.,2025-01-18,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00065,CUST_0041,PROD_014,4,Elegant and practical,"Lovely full grain leather, slightly stiff at first but softening nicely.",2025-01-24,TRUE,5,mobile_app,2025-01-01T00:00:00
+REV_00066,CUST_0056,PROD_020,5,My new favourite piece,Received many compliments already. Packaging was beautiful too.,2025-01-29,TRUE,5,post_purchase_email,2025-01-01T00:00:00
+REV_00067,CUST_0113,PROD_042,3,"Good, not great","Looks nice, but the full grain leather scratches more easily than I hoped.",2025-01-30,TRUE,5,website,2025-01-01T00:00:00
+REV_00068,CUST_0088,PROD_029,5,My new favourite piece,The bordeaux colour is even richer in person.,2025-01-30,TRUE,3,mobile_app,2025-01-01T00:00:00
+REV_00069,CUST_0091,PROD_047,5,Exceptional craftsmanship,The black colour is even richer in person.,2025-02-07,TRUE,2,website,2025-01-01T00:00:00
+REV_00070,CUST_0137,PROD_021,4,Very happy overall,"Great finish, though delivery took a little longer than expected.",2025-02-07,TRUE,0,website,2025-01-01T00:00:00
+REV_00071,CUST_0069,PROD_022,2,Not as pictured,Edges started fraying after a few weeks of use.,2025-02-08,TRUE,8,mobile_app,2025-01-01T00:00:00
+REV_00072,CUST_0005,PROD_040,4,"Beautiful, minor quibble","Great finish, though delivery took a little longer than expected.",2025-02-09,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00073,CUST_0016,PROD_048,5,Exceptional craftsmanship,The full grain leather feels incredibly soft and the stitching is flawless.,2025-02-09,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00074,CUST_0148,PROD_028,5,Timeless quality,The full grain leather feels incredibly soft and the stitching is flawless.,2025-02-10,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00075,CUST_0038,PROD_029,4,"Beautiful, minor quibble",The bordeaux shade is a bit darker than the photos but still gorgeous.,2025-02-10,TRUE,1,website,2025-01-01T00:00:00
+REV_00076,CUST_0101,PROD_013,3,"Good, not great","Looks nice, but the suede scratches more easily than I hoped.",2025-02-11,TRUE,0,website,2025-01-01T00:00:00
+REV_00077,CUST_0078,PROD_020,5,Exceptional craftsmanship,Received many compliments already. Packaging was beautiful too.,2025-02-12,TRUE,0,website,2025-01-01T00:00:00
+REV_00078,CUST_0087,PROD_047,5,Absolutely stunning,Received many compliments already. Packaging was beautiful too.,2025-02-14,TRUE,0,website,2025-01-01T00:00:00
+REV_00079,CUST_0138,PROD_041,5,Worth every euro,Received many compliments already. Packaging was beautiful too.,2025-02-18,TRUE,1,website,2025-01-01T00:00:00
+REV_00080,CUST_0085,PROD_008,3,Nice but not perfect,"Okay overall, not sure it justifies the price.",2025-02-18,TRUE,1,website,2025-01-01T00:00:00
+REV_00081,CUST_0036,PROD_008,5,Exceptional craftsmanship,The black colour is even richer in person.,2025-02-20,TRUE,3,post_purchase_email,2025-01-01T00:00:00
+REV_00082,CUST_0121,PROD_026,4,Elegant and practical,"Lovely full grain leather, slightly stiff at first but softening nicely.",2025-02-21,TRUE,3,website,2025-01-01T00:00:00
+REV_00083,CUST_0020,PROD_028,5,Timeless quality,The full grain leather feels incredibly soft and the stitching is flawless.,2025-02-23,TRUE,3,website,2025-01-01T00:00:00
+REV_00084,CUST_0098,PROD_043,5,Timeless quality,Received many compliments already. Packaging was beautiful too.,2025-02-25,TRUE,2,post_purchase_email,2025-01-01T00:00:00
+REV_00085,CUST_0068,PROD_024,5,Exceptional craftsmanship,The full grain leather feels incredibly soft and the stitching is flawless.,2025-02-26,TRUE,2,website,2025-01-01T00:00:00
+REV_00086,CUST_0006,PROD_001,5,Exceptional craftsmanship,The full grain leather feels incredibly soft and the stitching is flawless.,2025-02-27,TRUE,0,website,2025-01-01T00:00:00
+REV_00087,CUST_0137,PROD_027,5,Worth every euro,The black colour is even richer in person.,2025-03-01,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00088,CUST_0005,PROD_034,5,My new favourite piece,The full grain leather feels incredibly soft and the stitching is flawless.,2025-03-02,TRUE,1,post_purchase_email,2025-01-01T00:00:00
+REV_00089,CUST_0009,PROD_016,5,Absolutely stunning,The genuine leather feels incredibly soft and the stitching is flawless.,2025-03-03,TRUE,0,website,2025-01-01T00:00:00
+REV_00090,CUST_0041,PROD_020,5,Worth every euro,The full grain leather feels incredibly soft and the stitching is flawless.,2025-03-05,TRUE,2,website,2025-01-01T00:00:00
+REV_00091,CUST_0078,PROD_043,3,Mixed feelings,"Looks nice, but the full grain leather scratches more easily than I hoped.",2025-03-09,TRUE,1,post_purchase_email,2025-01-01T00:00:00
+REV_00092,CUST_0124,PROD_013,5,Exceptional craftsmanship,The suede feels incredibly soft and the stitching is flawless.,2025-03-12,FALSE,0,website,2025-01-01T00:00:00
+REV_00093,CUST_0028,PROD_026,5,Absolutely stunning,Received many compliments already. Packaging was beautiful too.,2025-03-14,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00094,CUST_0129,PROD_035,4,Elegant and practical,"Lovely full grain leather, slightly stiff at first but softening nicely.",2025-03-16,TRUE,0,website,2025-01-01T00:00:00
+REV_00095,CUST_0106,PROD_022,5,Exceptional craftsmanship,The patent leather feels incredibly soft and the stitching is flawless.,2025-03-17,TRUE,2,website,2025-01-01T00:00:00
+REV_00096,CUST_0146,PROD_009,4,Lovely leather,"Great finish, though delivery took a little longer than expected.",2025-03-17,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00097,CUST_0118,PROD_036,3,Mixed feelings,"Okay overall, not sure it justifies the price.",2025-03-18,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00098,CUST_0068,PROD_017,5,Absolutely stunning,The full grain leather feels incredibly soft and the stitching is flawless.,2025-03-20,TRUE,3,website,2025-01-01T00:00:00
+REV_00099,CUST_0105,PROD_005,5,Exceptional craftsmanship,The bordeaux colour is even richer in person.,2025-03-21,TRUE,1,website,2025-01-01T00:00:00
+REV_00100,CUST_0019,PROD_040,4,Lovely leather,The cream shade is a bit darker than the photos but still gorgeous.,2025-03-23,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00101,CUST_0003,PROD_006,5,Absolutely stunning,Received many compliments already. Packaging was beautiful too.,2025-03-27,TRUE,2,post_purchase_email,2025-01-01T00:00:00
+REV_00102,CUST_0123,PROD_029,5,Timeless quality,The full grain leather feels incredibly soft and the stitching is flawless.,2025-03-30,TRUE,0,website,2025-01-01T00:00:00
+REV_00103,CUST_0135,PROD_036,5,Exceptional craftsmanship,The full grain leather feels incredibly soft and the stitching is flawless.,2025-04-01,TRUE,0,website,2025-01-01T00:00:00
+REV_00104,CUST_0071,PROD_043,5,Exceptional craftsmanship,The full grain leather feels incredibly soft and the stitching is flawless.,2025-04-04,FALSE,3,website,2025-01-01T00:00:00
+REV_00105,CUST_0092,PROD_005,5,Absolutely stunning,The bordeaux colour is even richer in person.,2025-04-05,TRUE,0,website,2025-01-01T00:00:00
+REV_00106,CUST_0134,PROD_018,5,Worth every euro,The black colour is even richer in person.,2025-04-06,TRUE,2,website,2025-01-01T00:00:00
+REV_00107,CUST_0159,PROD_040,4,Great quality,"Lovely patent leather, slightly stiff at first but softening nicely.",2025-04-07,FALSE,0,website,2025-01-01T00:00:00
+REV_00108,CUST_0024,PROD_004,4,Very happy overall,The black shade is a bit darker than the photos but still gorgeous.,2025-04-08,TRUE,1,website,2025-01-01T00:00:00
+REV_00109,CUST_0017,PROD_047,5,Absolutely stunning,The patent leather feels incredibly soft and the stitching is flawless.,2025-04-15,TRUE,0,website,2025-01-01T00:00:00
+REV_00110,CUST_0131,PROD_048,5,Absolutely stunning,The cognac colour is even richer in person.,2025-04-15,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00111,CUST_0045,PROD_032,2,Not as pictured,Edges started fraying after a few weeks of use.,2025-04-16,TRUE,1,website,2025-01-01T00:00:00
+REV_00112,CUST_0055,PROD_041,5,My new favourite piece,The black colour is even richer in person.,2025-04-23,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00113,CUST_0088,PROD_002,4,"Beautiful, minor quibble","Great finish, though delivery took a little longer than expected.",2025-04-24,TRUE,0,website,2025-01-01T00:00:00
+REV_00114,CUST_0140,PROD_038,5,Timeless quality,The tan colour is even richer in person.,2025-04-26,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00115,CUST_0144,PROD_034,5,Exceptional craftsmanship,The black colour is even richer in person.,2025-05-02,TRUE,3,mobile_app,2025-01-01T00:00:00
+REV_00116,CUST_0144,PROD_022,4,"Beautiful, minor quibble","Lovely patent leather, slightly stiff at first but softening nicely.",2025-05-02,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00117,CUST_0147,PROD_047,5,My new favourite piece,The patent leather feels incredibly soft and the stitching is flawless.,2025-05-03,TRUE,1,website,2025-01-01T00:00:00
+REV_00118,CUST_0036,PROD_026,5,Exceptional craftsmanship,Received many compliments already. Packaging was beautiful too.,2025-05-03,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00119,CUST_0025,PROD_041,4,Very happy overall,The black shade is a bit darker than the photos but still gorgeous.,2025-05-03,TRUE,0,website,2025-01-01T00:00:00
+REV_00120,CUST_0147,PROD_026,5,Absolutely stunning,The full grain leather feels incredibly soft and the stitching is flawless.,2025-05-04,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00121,CUST_0132,PROD_001,4,Very happy overall,The tan shade is a bit darker than the photos but still gorgeous.,2025-05-04,TRUE,1,website,2025-01-01T00:00:00
+REV_00122,CUST_0140,PROD_011,4,Great quality,"Great finish, though delivery took a little longer than expected.",2025-05-05,TRUE,2,website,2025-01-01T00:00:00
+REV_00123,CUST_0082,PROD_032,4,Very happy overall,"Lovely patent leather, slightly stiff at first but softening nicely.",2025-05-07,TRUE,0,mobile_app,2025-01-01T00:00:00
+REV_00124,CUST_0147,PROD_020,4,Great quality,"Lovely full grain leather, slightly stiff at first but softening nicely.",2025-05-08,TRUE,0,website,2025-01-01T00:00:00
+REV_00125,CUST_0003,PROD_007,5,My new favourite piece,Received many compliments already. Packaging was beautiful too.,2025-05-09,TRUE,0,website,2025-01-01T00:00:00
+REV_00126,CUST_0105,PROD_021,5,Timeless quality,The tan colour is even richer in person.,2025-05-10,TRUE,3,post_purchase_email,2025-01-01T00:00:00
+REV_00127,CUST_0112,PROD_045,5,Timeless quality,The black colour is even richer in person.,2025-05-11,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00128,CUST_0038,PROD_045,4,Elegant and practical,The black shade is a bit darker than the photos but still gorgeous.,2025-05-13,TRUE,2,post_purchase_email,2025-01-01T00:00:00
+REV_00129,CUST_0086,PROD_050,4,Very happy overall,"Great finish, though delivery took a little longer than expected.",2025-05-14,TRUE,5,website,2025-01-01T00:00:00
+REV_00130,CUST_0024,PROD_032,4,Lovely leather,"Lovely patent leather, slightly stiff at first but softening nicely.",2025-05-15,TRUE,1,post_purchase_email,2025-01-01T00:00:00
+REV_00131,CUST_0038,PROD_041,5,Exceptional craftsmanship,The black colour is even richer in person.,2025-05-16,TRUE,2,website,2025-01-01T00:00:00
+REV_00132,CUST_0093,PROD_044,3,Nice but not perfect,"Okay overall, not sure it justifies the price.",2025-05-18,TRUE,0,website,2025-01-01T00:00:00
+REV_00133,CUST_0036,PROD_029,5,Absolutely stunning,The bordeaux colour is even richer in person.,2025-05-21,TRUE,1,website,2025-01-01T00:00:00
+REV_00134,CUST_0043,PROD_037,5,Exceptional craftsmanship,The full grain leather feels incredibly soft and the stitching is flawless.,2025-05-27,TRUE,0,website,2025-01-01T00:00:00
+REV_00135,CUST_0113,PROD_025,4,"Beautiful, minor quibble","Lovely genuine leather, slightly stiff at first but softening nicely.",2025-05-27,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00136,CUST_0148,PROD_002,5,My new favourite piece,Received many compliments already. Packaging was beautiful too.,2025-05-30,TRUE,1,website,2025-01-01T00:00:00
+REV_00137,CUST_0020,PROD_044,4,"Beautiful, minor quibble","Great finish, though delivery took a little longer than expected.",2025-05-31,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00138,CUST_0142,PROD_009,4,Elegant and practical,"Great finish, though delivery took a little longer than expected.",2025-06-03,TRUE,5,mobile_app,2025-01-01T00:00:00
+REV_00139,CUST_0137,PROD_046,3,"Good, not great","Okay overall, not sure it justifies the price.",2025-06-03,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00140,CUST_0065,PROD_031,3,Nice but not perfect,"Okay overall, not sure it justifies the price.",2025-06-04,TRUE,0,website,2025-01-01T00:00:00
+REV_00141,CUST_0113,PROD_005,5,Exceptional craftsmanship,The bordeaux colour is even richer in person.,2025-06-07,TRUE,0,website,2025-01-01T00:00:00
+REV_00142,CUST_0005,PROD_038,2,Not as pictured,Hardware feels cheaper than I expected for this brand.,2025-06-12,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00143,CUST_0004,PROD_031,3,"Good, not great",Quality is fine but the sizing runs small.,2025-06-12,TRUE,0,website,2025-01-01T00:00:00
+REV_00144,CUST_0064,PROD_025,5,Timeless quality,The navy colour is even richer in person.,2025-06-13,TRUE,1,website,2025-01-01T00:00:00
+REV_00145,CUST_0113,PROD_047,4,Very happy overall,"Lovely patent leather, slightly stiff at first but softening nicely.",2025-06-15,TRUE,0,mobile_app,2025-01-01T00:00:00
+REV_00146,CUST_0028,PROD_033,5,Exceptional craftsmanship,The forest green colour is even richer in person.,2025-06-16,TRUE,1,website,2025-01-01T00:00:00
+REV_00147,CUST_0093,PROD_041,5,Exceptional craftsmanship,Received many compliments already. Packaging was beautiful too.,2025-06-17,TRUE,1,website,2025-01-01T00:00:00
+REV_00148,CUST_0026,PROD_041,2,Not as pictured,The black colour did not match the website at all.,2025-06-24,TRUE,0,website,2025-01-01T00:00:00
+REV_00149,CUST_0090,PROD_006,5,Exceptional craftsmanship,Received many compliments already. Packaging was beautiful too.,2025-06-24,TRUE,0,website,2025-01-01T00:00:00
+REV_00150,CUST_0148,PROD_015,5,Timeless quality,Received many compliments already. Packaging was beautiful too.,2025-06-25,TRUE,5,website,2025-01-01T00:00:00
+REV_00151,CUST_0092,PROD_024,5,Timeless quality,The full grain leather feels incredibly soft and the stitching is flawless.,2025-06-25,TRUE,0,mobile_app,2025-01-01T00:00:00
+REV_00152,CUST_0115,PROD_045,2,Expected more at this price,Hardware feels cheaper than I expected for this brand.,2025-06-26,TRUE,0,website,2025-01-01T00:00:00
+REV_00153,CUST_0143,PROD_008,4,Lovely leather,"Great finish, though delivery took a little longer than expected.",2025-06-26,TRUE,8,post_purchase_email,2025-01-01T00:00:00
+REV_00154,CUST_0113,PROD_008,4,"Beautiful, minor quibble","Lovely patent leather, slightly stiff at first but softening nicely.",2025-06-26,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00155,CUST_0145,PROD_013,4,Very happy overall,"Great finish, though delivery took a little longer than expected.",2025-06-30,TRUE,1,website,2025-01-01T00:00:00
+REV_00156,CUST_0064,PROD_006,4,Elegant and practical,"Lovely genuine leather, slightly stiff at first but softening nicely.",2025-07-10,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00157,CUST_0030,PROD_047,2,Expected more at this price,The black colour did not match the website at all.,2025-07-10,TRUE,2,post_purchase_email,2025-01-01T00:00:00
+REV_00158,CUST_0085,PROD_050,3,Mixed feelings,"Okay overall, not sure it justifies the price.",2025-07-11,TRUE,0,website,2025-01-01T00:00:00
+REV_00159,CUST_0138,PROD_023,4,Great quality,"Great finish, though delivery took a little longer than expected.",2025-07-13,TRUE,0,website,2025-01-01T00:00:00
+REV_00160,CUST_0076,PROD_046,5,My new favourite piece,The white colour is even richer in person.,2025-07-14,TRUE,8,website,2025-01-01T00:00:00
+REV_00161,CUST_0141,PROD_007,4,Great quality,"Lovely genuine leather, slightly stiff at first but softening nicely.",2025-07-17,TRUE,0,mobile_app,2025-01-01T00:00:00
+REV_00162,CUST_0063,PROD_033,3,Nice but not perfect,Quality is fine but the sizing runs small.,2025-07-19,TRUE,0,website,2025-01-01T00:00:00
+REV_00163,CUST_0143,PROD_009,4,Elegant and practical,The cream shade is a bit darker than the photos but still gorgeous.,2025-07-19,TRUE,3,website,2025-01-01T00:00:00
+REV_00164,CUST_0124,PROD_031,4,Elegant and practical,"Lovely genuine leather, slightly stiff at first but softening nicely.",2025-07-21,TRUE,2,website,2025-01-01T00:00:00
+REV_00165,CUST_0145,PROD_044,4,Great quality,"Lovely suede, slightly stiff at first but softening nicely.",2025-07-24,TRUE,1,website,2025-01-01T00:00:00
+REV_00166,CUST_0071,PROD_025,4,Elegant and practical,"Lovely genuine leather, slightly stiff at first but softening nicely.",2025-07-25,TRUE,0,website,2025-01-01T00:00:00
+REV_00167,CUST_0030,PROD_019,3,Nice but not perfect,Quality is fine but the sizing runs small.,2025-07-25,TRUE,2,post_purchase_email,2025-01-01T00:00:00
+REV_00168,CUST_0027,PROD_004,5,Worth every euro,The black colour is even richer in person.,2025-07-29,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00169,CUST_0040,PROD_016,5,My new favourite piece,The cognac colour is even richer in person.,2025-08-08,TRUE,2,post_purchase_email,2025-01-01T00:00:00
+REV_00170,CUST_0038,PROD_010,5,Exceptional craftsmanship,The full grain leather feels incredibly soft and the stitching is flawless.,2025-08-13,TRUE,1,post_purchase_email,2025-01-01T00:00:00
+REV_00171,CUST_0139,PROD_003,5,Worth every euro,The cognac colour is even richer in person.,2025-08-13,TRUE,5,post_purchase_email,2025-01-01T00:00:00
+REV_00172,CUST_0079,PROD_038,1,Would not recommend,Box was crushed and the genuine leather was scuffed on arrival.,2025-08-14,TRUE,2,website,2025-01-01T00:00:00
+REV_00173,CUST_0139,PROD_031,2,Expected more at this price,Edges started fraying after a few weeks of use.,2025-08-15,TRUE,1,post_purchase_email,2025-01-01T00:00:00
+REV_00174,CUST_0034,PROD_026,4,Lovely leather,"Great finish, though delivery took a little longer than expected.",2025-08-17,TRUE,1,website,2025-01-01T00:00:00
+REV_00175,CUST_0018,PROD_019,1,Would not recommend,Stitching came loose within days. Had to return it.,2025-08-20,TRUE,3,post_purchase_email,2025-01-01T00:00:00
+REV_00176,CUST_0063,PROD_020,4,"Beautiful, minor quibble","Lovely full grain leather, slightly stiff at first but softening nicely.",2025-08-20,TRUE,5,post_purchase_email,2025-01-01T00:00:00
+REV_00177,CUST_0012,PROD_047,3,Mixed feelings,"Okay overall, not sure it justifies the price.",2025-08-22,TRUE,1,website,2025-01-01T00:00:00
+REV_00178,CUST_0101,PROD_049,4,Elegant and practical,The black shade is a bit darker than the photos but still gorgeous.,2025-08-24,TRUE,8,mobile_app,2025-01-01T00:00:00
+REV_00179,CUST_0074,PROD_001,4,Great quality,"Lovely full grain leather, slightly stiff at first but softening nicely.",2025-08-24,FALSE,0,website,2025-01-01T00:00:00
+REV_00180,CUST_0101,PROD_034,4,Elegant and practical,"Great finish, though delivery took a little longer than expected.",2025-08-28,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00181,CUST_0055,PROD_037,5,Absolutely stunning,The full grain leather feels incredibly soft and the stitching is flawless.,2025-08-29,TRUE,3,mobile_app,2025-01-01T00:00:00
+REV_00182,CUST_0111,PROD_015,3,Mixed feelings,Quality is fine but the sizing runs small.,2025-08-29,TRUE,3,website,2025-01-01T00:00:00
+REV_00183,CUST_0131,PROD_030,2,Expected more at this price,The tan colour did not match the website at all.,2025-08-30,TRUE,1,website,2025-01-01T00:00:00
+REV_00184,CUST_0118,PROD_042,4,Lovely leather,The tan shade is a bit darker than the photos but still gorgeous.,2025-08-30,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00185,CUST_0129,PROD_009,4,"Beautiful, minor quibble","Lovely patent leather, slightly stiff at first but softening nicely.",2025-08-31,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00186,CUST_0016,PROD_007,5,Exceptional craftsmanship,The navy colour is even richer in person.,2025-08-31,TRUE,8,website,2025-01-01T00:00:00
+REV_00187,CUST_0105,PROD_012,5,Exceptional craftsmanship,The suede feels incredibly soft and the stitching is flawless.,2025-09-02,TRUE,0,website,2025-01-01T00:00:00
+REV_00188,CUST_0010,PROD_046,5,Worth every euro,The white colour is even richer in person.,2025-09-02,TRUE,2,post_purchase_email,2025-01-01T00:00:00
+REV_00189,CUST_0031,PROD_001,3,Nice but not perfect,"Okay overall, not sure it justifies the price.",2025-09-04,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00190,CUST_0114,PROD_013,4,Great quality,"Lovely suede, slightly stiff at first but softening nicely.",2025-09-06,TRUE,0,website,2025-01-01T00:00:00
+REV_00191,CUST_0070,PROD_048,4,Elegant and practical,"Lovely full grain leather, slightly stiff at first but softening nicely.",2025-09-08,TRUE,1,post_purchase_email,2025-01-01T00:00:00
+REV_00192,CUST_0021,PROD_017,3,Mixed feelings,"Okay overall, not sure it justifies the price.",2025-09-10,TRUE,1,website,2025-01-01T00:00:00
+REV_00193,CUST_0021,PROD_050,2,Disappointed,The dark brown colour did not match the website at all.,2025-09-11,TRUE,0,mobile_app,2025-01-01T00:00:00
+REV_00194,CUST_0064,PROD_005,4,Elegant and practical,"Lovely full grain leather, slightly stiff at first but softening nicely.",2025-09-16,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00195,CUST_0053,PROD_036,2,Expected more at this price,Edges started fraying after a few weeks of use.,2025-09-17,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00196,CUST_0002,PROD_019,4,Elegant and practical,The cognac shade is a bit darker than the photos but still gorgeous.,2025-09-17,TRUE,1,website,2025-01-01T00:00:00
+REV_00197,CUST_0053,PROD_020,5,Worth every euro,Received many compliments already. Packaging was beautiful too.,2025-09-18,TRUE,0,website,2025-01-01T00:00:00
+REV_00198,CUST_0070,PROD_012,5,Timeless quality,The forest green colour is even richer in person.,2025-09-20,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00199,CUST_0094,PROD_011,4,Lovely leather,"Great finish, though delivery took a little longer than expected.",2025-09-24,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00200,CUST_0041,PROD_032,5,Absolutely stunning,The patent leather feels incredibly soft and the stitching is flawless.,2025-09-24,TRUE,2,post_purchase_email,2025-01-01T00:00:00
+REV_00201,CUST_0015,PROD_001,5,Absolutely stunning,Received many compliments already. Packaging was beautiful too.,2025-09-29,TRUE,13,post_purchase_email,2025-01-01T00:00:00
+REV_00202,CUST_0038,PROD_045,5,Timeless quality,Received many compliments already. Packaging was beautiful too.,2025-10-06,TRUE,1,website,2025-01-01T00:00:00
+REV_00203,CUST_0140,PROD_048,5,My new favourite piece,Received many compliments already. Packaging was beautiful too.,2025-10-07,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00204,CUST_0042,PROD_035,2,Expected more at this price,The tan colour did not match the website at all.,2025-10-07,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00205,CUST_0099,PROD_019,4,Very happy overall,"Great finish, though delivery took a little longer than expected.",2025-10-07,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00206,CUST_0070,PROD_005,3,Nice but not perfect,Quality is fine but the sizing runs small.,2025-10-09,TRUE,0,website,2025-01-01T00:00:00
+REV_00207,CUST_0119,PROD_028,4,Very happy overall,The cognac shade is a bit darker than the photos but still gorgeous.,2025-10-11,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00208,CUST_0106,PROD_046,4,Elegant and practical,"Lovely genuine leather, slightly stiff at first but softening nicely.",2025-10-12,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00209,CUST_0040,PROD_031,5,Worth every euro,The black colour is even richer in person.,2025-10-12,TRUE,3,mobile_app,2025-01-01T00:00:00
+REV_00210,CUST_0111,PROD_014,5,My new favourite piece,Received many compliments already. Packaging was beautiful too.,2025-10-14,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00211,CUST_0068,PROD_025,4,Great quality,The navy shade is a bit darker than the photos but still gorgeous.,2025-10-15,TRUE,0,website,2025-01-01T00:00:00
+REV_00212,CUST_0070,PROD_035,1,Arrived damaged,Stitching came loose within days. Had to return it.,2025-10-16,TRUE,2,website,2025-01-01T00:00:00
+REV_00213,CUST_0070,PROD_045,4,"Beautiful, minor quibble","Lovely full grain leather, slightly stiff at first but softening nicely.",2025-10-18,TRUE,0,website,2025-01-01T00:00:00
+REV_00214,CUST_0054,PROD_020,4,Very happy overall,"Lovely full grain leather, slightly stiff at first but softening nicely.",2025-10-19,TRUE,5,website,2025-01-01T00:00:00
+REV_00215,CUST_0080,PROD_029,5,Timeless quality,The bordeaux colour is even richer in person.,2025-10-22,TRUE,1,website,2025-01-01T00:00:00
+REV_00216,CUST_0127,PROD_020,5,Worth every euro,The black colour is even richer in person.,2025-10-22,TRUE,0,mobile_app,2025-01-01T00:00:00
+REV_00217,CUST_0112,PROD_028,1,Poor quality,Box was crushed and the full grain leather was scuffed on arrival.,2025-10-22,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00218,CUST_0048,PROD_011,4,"Beautiful, minor quibble",The black shade is a bit darker than the photos but still gorgeous.,2025-10-23,TRUE,0,website,2025-01-01T00:00:00
+REV_00219,CUST_0002,PROD_040,4,Lovely leather,"Great finish, though delivery took a little longer than expected.",2025-10-28,TRUE,1,post_purchase_email,2025-01-01T00:00:00
+REV_00220,CUST_0114,PROD_035,3,"Good, not great","Okay overall, not sure it justifies the price.",2025-10-28,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00221,CUST_0008,PROD_027,5,My new favourite piece,The black colour is even richer in person.,2025-10-30,TRUE,13,website,2025-01-01T00:00:00
+REV_00222,CUST_0150,PROD_014,5,Timeless quality,Received many compliments already. Packaging was beautiful too.,2025-11-02,TRUE,1,post_purchase_email,2025-01-01T00:00:00
+REV_00223,CUST_0058,PROD_010,4,Lovely leather,"Great finish, though delivery took a little longer than expected.",2025-11-03,TRUE,3,post_purchase_email,2025-01-01T00:00:00
+REV_00224,CUST_0077,PROD_049,2,Disappointed,The black colour did not match the website at all.,2025-11-03,TRUE,1,post_purchase_email,2025-01-01T00:00:00
+REV_00225,CUST_0002,PROD_009,5,Absolutely stunning,Received many compliments already. Packaging was beautiful too.,2025-11-09,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00226,CUST_0027,PROD_025,5,Exceptional craftsmanship,The genuine leather feels incredibly soft and the stitching is flawless.,2025-11-12,TRUE,0,website,2025-01-01T00:00:00
+REV_00227,CUST_0116,PROD_039,5,My new favourite piece,The dark brown colour is even richer in person.,2025-11-13,TRUE,1,post_purchase_email,2025-01-01T00:00:00
+REV_00228,CUST_0106,PROD_011,5,Exceptional craftsmanship,The full grain leather feels incredibly soft and the stitching is flawless.,2025-11-14,TRUE,2,website,2025-01-01T00:00:00
+REV_00229,CUST_0061,PROD_048,4,Very happy overall,"Great finish, though delivery took a little longer than expected.",2025-11-15,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00230,CUST_0134,PROD_044,3,Mixed feelings,"Okay overall, not sure it justifies the price.",2025-11-16,TRUE,13,website,2025-01-01T00:00:00
+REV_00231,CUST_0034,PROD_003,5,Absolutely stunning,Received many compliments already. Packaging was beautiful too.,2025-11-19,TRUE,13,website,2025-01-01T00:00:00
+REV_00232,CUST_0089,PROD_009,3,"Good, not great",Quality is fine but the sizing runs small.,2025-11-19,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00233,CUST_0147,PROD_001,4,Great quality,"Great finish, though delivery took a little longer than expected.",2025-11-20,TRUE,1,website,2025-01-01T00:00:00
+REV_00234,CUST_0128,PROD_002,2,Not as pictured,The black colour did not match the website at all.,2025-11-20,TRUE,0,website,2025-01-01T00:00:00
+REV_00235,CUST_0021,PROD_005,5,Absolutely stunning,Received many compliments already. Packaging was beautiful too.,2025-11-20,TRUE,3,website,2025-01-01T00:00:00
+REV_00236,CUST_0005,PROD_020,3,Mixed feelings,Quality is fine but the sizing runs small.,2025-11-21,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00237,CUST_0109,PROD_040,3,Nice but not perfect,"Looks nice, but the patent leather scratches more easily than I hoped.",2025-11-21,TRUE,0,website,2025-01-01T00:00:00
+REV_00238,CUST_0121,PROD_021,5,My new favourite piece,Received many compliments already. Packaging was beautiful too.,2025-11-22,TRUE,0,website,2025-01-01T00:00:00
+REV_00239,CUST_0069,PROD_041,4,"Beautiful, minor quibble","Great finish, though delivery took a little longer than expected.",2025-11-26,TRUE,0,website,2025-01-01T00:00:00
+REV_00240,CUST_0046,PROD_047,2,Expected more at this price,Hardware feels cheaper than I expected for this brand.,2025-11-26,TRUE,0,mobile_app,2025-01-01T00:00:00
+REV_00241,CUST_0113,PROD_001,5,Exceptional craftsmanship,The tan colour is even richer in person.,2025-11-29,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00242,CUST_0067,PROD_015,5,Absolutely stunning,The full grain leather feels incredibly soft and the stitching is flawless.,2025-12-02,TRUE,8,website,2025-01-01T00:00:00
+REV_00243,CUST_0110,PROD_007,4,Elegant and practical,The navy shade is a bit darker than the photos but still gorgeous.,2025-12-03,TRUE,0,website,2025-01-01T00:00:00
+REV_00244,CUST_0149,PROD_041,4,"Beautiful, minor quibble","Great finish, though delivery took a little longer than expected.",2025-12-04,TRUE,5,website,2025-01-01T00:00:00
+REV_00245,CUST_0109,PROD_042,3,"Good, not great","Looks nice, but the full grain leather scratches more easily than I hoped.",2025-12-06,TRUE,3,post_purchase_email,2025-01-01T00:00:00
+REV_00246,CUST_0028,PROD_027,4,Very happy overall,"Lovely full grain leather, slightly stiff at first but softening nicely.",2025-12-08,TRUE,13,mobile_app,2025-01-01T00:00:00
+REV_00247,CUST_0097,PROD_040,4,Lovely leather,The cream shade is a bit darker than the photos but still gorgeous.,2025-12-08,TRUE,5,website,2025-01-01T00:00:00
+REV_00248,CUST_0051,PROD_050,4,"Beautiful, minor quibble","Lovely full grain leather, slightly stiff at first but softening nicely.",2025-12-12,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00249,CUST_0047,PROD_040,5,My new favourite piece,The cream colour is even richer in person.,2025-12-13,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00250,CUST_0018,PROD_016,4,Very happy overall,"Lovely genuine leather, slightly stiff at first but softening nicely.",2025-12-17,TRUE,3,post_purchase_email,2025-01-01T00:00:00
+REV_00251,CUST_0077,PROD_010,4,"Beautiful, minor quibble",The dark brown shade is a bit darker than the photos but still gorgeous.,2025-12-17,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00252,CUST_0107,PROD_046,1,Arrived damaged,"Very poor finishing, nothing like the product page.",2025-12-17,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00253,CUST_0068,PROD_032,5,Worth every euro,The patent leather feels incredibly soft and the stitching is flawless.,2025-12-18,TRUE,2,website,2025-01-01T00:00:00
+REV_00254,CUST_0031,PROD_038,4,"Beautiful, minor quibble","Great finish, though delivery took a little longer than expected.",2025-12-18,TRUE,1,post_purchase_email,2025-01-01T00:00:00
+REV_00255,CUST_0120,PROD_023,5,Worth every euro,The full grain leather feels incredibly soft and the stitching is flawless.,2025-12-22,TRUE,3,website,2025-01-01T00:00:00
+REV_00256,CUST_0040,PROD_001,4,Elegant and practical,"Great finish, though delivery took a little longer than expected.",2025-12-22,TRUE,0,website,2025-01-01T00:00:00
+REV_00257,CUST_0123,PROD_042,3,Decent for the price,"Okay overall, not sure it justifies the price.",2025-12-24,TRUE,0,website,2025-01-01T00:00:00
+REV_00258,CUST_0057,PROD_007,5,Absolutely stunning,Received many compliments already. Packaging was beautiful too.,2025-12-24,TRUE,5,website,2025-01-01T00:00:00
+REV_00259,CUST_0038,PROD_030,5,My new favourite piece,The tan colour is even richer in person.,2025-12-24,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00260,CUST_0070,PROD_002,4,Lovely leather,The black shade is a bit darker than the photos but still gorgeous.,2025-12-25,TRUE,1,website,2025-01-01T00:00:00
+REV_00261,CUST_0076,PROD_010,5,Exceptional craftsmanship,Received many compliments already. Packaging was beautiful too.,2025-12-25,TRUE,0,mobile_app,2025-01-01T00:00:00
+REV_00262,CUST_0004,PROD_022,5,My new favourite piece,Received many compliments already. Packaging was beautiful too.,2025-12-28,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00263,CUST_0109,PROD_017,5,Worth every euro,Received many compliments already. Packaging was beautiful too.,2025-12-29,TRUE,1,website,2025-01-01T00:00:00
+REV_00264,CUST_0028,PROD_010,1,Poor quality,"Very poor finishing, nothing like the product page.",2025-12-30,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00265,CUST_0104,PROD_035,3,Nice but not perfect,Quality is fine but the sizing runs small.,2025-12-31,TRUE,1,website,2025-01-01T00:00:00
+REV_00266,CUST_0098,PROD_012,5,Exceptional craftsmanship,The suede feels incredibly soft and the stitching is flawless.,2026-01-01,TRUE,1,website,2025-01-01T00:00:00
+REV_00267,CUST_0003,PROD_015,4,Great quality,"Lovely full grain leather, slightly stiff at first but softening nicely.",2026-01-03,TRUE,0,website,2025-01-01T00:00:00
+REV_00268,CUST_0074,PROD_037,4,Elegant and practical,"Great finish, though delivery took a little longer than expected.",2026-01-05,TRUE,8,post_purchase_email,2025-01-01T00:00:00
+REV_00269,CUST_0003,PROD_042,4,Very happy overall,"Great finish, though delivery took a little longer than expected.",2026-01-05,TRUE,3,website,2025-01-01T00:00:00
+REV_00270,CUST_0047,PROD_004,5,Timeless quality,The full grain leather feels incredibly soft and the stitching is flawless.,2026-01-05,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00271,CUST_0083,PROD_002,5,Exceptional craftsmanship,The black colour is even richer in person.,2026-01-07,TRUE,0,website,2025-01-01T00:00:00
+REV_00272,CUST_0007,PROD_015,5,Timeless quality,Received many compliments already. Packaging was beautiful too.,2026-01-09,TRUE,1,post_purchase_email,2025-01-01T00:00:00
+REV_00273,CUST_0047,PROD_005,2,Not as pictured,Hardware feels cheaper than I expected for this brand.,2026-01-10,TRUE,0,mobile_app,2025-01-01T00:00:00
+REV_00274,CUST_0112,PROD_045,1,Would not recommend,Stitching came loose within days. Had to return it.,2026-01-22,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00275,CUST_0032,PROD_024,5,Exceptional craftsmanship,Received many compliments already. Packaging was beautiful too.,2026-01-24,TRUE,5,post_purchase_email,2025-01-01T00:00:00
+REV_00276,CUST_0110,PROD_009,3,Nice but not perfect,"Okay overall, not sure it justifies the price.",2026-01-27,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00277,CUST_0112,PROD_035,5,Timeless quality,The full grain leather feels incredibly soft and the stitching is flawless.,2026-01-28,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00278,CUST_0001,PROD_031,5,Timeless quality,The black colour is even richer in person.,2026-02-01,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00279,CUST_0052,PROD_004,4,"Beautiful, minor quibble","Great finish, though delivery took a little longer than expected.",2026-02-05,TRUE,2,website,2025-01-01T00:00:00
+REV_00280,CUST_0094,PROD_033,4,Elegant and practical,"Great finish, though delivery took a little longer than expected.",2026-02-07,TRUE,5,website,2025-01-01T00:00:00
+REV_00281,CUST_0140,PROD_036,2,Expected more at this price,Edges started fraying after a few weeks of use.,2026-02-12,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00282,CUST_0086,PROD_035,5,My new favourite piece,The tan colour is even richer in person.,2026-02-13,TRUE,0,website,2025-01-01T00:00:00
+REV_00283,CUST_0061,PROD_027,5,Absolutely stunning,The black colour is even richer in person.,2026-02-15,TRUE,1,website,2025-01-01T00:00:00
+REV_00284,CUST_0149,PROD_004,1,Arrived damaged,Stitching came loose within days. Had to return it.,2026-02-15,TRUE,1,website,2025-01-01T00:00:00
+REV_00285,CUST_0098,PROD_024,5,Timeless quality,The cognac colour is even richer in person.,2026-02-21,TRUE,0,website,2025-01-01T00:00:00
+REV_00286,CUST_0019,PROD_017,4,Very happy overall,"Lovely full grain leather, slightly stiff at first but softening nicely.",2026-02-24,TRUE,0,mobile_app,2025-01-01T00:00:00
+REV_00287,CUST_0002,PROD_014,4,Very happy overall,The tan shade is a bit darker than the photos but still gorgeous.,2026-02-24,TRUE,13,website,2025-01-01T00:00:00
+REV_00288,CUST_0001,PROD_008,5,Exceptional craftsmanship,The black colour is even richer in person.,2026-02-25,TRUE,0,post_purchase_email,2025-01-01T00:00:00
+REV_00289,CUST_0001,PROD_018,1,Arrived damaged,"Very poor finishing, nothing like the product page.",2026-02-28,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00290,CUST_0001,PROD_017,4,Very happy overall,"Lovely full grain leather, slightly stiff at first but softening nicely.",2026-02-28,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00291,CUST_0036,PROD_017,4,"Beautiful, minor quibble","Great finish, though delivery took a little longer than expected.",2026-03-02,TRUE,0,website,2025-01-01T00:00:00
+REV_00292,CUST_0026,PROD_040,5,My new favourite piece,The patent leather feels incredibly soft and the stitching is flawless.,2026-03-03,TRUE,0,website,2025-01-01T00:00:00
+REV_00293,CUST_0144,PROD_042,2,Disappointed,Hardware feels cheaper than I expected for this brand.,2026-03-06,TRUE,1,website,2025-01-01T00:00:00
+REV_00294,CUST_0043,PROD_025,4,Very happy overall,"Great finish, though delivery took a little longer than expected.",2026-03-06,TRUE,8,website,2025-01-01T00:00:00
+REV_00295,CUST_0138,PROD_008,3,"Good, not great",Quality is fine but the sizing runs small.,2026-03-07,TRUE,3,website,2025-01-01T00:00:00
+REV_00296,CUST_0064,PROD_001,3,Mixed feelings,"Okay overall, not sure it justifies the price.",2026-03-08,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00297,CUST_0131,PROD_047,3,"Good, not great","Looks nice, but the patent leather scratches more easily than I hoped.",2026-03-14,TRUE,0,website,2025-01-01T00:00:00
+REV_00298,CUST_0065,PROD_011,4,Great quality,The black shade is a bit darker than the photos but still gorgeous.,2026-03-15,TRUE,1,post_purchase_email,2025-01-01T00:00:00
+REV_00299,CUST_0018,PROD_026,5,Absolutely stunning,The full grain leather feels incredibly soft and the stitching is flawless.,2026-03-16,TRUE,1,website,2025-01-01T00:00:00
+REV_00300,CUST_0040,PROD_048,5,Timeless quality,The full grain leather feels incredibly soft and the stitching is flawless.,2026-03-20,TRUE,0,website,2025-01-01T00:00:00
+REV_00301,CUST_0098,PROD_049,4,Very happy overall,The black shade is a bit darker than the photos but still gorgeous.,2026-03-26,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00302,CUST_0128,PROD_008,5,Absolutely stunning,Received many compliments already. Packaging was beautiful too.,2026-03-29,TRUE,0,website,2025-01-01T00:00:00
+REV_00303,CUST_0095,PROD_038,4,Very happy overall,"Great finish, though delivery took a little longer than expected.",2026-03-29,TRUE,0,website,2025-01-01T00:00:00
+REV_00304,CUST_0025,PROD_050,3,"Good, not great","Okay overall, not sure it justifies the price.",2026-03-29,TRUE,0,website,2025-01-01T00:00:00
+REV_00305,CUST_0133,PROD_041,4,"Beautiful, minor quibble","Great finish, though delivery took a little longer than expected.",2026-03-30,TRUE,0,website,2025-01-01T00:00:00
+REV_00306,CUST_0092,PROD_025,4,Very happy overall,The navy shade is a bit darker than the photos but still gorgeous.,2026-03-31,FALSE,1,website,2025-01-01T00:00:00
+REV_00307,CUST_0127,PROD_018,5,My new favourite piece,Received many compliments already. Packaging was beautiful too.,2026-04-01,TRUE,0,website,2025-01-01T00:00:00
+REV_00308,CUST_0088,PROD_016,5,Timeless quality,Received many compliments already. Packaging was beautiful too.,2026-04-02,TRUE,1,website,2025-01-01T00:00:00
+REV_00309,CUST_0021,PROD_025,3,Nice but not perfect,"Looks nice, but the genuine leather scratches more easily than I hoped.",2026-04-02,TRUE,3,post_purchase_email,2025-01-01T00:00:00
+REV_00310,CUST_0095,PROD_007,5,My new favourite piece,The genuine leather feels incredibly soft and the stitching is flawless.,2026-04-04,TRUE,13,mobile_app,2025-01-01T00:00:00
+REV_00311,CUST_0023,PROD_036,5,Exceptional craftsmanship,The cognac colour is even richer in person.,2026-04-11,TRUE,3,post_purchase_email,2025-01-01T00:00:00
+REV_00312,CUST_0064,PROD_050,5,Worth every euro,Received many compliments already. Packaging was beautiful too.,2026-04-11,TRUE,8,mobile_app,2025-01-01T00:00:00
+REV_00313,CUST_0009,PROD_032,1,Arrived damaged,Stitching came loose within days. Had to return it.,2026-04-15,TRUE,2,mobile_app,2025-01-01T00:00:00
+REV_00314,CUST_0073,PROD_006,4,"Beautiful, minor quibble",The tan shade is a bit darker than the photos but still gorgeous.,2026-04-16,TRUE,0,website,2025-01-01T00:00:00
+REV_00315,CUST_0071,PROD_029,5,My new favourite piece,The full grain leather feels incredibly soft and the stitching is flawless.,2026-04-20,TRUE,2,website,2025-01-01T00:00:00
+REV_00316,CUST_0127,PROD_039,3,Decent for the price,"Okay overall, not sure it justifies the price.",2026-04-20,TRUE,1,mobile_app,2025-01-01T00:00:00
+REV_00317,CUST_0037,PROD_032,5,Exceptional craftsmanship,The black colour is even richer in person.,2026-04-23,FALSE,8,website,2025-01-01T00:00:00
+REV_00318,CUST_0088,PROD_036,5,Timeless quality,The full grain leather feels incredibly soft and the stitching is flawless.,2026-04-30,TRUE,0,website,2025-01-01T00:00:00
+REV_00319,CUST_0085,PROD_048,4,Elegant and practical,The cognac shade is a bit darker than the photos but still gorgeous.,2026-05-02,TRUE,3,website,2025-01-01T00:00:00
+REV_00320,CUST_0020,PROD_014,5,Timeless quality,The tan colour is even richer in person.,2026-05-02,TRUE,1,website,2025-01-01T00:00:00

@@ -514,3 +514,58 @@ seeds:
         description: "Business timestamp when the movement physically occurred."
       - name: _loaded_at
         description: "Timestamp when this record was loaded into the raw layer."
+
+  - name: raw_product_reviews
+    description: "Raw customer product reviews from the ratings & reviews platform. One row per submitted review."
+    config:
+      column_types:
+        review_id: varchar(36)
+        customer_id: varchar(36)
+        product_id: varchar(36)
+        rating: number(1,0)
+        review_title: varchar(255)
+        review_text: varchar(2000)
+        review_date: date
+        is_verified_purchase: boolean
+        helpful_votes: number(10,0)
+        review_source: varchar(50)
+        _loaded_at: timestamp_ntz
+      meta:
+        owner: customer-experience-team
+        domain: customer_feedback
+        pii_contains: false
+        freshness_sla: daily
+    columns:
+      - name: review_id
+        description: "Unique review identifier. Format: REV_XXXXX."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Foreign key to raw_customers. The customer who wrote the review."
+        tests:
+          - not_null
+      - name: product_id
+        description: "Foreign key to raw_products. The product being reviewed."
+        tests:
+          - not_null
+      - name: rating
+        description: "Star rating from 1 (worst) to 5 (best)."
+        tests:
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4, 5]
+      - name: review_title
+        description: "Short headline of the review."
+      - name: review_text
+        description: "Free-text review body."
+      - name: review_date
+        description: "Date the review was submitted."
+      - name: is_verified_purchase
+        description: "TRUE if the customer purchased and received the product via an online order."
+      - name: helpful_votes
+        description: "Number of times other shoppers marked the review as helpful."
+      - name: review_source
+        description: "Where the review was submitted. Values: website, mobile_app, post_purchase_email."
+      - name: _loaded_at
+        description: "Timestamp when this record was loaded into the raw layer."
