@@ -106,13 +106,26 @@ models:
         tier: gold
         pii_contains: false
     description: "Weekly campaign performance metrics including attributed revenue, ROAS, and CPA. Grain: one row per campaign-channel per week."
+    semantic_model:
+      enabled: true
+    agg_time_dimension: week_start
     columns:
       - name: campaign_id
         description: "Campaign or channel identifier."
+        entity:
+          type: primary
+          name: campaign
+        dimension:
+          type: categorical
       - name: week_start
         description: "Monday start date of the week."
+        granularity: week
+        dimension:
+          type: time
       - name: attribution_model
         description: "Attribution model used for revenue credit."
+        dimension:
+          type: categorical
       - name: conversions
         description: "Number of completed orders attributed to this campaign in the week."
       - name: attributed_revenue_eur
@@ -123,6 +136,33 @@ models:
         description: "Cost per acquisition in EUR (estimated spend / conversions)."
       - name: calculated_at
         description: "Date when metrics were computed."
+    metrics:
+      - name: total_conversions
+        description: "Total campaign conversions (attributed orders)."
+        type: simple
+        agg: sum
+        expr: conversions
+        fill_nulls_with: 0
+        label: "Total Conversions"
+      - name: total_attributed_revenue
+        description: "Total revenue attributed to campaigns in EUR."
+        type: simple
+        agg: sum
+        expr: attributed_revenue_eur
+        fill_nulls_with: 0
+        label: "Attributed Revenue (EUR)"
+      - name: avg_roas
+        description: "Average return on ad spend across campaigns."
+        type: simple
+        agg: average
+        expr: roas
+        label: "Avg ROAS"
+      - name: avg_cpa
+        description: "Average cost per acquisition in EUR."
+        type: simple
+        agg: average
+        expr: cpa_eur
+        label: "Avg CPA (EUR)"
 
   - name: cohort_analysis
     config:
