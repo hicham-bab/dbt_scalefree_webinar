@@ -2,3 +2,5 @@
 *.log
 */package-lock.yml
 */logs/*
+context_layer/generated/
+__pycache__/

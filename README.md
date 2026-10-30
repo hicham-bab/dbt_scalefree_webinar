@@ -73,6 +73,33 @@ Stack: dbt Fusion + Snowflake + dbt Cloud (dbt Platform)
 
 ---
 
+## Context layer
+
+What an AI agent needs to answer questions about Leather Luxe correctly, in three layers
+(details in [`context/README.md`](context/README.md)):
+
+1. **dbt metadata:** descriptions, `meta`, contracts and Semantic Layer metrics, read by the
+   dbt MCP server and dbt Wizard.
+2. **[`context/`](context/):** agent instructions, verified data caveats, a business glossary
+   and 15 sample questions with verified answers (demo script and agent evaluation set).
+3. **Fivetran Context Layer:** `context_layer/publish_context_layer.py` loads models,
+   columns, lineage and metrics (each with a SQL recipe) into the `AGENTS.DBT_*` tables under
+   `PROJECT = 'scalefree_webinar'`, plus this project's section of the routing note.
+
+Traps an agent falls into without it, all verified on the seed data:
+
+| Question | Naive answer | Governed answer |
+|---|---|---|
+| Total revenue | Mixes in cancelled and pending orders, or sums payments | `total_revenue` EUR 1,254,555.81, realised EUR 1,207,647.11; never from payments |
+| Late deliveries | 561 (after the estimated date) | 114 (`late_delivery_orders`, more than 7 days in transit) |
+| Returned orders | 15 (`order_status = 'returned'`) | 152 (`returned_order_count`) |
+| Most valuable loyalty tier | Platinum | Bronze; Platinum has the lowest average LTV |
+| 2024 to 2025 growth | 384% | Not comparable: the seed data was extended in 2025 |
+
+Agents working on the code: see [`AGENTS.md`](AGENTS.md).
+
+---
+
 ## Projects
 
 ### platform (Producer)
