@@ -1,0 +1,28 @@
+version: 2
+models:
+- name: stg__risk_platform__risk_assess_risk_profiles
+  description: Data Vault stage for risk_assess_risk_profiles from the risk_platform system (Fivetran)
+  config:
+    materialized: view
+    meta:
+      tier: bronze
+    schema: staging
+    tags:
+    - staging
+    - risk_platform
+    - vault_staging
+  columns:
+  - name: rsrc
+    description: Record source
+  - name: ldts
+    description: Load date timestamp (Fivetran _fivetran_synced)
+  - name: is_deleted
+    description: 'Derived: coalesce(_fivetran_deleted, false)'
+  - name: hk_customer_h
+    description: Hash key
+  - name: hk_institution_h
+    description: Hash key
+  - name: hk_customer_institution_l
+    description: Hash key
+  - name: hd_customer_institution_risk_profile_n_s
+    description: Hash diff for customer_institution_risk_profile_n_s

@@ -1,0 +1,22 @@
+version: 2
+models:
+- name: int_risk_assessments
+  description: Periodic risk assessments rebuilt from the assessment non-historized link, with the VARCHAR
+    date cast and the misleading month/year columns dropped.
+  config:
+    materialized: view
+    meta:
+      owner: credit-risk-platform-team
+      domain: credit_risk
+      pii_contains: false
+    schema: intermediate
+  columns:
+  - name: assessment_id
+    description: ''
+    data_tests:
+    - not_null
+    - unique
+  - name: assessment_date
+    description: ''
+    data_tests:
+    - not_null

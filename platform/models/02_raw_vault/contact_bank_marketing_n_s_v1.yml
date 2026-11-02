@@ -1,0 +1,65 @@
+version: 2
+models:
+- name: contact_bank_marketing_n_s_v1
+  description: 'Standard satellite on contact_h (version 1 view: adds ledts and is_current)'
+  config:
+    materialized: view
+    meta:
+      tier: silver
+    schema: raw_vault
+    tags:
+    - satellite
+    - standard
+    - raw_vault
+    - v1
+  columns:
+  - name: hk_contact_h
+    description: Parent hash key
+    data_tests:
+    - not_null
+  - name: hd_contact_bank_marketing_n_s
+    description: Hash diff for change detection
+  - name: age
+    description: Payload column, as delivered by Fivetran
+  - name: job
+    description: Payload column, as delivered by Fivetran
+  - name: marital
+    description: Payload column, as delivered by Fivetran
+  - name: education
+    description: Payload column, as delivered by Fivetran
+  - name: c_default
+    description: Payload column, as delivered by Fivetran
+  - name: balance
+    description: Payload column, as delivered by Fivetran
+  - name: housing
+    description: Payload column, as delivered by Fivetran
+  - name: loan
+    description: Payload column, as delivered by Fivetran
+  - name: contact
+    description: Payload column, as delivered by Fivetran
+  - name: day
+    description: Payload column, as delivered by Fivetran
+  - name: month
+    description: Payload column, as delivered by Fivetran
+  - name: duration
+    description: Payload column, as delivered by Fivetran
+  - name: campaign
+    description: Payload column, as delivered by Fivetran
+  - name: pdays
+    description: Payload column, as delivered by Fivetran
+  - name: previous
+    description: Payload column, as delivered by Fivetran
+  - name: poutcome
+    description: Payload column, as delivered by Fivetran
+  - name: y
+    description: Payload column, as delivered by Fivetran
+  - name: is_deleted
+    description: True when Fivetran marked the source row deleted (_fivetran_deleted)
+  - name: ldts
+    description: Load date timestamp
+  - name: rsrc
+    description: Record source
+  - name: ledts
+    description: Load end date timestamp
+  - name: is_current
+    description: True for the latest version of the parent key

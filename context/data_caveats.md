@@ -1,5 +1,10 @@
 # Data caveats (verified)
 
+> Historical Leather Luxe context only. The recovered `platform` now represents
+> financial services; none of the e-commerce numbers below describe it. Use its
+> recovered model and metric descriptions and `platform/CLOUD_RECOVERY.md`.
+> The sibling consumer projects have not been migrated.
+
 Every number on this page was computed from the seed files in `platform/seeds/` by
 reproducing the logic of the platform's intermediate and mart models (DuckDB, 2026-10-30).
 The raw vault is loaded 1:1 from those seeds, so the built marts return the same numbers.

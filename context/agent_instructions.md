@@ -1,5 +1,10 @@
 # Agent instructions
 
+> Historical Leather Luxe instructions. For the recovered financial-services
+> `platform`, use `platform/CLOUD_RECOVERY.md`, its model/metric descriptions and
+> `platform/context_layer_routing.md`. The e-commerce business rules below do not
+> apply. Privacy restrictions continue to apply.
+
 For any AI agent answering questions over Leather Luxe (dbt MCP server, dbt Wizard,
 Snowflake Cortex, Databricks Genie, a Claude or GPT agent reading the Fivetran Context
 Layer). Read `data_caveats.md` once; these rules are the short version.

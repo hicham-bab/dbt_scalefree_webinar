@@ -1,21 +1,26 @@
 version: 2
-
 models:
-  - name: customer_h
-    description: "Standard hub for customer_h"
-    config:
-      tags: ['hub', 'raw_vault']
-    columns:
-      - name: hk_customer_h
-        description: "Hash key for customer_h"
-        data_tests:
-          - unique
-          - not_null
-      - name: customer_id
-        description: "Business key column"
-        data_tests:
-          - not_null
-      - name: ldts
-        description: "Load date timestamp"
-      - name: rsrc
-        description: "Record source"
+- name: customer_h
+  description: 'Standard hub: Borrowers on the shared risk platform (CUST-0001)'
+  config:
+    materialized: incremental
+    meta:
+      tier: silver
+    schema: raw_vault
+    tags:
+    - hub
+    - raw_vault
+  columns:
+  - name: hk_customer_h
+    description: Hash key for customer_h
+    data_tests:
+    - not_null
+    - unique
+  - name: customer_id
+    description: Business key column
+    data_tests:
+    - not_null
+  - name: ldts
+    description: Load date timestamp
+  - name: rsrc
+    description: Record source

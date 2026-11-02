@@ -1,0 +1,56 @@
+version: 2
+models:
+- name: customer_institution_risk_profile_n_s_v0
+  description: Standard satellite on customer_institution_l
+  config:
+    materialized: incremental
+    meta:
+      tier: silver
+    schema: raw_vault
+    tags:
+    - satellite
+    - standard
+    - raw_vault
+  columns:
+  - name: hk_customer_institution_l
+    description: Parent hash key
+    data_tests:
+    - not_null:
+        config:
+          alias: not_null_customer_institution__09406420aaa73fa3b6b95e2ee169ec68
+  - name: hd_customer_institution_risk_profile_n_s
+    description: Hash diff for change detection
+  - name: risk_profile_id
+    description: Payload column, as delivered by Fivetran
+  - name: product_type
+    description: Payload column, as delivered by Fivetran
+  - name: risk_pattern
+    description: Payload column, as delivered by Fivetran
+  - name: base_risk_score
+    description: Payload column, as delivered by Fivetran
+  - name: total_exposure
+    description: Payload column, as delivered by Fivetran
+  - name: relationship_length_months
+    description: Payload column, as delivered by Fivetran
+  - name: products_held
+    description: Payload column, as delivered by Fivetran
+  - name: primary_risk_factors
+    description: Payload column, as delivered by Fivetran
+  - name: risk_factor_weights
+    description: Payload column, as delivered by Fivetran
+  - name: repayment_history_score
+    description: Payload column, as delivered by Fivetran
+  - name: recent_transaction_volatility
+    description: Payload column, as delivered by Fivetran
+  - name: collateral_quality_score
+    description: Payload column, as delivered by Fivetran
+  - name: liquidity_ratio
+    description: Payload column, as delivered by Fivetran
+  - name: projected_cash_flow_rating
+    description: Payload column, as delivered by Fivetran
+  - name: is_deleted
+    description: True when Fivetran marked the source row deleted (_fivetran_deleted)
+  - name: ldts
+    description: Load date timestamp
+  - name: rsrc
+    description: Record source

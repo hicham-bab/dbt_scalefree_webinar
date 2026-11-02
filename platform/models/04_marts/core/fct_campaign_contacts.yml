@@ -1,0 +1,87 @@
+version: 2
+models:
+- name: fct_campaign_contacts
+  description: 'One row per client contacted in the term-deposit telemarketing campaign (45,211; 11.7%
+    subscribed). The contact month has no year, so this table has no time axis and is not in the Semantic
+    Layer: answer from marketing''s campaign marts. call_duration_seconds is known only after the call
+    and must never be used to predict subscribed.'
+  config:
+    access: public
+    contract:
+      enforced: true
+    group: marketing
+    materialized: table
+    meta:
+      owner: marketing-data-team
+      domain: marketing
+      tier: gold
+      pii_contains: false
+      freshness_sla: static
+      semantic_layer_enabled: false
+    schema: core
+  columns:
+  - name: contact_id
+    data_type: number(38,0)
+    description: Primary key.
+    data_tests:
+    - not_null
+    - unique
+  - name: age
+    data_type: number(38,0)
+    description: Client age.
+  - name: age_band
+    data_type: varchar
+    description: 18-24, 25-34, 35-44, 45-54, 55-64 or 65+.
+  - name: job
+    data_type: varchar
+    description: Job category. NULL where the source said 'unknown'.
+  - name: marital_status
+    data_type: varchar
+    description: married, single or divorced.
+  - name: education
+    data_type: varchar
+    description: primary, secondary or tertiary. NULL where the source said 'unknown'.
+  - name: has_credit_in_default
+    data_type: boolean
+    description: True if the client has credit in default.
+  - name: average_yearly_balance_eur
+    data_type: number(12,2)
+    description: Average yearly balance, EUR. Can be negative.
+  - name: has_housing_loan
+    data_type: boolean
+    description: True if the client has a housing loan.
+  - name: has_personal_loan
+    data_type: boolean
+    description: True if the client has a personal loan.
+  - name: contact_channel
+    data_type: varchar
+    description: cellular or telephone. NULL where 'unknown'.
+  - name: last_contact_month
+    data_type: varchar
+    description: Month of the last contact, three-letter lowercase. No year exists.
+  - name: last_contact_day_of_month
+    data_type: number(38,0)
+    description: Day of month of the last contact.
+  - name: contacts_this_campaign
+    data_type: number(38,0)
+    description: Contacts made to this client during this campaign, including the last.
+  - name: contacts_before_this_campaign
+    data_type: number(38,0)
+    description: Contacts made before this campaign.
+  - name: days_since_previous_campaign_contact
+    data_type: number(38,0)
+    description: Days since the client was last contacted in a previous campaign. NULL if never.
+  - name: was_previously_contacted
+    data_type: boolean
+    description: True if contacted in an earlier campaign.
+  - name: previous_campaign_outcome
+    data_type: varchar
+    description: success, failure or other. NULL if no previous campaign.
+  - name: call_duration_seconds
+    data_type: number(38,0)
+    description: 'Duration of the last call. Leaks the outcome: known only after the call.'
+  - name: subscribed
+    data_type: boolean
+    description: True if the client subscribed to the term deposit.
+    data_tests:
+    - not_null

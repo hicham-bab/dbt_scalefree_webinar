@@ -1,0 +1,36 @@
+version: 2
+models:
+- name: customer_risk_platform_p_s_v1
+  description: 'Personal (PII) satellite on customer_h (version 1 view: adds ledts and is_current)'
+  config:
+    materialized: view
+    meta:
+      pii_contains: true
+      pii_columns:
+      - customer_name
+    schema: raw_vault
+    tags:
+    - satellite
+    - personal
+    - raw_vault
+    - v1
+  columns:
+  - name: hk_customer_h
+    description: Parent hash key
+    data_tests:
+    - not_null
+  - name: hd_customer_risk_platform_p_s
+    description: Hash diff for change detection
+  - name: customer_name
+    description: Payload column, as delivered by Fivetran. PII.
+    config:
+      meta:
+        pii: true
+  - name: ldts
+    description: Load date timestamp
+  - name: rsrc
+    description: Record source
+  - name: ledts
+    description: Load end date timestamp
+  - name: is_current
+    description: True for the latest version of the parent key

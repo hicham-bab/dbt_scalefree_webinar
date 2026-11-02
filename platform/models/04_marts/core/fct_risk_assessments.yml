@@ -1,0 +1,281 @@
+version: 2
+models:
+- name: fct_risk_assessments
+  description: 'One row per risk assessment of one relationship in one assessment period (106,128 = 2,948
+    relationships x 36 periods). Periods are 30 days apart from 2022-01-01 to 2024-11-16 and are NOT calendar
+    months: trend by period_number or assessment_date, never by calendar month.'
+  config:
+    access: public
+    contract:
+      enforced: true
+    group: credit_risk
+    incremental_strategy: merge
+    materialized: incremental
+    meta:
+      owner: credit-risk-platform-team
+      domain: credit_risk
+      tier: gold
+      pii_contains: false
+      freshness_sla: daily
+      semantic_layer_enabled: true
+    on_schema_change: append_new_columns
+    schema: core
+    tags:
+    - mart
+    - core
+    - credit_risk
+    unique_key: assessment_id
+  columns:
+  - name: assessment_id
+    data_type: number(38,0)
+    description: Primary key.
+    entity:
+      type: primary
+      name: risk_assessment
+      description: Primary key.
+    data_tests:
+    - not_null
+    - unique
+  - name: relationship_id
+    data_type: varchar
+    description: Foreign key to dim_credit_relationships.
+    entity:
+      type: foreign
+      name: relationship
+      description: Foreign key to dim_credit_relationships.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          field: relationship_id
+          to: ref('dim_credit_relationships')
+        config:
+          alias: relationships_fct_risk_assessm_adf9b0d310688f88be1eaa35b11a901d
+  - name: customer_id
+    data_type: varchar
+    description: Foreign key to dim_customers.
+    entity:
+      type: foreign
+      name: customer
+      description: Foreign key to dim_customers.
+    data_tests:
+    - not_null
+  - name: institution_id
+    data_type: varchar
+    description: Foreign key to dim_institutions.
+    entity:
+      type: foreign
+      name: institution
+      description: Foreign key to dim_institutions.
+    data_tests:
+    - not_null
+  - name: assessment_date
+    data_type: date
+    description: Assessment date. 36 distinct values, 30 days apart.
+    dimension:
+      type: time
+      name: assessment_date
+      description: Assessment date. 36 distinct values, 30 days apart.
+    granularity: day
+    data_tests:
+    - not_null
+  - name: period_number
+    data_type: number(38,0)
+    description: Assessment period, 1 (2022-01-01) to 36 (2024-11-16). The honest time axis.
+    dimension:
+      type: categorical
+      name: period_number
+      description: Assessment period, 1 (2022-01-01) to 36 (2024-11-16). The honest time axis.
+    data_tests:
+    - not_null
+  - name: risk_score
+    data_type: number(5,3)
+    description: Risk score, 0 (safe) to 1.
+  - name: risk_level
+    data_type: varchar
+    description: 'Banded risk score: Very Low 0.01-0.20, Low 0.20-0.40, Moderate 0.40-0.60, High 0.60-0.80,
+      Very High 0.80-0.99. Bounds are inclusive, so a score on a boundary (e.g. exactly 0.200) can sit
+      in either adjacent band.'
+    dimension:
+      type: categorical
+      name: risk_level
+      description: 'Banded risk score: Very Low 0.01-0.20, Low 0.20-0.40, Moderate 0.40-0.60, High 0.60-0.80,
+        Very High 0.80-0.99. Bounds are inclusive, so a score on a boundary (e.g. exactly 0.200) can sit
+        in either adjacent band.'
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - Very Low
+          - Low
+          - Moderate
+          - High
+          - Very High
+        config:
+          alias: accepted_values_fct_risk_asses_19f5249361014747a9965511e80fa4a0
+    - not_null
+  - name: is_high_risk
+    data_type: boolean
+    description: True when risk_level is High or Very High.
+    dimension:
+      type: categorical
+      name: is_high_risk
+      description: True when risk_level is High or Very High.
+  - name: approval_recommendation
+    data_type: varchar
+    description: Approve, Approve with Conditions, Approve with Strict Conditions or Deny.
+    dimension:
+      type: categorical
+      name: approval_recommendation
+      description: Approve, Approve with Conditions, Approve with Strict Conditions or Deny.
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - Approve
+          - Approve with Conditions
+          - Approve with Strict Conditions
+          - Deny
+        config:
+          alias: accepted_values_fct_risk_asses_10a1454fc9f982072e35cc8d82bbcb09
+  - name: is_approved
+    data_type: boolean
+    description: 'Source system definition of approved: ''Approve'' or ''Approve with Conditions''. Strict
+      conditions do not count.'
+    dimension:
+      type: categorical
+      name: is_approved
+      description: 'Source system definition of approved: ''Approve'' or ''Approve with Conditions''.
+        Strict conditions do not count.'
+  - name: is_any_approval
+    data_type: boolean
+    description: True for any recommendation starting with 'Approve', including strict conditions.
+    dimension:
+      type: categorical
+      name: is_any_approval
+      description: True for any recommendation starting with 'Approve', including strict conditions.
+  - name: is_denied
+    data_type: boolean
+    description: True when the recommendation is Deny.
+    dimension:
+      type: categorical
+      name: is_denied
+      description: True when the recommendation is Deny.
+  - name: approval_confidence
+    data_type: number(5,3)
+    description: Model confidence in the recommendation, 0 to 1.
+  - name: primary_explanation_factors
+    data_type: varchar
+    description: Free-text explanation of the score.
+  - name: fraud_probability
+    data_type: number(5,3)
+    description: Fraud probability, 0 to 0.9.
+  - name: is_anomaly
+    data_type: boolean
+    description: True when the assessment was flagged as an anomaly (about 4.9% of rows).
+    dimension:
+      type: categorical
+      name: is_anomaly
+      description: True when the assessment was flagged as an anomaly (about 4.9% of rows).
+  - name: anomaly_type
+    data_type: varchar
+    description: Anomaly category when is_anomaly, else NULL.
+    dimension:
+      type: categorical
+      name: anomaly_type
+      description: Anomaly category when is_anomaly, else NULL.
+  - name: is_fraud_alert
+    data_type: boolean
+    description: True when anomaly_type is Fraud Alert (972 rows).
+    dimension:
+      type: categorical
+      name: is_fraud_alert
+      description: True when anomaly_type is Fraud Alert (972 rows).
+  - name: risk_change_from_previous
+    data_type: number(6,3)
+    description: Change in risk score vs the previous period. NULL on period 1.
+  - name: transaction_volume
+    data_type: number(16,2)
+    description: Transaction volume in the period, USD.
+  - name: transaction_count
+    data_type: number(38,0)
+    description: Transactions in the period.
+  semantic_model:
+    enabled: true
+  metrics:
+  - name: anomaly_assessments
+    type: simple
+    label: Anomalies
+    description: Assessments flagged as anomalies.
+    filter: '{{ Dimension(''risk_assessment__is_anomaly'') }} = true'
+    agg: count
+    expr: assessment_id
+    agg_time_dimension: assessment_date
+    fill_nulls_with: 0
+  - name: any_approval_assessments
+    type: simple
+    label: Any-Approval Assessments
+    description: Assessments with any 'Approve...' recommendation, including strict conditions.
+    filter: '{{ Dimension(''risk_assessment__is_any_approval'') }} = true'
+    agg: count
+    expr: assessment_id
+    agg_time_dimension: assessment_date
+    fill_nulls_with: 0
+  - name: approved_assessments
+    type: simple
+    label: Approved Assessments
+    description: Assessments recommended 'Approve' or 'Approve with Conditions' (source system definition).
+    filter: '{{ Dimension(''risk_assessment__is_approved'') }} = true'
+    agg: count
+    expr: assessment_id
+    agg_time_dimension: assessment_date
+    fill_nulls_with: 0
+  - name: assessment_count
+    type: simple
+    label: Assessments
+    description: Number of risk assessments.
+    agg: count
+    expr: assessment_id
+    agg_time_dimension: assessment_date
+    fill_nulls_with: 0
+  - name: avg_fraud_probability
+    type: simple
+    label: Avg Fraud Probability
+    description: Average fraud probability.
+    agg: average
+    expr: fraud_probability
+    agg_time_dimension: assessment_date
+  - name: avg_risk_score
+    type: simple
+    label: Avg Risk Score
+    description: Average risk score, 0 (safe) to 1.
+    agg: average
+    expr: risk_score
+    agg_time_dimension: assessment_date
+  - name: denied_assessments
+    type: simple
+    label: Denied Assessments
+    description: Assessments recommended Deny.
+    filter: '{{ Dimension(''risk_assessment__is_denied'') }} = true'
+    agg: count
+    expr: assessment_id
+    agg_time_dimension: assessment_date
+    fill_nulls_with: 0
+  - name: fraud_alert_assessments
+    type: simple
+    label: Fraud Alerts
+    description: Assessments whose anomaly type is Fraud Alert.
+    filter: '{{ Dimension(''risk_assessment__is_fraud_alert'') }} = true'
+    agg: count
+    expr: assessment_id
+    agg_time_dimension: assessment_date
+    fill_nulls_with: 0
+  - name: high_risk_assessments
+    type: simple
+    label: High-Risk Assessments
+    description: Assessments with risk level High or Very High.
+    filter: '{{ Dimension(''risk_assessment__is_high_risk'') }} = true'
+    agg: count
+    expr: assessment_id
+    agg_time_dimension: assessment_date
+    fill_nulls_with: 0

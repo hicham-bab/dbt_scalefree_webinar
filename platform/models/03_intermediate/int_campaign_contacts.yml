@@ -1,0 +1,17 @@
+version: 2
+models:
+- name: int_campaign_contacts
+  description: Term-deposit campaign contacts with 'unknown' and pdays = -1 sentinels turned into NULL.
+  config:
+    materialized: view
+    meta:
+      owner: marketing-data-team
+      domain: marketing
+      pii_contains: false
+    schema: intermediate
+  columns:
+  - name: contact_id
+    description: ''
+    data_tests:
+    - not_null
+    - unique

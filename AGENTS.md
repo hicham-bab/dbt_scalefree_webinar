@@ -1,7 +1,9 @@
 # Instructions for coding and analytics agents
 
-This repo is a dbt Mesh of four projects (`platform`, `finance`, `marketing`,
-`data_science`) for Leather Luxe. The platform is a Data Vault 2.0 built with
+The `platform` project is recovered from the financial-services Cloud project;
+see `platform/CLOUD_RECOVERY.md` for provenance and fidelity limitations. Sibling
+`finance`, `marketing`, and `data_science` projects remain legacy Leather Luxe
+consumers and are incompatible with the recovered platform. The platform is a Data Vault 2.0 built with
 datavault4dbt: `01_staging` (hashing), `02_raw_vault` (hubs, links, satellites),
 `03_intermediate` (business rules), `04_marts` (gold), `05_semantic_layer`.
 
@@ -14,6 +16,9 @@ datavault4dbt: `01_staging` (hashing), `02_raw_vault` (hubs, links, satellites),
 - Public platform marts have enforced contracts: update the YAML `data_type` when you
   change a column.
 - Never select names, emails, phone numbers or birth dates from `dim_customers` or the
-  personal satellite `customer_crm_p_s_*`.
+  personal satellites `customer_crm_p_s_*`, `customer_risk_platform_p_s_*`, or
+  `recommendation_fpr_p_s_*`. Do not return borrower identity fields.
 - After changing models or metrics, regenerate the Fivetran Context Layer load script
-  with `context_layer/publish_context_layer.py`.
+  with `context_layer/publish_context_layer.py`. For the recovered platform, select
+  `--projects platform --routing-template platform/context_layer_routing.md`;
+  do not publish legacy consumer manifests alongside it.

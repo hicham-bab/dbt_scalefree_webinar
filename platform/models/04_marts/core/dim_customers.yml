@@ -1,215 +1,146 @@
 version: 2
-
 models:
-  - name: dim_customers
+- name: dim_customers
+  description: One row per borrower on the shared risk platform (1,000 customers). Credit attributes from
+    the bureau feed plus the customer's relationship footprint across member institutions. CUST-C001..CUST-C005
+    are hand-built showcase personas and should be named as such in any answer about them. This customer
+    id space does NOT match fct_loans or fct_product_recommendations.
+  config:
+    access: public
+    contract:
+      enforced: true
+    group: credit_risk
+    materialized: table
+    meta:
+      owner: credit-risk-platform-team
+      domain: credit_risk
+      tier: gold
+      pii_contains: true
+      pii_columns:
+      - customer_name
+      freshness_sla: daily
+      semantic_layer_enabled: true
+    schema: core
+  columns:
+  - name: customer_id
+    data_type: varchar
+    description: Primary key. Format CUST-0001; showcase personas are CUST-C001..CUST-C005.
+    entity:
+      type: primary
+      name: customer
+      description: Primary key. Format CUST-0001; showcase personas are CUST-C001..CUST-C005.
+    data_tests:
+    - not_null
+    - unique
+  - name: customer_name
+    data_type: varchar
+    description: 'Customer display name. PII: never return it in aggregate answers.'
     config:
-      access: public
-      group: core
-      contract:
-        enforced: true
       meta:
-        owner: data-platform-team
-        domain: customer
-        tier: gold
-        pii_contains: true
-        pii_columns: ["email", "first_name", "last_name"]
-        freshness_sla: daily
-    description: "One row per customer. Contains identity, demographic, and behavioral attributes. This is the authoritative customer dimension for all downstream analytics. Includes lifetime value, order history, and customer lifecycle status derived from order activity."
-    semantic_model:
-      enabled: true
-    agg_time_dimension: signup_date
-    columns:
-      - name: customer_id
-        data_type: varchar
-        description: "Unique identifier for each customer. Format: CUST_XXXX. Primary key."
-        entity:
-          type: primary
-          name: customer
-        tests:
-          - unique
-          - not_null
+        pii: true
+  - name: customer_segment
+    data_type: varchar
+    description: Retail, Small Business, Corporate, High Net Worth or Institutional.
+    dimension:
+      type: categorical
+      name: customer_segment
+      description: Retail, Small Business, Corporate, High Net Worth or Institutional.
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - Retail
+          - Small Business
+          - Corporate
+          - High Net Worth
+          - Institutional
         config:
-          meta:
-            pii: false
-      - name: first_name
-        data_type: varchar
-        description: "Customer first name."
-        config:
-          meta:
-            pii: true
-      - name: last_name
-        data_type: varchar
-        description: "Customer last name."
-        config:
-          meta:
-            pii: true
-      - name: full_name
-        data_type: varchar
-        description: "Concatenated full name (first_name + last_name)."
-        config:
-          meta:
-            pii: true
-      - name: email
-        data_type: varchar
-        description: "Customer email address (lowercased and trimmed)."
-        config:
-          meta:
-            pii: true
-      - name: city
-        data_type: varchar
-        description: "City of residence."
-        dimension:
-          type: categorical
-        config:
-          meta:
-            pii: false
-      - name: country
-        data_type: varchar
-        description: "Country of residence. Useful for geographic segmentation."
-        dimension:
-          type: categorical
-        config:
-          meta:
-            pii: false
-      - name: birth_date
-        data_type: date
-        description: "Customer date of birth."
-        config:
-          meta:
-            pii: true
-      - name: age
-        data_type: number(38,0)
-        description: "Current age of the customer in years, computed from birth_date."
-        config:
-          meta:
-            pii: false
-      - name: gender
-        data_type: varchar
-        description: "Customer gender identity. Values: M, F, Other."
-        dimension:
-          type: categorical
-        tests:
-          - accepted_values:
-              arguments:
-                values: ['M', 'F', 'Other']
-        config:
-          meta:
-            pii: false
-      - name: signup_date
-        data_type: date
-        description: "Date the customer registered an account with Leather Luxe."
-        granularity: day
-        dimension:
-          type: time
-        tests:
-          - not_null
-        config:
-          meta:
-            pii: false
-      - name: loyalty_tier
-        data_type: varchar
-        description: "Current loyalty program tier. Values: Bronze, Silver, Gold, Platinum. Platinum customers represent the top 5% by revenue."
-        dimension:
-          type: categorical
-        tests:
-          - accepted_values:
-              arguments:
-                values: ['Bronze', 'Silver', 'Gold', 'Platinum']
-        config:
-          meta:
-            pii: false
-      - name: acquisition_channel
-        data_type: varchar
-        description: "Channel through which the customer was originally acquired. Values: website, mobile_app, in_store, wholesale, referral."
-        dimension:
-          type: categorical
-        tests:
-          - accepted_values:
-              arguments:
-                values: ['website', 'mobile_app', 'in_store', 'wholesale', 'referral']
-        config:
-          meta:
-            pii: false
-      - name: total_orders
-        data_type: number(38,0)
-        description: "Total number of non-cancelled, non-pending orders placed by this customer."
-        config:
-          meta:
-            pii: false
-      - name: lifetime_value_eur
-        data_type: number(38,2)
-        description: "Total net revenue contributed by this customer across all time in EUR. Also known as LTV or CLV."
-        config:
-          meta:
-            pii: false
-      - name: avg_order_value_eur
-        data_type: number(38,8)
-        description: "Average net order value for this customer in EUR."
-        config:
-          meta:
-            pii: false
-      - name: first_order_date
-        data_type: date
-        description: "Date of the customer's first order."
-        config:
-          meta:
-            pii: false
-      - name: last_order_date
-        data_type: date
-        description: "Date of the customer's most recent order."
-        config:
-          meta:
-            pii: false
-      - name: days_since_last_order
-        data_type: number(38,0)
-        description: "Number of days since the customer's most recent order. Used for recency scoring."
-        config:
-          meta:
-            pii: false
-      - name: customer_tenure_days
-        data_type: number(38,0)
-        description: "Number of days since the customer's first order."
-        config:
-          meta:
-            pii: false
-      - name: favorite_category
-        data_type: varchar
-        description: "The product category this customer has ordered most frequently."
-        dimension:
-          type: categorical
-        config:
-          meta:
-            pii: false
-      - name: total_items_returned
-        data_type: number(38,0)
-        description: "Total number of items this customer has returned."
-        config:
-          meta:
-            pii: false
-      - name: customer_status
-        data_type: varchar
-        description: "Customer lifecycle status based on recency. Values: prospect (no orders), active (ordered in last 90 days), at_risk (ordered 91-365 days ago), churned (no order in 365+ days)."
-        dimension:
-          type: categorical
-        tests:
-          - accepted_values:
-              arguments:
-                values: ['prospect', 'active', 'at_risk', 'churned']
-        config:
-          meta:
-            pii: false
-    metrics:
-      - name: total_customers
-        description: "Total count of distinct customers."
-        type: simple
-        agg: count_distinct
-        expr: customer_id
-        fill_nulls_with: 0
-        label: "Total Customers"
-      - name: avg_ltv
-        description: "Average lifetime value per customer in EUR."
-        type: simple
-        agg: average
-        expr: lifetime_value_eur
-        fill_nulls_with: 0
-        label: "Avg Customer LTV (EUR)"
+          alias: accepted_values_dim_customers_d87aad6aced92417c3d74f789b969f0e
+  - name: annual_income
+    data_type: number(14,2)
+    description: Annual income in USD.
+  - name: income_bracket
+    data_type: varchar
+    description: Low, Lower-Middle, Middle, Upper-Middle, High or Ultra-High.
+    dimension:
+      type: categorical
+      name: income_bracket
+      description: Low, Lower-Middle, Middle, Upper-Middle, High or Ultra-High.
+  - name: credit_score
+    data_type: number(38,0)
+    description: Bureau credit score, 300 to 850.
+  - name: credit_score_range
+    data_type: varchar
+    description: Banded credit score, e.g. 'Good (670-739)'.
+    dimension:
+      type: categorical
+      name: credit_score_range
+      description: Banded credit score, e.g. 'Good (670-739)'.
+  - name: education_level
+    data_type: varchar
+    description: Highest education level.
+    dimension:
+      type: categorical
+      name: education_level
+      description: Highest education level.
+  - name: employment_sector
+    data_type: varchar
+    description: Employment sector.
+    dimension:
+      type: categorical
+      name: employment_sector
+      description: Employment sector.
+  - name: years_of_credit_history
+    data_type: number(38,0)
+    description: Years since the first credit line.
+  - name: debt_to_income_ratio
+    data_type: number(5,2)
+    description: Debt to income as a fraction, 0.10 to 0.60 (not a percent).
+  - name: num_credit_accounts
+    data_type: number(38,0)
+    description: Open credit accounts.
+  - name: num_delinquencies_last_2_years
+    data_type: number(38,0)
+    description: Delinquencies in the last 24 months.
+  - name: num_recent_inquiries
+    data_type: number(38,0)
+    description: Recent hard credit inquiries.
+  - name: is_homeowner
+    data_type: boolean
+    description: True if the customer owns a home.
+    dimension:
+      type: categorical
+      name: is_homeowner
+      description: True if the customer owns a home.
+  - name: has_previous_bankruptcy
+    data_type: boolean
+    description: True if the customer has a bankruptcy on file.
+    dimension:
+      type: categorical
+      name: has_previous_bankruptcy
+      description: True if the customer has a bankruptcy on file.
+  - name: is_showcase_persona
+    data_type: boolean
+    description: True for the five hand-built personas CUST-C001..CUST-C005.
+    dimension:
+      type: categorical
+      name: is_showcase_persona
+      description: True for the five hand-built personas CUST-C001..CUST-C005.
+  - name: relationship_count
+    data_type: number(38,0)
+    description: Number of institution relationships the customer holds (1 to 5).
+  - name: institution_count
+    data_type: number(38,0)
+    description: Distinct institutions the customer banks with.
+  - name: total_exposure
+    data_type: number(18,2)
+    description: Sum of exposure across all the customer's relationships, USD.
+  - name: avg_latest_risk_score
+    data_type: number(5,3)
+    description: Average of the latest (period 36) risk score across the customer's relationships, 0 to
+      1.
+  - name: high_risk_relationship_count
+    data_type: number(38,0)
+    description: Relationships whose latest risk level is High or Very High.
+  semantic_model:
+    enabled: true

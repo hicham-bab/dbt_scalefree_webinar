@@ -1,38 +1,76 @@
+version: 2
 metrics:
-  - name: discount_rate
-    description: "Discount amount as a percentage of gross revenue. Measures promotional intensity."
-    type: ratio
-    numerator: total_discount_amount
-    denominator: total_gross_revenue
-    label: "Discount Rate"
+- name: anomaly_rate
+  type: ratio
+  label: Anomaly Rate
+  description: Share of assessments flagged as anomalies.
+  numerator:
+    name: anomaly_assessments
+  denominator:
+    name: assessment_count
+- name: any_approval_rate
+  type: ratio
+  label: Any-Approval Rate
+  description: Share of assessments with any 'Approve...' recommendation, including strict conditions.
+    Always roughly 13 points above approval_rate.
+  numerator:
+    name: any_approval_assessments
+  denominator:
+    name: assessment_count
+- name: approval_rate
+  type: ratio
+  label: Approval Rate
+  description: 'Share of assessments recommended ''Approve'' or ''Approve with Conditions''. This is the
+    source system''s definition (it matches risk_assess_performance_metrics.approval_percentage). ''Approve
+    with Strict Conditions'' does NOT count. For the broader reading use any_approval_rate.
 
-  - name: late_delivery_rate
-    description: "Ratio of late deliveries (>7 days) to total shipped orders."
-    type: ratio
-    numerator: late_delivery_orders
-    denominator: total_orders
-    label: "Late Delivery Rate"
+    '
+  numerator:
+    name: approved_assessments
+  denominator:
+    name: assessment_count
+- name: charge_off_rate
+  type: ratio
+  label: Charge-Off Rate
+  description: 'Charged-off loans divided by MATURED loans (Fully Paid + Charged Off). Current loans are
+    excluded from the denominator because their outcome is not known yet; dividing by all loans understates
+    the rate.
 
-  - name: revenue_last_7_days
-    description: "Net revenue over the trailing 7 days."
-    type: cumulative
-    input_metric: total_revenue
-    window: 7 days
-    period_agg: first
-    label: "Revenue (Last 7 Days)"
-
-  - name: revenue_last_30_days
-    description: "Net revenue over the trailing 30 days."
-    type: cumulative
-    input_metric: total_revenue
-    window: 30 days
-    period_agg: first
-    label: "Revenue (Last 30 Days)"
-
-  # --- Inventory (built on fct_inventory_movements) ---
-  - name: shipment_to_receipt_ratio
-    description: "Units shipped relative to units received. A value near 1 indicates balanced throughput; sustained >1 implies stock depletion."
-    type: ratio
-    numerator: units_shipped
-    denominator: units_received
-    label: "Shipment-to-Receipt Ratio"
+    '
+  numerator:
+    name: charged_off_loans
+  denominator:
+    name: matured_loans
+- name: denial_rate
+  type: ratio
+  label: Denial Rate
+  description: Share of assessments recommended Deny.
+  numerator:
+    name: denied_assessments
+  denominator:
+    name: assessment_count
+- name: high_risk_exposure_share
+  type: ratio
+  label: High-Risk Exposure Share
+  description: Share of total exposure sitting in relationships whose latest risk level is High or Very
+    High.
+  numerator:
+    name: high_risk_exposure
+  denominator:
+    name: total_exposure
+- name: high_risk_rate
+  type: ratio
+  label: High-Risk Rate
+  description: Share of assessments with risk level High or Very High.
+  numerator:
+    name: high_risk_assessments
+  denominator:
+    name: assessment_count
+- name: net_loss_rate
+  type: ratio
+  label: Net Loss Rate
+  description: Net principal loss after recoveries divided by the funded amount of matured loans.
+  numerator:
+    name: total_net_principal_loss
+  denominator:
+    name: matured_funded_amount

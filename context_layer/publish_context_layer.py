@@ -97,6 +97,11 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--agents-schema", required=True, help="DATABASE.SCHEMA of the Context Layer, e.g. HOL_DATABASE_1.AGENTS")
     ap.add_argument("--project-key", default="scalefree_webinar", help="Value written to the PROJECT column")
+    ap.add_argument("--projects", nargs="+", choices=PROJECTS, default=PROJECTS,
+                    help="Projects whose manifests should be published")
+    ap.add_argument("--routing-template", type=pathlib.Path,
+                    default=ROOT / "context" / "fivetran_context_layer_routing.md",
+                    help="Routing note template for the selected projects")
     ap.add_argument("--gold-database", default=None, help="Rewrite relation databases to this one (e.g. your PROD database)")
     ap.add_argument("--raw-schema", default="<your STAGE database>.SOURCE_DATA__WEBSHOP",
                     help="DATABASE.SCHEMA of the raw source tables, quoted in the routing note")
@@ -108,7 +113,7 @@ def main():
     gold_by_semantic_model, agg_time_by_semantic_model, simple = {}, {}, {}
     platform_core_schema = None
 
-    for project in PROJECTS:
+    for project in args.projects:
         try:
             manifest, semantic = load(project)
         except FileNotFoundError:
@@ -183,7 +188,7 @@ def main():
         metric_rows.append((m["name"], m.get("label"), m["type"], m.get("description"), sem, gold,
                             definition, metric_filter, recipe))
 
-    routing_template = (ROOT / "context" / "fivetran_context_layer_routing.md").read_text()
+    routing_template = args.routing_template.read_text()
     routing = (routing_template
                .replace("{project_key}", key)
                .replace("{gold_schema}", platform_core_schema or "<your PROD database>.CORE")

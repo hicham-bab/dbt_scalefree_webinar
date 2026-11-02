@@ -1,0 +1,224 @@
+version: 2
+sources:
+- name: financial_services
+  description: 'Financial Services dataset replicated by your Fivetran connector (Google Cloud PostgreSQL
+    source). Eight tables from three unrelated business domains: a shared credit-risk assessment platform
+    (risk_assess_*), a consumer lending book (loan), and a retail bank''s term-deposit marketing campaign
+    (predict_term_deposit), plus a product recommendation log (fpr_records).
+
+    '
+  database: '{{ var(''source_database'', (target.database[:-4] ~ ''_LANDING'') if target.database.upper().endswith(''_DEV'')
+    else ((target.database[:-5] ~ ''_LANDING'') if target.database.upper().endswith(''_PROD'') else target.database))
+    }}'
+  schema: '{{ var(''source_schema'', ''financial_services'') }}'
+  tables:
+  - name: fpr_records
+    identifier: fpr_records
+    description: 'Product recommendation log, one row per customer (751 rows, April 2024 to May 2025).
+      Its customer ids (CUST_000000 format) do NOT match the risk platform''s customers. Several text
+      columns hold placeholders such as "Product Usage 42" and are dropped.
+
+      '
+    config:
+      loaded_at_field: _fivetran_synced
+      meta:
+        owner: data-platform-team
+        tier: bronze
+        loaded_by: fivetran
+        domain: marketing
+        pii_contains: true
+        pii_columns:
+        - customer_name
+        - customer_email
+    columns:
+    - name: record_id
+      description: ''
+      data_tests:
+      - not_null
+      - unique
+  - name: loan
+    identifier: loan
+    description: 'Consumer installment loans issued June 2007 to December 2011, observed as of May 2016
+      (public Lending Club data). One row per loan. Unrelated to the risk platform customers. Carries
+      identity columns (ssn, social_security_number, ssnumber, ssnumber1, dl, drivers_license) that are
+      excluded in staging and never reach a gold model.
+
+      '
+    config:
+      loaded_at_field: _fivetran_synced
+      meta:
+        owner: data-platform-team
+        tier: bronze
+        loaded_by: fivetran
+        domain: lending
+        pii_contains: true
+        pii_columns:
+        - ssn
+        - social_security_number
+        - ssnumber
+        - ssnumber1
+        - dl
+        - drivers_license
+        - emp_title
+        - c_url
+        - c_desc
+    columns:
+    - name: id
+      description: ''
+      data_tests:
+      - not_null
+      - unique
+    - name: ssn
+      description: ''
+      config:
+        meta:
+          pii: true
+          pii_class: national_id
+    - name: social_security_number
+      description: ''
+      config:
+        meta:
+          pii: true
+          pii_class: national_id
+    - name: drivers_license
+      description: ''
+      config:
+        meta:
+          pii: true
+          pii_class: government_id
+  - name: predict_term_deposit
+    identifier: predict_term_deposit
+    description: 'Outbound telemarketing contacts for a term-deposit product (public UCI Bank Marketing
+      data). One row per contacted client. The contact month is recorded without a year, so this table
+      cannot be trended over time.
+
+      '
+    config:
+      loaded_at_field: _fivetran_synced
+      meta:
+        owner: data-platform-team
+        tier: bronze
+        loaded_by: fivetran
+        domain: marketing
+        pii_contains: false
+    columns:
+    - name: id
+      description: ''
+      data_tests:
+      - not_null
+      - unique
+  - name: risk_assess_customers
+    identifier: risk_assess_customers
+    description: Borrowers known to the risk platform. One row per customer_id. Five showcase personas
+      have ids CUST-C001..CUST-C005.
+    config:
+      loaded_at_field: _fivetran_synced
+      meta:
+        owner: data-platform-team
+        tier: bronze
+        loaded_by: fivetran
+        domain: credit_risk
+        pii_contains: true
+        pii_columns:
+        - customer_name
+    columns:
+    - name: customer_id
+      description: ''
+      data_tests:
+      - not_null:
+          config:
+            alias: source_not_null_financial_serv_f4d3a17e934f4546476a37120b06e3ab
+      - unique:
+          config:
+            alias: source_unique_financial_servic_c834433beb6c16af7b702706046dac4b
+  - name: risk_assess_financial_institutions
+    identifier: risk_assess_financial_institutions
+    description: The 20 member institutions that use the risk platform. Five showcase institutions have
+      ids FI-C001..FI-C005.
+    config:
+      loaded_at_field: _fivetran_synced
+      meta:
+        owner: data-platform-team
+        tier: bronze
+        loaded_by: fivetran
+        domain: credit_risk
+        pii_contains: false
+    columns:
+    - name: institution_id
+      description: ''
+      data_tests:
+      - not_null:
+          config:
+            alias: source_not_null_financial_serv_1223ff64d67bae8d7da094ad61b4cc20
+      - unique:
+          config:
+            alias: source_unique_financial_servic_009a3993ac45b4523001d9fbc117263d
+  - name: risk_assess_monthly_assessments
+    identifier: risk_assess_monthly_assessments
+    description: 'One risk assessment per customer, institution and assessment period. 36 periods, spaced
+      30 days apart from 2022-01-01 to 2024-11-16. They are NOT calendar months: January and May 2022
+      hold two periods each and February 2022 holds none.
+
+      '
+    config:
+      loaded_at_field: _fivetran_synced
+      meta:
+        owner: data-platform-team
+        tier: bronze
+        loaded_by: fivetran
+        domain: credit_risk
+        pii_contains: false
+    columns:
+    - name: assessment_id
+      description: ''
+      data_tests:
+      - not_null:
+          config:
+            alias: source_not_null_financial_serv_ed25e5389541f72ee0791a62dc43f5b6
+      - unique:
+          config:
+            alias: source_unique_financial_servic_1d5731820dd08d7f79f3f1afb0f9329f
+  - name: risk_assess_performance_metrics
+    identifier: risk_assess_performance_metrics
+    description: Precomputed performance summary per customer and institution relationship over all 36
+      periods (2,948 rows).
+    config:
+      loaded_at_field: _fivetran_synced
+      meta:
+        owner: data-platform-team
+        tier: bronze
+        loaded_by: fivetran
+        domain: credit_risk
+        pii_contains: false
+    columns:
+    - name: performance_id
+      description: ''
+      data_tests:
+      - not_null:
+          config:
+            alias: source_not_null_financial_serv_fffe7e49e8cc220b746507056fbad9fb
+      - unique:
+          config:
+            alias: source_unique_financial_servic_ca491b31deda17f7cb6d41bb24ef4aed
+  - name: risk_assess_risk_profiles
+    identifier: risk_assess_risk_profiles
+    description: One risk profile per customer and institution relationship (2,948 rows). Each relationship
+      holds exactly one product.
+    config:
+      loaded_at_field: _fivetran_synced
+      meta:
+        owner: data-platform-team
+        tier: bronze
+        loaded_by: fivetran
+        domain: credit_risk
+        pii_contains: false
+    columns:
+    - name: risk_profile_id
+      description: ''
+      data_tests:
+      - not_null:
+          config:
+            alias: source_not_null_financial_serv_b2c75bea0d906fbc4d1a68bf45b886f3
+      - unique:
+          config:
+            alias: source_unique_financial_servic_1d66f903bdb0ee1c1b8906d2b79c2880

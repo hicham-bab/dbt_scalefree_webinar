@@ -1,0 +1,105 @@
+version: 2
+models:
+- name: loan_lending_n_s_v1
+  description: 'Standard satellite on loan_h (version 1 view: adds ledts and is_current)'
+  config:
+    materialized: view
+    meta:
+      tier: silver
+    schema: raw_vault
+    tags:
+    - satellite
+    - standard
+    - raw_vault
+    - v1
+  columns:
+  - name: hk_loan_h
+    description: Parent hash key
+    data_tests:
+    - not_null
+  - name: hd_loan_lending_n_s
+    description: Hash diff for change detection
+  - name: member_id
+    description: Payload column, as delivered by Fivetran
+  - name: loan_amnt
+    description: Payload column, as delivered by Fivetran
+  - name: funded_amnt
+    description: Payload column, as delivered by Fivetran
+  - name: funded_amnt_inv
+    description: Payload column, as delivered by Fivetran
+  - name: term
+    description: Payload column, as delivered by Fivetran
+  - name: int_rate
+    description: Payload column, as delivered by Fivetran
+  - name: installment
+    description: Payload column, as delivered by Fivetran
+  - name: grade
+    description: Payload column, as delivered by Fivetran
+  - name: sub_grade
+    description: Payload column, as delivered by Fivetran
+  - name: emp_length
+    description: Payload column, as delivered by Fivetran
+  - name: home_ownership
+    description: Payload column, as delivered by Fivetran
+  - name: annual_inc
+    description: Payload column, as delivered by Fivetran
+  - name: verification_status
+    description: Payload column, as delivered by Fivetran
+  - name: issue_d
+    description: Payload column, as delivered by Fivetran
+  - name: loan_status
+    description: Payload column, as delivered by Fivetran
+  - name: purpose
+    description: Payload column, as delivered by Fivetran
+  - name: zip_code
+    description: Payload column, as delivered by Fivetran
+  - name: addr_state
+    description: Payload column, as delivered by Fivetran
+  - name: dti
+    description: Payload column, as delivered by Fivetran
+  - name: delinq_2yrs
+    description: Payload column, as delivered by Fivetran
+  - name: earliest_cr_line
+    description: Payload column, as delivered by Fivetran
+  - name: inq_last_6mths
+    description: Payload column, as delivered by Fivetran
+  - name: open_acc
+    description: Payload column, as delivered by Fivetran
+  - name: pub_rec
+    description: Payload column, as delivered by Fivetran
+  - name: revol_bal
+    description: Payload column, as delivered by Fivetran
+  - name: revol_util
+    description: Payload column, as delivered by Fivetran
+  - name: total_acc
+    description: Payload column, as delivered by Fivetran
+  - name: pub_rec_bankruptcies
+    description: Payload column, as delivered by Fivetran
+  - name: out_prncp
+    description: Payload column, as delivered by Fivetran
+  - name: total_pymnt
+    description: Payload column, as delivered by Fivetran
+  - name: total_rec_prncp
+    description: Payload column, as delivered by Fivetran
+  - name: total_rec_int
+    description: Payload column, as delivered by Fivetran
+  - name: total_rec_late_fee
+    description: Payload column, as delivered by Fivetran
+  - name: recoveries
+    description: Payload column, as delivered by Fivetran
+  - name: collection_recovery_fee
+    description: Payload column, as delivered by Fivetran
+  - name: last_pymnt_d
+    description: Payload column, as delivered by Fivetran
+  - name: last_pymnt_amnt
+    description: Payload column, as delivered by Fivetran
+  - name: is_deleted
+    description: True when Fivetran marked the source row deleted (_fivetran_deleted)
+  - name: ldts
+    description: Load date timestamp
+  - name: rsrc
+    description: Record source
+  - name: ledts
+    description: Load end date timestamp
+  - name: is_current
+    description: True for the latest version of the parent key
