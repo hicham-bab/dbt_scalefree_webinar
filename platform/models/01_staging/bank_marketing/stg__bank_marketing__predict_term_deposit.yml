@@ -1,0 +1,26 @@
+version: 2
+models:
+- name: stg__bank_marketing__predict_term_deposit
+  description: Data Vault stage for predict_term_deposit from the bank_marketing system (Fivetran)
+  config:
+    materialized: view
+    meta:
+      tier: bronze
+    schema: staging
+    tags:
+    - staging
+    - bank_marketing
+    - vault_staging
+  columns:
+  - name: rsrc
+    description: Record source
+  - name: ldts
+    description: Load date timestamp (Fivetran _fivetran_synced)
+  - name: contact_id
+    description: 'Derived: id'
+  - name: is_deleted
+    description: 'Derived: coalesce(_fivetran_deleted, false)'
+  - name: hk_contact_h
+    description: Hash key
+  - name: hd_contact_bank_marketing_n_s
+    description: Hash diff for contact_bank_marketing_n_s

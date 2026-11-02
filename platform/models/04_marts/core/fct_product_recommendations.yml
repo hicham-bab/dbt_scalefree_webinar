@@ -1,0 +1,106 @@
+version: 2
+models:
+- name: fct_product_recommendations
+  description: One row per next-best-product recommendation (751, April 2024 to May 2025). Its customer
+    ids (CUST_000123) are a separate id space from dim_customers (CUST-0123). Names and emails are dropped.
+  config:
+    access: public
+    contract:
+      enforced: true
+    group: marketing
+    materialized: table
+    meta:
+      owner: marketing-data-team
+      domain: marketing
+      tier: gold
+      pii_contains: false
+      freshness_sla: daily
+      semantic_layer_enabled: false
+    schema: core
+  columns:
+  - name: recommendation_id
+    data_type: varchar
+    description: Primary key.
+    data_tests:
+    - not_null
+    - unique
+  - name: recommendation_customer_id
+    data_type: varchar
+    description: Customer id in the recommendation engine's own id space. Does not join to dim_customers.
+    data_tests:
+    - not_null
+  - name: customer_segment
+    data_type: varchar
+    description: Recommendation engine's customer segment.
+  - name: customer_lifecycle_stage
+    data_type: varchar
+    description: Lifecycle stage, e.g. Prospect, Active, Churned.
+  - name: account_balance
+    data_type: number(14,2)
+    description: Account balance, USD.
+  - name: product_id
+    data_type: varchar
+    description: Product currently held.
+  - name: product_name
+    data_type: varchar
+    description: Product name.
+  - name: product_type
+    data_type: varchar
+    description: Product type currently held.
+  - name: product_terms
+    data_type: varchar
+    description: Short Term or Long Term.
+  - name: recommended_product
+    data_type: varchar
+    description: Product recommended next.
+  - name: recommendation_score
+    data_type: number(6,3)
+    description: Engine score for the recommendation.
+  - name: recommendation_date
+    data_type: date
+    description: Date the recommendation was made.
+  - name: recommendation_status
+    data_type: varchar
+    description: Pending, In Progress, Approved, Accepted, Declined or Rejected.
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - Pending
+          - In Progress
+          - Approved
+          - Accepted
+          - Declined
+          - Rejected
+        config:
+          alias: accepted_values_fct_product_re_34bcaf00be990e0825cfd029c511b52f
+  - name: is_accepted
+    data_type: boolean
+    description: True when the customer accepted the recommendation.
+  - name: customer_product_affinity
+    data_type: number(6,3)
+    description: Affinity score.
+  - name: affinity_trend
+    data_type: varchar
+    description: Affinity trend label.
+  - name: customer_transaction_value
+    data_type: number(14,2)
+    description: Customer transaction value, USD.
+  - name: customer_transaction_count
+    data_type: number(38,0)
+    description: Customer transaction count.
+  - name: product_sales_date
+    data_type: date
+    description: Date the current product was sold.
+  - name: product_sales_amount
+    data_type: number(14,2)
+    description: Sale amount, USD.
+  - name: customer_satisfaction_score
+    data_type: number(6,2)
+    description: Satisfaction score.
+  - name: customer_churn_probability
+    data_type: number(6,3)
+    description: Churn probability from the engine, 0 to 1.
+  - name: lifecycle_stage_transition_date
+    data_type: date
+    description: Date of the last lifecycle stage change.

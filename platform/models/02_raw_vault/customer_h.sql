@@ -5,7 +5,7 @@
 
 {%- set yaml_metadata -%}
 source_models:
-    - name: stg__crm__raw_customers
+    - name: stg__risk_platform__risk_assess_customers
       bk_columns:
           - customer_id
 hashkey: hk_customer_h

@@ -1,0 +1,30 @@
+version: 2
+models:
+- name: customer_institution_l
+  description: Credit relationship between a customer and an institution
+  config:
+    materialized: incremental
+    meta:
+      tier: silver
+    schema: raw_vault
+    tags:
+    - link
+    - raw_vault
+  columns:
+  - name: hk_customer_institution_l
+    description: Hash key for customer_institution_l
+    data_tests:
+    - not_null
+    - unique
+  - name: hk_customer_h
+    description: Foreign hash key
+    data_tests:
+    - not_null
+  - name: hk_institution_h
+    description: Foreign hash key
+    data_tests:
+    - not_null
+  - name: ldts
+    description: Load date timestamp
+  - name: rsrc
+    description: Record source

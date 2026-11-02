@@ -1,3 +1,3 @@
 packages:
   - git: "https://github.com/ScalefreeCOM/datavault4dbt.git"
-    revision: "main"
+    revision: "6d832cee2d30f12c93d08533a1dad12368066dc4"

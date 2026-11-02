@@ -1,0 +1,38 @@
+version: 2
+models:
+- name: assessment_customer_institution_nl
+  description: 'Non-historized link: one risk assessment event for a customer at an institution'
+  config:
+    materialized: incremental
+    meta:
+      tier: silver
+    schema: raw_vault
+    tags:
+    - non_historized_link
+    - raw_vault
+  columns:
+  - name: hk_assessment_customer_institution_nl
+    description: Hash key for assessment_customer_institution_nl
+    data_tests:
+    - not_null:
+        config:
+          alias: not_null_assessment_customer_i_64ade24d808c48d9671679e5566b32c8
+    - unique:
+        config:
+          alias: unique_assessment_customer_ins_005caa439cb89c93511301b8bff6a688
+  - name: hk_assessment_h
+    description: Foreign hash key
+    data_tests:
+    - not_null
+  - name: hk_customer_h
+    description: Foreign hash key
+    data_tests:
+    - not_null
+  - name: hk_institution_h
+    description: Foreign hash key
+    data_tests:
+    - not_null
+  - name: ldts
+    description: Load date timestamp
+  - name: rsrc
+    description: Record source

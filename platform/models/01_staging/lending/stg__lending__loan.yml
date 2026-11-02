@@ -1,0 +1,26 @@
+version: 2
+models:
+- name: stg__lending__loan
+  description: Data Vault stage for loan from the lending system (Fivetran)
+  config:
+    materialized: view
+    meta:
+      tier: bronze
+    schema: staging
+    tags:
+    - staging
+    - lending
+    - vault_staging
+  columns:
+  - name: rsrc
+    description: Record source
+  - name: ldts
+    description: Load date timestamp (Fivetran _fivetran_synced)
+  - name: loan_id
+    description: 'Derived: id'
+  - name: is_deleted
+    description: 'Derived: coalesce(_fivetran_deleted, false)'
+  - name: hk_loan_h
+    description: Hash key
+  - name: hd_loan_lending_n_s
+    description: Hash diff for loan_lending_n_s

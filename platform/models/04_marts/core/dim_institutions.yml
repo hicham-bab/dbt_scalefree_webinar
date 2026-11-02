@@ -1,0 +1,115 @@
+version: 2
+models:
+- name: dim_institutions
+  description: One row per member institution of the risk platform (20 institutions). FI-C001..FI-C005
+    are hand-built showcase institutions.
+  config:
+    access: public
+    contract:
+      enforced: true
+    group: credit_risk
+    materialized: table
+    meta:
+      owner: credit-risk-platform-team
+      domain: credit_risk
+      tier: gold
+      pii_contains: false
+      freshness_sla: daily
+      semantic_layer_enabled: true
+    schema: core
+  columns:
+  - name: institution_id
+    data_type: varchar
+    description: Primary key. Format FI-0001; showcase institutions are FI-C001..FI-C005.
+    entity:
+      type: primary
+      name: institution
+      description: Primary key. Format FI-0001; showcase institutions are FI-C001..FI-C005.
+    data_tests:
+    - not_null
+    - unique
+  - name: institution_name
+    data_type: varchar
+    description: Institution name.
+    dimension:
+      type: categorical
+      name: institution_name
+      description: Institution name.
+  - name: institution_type
+    data_type: varchar
+    description: Commercial Bank, Credit Union, Investment Bank, Asset Manager or Insurance Company.
+    dimension:
+      type: categorical
+      name: institution_type
+      description: Commercial Bank, Credit Union, Investment Bank, Asset Manager or Insurance Company.
+  - name: institution_size
+    data_type: varchar
+    description: Small, Medium, Large or Global.
+    dimension:
+      type: categorical
+      name: institution_size
+      description: Small, Medium, Large or Global.
+  - name: region
+    data_type: varchar
+    description: Operating region.
+    dimension:
+      type: categorical
+      name: region
+      description: Operating region.
+  - name: assets_under_management_billions
+    data_type: number(12,2)
+    description: Assets under management, USD billions.
+  - name: years_in_operation
+    data_type: number(38,0)
+    description: Years in operation.
+  - name: risk_appetite
+    data_type: number(4,2)
+    description: Self-declared risk appetite, 0 (averse) to 1.
+  - name: regulatory_rating
+    data_type: number(38,0)
+    description: Supervisory rating, 1 (best) to 5.
+    dimension:
+      type: categorical
+      name: regulatory_rating
+      description: Supervisory rating, 1 (best) to 5.
+  - name: customer_base_millions
+    data_type: number(10,2)
+    description: Total customers of the institution, millions (not only platform customers).
+  - name: digital_maturity_score
+    data_type: number(38,0)
+    description: 1 to 10.
+  - name: primary_risk_model
+    data_type: varchar
+    description: Main risk model family the institution uses.
+    dimension:
+      type: categorical
+      name: primary_risk_model
+      description: Main risk model family the institution uses.
+  - name: avg_customer_lifetime_years
+    data_type: number(6,2)
+    description: Average customer tenure, years.
+  - name: fraud_loss_pct
+    data_type: number(6,3)
+    description: 'Fraud losses as a percent of assets. Already a percent: 0.05 means 0.05%.'
+  - name: default_rate_pct
+    data_type: number(6,2)
+    description: Institution-reported default rate, percent. Self-reported, NOT computed from the platform's
+      assessments.
+  - name: is_showcase_persona
+    data_type: boolean
+    description: True for FI-C001..FI-C005.
+    dimension:
+      type: categorical
+      name: is_showcase_persona
+      description: True for FI-C001..FI-C005.
+  - name: relationship_count
+    data_type: number(38,0)
+    description: Platform relationships at this institution.
+  - name: customer_count
+    data_type: number(38,0)
+    description: Distinct platform customers at this institution.
+  - name: total_exposure
+    data_type: number(18,2)
+    description: Sum of platform relationship exposure at this institution, USD.
+  semantic_model:
+    enabled: true

@@ -1,0 +1,18 @@
+version: 2
+models:
+- name: int_institutions
+  description: Member institutions rebuilt from institution_h. Percent columns stay percents (fraud_loss_pct
+    0.05 means 0.05%).
+  config:
+    materialized: view
+    meta:
+      owner: credit-risk-platform-team
+      domain: credit_risk
+      pii_contains: false
+    schema: intermediate
+  columns:
+  - name: institution_id
+    description: ''
+    data_tests:
+    - not_null
+    - unique

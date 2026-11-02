@@ -13,7 +13,6 @@
 
 {%- endmacro -%}
 
-
 {%- macro error_key() -%}
 
 {%- set hash = datavault4dbt.hash_method() -%}

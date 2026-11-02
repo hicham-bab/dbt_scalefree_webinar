@@ -1,0 +1,264 @@
+version: 2
+models:
+- name: dim_credit_relationships
+  description: One row per customer x institution credit relationship (2,948). Each relationship holds
+    exactly one product. Combines the risk profile, the 36-period performance summary and the latest assessment.
+    as_of_date is the latest assessment date (2024-11-16) for every row; exposure is a point-in-time balance,
+    so never sum it across dates.
+  config:
+    access: public
+    contract:
+      enforced: true
+    group: credit_risk
+    materialized: table
+    meta:
+      owner: credit-risk-platform-team
+      domain: credit_risk
+      tier: gold
+      pii_contains: false
+      freshness_sla: daily
+      semantic_layer_enabled: true
+    schema: core
+  columns:
+  - name: relationship_id
+    data_type: varchar
+    description: 'Primary key: customer_id || ''|'' || institution_id.'
+    entity:
+      type: primary
+      name: relationship
+      description: 'Primary key: customer_id || ''|'' || institution_id.'
+    data_tests:
+    - not_null
+    - unique
+  - name: customer_id
+    data_type: varchar
+    description: Foreign key to dim_customers.
+    entity:
+      type: foreign
+      name: customer
+      description: Foreign key to dim_customers.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          field: customer_id
+          to: ref('dim_customers')
+        config:
+          alias: relationships_dim_credit_relat_f161e9f3959e34d71b62a1ab222cc5ca
+  - name: institution_id
+    data_type: varchar
+    description: Foreign key to dim_institutions.
+    entity:
+      type: foreign
+      name: institution
+      description: Foreign key to dim_institutions.
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          field: institution_id
+          to: ref('dim_institutions')
+        config:
+          alias: relationships_dim_credit_relat_5e1a5d45c3beead682d18aaca83e2625
+  - name: product_type
+    data_type: varchar
+    description: The single product held in this relationship.
+    dimension:
+      type: categorical
+      name: product_type
+      description: The single product held in this relationship.
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - Business Loan
+          - Credit Card
+          - Insurance Policy
+          - Investment Portfolio
+          - Mortgage
+          - Personal Loan
+        config:
+          alias: accepted_values_dim_credit_rel_d5990e0223811b19c186a793375b4a46
+  - name: is_secured_product
+    data_type: boolean
+    description: True for Mortgage and Business Loan, the only products with collateral.
+    dimension:
+      type: categorical
+      name: is_secured_product
+      description: True for Mortgage and Business Loan, the only products with collateral.
+  - name: risk_pattern
+    data_type: varchar
+    description: Risk trajectory archetype, e.g. Steady-Low, Volatile-Deteriorating.
+    dimension:
+      type: categorical
+      name: risk_pattern
+      description: Risk trajectory archetype, e.g. Steady-Low, Volatile-Deteriorating.
+  - name: base_risk_score
+    data_type: number(5,3)
+    description: Risk score at onboarding, 0 to 1.
+  - name: total_exposure
+    data_type: number(16,2)
+    description: Current exposure, USD. Point-in-time balance.
+  - name: relationship_length_months
+    data_type: number(38,0)
+    description: Relationship tenure, months.
+  - name: products_held
+    data_type: number(38,0)
+    description: Products the customer holds at this institution per the source profile.
+  - name: primary_risk_factors
+    data_type: varchar
+    description: Free-text list of the main risk drivers.
+  - name: repayment_history_score
+    data_type: number(5,2)
+    description: Repayment history score.
+  - name: recent_transaction_volatility
+    data_type: number(8,3)
+    description: Recent transaction volatility.
+  - name: collateral_quality_score
+    data_type: number(4,1)
+    description: '1 to 10. NULL means not applicable (unsecured product), not missing: populated for Mortgage
+      and Business Loan only.'
+  - name: liquidity_ratio
+    data_type: number(8,2)
+    description: 'Business liquidity ratio. NULL means not applicable: populated for Business Loan only.'
+  - name: projected_cash_flow_rating
+    data_type: number(4,1)
+    description: '1 to 10. NULL means not applicable: populated for Business Loan and Personal Loan only.'
+  - name: avg_risk_score
+    data_type: number(5,3)
+    description: Average risk score over the 36 periods (matches fct_risk_assessments).
+  - name: risk_score_volatility
+    data_type: number(6,3)
+    description: Standard deviation of the risk score over the 36 periods.
+  - name: risk_trend
+    data_type: varchar
+    description: Strongly Improving, Improving, Stable, Deteriorating or Strongly Deteriorating.
+    dimension:
+      type: categorical
+      name: risk_trend
+      description: Strongly Improving, Improving, Stable, Deteriorating or Strongly Deteriorating.
+  - name: risk_trend_pct
+    data_type: number(8,1)
+    description: Percent change in risk over the window. Can exceed 100.
+  - name: total_transaction_volume
+    data_type: number(18,2)
+    description: Transaction volume summed over the 36 periods, USD.
+  - name: most_common_recommendation
+    data_type: varchar
+    description: Most frequent approval recommendation over the 36 periods.
+    dimension:
+      type: categorical
+      name: most_common_recommendation
+      description: Most frequent approval recommendation over the 36 periods.
+  - name: source_approval_pct
+    data_type: number(5,1)
+    description: 'Source system approval share, 0 to 100: ''Approve'' plus ''Approve with Conditions''
+      only. Use the approval_rate metric instead of averaging this.'
+  - name: avg_fraud_probability
+    data_type: number(5,3)
+    description: Average fraud probability over the 36 periods, 0 to 1.
+  - name: risk_adjusted_return
+    data_type: number(6,3)
+    description: Risk-adjusted return multiple.
+  - name: customer_value_score
+    data_type: number(38,0)
+    description: Customer value score.
+  - name: customer_value_category
+    data_type: varchar
+    description: Low, Moderate, High or Premium Value.
+    dimension:
+      type: categorical
+      name: customer_value_category
+      description: Low, Moderate, High or Premium Value.
+  - name: risk_assessment_accuracy
+    data_type: number(5,1)
+    description: Back-tested accuracy of the risk model for this relationship, percent.
+  - name: optimization_priority
+    data_type: varchar
+    description: Low, Medium or High.
+    dimension:
+      type: categorical
+      name: optimization_priority
+      description: Low, Medium or High.
+  - name: latest_risk_score
+    data_type: number(5,3)
+    description: Risk score at the latest assessment (period 36).
+  - name: latest_risk_level
+    data_type: varchar
+    description: Risk level at the latest assessment.
+    dimension:
+      type: categorical
+      name: latest_risk_level
+      description: Risk level at the latest assessment.
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - Very Low
+          - Low
+          - Moderate
+          - High
+          - Very High
+        config:
+          alias: accepted_values_dim_credit_rel_a48cd5b048115b1bf4872814b5fdbcc7
+    - not_null
+  - name: is_latest_high_risk
+    data_type: boolean
+    description: True if the latest risk level is High or Very High.
+    dimension:
+      type: categorical
+      name: is_latest_high_risk
+      description: True if the latest risk level is High or Very High.
+  - name: latest_approval_recommendation
+    data_type: varchar
+    description: Approval recommendation at the latest assessment.
+    dimension:
+      type: categorical
+      name: latest_approval_recommendation
+      description: Approval recommendation at the latest assessment.
+  - name: as_of_date
+    data_type: date
+    description: Date of the latest assessment (2024-11-16). Snapshot date for exposure.
+    dimension:
+      type: time
+      name: as_of_date
+      description: Date of the latest assessment (2024-11-16). Snapshot date for exposure.
+    granularity: day
+    data_tests:
+    - not_null
+  semantic_model:
+    enabled: true
+  metrics:
+  - name: avg_risk_adjusted_return
+    type: simple
+    label: Avg Risk-Adjusted Return
+    description: Average risk-adjusted return multiple across relationships (unweighted).
+    agg: average
+    expr: risk_adjusted_return
+    agg_time_dimension: as_of_date
+  - name: high_risk_exposure
+    type: simple
+    label: High-Risk Exposure (USD)
+    description: Exposure in relationships whose latest risk level is High or Very High, USD.
+    filter: '{{ Dimension(''relationship__is_latest_high_risk'') }} = true'
+    agg: sum
+    expr: total_exposure
+    agg_time_dimension: as_of_date
+    fill_nulls_with: 0
+  - name: relationship_count
+    type: simple
+    label: Relationships
+    description: Number of customer x institution credit relationships.
+    agg: count
+    expr: relationship_id
+    agg_time_dimension: as_of_date
+    fill_nulls_with: 0
+  - name: total_exposure
+    type: simple
+    label: Total Exposure (USD)
+    description: 'Total credit exposure across relationships, USD, as of the latest assessment. A balance:
+      do not sum across dates.'
+    agg: sum
+    expr: total_exposure
+    agg_time_dimension: as_of_date
+    fill_nulls_with: 0

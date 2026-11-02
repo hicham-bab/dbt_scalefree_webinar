@@ -1,0 +1,62 @@
+version: 2
+models:
+- name: assessment_customer_institution_nl_s_v1
+  description: 'Standard satellite on assessment_customer_institution_nl (version 1 view: adds ledts and
+    is_current)'
+  config:
+    materialized: view
+    meta:
+      tier: silver
+    schema: raw_vault
+    tags:
+    - satellite
+    - standard
+    - raw_vault
+    - v1
+  columns:
+  - name: hk_assessment_customer_institution_nl
+    description: Parent hash key
+    data_tests:
+    - not_null:
+        config:
+          alias: not_null_assessment_customer_i_663f578d7b024b7fd1f446cf5da81a16
+  - name: hd_assessment_customer_institution_nl_s
+    description: Hash diff for change detection
+  - name: date
+    description: Payload column, as delivered by Fivetran
+  - name: month
+    description: Payload column, as delivered by Fivetran
+  - name: year
+    description: Payload column, as delivered by Fivetran
+  - name: current_risk_score
+    description: Payload column, as delivered by Fivetran
+  - name: risk_level
+    description: Payload column, as delivered by Fivetran
+  - name: monthly_transaction_volume
+    description: Payload column, as delivered by Fivetran
+  - name: transaction_count
+    description: Payload column, as delivered by Fivetran
+  - name: approval_recommendation
+    description: Payload column, as delivered by Fivetran
+  - name: approval_confidence
+    description: Payload column, as delivered by Fivetran
+  - name: primary_explanation_factors
+    description: Payload column, as delivered by Fivetran
+  - name: fraud_probability
+    description: Payload column, as delivered by Fivetran
+  - name: is_anomaly
+    description: Payload column, as delivered by Fivetran
+  - name: anomaly_type
+    description: Payload column, as delivered by Fivetran
+  - name: risk_change_from_previous
+    description: Payload column, as delivered by Fivetran
+  - name: is_deleted
+    description: True when Fivetran marked the source row deleted (_fivetran_deleted)
+  - name: ldts
+    description: Load date timestamp
+  - name: rsrc
+    description: Record source
+  - name: ledts
+    description: Load end date timestamp
+  - name: is_current
+    description: True for the latest version of the parent key

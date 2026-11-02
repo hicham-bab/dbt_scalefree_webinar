@@ -1,0 +1,68 @@
+version: 2
+models:
+- name: recommendation_fpr_n_s_v0
+  description: Standard satellite on recommendation_h
+  config:
+    materialized: incremental
+    meta:
+      tier: silver
+    schema: raw_vault
+    tags:
+    - satellite
+    - standard
+    - raw_vault
+  columns:
+  - name: hk_recommendation_h
+    description: Parent hash key
+    data_tests:
+    - not_null
+  - name: hd_recommendation_fpr_n_s
+    description: Hash diff for change detection
+  - name: customer_id
+    description: Payload column, as delivered by Fivetran
+  - name: account_balance
+    description: Payload column, as delivered by Fivetran
+  - name: product_id
+    description: Payload column, as delivered by Fivetran
+  - name: product_name
+    description: Payload column, as delivered by Fivetran
+  - name: product_type
+    description: Payload column, as delivered by Fivetran
+  - name: product_terms
+    description: Payload column, as delivered by Fivetran
+  - name: product_recommendation
+    description: Payload column, as delivered by Fivetran
+  - name: recommendation_score
+    description: Payload column, as delivered by Fivetran
+  - name: customer_segment
+    description: Payload column, as delivered by Fivetran
+  - name: customer_lifecycle_stage
+    description: Payload column, as delivered by Fivetran
+  - name: customer_transaction_value
+    description: Payload column, as delivered by Fivetran
+  - name: customer_transaction_count
+    description: Payload column, as delivered by Fivetran
+  - name: customer_product_affinity
+    description: Payload column, as delivered by Fivetran
+  - name: product_sales_date
+    description: Payload column, as delivered by Fivetran
+  - name: product_sales_amount
+    description: Payload column, as delivered by Fivetran
+  - name: customer_satisfaction_score
+    description: Payload column, as delivered by Fivetran
+  - name: customer_churn_probability
+    description: Payload column, as delivered by Fivetran
+  - name: customer_lifecycle_stage_transition_date
+    description: Payload column, as delivered by Fivetran
+  - name: product_recommendation_date
+    description: Payload column, as delivered by Fivetran
+  - name: product_recommendation_status
+    description: Payload column, as delivered by Fivetran
+  - name: customer_product_affinity_trend
+    description: Payload column, as delivered by Fivetran
+  - name: is_deleted
+    description: True when Fivetran marked the source row deleted (_fivetran_deleted)
+  - name: ldts
+    description: Load date timestamp
+  - name: rsrc
+    description: Record source
