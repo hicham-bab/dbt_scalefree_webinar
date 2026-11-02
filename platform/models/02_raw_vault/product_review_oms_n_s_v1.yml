@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: product_review_oms_n_s_v1
+    description: "Virtual end-dated view of product_review_oms_n_s_v0, including the current-version flag."
+    config:
+      tags: ['satellite', 'v1', 'raw_vault']
+    columns:
+      - name: hk_product_review_h
+        description: "Parent product review hub hashkey."
+        data_tests:
+          - not_null
+      - name: hd_product_review_oms_n_s
+        description: "Hashdiff for change detection."
+      - name: rating
+        description: "Star rating from 1 (worst) to 5 (best)."
+      - name: review_title
+        description: "Short headline of the review."
+      - name: review_text
+        description: "Free-text review body."
+      - name: review_date
+        description: "Date the review was submitted."
+      - name: is_verified_purchase
+        description: "Whether the customer purchased and received the product via an online order."
+      - name: helpful_votes
+        description: "Number of shoppers who marked the review as helpful."
+      - name: review_source
+        description: "Submission channel: website, mobile_app or post_purchase_email."
+      - name: ldts
+        description: "Load date timestamp."
+      - name: rsrc
+        description: "Record source."
+      - name: load_end_date
+        description: "Virtual load end timestamp, one microsecond before the next version or the configured end of all times."
+      - name: is_current
+        description: "Flag indicating whether this is the current version."

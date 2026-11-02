@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: product_review__customer__product_l
+    description: "Standard three-way link connecting a product review to its customer and product."
+    config:
+      tags: ['link', 'raw_vault']
+    columns:
+      - name: hk_product_review__customer__product_l
+        description: "Link hashkey over review_id, customer_id and product_id."
+        data_tests:
+          - unique
+          - not_null
+      - name: hk_product_review_h
+        description: "Foreign hashkey to product_review_h."
+        data_tests:
+          - not_null
+      - name: hk_customer_h
+        description: "Foreign hashkey to the existing customer_h."
+        data_tests:
+          - not_null
+      - name: hk_product_h
+        description: "Foreign hashkey to the existing product_h."
+        data_tests:
+          - not_null
+      - name: ldts
+        description: "Load date timestamp."
+      - name: rsrc
+        description: "Record source."

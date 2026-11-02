@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: product_review_oms_n_s_v0
+    description: "Historized OMS satellite for product_review_h. Stores changes to the descriptive review payload at the grain of review hashkey and load timestamp."
+    config:
+      tags: ['satellite', 'standard', 'raw_vault']
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "hk_product_review_h || '|' || cast(ldts as varchar)"
+    columns:
+      - name: hk_product_review_h
+        description: "Parent product review hub hashkey."
+        data_tests:
+          - not_null
+      - name: hd_product_review_oms_n_s
+        description: "Hashdiff for change detection across all seven payload attributes."
+      - name: rating
+        description: "Star rating from 1 (worst) to 5 (best)."
+      - name: review_title
+        description: "Short headline of the review."
+      - name: review_text
+        description: "Free-text review body."
+      - name: review_date
+        description: "Date the review was submitted; retained as payload rather than the load timestamp."
+      - name: is_verified_purchase
+        description: "Whether the customer purchased and received the product via an online order."
+      - name: helpful_votes
+        description: "Number of shoppers who marked the review as helpful."
+      - name: review_source
+        description: "Submission channel: website, mobile_app or post_purchase_email."
+      - name: ldts
+        description: "Load date timestamp from _loaded_at."
+        data_tests:
+          - not_null
+      - name: rsrc
+        description: "Record source."

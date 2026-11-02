@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg__oms__raw_product_reviews
+    description: "Staging model for raw_product_reviews from OMS. Computes hub and link hashkeys and the review payload hashdiff."
+    config:
+      tags: ['staging', 'oms']
+    columns:
+      - name: rsrc
+        description: "Record source identifier: OMS.raw_product_reviews for source records."
+      - name: ldts
+        description: "Load date timestamp from _loaded_at, not the review submission date."
+      - name: hk_product_review_h
+        description: "Product review hub hashkey calculated from review_id."
+      - name: hk_customer_h
+        description: "Customer hub hashkey calculated from customer_id using the shared hashing configuration."
+      - name: hk_product_h
+        description: "Product hub hashkey calculated from product_id using the shared hashing configuration."
+      - name: hk_product_review__customer__product_l
+        description: "Link hashkey calculated from review_id, customer_id and product_id."
+      - name: hd_product_review_oms_n_s
+        description: "Hashdiff over the seven descriptive review attributes, excluding business keys and load metadata."

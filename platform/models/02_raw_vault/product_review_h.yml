@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: product_review_h
+    description: "Standard hub for product reviews, with review_id as the business key."
+    config:
+      tags: ['hub', 'raw_vault']
+    columns:
+      - name: hk_product_review_h
+        description: "Hash key for product_review_h."
+        data_tests:
+          - unique
+          - not_null
+      - name: review_id
+        description: "Unique review identifier from the source system."
+        data_tests:
+          - not_null
+      - name: ldts
+        description: "Load date timestamp."
+      - name: rsrc
+        description: "Record source."
