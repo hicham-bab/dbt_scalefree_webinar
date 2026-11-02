@@ -17,31 +17,35 @@ clean-targets:
   - "dbt_packages"
 
 vars:
-  platform_database: "{{ env_var('DBT_TARGET_DB', 'ECOMMERCE_DEV') }}"
-  raw_database: "{{ env_var('DBT_RAW_DB', 'RAW_DEV') }}"
+  # platform_database: "{{ env_var('DBT_TARGET_DB', 'ECOMMERCE_DEV') }}"
+  # raw_database: "{{ env_var('DBT_RAW_DB', 'RAW_DEV') }}"
+  source_database: 'LAB_DB_SCALEFREE_WEBINAR_6ZL1MOGE_INSTR_DEV'
+  source_schema: 'POSTGRES_HB_FINANCIAL_SERVICES'
 
 models:
   platform:
     01_staging:
       +materialized: view
-      +database: BASE__STAGE
-      +schema: STAGING
+      +schema: staging
+      +meta:
+        tier: bronze
     02_raw_vault:
-      +database: BASE__CORE
-      +schema: RAW_VAULT
+      +schema: raw_vault
+      +meta:
+        tier: silver
     03_intermediate:
       +materialized: view
-      +database: BASE__CORE
-      +schema: INTERMEDIATE
+      +schema: intermediate
+      +meta:
+        tier: silver
     04_marts:
-      +materialized: view
-      +database: BASE__CORE
-      +schema: MARTS
-  datavault4dbt_premium_package:
-    +database: BASE__STAGE
-    +schema: DV4DBT_PREMIUM_PACKAGE
+      core:
+        +materialized: table
+        +schema: core
+        +meta:
+          tier: gold
+
 seeds:
   platform:
-    +database: BASE__STAGE
-    +schema: SOURCE_DATA__WEBSHOP
+    +schema: seeds
     +quote_columns: false
